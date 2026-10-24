@@ -1,173 +1,204 @@
 # Salon77 Website
 
-A Next.js rebuild of the Salon77 website for the Würzburg artists' association (Würzburger Künstlerinitiative e.V.).
+A modern website for the Salon77 Würzburg artists' association (Würzburger Künstlerinitiative e.V.).
 
-## Features
+## What is this website?
 
-- **Home Page**: 3 main service cards (Unterricht, Veranstaltungen, Räumlichkeiten)
-- **Unterricht**: Course/lesson cards with instructor details and images
-  - 10 courses: Kindertanz & -Ballett, Ballett für Erwachsene, Flamenco, Gitarre, Bass, Akkordeon, DJing & Musikproduktion, Fotografie, Zeitgenössischer Tanz, Taiji
-  - Instructor images displayed in circular containers
-  - Schedule and contact button for each course
-- **Veranstaltungen**: Events page with Klein-Montmartre and Flamenco Festival
-  - Klein-Montmartre exhibitor registration with email form submission
-  - Registration form with 7 fields (name, surname, address, email, phone, square meters, description)
-  - Flamenco Festival link to external website
-- **Räumlichkeiten**: Facilities page with image gallery and lightbox
-  - Interactive lightbox gallery with left/right navigation
-  - Room descriptions and images
-- **Responsive Design**: Mobile-first approach with Tailwind CSS
-- **Image Gallery**: yet-another-react-lightbox for interactive image viewing
+This is a rebuilt version of the Salon77 website with:
+- **Home page** showing the 3 main sections
+- **Courses page** (Unterricht) - display all courses with instructor info
+- **Events page** (Veranstaltungen) - show events and collect exhibitor registrations
+- **Facilities page** (Räumlichkeiten) - showcase the studio spaces with photos
+- **Navigation** at the top with logo linking to home page
 
-## Tech Stack
+---
 
-- **Framework**: Next.js 16 (App Router) with React 19
-- **Language**: TypeScript (strict mode)
-- **Styling**: Tailwind CSS 4 with custom @theme tokens
-- **Email**: Nodemailer for form submissions
-- **Image Gallery**: yet-another-react-lightbox
-- **Testing**: 
-  - Unit/Component tests: Vitest + React Testing Library
-  - E2E tests: Playwright
-  - Accessibility: @axe-core/playwright
-- **Code Quality**: ESLint, Prettier
-- **CI/CD**: GitHub Actions
+## For Site Managers / Content Editors
 
-## Setup
+### How to Update Course Information
 
-```bash
-# Install dependencies
-npm install
+Courses are listed in `/app/unterricht/page.tsx`. To add or edit a course:
 
-# Development server (http://localhost:3000)
-npm run dev
+1. Find the `COURSES` array in the file
+2. Each course has:
+   - `title`: Course name
+   - `description`: Short description
+   - `schedule`: When the course is offered (e.g., "Montags ab 18:00 Uhr")
+   - `instructor`: Instructor name
 
-# Build for production
-npm run build
-
-# Start production server
-npm start
+**Example:**
+```javascript
+{
+  title: 'Flamenco',
+  description: 'Flamenco as an art form with focus on understanding and flexibility.',
+  schedule: 'Dienstags und Freitags ab 18:00 Uhr',
+  instructor: 'Mercedes Sebald',
+}
 ```
 
-## Environment Variables
+### How to Update Events
 
-For email registration form to work, add to `.env.local`:
+Events are in `/app/veranstaltungen/page.tsx` and `/app/veranstaltungen/klein-montmartre/page.tsx`.
+
+To edit Klein-Montmartre details:
+1. Open `/app/veranstaltungen/klein-montmartre/page.tsx`
+2. Update the text sections (paragraphs, dates, contact info)
+3. Update next dates in the "Nächste Termine" section
+
+### How to Add Images
+
+1. **Course instructor images**: Place in `/public/salon77/unterricht/`
+   - Name should match the file pattern: `instructor-name.jpg` or `.png`
+   - Update the mapping in `/components/CourseCard.tsx`
+
+2. **Event images**: Place in `/public/salon77/veranstaltung/` or `/public/salon77/kleinmomatra/`
+
+3. **Facility images**: Place in `/public/salon77/raumligkeiten/`
+   - These automatically display in the gallery
+
+### How to Set Up Email Registrations
+
+For the course/event registration forms to send emails:
+
+1. Choose an email provider (Gmail, Outlook, or your web host)
+2. Create a `.env.local` file in the project root with:
 
 ```
-EMAIL_HOST=your-smtp-server.com
+EMAIL_HOST=smtp.gmail.com
 EMAIL_PORT=587
 EMAIL_SECURE=false
-EMAIL_USER=your-email@example.com
-EMAIL_PASS=your-password
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASS=your-app-password
 EMAIL_FROM=noreply@salon77.de
 REGISTRATION_EMAIL=kmm@salon77.de
 ```
 
-Popular SMTP servers:
-- **Gmail**: smtp.gmail.com (port 587)
-- **Outlook**: smtp-mail.outlook.com (port 587)
-- **Custom**: Your web host's SMTP server
+3. **For Gmail**:
+   - Enable 2-factor authentication
+   - Create an "App Password" (16 characters)
+   - Use that App Password in EMAIL_PASS
 
-## Scripts
+---
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm start` - Start production server
-- `npm run lint` - Run ESLint
-- `npm run lint:fix` - Fix ESLint issues
-- `npm run type-check` - Run TypeScript type checking
-- `npm test` - Run unit/component tests (watch mode)
-- `npm run test:ui` - Run tests with UI
-- `npm run test:coverage` - Generate coverage report
-- `npm run e2e` - Run end-to-end tests
-- `npm run e2e:ui` - Run e2e tests with UI
-- `npm run e2e:debug` - Debug e2e tests
+## For Developers / Technical Setup
 
-## Project Structure
-
-```
-.
-├── app/
-│   ├── layout.tsx                 # Root layout (Navbar, Footer)
-│   ├── page.tsx                   # Home page with 3 service cards
-│   ├── unterricht/                # Courses page with course cards
-│   ├── veranstaltungen/           # Events page
-│   │   ├── page.tsx               # Events listing
-│   │   └── klein-montmartre/      # Klein-Montmartre detail page
-│   │       └── anmelden/          # Registration form page
-│   ├── raeumlichkeiten/           # Facilities page with gallery
-│   ├── globals.css                # Global styles & design tokens
-│   └── actions/
-│       └── registration.ts        # Server action for form submission
-├── components/
-│   ├── Navbar.tsx                 # Navigation with logo
-│   ├── Footer.tsx                 # Footer
-│   ├── MenuCard.tsx               # Home page service cards
-│   ├── CourseCard.tsx             # Course/lesson cards
-│   ├── EventCard.tsx              # Event cards
-│   ├── ImageGallery.tsx           # Interactive image gallery
-│   ├── RegistrationForm.tsx       # Registration form component
-│   ├── EmailButton.tsx            # Email link button
-│   └── ...
-├── public/salon77/
-│   ├── unterricht/                # Course instructor images
-│   ├── veranstaltung/             # Event images
-│   ├── kleinmomatra/              # Klein-Montmartre images
-│   └── raumligkeiten/             # Facilities images
-├── e2e/                           # Playwright e2e tests
-├── postcss.config.mjs             # PostCSS configuration
-├── next.config.ts                 # Next.js configuration
-└── tsconfig.json                  # TypeScript configuration
-```
-
-## Design System
-
-- **Primary Color**: #B9BCB5 (taupe accent)
-- **Text Colors**: 
-  - Headings: #2c2c2c (dark)
-  - Body: #666666 (gray)
-  - Golden accents: #C9A961
-- **Fonts**: 
-  - Display: Playfair Display (serif)
-  - Body: Lato (sans-serif)
-- **Responsive Breakpoints**: 
-  - Mobile: < 480px
-  - Tablet: 480px - 768px
-  - Desktop: > 768px
-
-All colors and fonts defined in `app/globals.css` using Tailwind CSS @theme block.
-
-## Form Submission
-
-Registration form automatically emails submission data to configured email address via Nodemailer. Data includes:
-- Name, Surname, Address
-- Email, Phone number
-- Space needed (square meters)
-- Product/service description
-
-## Git Workflow
-
-1. Create a feature branch: `git checkout -b feature/your-feature`
-2. Commit with conventional commits: `feat:`, `fix:`, `test:`, `chore:`, `docs:`
-3. Push to remote and create a pull request
-4. Ensure all CI checks pass before merging
-
-## Testing
-
-Tests are co-located with components and pages. Run tests locally before committing:
+### Quick Start
 
 ```bash
-npm test              # Unit/component tests
-npm run e2e           # End-to-end tests
+# 1. Install dependencies
+npm install
+
+# 2. Create .env.local with email settings (see above)
+
+# 3. Start development server
+npm run dev
+
+# 4. Open http://localhost:3000 in browser
 ```
 
-All tests must pass in CI before merging to main.
+### Build & Deploy
 
-## Deployment
+```bash
+# Build for production
+npm run build
 
-- `main` branch → Production (automatic deploy on commit)
-- Feature branches → Preview URLs (automatic)
+# Test production build locally
+npm start
+
+# Deploy to your hosting
+# (Push to main branch or use your deploy command)
+```
+
+### Technology Stack
+
+- **Next.js 16** - React framework
+- **Tailwind CSS 4** - Styling
+- **TypeScript** - Type safety
+- **Nodemailer** - Email sending
+- **yet-another-react-lightbox** - Image gallery
+
+### Project Structure
+
+```
+salon77/
+├── app/
+│   ├── page.tsx                    # Home page
+│   ├── unterricht/page.tsx         # Courses page
+│   ├── veranstaltungen/            # Events section
+│   ├── raeumlichkeiten/            # Facilities page
+│   ├── globals.css                 # Design colors & fonts
+│   └── actions/registration.ts     # Form submission logic
+├── components/                     # Reusable UI components
+│   ├── Navbar.tsx                  # Top navigation
+│   ├── CourseCard.tsx              # Course display card
+│   ├── EventCard.tsx               # Event display card
+│   ├── ImageGallery.tsx            # Photo gallery with lightbox
+│   └── RegistrationForm.tsx        # Form component
+├── public/salon77/                 # All images and assets
+│   ├── unterricht/                 # Instructor photos
+│   ├── veranstaltung/              # Event photos
+│   ├── kleinmomatra/               # Klein-Montmartre photos
+│   └── raumligkeiten/              # Facility photos
+└── README.md                        # This file
+```
+
+### Available Commands
+
+```bash
+npm run dev           # Start development server (http://localhost:3000)
+npm run build         # Build for production
+npm start             # Run production build
+npm run lint          # Check code quality
+npm run type-check    # Check TypeScript types
+npm test              # Run tests
+npm run e2e           # Run browser tests
+```
+
+### Design System
+
+- **Brand Color**: #B9BCB5 (taupe) - used for buttons and accents
+- **Gold Accents**: #C9A961 - used for section titles
+- **Text Colors**: #2c2c2c (dark) for headings, #666666 (gray) for body text
+- **Fonts**: Playfair Display (headings), Lato (body text)
+
+All colors are defined in `/app/globals.css` and can be changed there.
+
+### Making Changes
+
+1. **Edit text on a page**: Find the `.tsx` file and update the text directly
+2. **Change colors**: Update `/app/globals.css` @theme section
+3. **Change fonts**: Update `/app/globals.css` @theme section
+4. **Add new page**: Create new folder in `/app/` with `page.tsx` file
+5. **Add images**: Upload to `/public/salon77/[section]/` folder
+
+### Deployment
+
+The site can be deployed to:
+- Vercel (easiest - automatic from GitHub)
+- Netlify
+- Your own web hosting
+- AWS, Google Cloud, etc.
+
+For Vercel:
+1. Push code to GitHub
+2. Connect repository to Vercel
+3. Add `.env` variables in Vercel dashboard
+4. Automatic deployment on every push to main
+
+---
+
+## Support
+
+For questions about:
+- **Design/Content**: Contact the project team
+- **Technical issues**: Check the code comments or contact a developer
+- **Hosting**: Contact your hosting provider
 
 ## License
 
 MIT
+
+---
+
+**Last Updated**: October 2026  
+**Built with**: Next.js, React, Tailwind CSS
