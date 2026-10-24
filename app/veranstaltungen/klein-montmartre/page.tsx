@@ -121,6 +121,20 @@ export default function KleinMontmartre() {
 
               <EmailButton email="kmm@salon77.de" text="Email an kmm@salon77.de" />
 
+              <p className="text-base mt-8" style={{ color: '#666666' }}>
+                Oder melde dich direkt an:
+              </p>
+
+              <Link
+                href="/veranstaltungen/klein-montmartre/anmelden"
+                className="inline-block px-8 py-3 rounded-md font-semibold text-white transition-all mt-4"
+                style={{ backgroundColor: '#B9BCB5' }}
+                onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.85')}
+                onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
+              >
+                Anmelden
+              </Link>
+
               <p className="text-base mt-6" style={{ color: '#666666' }}>
                 Zur aktuellen Facebook Veranstaltung:{' '}
                 <a
