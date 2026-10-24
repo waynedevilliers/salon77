@@ -52,10 +52,6 @@
   --transition-normal: 300ms ease-in-out;
 }
 
-html {
-  lang: de;
-}
-
 body {
   font-family: var(--font-family-primary);
   font-size: var(--font-size-body);
