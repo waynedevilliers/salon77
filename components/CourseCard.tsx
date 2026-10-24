@@ -23,10 +23,10 @@ const INSTRUCTOR_IMAGES: Record<string, string> = {
 };
 
 export default function CourseCard({ title, description, schedule, instructor }: CourseCardProps) {
-  const primaryInstructor = instructor.split(',')[0].trim();
-  const imageSrc = INSTRUCTOR_IMAGES[primaryInstructor] || '/salon77/Salon77_logo_small.svg';
+  const instructors = instructor.split(',').map(i => i.trim());
+
   return (
-    <div className="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow p-6 flex flex-col h-80">
+    <div className="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow p-6 flex flex-col h-screen-sm" style={{ minHeight: '500px' }}>
       <h3 className="text-lg sm:text-xl font-bold mb-3 transition-colors" style={{ color: '#C9A961' }}>
         {title}
       </h3>
@@ -36,20 +36,46 @@ export default function CourseCard({ title, description, schedule, instructor }:
       <p className="text-xs sm:text-sm mb-2" style={{ color: '#666666' }}>
         {schedule}
       </p>
-      {/* Instructor Image and Name */}
-      <div className="flex flex-col items-center mb-6">
-        <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-gray-200 mb-2 flex-shrink-0">
-          <Image
-            src={imageSrc}
-            alt={primaryInstructor}
-            width={80}
-            height={80}
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <p className="text-xs sm:text-sm font-semibold text-center" style={{ color: '#2c2c2c' }}>
-          {instructor}
-        </p>
+
+      {/* Instructor Image(s) and Name(s) */}
+      <div className="flex flex-col items-center mb-6 mt-4">
+        {instructors.length === 1 ? (
+          // Single instructor
+          <div className="flex flex-col items-center">
+            <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-gray-200 mb-2 flex-shrink-0">
+              <Image
+                src={INSTRUCTOR_IMAGES[instructors[0]] || '/salon77/Salon77_logo_small.svg'}
+                alt={instructors[0]}
+                width={80}
+                height={80}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <p className="text-xs sm:text-sm font-semibold text-center" style={{ color: '#2c2c2c' }}>
+              {instructors[0]}
+            </p>
+          </div>
+        ) : (
+          // Multiple instructors
+          <div className="flex gap-4 justify-center">
+            {instructors.map((inst) => (
+              <div key={inst} className="flex flex-col items-center">
+                <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-gray-200 mb-2 flex-shrink-0">
+                  <Image
+                    src={INSTRUCTOR_IMAGES[inst] || '/salon77/Salon77_logo_small.svg'}
+                    alt={inst}
+                    width={80}
+                    height={80}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <p className="text-xs sm:text-sm font-semibold text-center" style={{ color: '#2c2c2c' }}>
+                  {inst}
+                </p>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
 
       <Link

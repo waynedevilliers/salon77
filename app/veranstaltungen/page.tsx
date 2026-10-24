@@ -1,30 +1,63 @@
 import { Metadata } from 'next';
+import EventCard from '@/components/EventCard';
 
 export const metadata: Metadata = {
   title: 'Veranstaltungen | Salon77 - Würzburger Künstlerinitiative',
-  description:
-    'Veranstaltungen und Events bei Salon77 in Würzburg.',
-  openGraph: {
-    title: 'Veranstaltungen | Salon77',
-    description:
-      'Veranstaltungen und Events bei Salon77 in Würzburg.',
-  },
+  description: 'Entdecke alle kommenden Veranstaltungen und Events bei Salon77.',
 };
 
-export default function VeranstaltungenPage() {
+const EVENTS = [
+  {
+    title: 'Klein-Montmartre',
+    date: 'Samstag, 08.05.2027',
+    location: 'Leonhard-Frank-Promenade, Würzburg',
+    description:
+      'Kunsthandwerkermarkt mit über 30 Jahren Tradition. Viele Aussteller präsentieren ihre handwerkliche Kunstkunst. Eine entspannte Atmosphäre direkt im Grünen am Main mit Platz für interessante Begegnungen. 2x jährlich (Mai & Oktober).',
+    image: '/salon77/kleinmomatra/IMG_7469.jpeg',
+  },
+  {
+    title: 'Klein-Montmartre',
+    date: 'Samstag, 02.10.2027',
+    location: 'Leonhard-Frank-Promenade, Würzburg',
+    description:
+      'Kunsthandwerkermarkt mit über 30 Jahren Tradition. Viele Aussteller präsentieren ihre handwerkliche Kunstkunst. Eine entspannte Atmosphäre direkt im Grünen am Main mit Platz für interessante Begegnungen. 2x jährlich (Mai & Oktober).',
+    image: '/salon77/kleinmomatra/IMG_7481_2.jpeg',
+  },
+];
+
+export default function Veranstaltungen() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <div className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-          Veranstaltungen
-        </h1>
-        <div className="prose prose-sm sm:prose max-w-none text-gray-600">
-          <p>
-            Hier findest du alle kommenden Veranstaltungen bei Salon77.
+    <div className="flex flex-col">
+      <main className="flex-1">
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+          <h1
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4"
+            style={{ color: '#2c2c2c' }}
+          >
+            Veranstaltungen
+          </h1>
+          <p
+            className="text-lg sm:text-xl mb-12"
+            style={{ color: '#666666' }}
+          >
+            Klein-Montmartre - Kunsthandwerkermarkt
           </p>
-          <p>Diese Seite wird in Kürze mit Inhalten gefüllt.</p>
+
+          {/* Event Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {EVENTS.map((event) => (
+              <EventCard
+                key={event.date}
+                title={event.title}
+                date={event.date}
+                location={event.location}
+                description={event.description}
+                image={event.image}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      </main>
     </div>
   );
 }
