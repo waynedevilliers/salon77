@@ -14,14 +14,17 @@ const EVENTS = [
     description:
       'Kunsthandwerkermarkt mit über 30 Jahren Tradition. Viele Aussteller präsentieren ihre handwerkliche Kunstkunst. Eine entspannte Atmosphäre direkt im Grünen am Main mit Platz für interessante Begegnungen. 2x jährlich (Mai & Oktober).',
     image: '/salon77/kleinmomatra/IMG_7469.jpeg',
+    buttonText: 'Mehr Infos',
+    buttonLink: '/kontakt',
   },
   {
-    title: 'Klein-Montmartre',
-    date: 'Samstag, 02.10.2027',
-    location: 'Leonhard-Frank-Promenade, Würzburg',
-    description:
-      'Kunsthandwerkermarkt mit über 30 Jahren Tradition. Viele Aussteller präsentieren ihre handwerkliche Kunstkunst. Eine entspannte Atmosphäre direkt im Grünen am Main mit Platz für interessante Begegnungen. 2x jährlich (Mai & Oktober).',
-    image: '/salon77/kleinmomatra/IMG_7481_2.jpeg',
+    title: 'Flamenco Festival',
+    date: 'Placeholder',
+    location: 'Würzburg',
+    description: 'Placeholder text for Flamenco event.',
+    image: '/salon77/kleinmomatra/flamenco.webp',
+    buttonText: 'Zur Webseite',
+    buttonLink: 'https://www.wueflamencofestival.de/',
   },
 ];
 
@@ -47,12 +50,14 @@ export default function Veranstaltungen() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {EVENTS.map((event) => (
               <EventCard
-                key={event.date}
+                key={event.title}
                 title={event.title}
                 date={event.date}
                 location={event.location}
                 description={event.description}
                 image={event.image}
+                buttonText={event.buttonText}
+                buttonLink={event.buttonLink}
               />
             ))}
           </div>

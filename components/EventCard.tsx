@@ -9,9 +9,12 @@ interface EventCardProps {
   location: string;
   description: string;
   image: string;
+  buttonText?: string;
+  buttonLink?: string;
 }
 
-export default function EventCard({ title, date, location, description, image }: EventCardProps) {
+export default function EventCard({ title, date, location, description, image, buttonText = 'Mehr Infos', buttonLink = '/kontakt' }: EventCardProps) {
+  const isExternalLink = buttonLink.startsWith('http');
   return (
     <div className="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow overflow-hidden flex flex-col h-full">
       {/* Event Image */}
@@ -43,15 +46,29 @@ export default function EventCard({ title, date, location, description, image }:
           {description}
         </p>
 
-        <Link
-          href="/kontakt"
-          className="inline-block px-6 py-2 rounded-md font-semibold transition-all text-white w-full text-center"
-          style={{ backgroundColor: '#B9BCB5' }}
-          onMouseEnter={(e) => e.currentTarget.style.opacity = '0.85'}
-          onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
-        >
-          Mehr Infos
-        </Link>
+        {isExternalLink ? (
+          <a
+            href={buttonLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-6 py-2 rounded-md font-semibold transition-all text-white w-full text-center"
+            style={{ backgroundColor: '#B9BCB5' }}
+            onMouseEnter={(e) => e.currentTarget.style.opacity = '0.85'}
+            onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
+          >
+            {buttonText}
+          </a>
+        ) : (
+          <Link
+            href={buttonLink}
+            className="inline-block px-6 py-2 rounded-md font-semibold transition-all text-white w-full text-center"
+            style={{ backgroundColor: '#B9BCB5' }}
+            onMouseEnter={(e) => e.currentTarget.style.opacity = '0.85'}
+            onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
+          >
+            {buttonText}
+          </Link>
+        )}
       </div>
     </div>
   );

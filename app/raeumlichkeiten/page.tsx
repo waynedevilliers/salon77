@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import Image from 'next/image';
+import ImageGallery from '@/components/ImageGallery';
 
 export const metadata: Metadata = {
   title: 'Räumlichkeiten | Salon77 - Würzburger Künstlerinitiative',
@@ -76,45 +76,8 @@ export default function Raeumlichkeiten() {
             ))}
           </div>
 
-          {/* Gallery - Row 1 (3 images) */}
-          <div className="mb-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {GALLERY_IMAGES.slice(0, 3).map((image) => (
-                <div
-                  key={image.alt}
-                  className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow"
-                >
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    width={400}
-                    height={300}
-                    className="w-full h-64 sm:h-72 object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Gallery - Row 2 (3 images) */}
-          <div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {GALLERY_IMAGES.slice(3, 6).map((image) => (
-                <div
-                  key={image.alt}
-                  className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow"
-                >
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    width={400}
-                    height={300}
-                    className="w-full h-64 sm:h-72 object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+          {/* Image Gallery with Lightbox */}
+          <ImageGallery images={GALLERY_IMAGES} />
         </div>
       </main>
     </div>
