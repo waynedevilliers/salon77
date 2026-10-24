@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { submitRegistration } from '@/app/actions/registration';
 
 export default function RegistrationForm() {
   const [formData, setFormData] = useState({
@@ -14,6 +15,8 @@ export default function RegistrationForm() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -23,11 +26,33 @@ export default function RegistrationForm() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // TODO: Handle form submission (send to email or API)
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
+    setLoading(true);
+    setError('');
+
+    try {
+      const result = await submitRegistration(formData);
+
+      if (result.success) {
+        setSubmitted(true);
+        setFormData({
+          name: '',
+          surname: '',
+          address: '',
+          email: '',
+          phone: '',
+          squareMeters: '',
+          description: '',
+        });
+      } else {
+        setError(result.message);
+      }
+    } catch (err) {
+      setError('Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -49,6 +74,12 @@ export default function RegistrationForm() {
         Anmeldung Klein-Montmartre
       </h2>
 
+      {error && (
+        <div className="mb-6 p-4 bg-red-100 border border-red-400 rounded-md">
+          <p style={{ color: '#c53030' }}>{error}</p>
+        </div>
+      )}
+
       <div className="space-y-6">
         {/* Name */}
         <div>
@@ -62,7 +93,6 @@ export default function RegistrationForm() {
             onChange={handleChange}
             required
             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2"
-            style={{ focusRingColor: '#B9BCB5' }}
           />
         </div>
 
@@ -161,12 +191,13 @@ export default function RegistrationForm() {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full py-3 rounded-md font-semibold text-white transition-all"
+          disabled={loading}
+          className="w-full py-3 rounded-md font-semibold text-white transition-all disabled:opacity-50"
           style={{ backgroundColor: '#B9BCB5' }}
-          onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.85')}
-          onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
+          onMouseEnter={(e) => !loading && (e.currentTarget.style.opacity = '0.85')}
+          onMouseLeave={(e) => !loading && (e.currentTarget.style.opacity = '1')}
         >
-          Anmeldung absenden
+          {loading ? 'Wird versendet...' : 'Anmeldung absenden'}
         </button>
       </div>
     </form>
