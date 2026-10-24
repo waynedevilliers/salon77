@@ -18,13 +18,12 @@ export default function EventCard({ title, date, location, description, image, b
   return (
     <div className="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow overflow-hidden flex flex-col h-full">
       {/* Event Image */}
-      <div className="relative h-48 sm:h-56 overflow-hidden bg-gray-200">
+      <div className="relative w-full h-64 sm:h-80 overflow-hidden bg-gray-200">
         <Image
           src={image}
           alt={title}
-          width={400}
-          height={300}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          fill
+          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
         />
       </div>
 
