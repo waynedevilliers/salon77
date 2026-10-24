@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
 import ImageGallery from '@/components/ImageGallery';
 import EmailButton from '@/components/EmailButton';
+import AnmeldenButton from '@/components/AnmeldenButton';
 
 export const metadata: Metadata = {
   title: 'Klein-Montmartre | Salon77 - Kunsthandwerkermarkt Würzburg',
@@ -125,15 +125,12 @@ export default function KleinMontmartre() {
                 Oder melde dich direkt an:
               </p>
 
-              <Link
-                href="/veranstaltungen/klein-montmartre/anmelden"
-                className="inline-block px-8 py-3 rounded-md font-semibold text-white transition-all mt-4"
-                style={{ backgroundColor: '#B9BCB5' }}
-                onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.85')}
-                onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
-              >
-                Anmelden
-              </Link>
+              <div className="mt-4">
+                <AnmeldenButton
+                  href="/veranstaltungen/klein-montmartre/anmelden"
+                  text="Anmelden"
+                />
+              </div>
 
               <p className="text-base mt-6" style={{ color: '#666666' }}>
                 Zur aktuellen Facebook Veranstaltung:{' '}
