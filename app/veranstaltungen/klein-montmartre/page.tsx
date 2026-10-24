@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import ImageGallery from '@/components/ImageGallery';
+import EmailButton from '@/components/EmailButton';
 
 export const metadata: Metadata = {
   title: 'Klein-Montmartre | Salon77 - Kunsthandwerkermarkt Würzburg',
@@ -118,15 +119,7 @@ export default function KleinMontmartre() {
                 Du möchtest deine Kunst beim "Klein Montmartre" ausstellen?
               </p>
 
-              <a
-                href="mailto:kmm@salon77.de"
-                className="inline-block px-6 py-3 rounded-md font-semibold transition-all text-white"
-                style={{ backgroundColor: '#B9BCB5' }}
-                onMouseEnter={(e) => e.currentTarget.style.opacity = '0.85'}
-                onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
-              >
-                Email an kmm@salon77.de
-              </a>
+              <EmailButton email="kmm@salon77.de" text="Email an kmm@salon77.de" />
 
               <p className="text-base mt-6" style={{ color: '#666666' }}>
                 Zur aktuellen Facebook Veranstaltung:{' '}
