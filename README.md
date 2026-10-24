@@ -70,7 +70,7 @@ npm start
 
 ## Design System
 
-Design tokens and colors are extracted from the original design. See `styles/tokens.css` for the color palette and typography scales.
+Design tokens and colors are defined in `app/globals.css` using Tailwind CSS @theme block. Primary accent color is #B9BCB5 with typography using Playfair Display and Lato fonts. Images are stored in `public/salon77/` directory organized by section.
 
 ## Git Workflow
 
