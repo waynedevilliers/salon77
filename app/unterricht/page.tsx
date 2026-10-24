@@ -9,59 +9,72 @@ export const metadata: Metadata = {
 
 const COURSES = [
   {
-    title: 'Kindertanz',
+    title: 'Kindertanz & -Ballett',
     description:
-      'Spielerischer Einstieg in die Welt des Tanzens für Kinder. Entwicklung von Körperbewusstsein und Rhythmusgefühl.',
+      'Kreativer Kindertanz (4-5 Jahre) mit Pre-Ballett-Übungen. Modernes Kinderballett (ab 5 Jahre) mit Grundlagen des Balletts. Fördert Koordination, Beweglichkeit, Kreativität und Sozialkompetenz.',
+    schedule: 'Montags, Donnerstags und Freitags ab 15 Uhr',
+    instructor: 'Hsiu-Yun Lu',
   },
   {
-    title: 'Balai Chalet',
+    title: 'Ballett für Erwachsene',
     description:
-      'Traditioneller Tanzstil mit modernen Elementen. Perfekt für Tänzer aller Niveaus.',
+      'Klassisches Ballett mit strengen Formen der Disziplin und Körperbeherrschung. Verbessert Körperhaltung, Konzentration und Koordination. Fördert Körperbewusstsein, Selbstvertrauen und reduziert Stress.',
+    schedule: 'Montags und Freitags ab 18:00 Uhr',
+    instructor: 'Asami Krisan',
   },
   {
     title: 'Flamenco',
-    description:
-      'Leidenschaftliche spanische Tanzkunst mit authentischen Techniken und Rhythmen.',
+    description: 'Flamenco als Kunstform mit Fokus auf Verständnis und Flexibilität. Ausdruck von Emotionen durch Tanz, Gesang und Gitarre.',
+    schedule: 'Dienstags und Freitags ab 18:00 Uhr',
+    instructor: 'Mercedes Sebald',
   },
   {
     title: 'Gitarre',
     description:
-      'Grundlagen und fortgeschrittene Techniken auf der Gitarre. Für Anfänger bis Fortgeschrittene.',
+      'Gitarrenunterricht für Kinder, Teenager und Erwachsene. Stilrichtungen: Rock, Pop, Liedbegleitung, Klassik und Flamenco. Einzel- und Gruppenunterricht. Kostenlose Probestunde.',
+    schedule: 'Nach Vereinbarung',
+    instructor: 'Robert Collomb',
   },
   {
     title: 'Bass',
-    description:
-      'Erlernen Sie die Bassgitarre und entwickeln Sie ein starkes Rhythmusgefühl.',
+    description: 'Bassunterricht für alle Levels. Einzelunterricht mit professioneller Anleitung. Flexibles Lernen an der Bassgitarre.',
+    schedule: 'Montags und Freitags ab 14 Uhr',
+    instructor: 'Simon Ort',
   },
   {
     title: 'Akkordeon',
     description:
-      'Klassisches Instrument mit vielseitigen Einsatzmöglichkeiten in verschiedenen Musikgenres.',
+      'Akkordeonunterricht in Kleingruppen. Erlernen Sie die drei Säulen der Musik: Melodie, Harmonie und Rhythmus. Stilrichtungen: Klassik, Pop, Musette, Swing. Fördert Gedächtnis, Konzentration und logisches Denken.',
+    schedule: 'Nach Absprache',
+    instructor: 'Stefanie Koch',
   },
   {
-    title: 'DJ',
+    title: 'DJing & Musikproduktion',
     description:
-      'Grundlagen des DJing und elektronischen Musikmischen. Moderne Ausrüstung und Techniken.',
-  },
-  {
-    title: 'Musik Production',
-    description:
-      'Produktion eigener Musik von der Komposition bis zur Finalisierung im Studio.',
+      'Lerne professionelles DJing und Musikproduktion. Von den Basics bis zum Profi Level. Praktische Workshops mit modernen Techniken und Equipment.',
+    schedule: 'Nach Absprache',
+    instructor: 'Sebastian Kandert, Fabio Cassarino',
   },
   {
     title: 'Fotografie',
     description:
-      'Lerne die Kunst der Fotografie. Von Grundlagen bis zur professionellen Nachbearbeitung.',
+      'Fotografie und Bildgestaltung. Erlernen Sie die Grundlagen und Techniken der professionellen Fotografie mit praktischen Workshops.',
+    schedule: 'Workshops nach Vereinbarung',
+    instructor: 'Norbert Schmelz',
   },
   {
-    title: 'Modern Tanz',
+    title: 'Modern Tanz: Zeitgenössischer Tanz',
     description:
-      'Zeitgenössischer Tanzstil mit Fokus auf Ausdruck, Bewegungsfluss und Kreativität.',
+      'Künstlerischer Tanz für Erwachsene. Erkunden Sie Ihr Bewegungspotential durch Atemübungen, Yin-Yang-Prinzipien und Tanzkomposition. Mit Pilates kombiniert. Für alle Altersstufen.',
+    schedule: 'Donnerstags ab 18:00 Uhr',
+    instructor: 'Hsiu-Yun Lu',
   },
   {
-    title: 'Tai Chi',
+    title: 'Taiji',
     description:
-      'Traditionelle chinesische Bewegungskunst für Gesundheit, Balance und innere Ruhe.',
+      'Meditation in Bewegung. Sanfte, fließende Bewegungen für Körper und Seele. Fokus auf Atmung, Körperenergie und inneres Wohlbefinden. Daoyin-Übungen für erweiterte Körperräume.',
+    schedule: 'Freitags um 10:30 Uhr',
+    instructor: 'Hsiu-Yun Lu',
   },
 ];
 
@@ -83,6 +96,8 @@ export default function Unterricht() {
                 key={course.title}
                 title={course.title}
                 description={course.description}
+                schedule={course.schedule}
+                instructor={course.instructor}
               />
             ))}
           </div>
