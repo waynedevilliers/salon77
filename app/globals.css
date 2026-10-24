@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+html,
+body {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: var(--color-text-body, #666);
+  background-color: var(--color-bg-white, #fff);
+}
