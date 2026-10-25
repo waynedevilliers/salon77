@@ -23,8 +23,17 @@ export default function Footer() {
 
           {/* Address & Contact */}
           <div className="text-center text-sm space-y-1">
-            <p>Richard-Wagner-Str. 60</p>
-            <p>97074 Würzburg</p>
+            <p>
+              <a
+                href="https://www.google.com/maps/place/Salon+77/@49.7930186,9.9582214,17z"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition-opacity"
+              >
+                Richard-Wagner-Str. 60<br />
+                97074 Würzburg
+              </a>
+            </p>
             <div className="pt-2 space-y-1">
               <p>
                 <a
@@ -49,16 +58,6 @@ export default function Footer() {
           <p className="text-xs sm:text-sm italic text-gray-100">
             Kunst, Tanz und Musik Förderung seit 1977.
           </p>
-
-          {/* Get Directions Button */}
-          <a
-            href="https://www.google.com/maps/place/Salon+77/@49.7930186,9.9582214,17z"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-6 py-2 bg-white text-[#b9bcb5] rounded-md font-semibold transition-all hover:opacity-90"
-          >
-            Route berechnen
-          </a>
 
           {/* Legal Links */}
           <nav className="flex gap-6 text-xs sm:text-sm pt-4 border-t border-gray-300">
