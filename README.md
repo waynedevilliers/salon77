@@ -5,10 +5,13 @@ A modern website for the Salon77 Würzburg artists' association (Würzburger Kü
 ## What is this website?
 
 This is a rebuilt version of the Salon77 website with:
-- **Home page** showing the 3 main sections
+- **Home page** - showing the main sections and overview
 - **Courses page** (Unterricht) - display all courses with instructor info
+- **Instructors page** (Dozenten) - showcase all instructors with their specialties
+- **Weekly Courses** (Wochenkurse) - detailed schedule of weekly classes by day
 - **Events page** (Veranstaltungen) - show events and collect exhibitor registrations
 - **Facilities page** (Räumlichkeiten) - showcase the studio spaces with photos
+- **Association page** (Verein) - information about Salon77
 - **Navigation** at the top with logo linking to home page
 
 ---
@@ -35,6 +38,26 @@ Courses are listed in `/app/unterricht/page.tsx`. To add or edit a course:
   instructor: 'Mercedes Sebald',
 }
 ```
+
+### How to Update Instructors
+
+Instructors are listed in `/app/dozenten/page.tsx`. To add or edit an instructor:
+
+1. Find the `INSTRUCTORS` array in the file
+2. Each instructor has:
+   - `name`: Full name
+   - `specialty`: Area of expertise
+3. Add instructor photos to `/public/salon77/dozenten/` with filename format: `firstname-lastname.jpg`
+
+### How to Update Weekly Course Schedule
+
+Weekly courses are listed in `/app/wochenkurse/page.tsx`. To update the schedule:
+
+1. Find the `WEEKLY_COURSES` object in the file
+2. Each day has an array of courses with:
+   - `time`: Class time (e.g., "18:00 - 19:00 Uhr")
+   - `course`: Course name and details
+3. Organize by day: Montags, Dienstags, Mittwochs, Donnerstags, Freitags
 
 ### How to Update Events
 
@@ -124,18 +147,25 @@ salon77/
 ├── app/
 │   ├── page.tsx                    # Home page
 │   ├── unterricht/page.tsx         # Courses page
+│   ├── dozenten/page.tsx           # Instructors page
+│   ├── wochenkurse/page.tsx        # Weekly courses schedule
 │   ├── veranstaltungen/            # Events section
 │   ├── raeumlichkeiten/            # Facilities page
+│   ├── verein/page.tsx             # Association page
+│   ├── kontakt/page.tsx            # Contact page
 │   ├── globals.css                 # Design colors & fonts
 │   └── actions/registration.ts     # Form submission logic
 ├── components/                     # Reusable UI components
 │   ├── Navbar.tsx                  # Top navigation
+│   ├── NavLink.tsx                 # Navigation link component
 │   ├── CourseCard.tsx              # Course display card
 │   ├── EventCard.tsx               # Event display card
+│   ├── InstructorCard.tsx          # Instructor card (Client Component)
 │   ├── ImageGallery.tsx            # Photo gallery with lightbox
 │   └── RegistrationForm.tsx        # Form component
 ├── public/salon77/                 # All images and assets
 │   ├── unterricht/                 # Instructor photos
+│   ├── dozenten/                   # Instructor directory photos
 │   ├── veranstaltung/              # Event photos
 │   ├── kleinmomatra/               # Klein-Montmartre photos
 │   └── raumligkeiten/              # Facility photos
@@ -200,5 +230,5 @@ MIT
 
 ---
 
-**Last Updated**: October 2026  
-**Built with**: Next.js, React, Tailwind CSS
+**Last Updated**: October 25, 2026  
+**Built with**: Next.js, React, Tailwind CSS, TypeScript
