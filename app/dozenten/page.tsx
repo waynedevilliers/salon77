@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import Image from 'next/image';
+import InstructorCard from '@/components/InstructorCard';
 
 export const metadata: Metadata = {
   title: 'Dozenten | Salon77 - Würzburger Künstlerinitiative',
@@ -40,38 +40,7 @@ export default function Dozenten() {
           {/* Instructors Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {INSTRUCTORS.map((instructor, index) => (
-              <div key={index} className="flex flex-col items-center">
-                {/* Circular Image Placeholder */}
-                <div className="relative w-40 h-40 rounded-full overflow-hidden shadow-lg mb-4 bg-gray-200 flex items-center justify-center">
-                  <Image
-                    src={`/salon77/dozenten/${instructor.name.toLowerCase().replace(/\s+/g, '-')}.jpg`}
-                    alt={instructor.name}
-                    width={160}
-                    height={160}
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none';
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-gray-300 flex items-center justify-center text-gray-500 text-sm">
-                    Bild folgt
-                  </div>
-                </div>
-
-                {/* Instructor Info */}
-                <h3
-                  className="text-lg sm:text-xl font-bold text-center"
-                  style={{ color: '#2c2c2c' }}
-                >
-                  {instructor.name}
-                </h3>
-                <p
-                  className="text-sm text-center"
-                  style={{ color: '#B9BCB5' }}
-                >
-                  {instructor.specialty}
-                </p>
-              </div>
+              <InstructorCard key={index} instructor={instructor} />
             ))}
           </div>
         </div>
