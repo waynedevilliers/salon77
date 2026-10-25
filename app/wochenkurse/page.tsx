@@ -9,7 +9,6 @@ const WEEKLY_COURSES = {
   Montags: [
     { time: '15:50 - 17:00 Uhr', course: 'Kinderballett (ab 8 mit Vorkenntnisse)' },
     { time: '18:10 - 19:20 Uhr', course: 'Pilates' },
-    { time: '19:00 - 21:00 Uhr', course: 'TODOROKI WADAIKO - Japanische Trommelkunst' },
   ],
   Dienstags: [
     { time: '14:45 - 15:45 Uhr', course: 'Akkordeon- Crash- Gruppe (leicht Fortgeschrittene)' },
@@ -21,23 +20,16 @@ const WEEKLY_COURSES = {
   ],
   Mittwochs: [
     { time: '18:30 - 19:45 Uhr', course: 'Ballett für Erwachsene' },
-    { time: 'auf Anfrage', course: 'Akkordeon- Crash-Kurs' },
   ],
   Donnerstags: [
     { time: '16:30 - 17:20 Uhr', course: 'Kreativer Kindertanz (ab 4 Jahre)' },
     { time: '17:40 - 18:50 Uhr', course: 'Pilates' },
     { time: '18:50 - 19:40 Uhr', course: 'Zeitgenössischer Tanz' },
-    { time: '19:00 - 21:00 Uhr', course: 'TODOROKI WADAIKO' },
   ],
   Freitags: [
     { time: '10:30 - 11:40 Uhr', course: 'Taiji' },
     { time: '15:00 - 16:00 Uhr', course: 'Modernes Kinderballett (ab 6)' },
     { time: '15:30 - 16:20 Uhr', course: 'Kindertanz (ab 4)' },
-    { time: '17:00 - 17:45 Uhr', course: 'Akkordeon-Kurs für junge Erwachsene' },
-    { time: '17:00 - 18:00 Uhr', course: 'Trommelkurs' },
-    { time: '17:50 - 18:50 Uhr', course: 'Akkordeon-Kurs für Erwachsene & Teens (in and. Raeumlichkeit)' },
-    { time: '18:50 - 20:30/ 21:00 Uhr', course: 'Akkordeonorchester "Allegro" - 1-2x monatl. Training - 2x im Jahr WE-Probe in Musikakademie' },
-    { time: '9:00 - 09:45 Uhr', course: 'MusiKunde (in and. Raeumlichkeiten)' },
   ],
 };
 
