@@ -14,16 +14,19 @@ export default function Footer() {
   return (
     <footer className="mt-auto bg-[#b9bcb5] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        <div className="flex flex-col items-center justify-center space-y-6">
-          {/* Organization Info */}
-          <div className="text-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          {/* Column 1: Organization */}
+          <div>
             <h3 className="text-lg sm:text-xl font-bold mb-2">Salon77</h3>
             <p className="text-sm mb-4">Würzburger Künstlerinitiative e.V.</p>
+            <p className="text-xs italic text-gray-100">
+              Kunst, Tanz und Musik Förderung seit 1977.
+            </p>
           </div>
 
-          {/* Address & Contact */}
-          <div className="text-center text-sm space-y-1">
-            <p>
+          {/* Column 2: Address & Contact */}
+          <div className="text-sm space-y-3">
+            <div>
               <a
                 href="https://www.google.com/maps/place/Salon+77/@49.7930186,9.9582214,17z"
                 target="_blank"
@@ -33,8 +36,8 @@ export default function Footer() {
                 📍 Richard-Wagner-Str. 60<br />
                 97074 Würzburg
               </a>
-            </p>
-            <div className="pt-2 space-y-1">
+            </div>
+            <div className="space-y-1 pt-2 border-t border-gray-300">
               <p>
                 <a
                   href="tel:+491717990218"
@@ -54,29 +57,26 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Tagline */}
-          <p className="text-xs sm:text-sm italic text-gray-100">
-            Kunst, Tanz und Musik Förderung seit 1977.
-          </p>
+          {/* Column 3: Legal Links */}
+          <div>
+            <h4 className="text-sm font-semibold mb-3">Information</h4>
+            <nav className="space-y-2 text-sm">
+              {legalLinks.map((link) => (
+                <div key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="hover:opacity-80 transition-opacity"
+                  >
+                    {link.label}
+                  </Link>
+                </div>
+              ))}
+            </nav>
+          </div>
+        </div>
 
-          {/* Legal Links */}
-          <nav className="flex gap-6 text-xs sm:text-sm pt-4 border-t border-gray-300">
-            {legalLinks.map((link, index) => (
-              <div key={link.href} className="flex items-center gap-6">
-                <Link
-                  href={link.href}
-                  className="hover:opacity-80 transition-opacity"
-                >
-                  {link.label}
-                </Link>
-                {index < legalLinks.length - 1 && (
-                  <span className="text-gray-200">/</span>
-                )}
-              </div>
-            ))}
-          </nav>
-
-          {/* Copyright */}
+        {/* Copyright */}
+        <div className="border-t border-gray-300 pt-6 text-center">
           <div className="text-xs text-gray-100">
             © {year} Salon77 - Würzburger Künstlerinitiative e.V.
           </div>
