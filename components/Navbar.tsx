@@ -38,6 +38,8 @@ export default function Navbar() {
             <span className="text-gray-300">|</span>
             <NavLink href="/veranstaltungen" label="Veranstaltungen" isActive={pathname === '/veranstaltungen'} />
             <span className="text-gray-300">|</span>
+            <NavLink href="/wochenkurse" label="Wochenkurse" isActive={pathname === '/wochenkurse'} />
+            <span className="text-gray-300">|</span>
             <NavLink href="/raeumlichkeiten" label="Räumlichkeiten" isActive={pathname === '/raeumlichkeiten'} />
             <span className="text-gray-300">|</span>
             <NavLink href="/verein" label="Verein" isActive={pathname === '/verein'} />
