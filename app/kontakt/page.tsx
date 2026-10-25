@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
+import BackButton from '@/components/BackButton';
 
 export const metadata: Metadata = {
   title: 'Kontakt | Salon77 - Würzburger Künstlerinitiative',
@@ -95,15 +95,7 @@ export default function Kontakt() {
                   </div>
 
                   <div className="pt-6 border-t border-gray-200">
-                    <Link
-                      href="/"
-                      className="inline-block px-6 py-2 rounded-md font-semibold text-white transition-all"
-                      style={{ backgroundColor: '#B9BCB5' }}
-                      onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.85')}
-                      onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
-                    >
-                      Zurück zur Startseite
-                    </Link>
+                    <BackButton />
                   </div>
                 </div>
               </div>
