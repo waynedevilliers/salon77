@@ -30,8 +30,8 @@ const WEEKLY_COURSES = {
     { time: '10:30 - 11:40 Uhr', course: 'Taiji' },
     { time: '15:00 - 16:00 Uhr', course: 'Modernes Kinderballett (ab 6)' },
     { time: '15:30 - 16:20 Uhr', course: 'Kindertanz (ab 4)' },
-    { time: '18:00 Uhr', course: 'Sevillanas' },
-    { time: '19:00 Uhr', course: 'Ballet' },
+    { time: '18:00 - 19:00 Uhr', course: 'Sevillanas' },
+    { time: '19:00 - 20:30 Uhr', course: 'Ballet' },
   ],
 };
 
