@@ -19,100 +19,9 @@ export default function Kontakt() {
             Kontakt
           </h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {/* Contact Information */}
-            <div>
-              <div className="bg-white rounded-lg shadow-lg p-8">
-                <h2
-                  className="text-2xl font-bold mb-6"
-                  style={{ color: '#C9A961' }}
-                >
-                  Salon77
-                </h2>
-
-                <div className="space-y-6">
-                  <div>
-                    <h3
-                      className="text-sm font-semibold mb-2"
-                      style={{ color: '#2c2c2c' }}
-                    >
-                      Organisition
-                    </h3>
-                    <p style={{ color: '#666666' }}>
-                      Würzburger Künstlerinitiative e.V.
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3
-                      className="text-sm font-semibold mb-2"
-                      style={{ color: '#2c2c2c' }}
-                    >
-                      Adresse
-                    </h3>
-                    <p style={{ color: '#666666' }}>
-                      Richard-Wagner-Str. 60<br />
-                      97074 Würzburg
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3
-                      className="text-sm font-semibold mb-2"
-                      style={{ color: '#2c2c2c' }}
-                    >
-                      Telefon
-                    </h3>
-                    <p style={{ color: '#666666' }}>
-                      <a
-                        href="tel:017179990218"
-                        className="hover:underline"
-                        style={{ color: '#B9BCB5' }}
-                      >
-                        0171 - 7990218
-                      </a>
-                      <br />
-                      <span className="text-sm">(2. Vorsitzende Mercedes Sebald)</span>
-                    </p>
-                  </div>
-
-                  <div>
-                    <h3
-                      className="text-sm font-semibold mb-2"
-                      style={{ color: '#2c2c2c' }}
-                    >
-                      Email
-                    </h3>
-                    <p style={{ color: '#666666' }}>
-                      <a
-                        href="mailto:info@salon77.de"
-                        className="hover:underline"
-                        style={{ color: '#B9BCB5' }}
-                      >
-                        info@salon77.de
-                      </a>
-                    </p>
-                  </div>
-
-                  <div className="pt-6 border-t border-gray-200">
-                    <BackButton />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column - Image and Map */}
-            <div className="space-y-6">
-              {/* Contact Image */}
-              <div className="relative rounded-lg overflow-hidden shadow-lg h-96">
-                <Image
-                  src="/salon77/kleinmomatra/kontakt.png"
-                  alt="Salon77 Kontakt"
-                  fill
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Left Column - Map (spans 2 on large screens) */}
+            <div className="lg:col-span-2 space-y-6">
               {/* Google Map */}
               <div className="rounded-lg overflow-hidden shadow-lg h-96">
                 <iframe
@@ -124,6 +33,89 @@ export default function Kontakt() {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
+              </div>
+
+              {/* Contact Image */}
+              <div className="relative rounded-lg overflow-hidden shadow-lg h-80">
+                <Image
+                  src="/salon77/kleinmomatra/kontakt.png"
+                  alt="Salon77 Kontakt"
+                  fill
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Right Column - Contact Information */}
+            <div className="lg:col-span-1">
+              <div className="sticky top-32 rounded-lg shadow-lg overflow-hidden" style={{ backgroundColor: '#B9BCB5' }}>
+                <div className="bg-gradient-to-r from-[#B9BCB5] to-[#a8aba3] px-8 py-6">
+                  <h2 className="text-3xl font-bold text-white">Kontakt</h2>
+                </div>
+
+                <div className="bg-white p-8 space-y-6">
+                  {/* Organization */}
+                  <div className="pb-4 border-b border-gray-100">
+                    <p style={{ color: '#B9BCB5' }} className="text-sm font-semibold uppercase tracking-wide mb-1">
+                      Organisation
+                    </p>
+                    <p className="text-lg font-bold" style={{ color: '#2c2c2c' }}>
+                      Salon77
+                    </p>
+                    <p style={{ color: '#666666' }} className="text-sm">
+                      Würzburger Künstlerinitiative e.V.
+                    </p>
+                  </div>
+
+                  {/* Address */}
+                  <div className="pb-4 border-b border-gray-100">
+                    <p style={{ color: '#B9BCB5' }} className="text-sm font-semibold uppercase tracking-wide mb-2">
+                      📍 Adresse
+                    </p>
+                    <p style={{ color: '#2c2c2c' }} className="font-semibold">
+                      Richard-Wagner-Str. 60
+                    </p>
+                    <p style={{ color: '#666666' }}>
+                      97074 Würzburg
+                    </p>
+                  </div>
+
+                  {/* Phone */}
+                  <div className="pb-4 border-b border-gray-100">
+                    <p style={{ color: '#B9BCB5' }} className="text-sm font-semibold uppercase tracking-wide mb-2">
+                      Telefon
+                    </p>
+                    <a
+                      href="tel:017179990218"
+                      className="hover:underline font-semibold"
+                      style={{ color: '#2c2c2c' }}
+                    >
+                      0171 - 7990218
+                    </a>
+                    <p style={{ color: '#666666' }} className="text-xs mt-1">
+                      2. Vorsitzende Mercedes Sebald
+                    </p>
+                  </div>
+
+                  {/* Email */}
+                  <div className="pb-4 border-b border-gray-100">
+                    <p style={{ color: '#B9BCB5' }} className="text-sm font-semibold uppercase tracking-wide mb-2">
+                      Email
+                    </p>
+                    <a
+                      href="mailto:info@salon77.de"
+                      className="hover:underline font-semibold"
+                      style={{ color: '#2c2c2c' }}
+                    >
+                      info@salon77.de
+                    </a>
+                  </div>
+
+                  {/* Back Button */}
+                  <div className="pt-2">
+                    <BackButton />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
