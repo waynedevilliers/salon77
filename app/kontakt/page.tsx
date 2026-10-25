@@ -19,59 +19,48 @@ export default function Kontakt() {
             Kontakt
           </h1>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Left Column - Map (spans 2 on large screens) */}
-            <div className="lg:col-span-2 space-y-6">
-              {/* Google Map */}
-              <div className="rounded-lg overflow-hidden shadow-lg h-96">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2604.8947632845367!2d9.9582214!3d49.7930186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a28fd3a4bebb61%3A0x7e831419e9b92b3e!2sSalon77!5e0!3m2!1sde!2sde!4v1692547620584"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
-
-              {/* Contact Image */}
-              <div className="relative rounded-lg overflow-hidden shadow-lg h-80">
-                <Image
-                  src="/salon77/kleinmomatra/kontakt.png"
-                  alt="Salon77 Kontakt"
-                  fill
-                  className="w-full h-full object-cover"
-                />
-              </div>
+          <div className="space-y-8">
+            {/* Row 1: Image */}
+            <div className="relative rounded-lg overflow-hidden shadow-lg h-96">
+              <Image
+                src="/salon77/kleinmomatra/kontakt.png"
+                alt="Salon77 Kontakt"
+                fill
+                className="w-full h-full object-cover"
+              />
             </div>
 
-            {/* Right Column - Contact Information */}
-            <div className="lg:col-span-1">
-              <div className="sticky top-32 rounded-lg shadow-lg overflow-hidden" style={{ backgroundColor: '#B9BCB5' }}>
-                <div className="bg-gradient-to-r from-[#B9BCB5] to-[#a8aba3] px-8 py-6">
-                  <h2 className="text-3xl font-bold text-white">Kontakt</h2>
-                </div>
+            {/* Row 2: Contact Details */}
+            <div className="bg-white rounded-lg shadow-lg p-8 md:p-12">
+              <h2
+                className="text-3xl font-bold mb-8"
+                style={{ color: '#C9A961' }}
+              >
+                Salon77
+              </h2>
 
-                <div className="bg-white p-8 space-y-6">
-                  {/* Organization */}
-                  <div className="pb-4 border-b border-gray-100">
-                    <p style={{ color: '#B9BCB5' }} className="text-sm font-semibold uppercase tracking-wide mb-1">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Organization & Address */}
+                <div className="space-y-6">
+                  <div>
+                    <h3
+                      className="text-sm font-semibold mb-2 uppercase tracking-wide"
+                      style={{ color: '#B9BCB5' }}
+                    >
                       Organisation
-                    </p>
-                    <p className="text-lg font-bold" style={{ color: '#2c2c2c' }}>
-                      Salon77
-                    </p>
-                    <p style={{ color: '#666666' }} className="text-sm">
+                    </h3>
+                    <p style={{ color: '#2c2c2c' }} className="font-semibold">
                       Würzburger Künstlerinitiative e.V.
                     </p>
                   </div>
 
-                  {/* Address */}
-                  <div className="pb-4 border-b border-gray-100">
-                    <p style={{ color: '#B9BCB5' }} className="text-sm font-semibold uppercase tracking-wide mb-2">
-                      📍 Adresse
-                    </p>
+                  <div>
+                    <h3
+                      className="text-sm font-semibold mb-2 uppercase tracking-wide"
+                      style={{ color: '#B9BCB5' }}
+                    >
+                      Adresse
+                    </h3>
                     <p style={{ color: '#2c2c2c' }} className="font-semibold">
                       Richard-Wagner-Str. 60
                     </p>
@@ -79,12 +68,17 @@ export default function Kontakt() {
                       97074 Würzburg
                     </p>
                   </div>
+                </div>
 
-                  {/* Phone */}
-                  <div className="pb-4 border-b border-gray-100">
-                    <p style={{ color: '#B9BCB5' }} className="text-sm font-semibold uppercase tracking-wide mb-2">
+                {/* Phone & Email */}
+                <div className="space-y-6">
+                  <div>
+                    <h3
+                      className="text-sm font-semibold mb-2 uppercase tracking-wide"
+                      style={{ color: '#B9BCB5' }}
+                    >
                       Telefon
-                    </p>
+                    </h3>
                     <a
                       href="tel:017179990218"
                       className="hover:underline font-semibold"
@@ -92,16 +86,18 @@ export default function Kontakt() {
                     >
                       0171 - 7990218
                     </a>
-                    <p style={{ color: '#666666' }} className="text-xs mt-1">
+                    <p style={{ color: '#666666' }} className="text-sm mt-1">
                       2. Vorsitzende Mercedes Sebald
                     </p>
                   </div>
 
-                  {/* Email */}
-                  <div className="pb-4 border-b border-gray-100">
-                    <p style={{ color: '#B9BCB5' }} className="text-sm font-semibold uppercase tracking-wide mb-2">
+                  <div>
+                    <h3
+                      className="text-sm font-semibold mb-2 uppercase tracking-wide"
+                      style={{ color: '#B9BCB5' }}
+                    >
                       Email
-                    </p>
+                    </h3>
                     <a
                       href="mailto:info@salon77.de"
                       className="hover:underline font-semibold"
@@ -110,13 +106,25 @@ export default function Kontakt() {
                       info@salon77.de
                     </a>
                   </div>
-
-                  {/* Back Button */}
-                  <div className="pt-2">
-                    <BackButton />
-                  </div>
                 </div>
               </div>
+
+              <div className="mt-8 pt-6 border-t border-gray-200">
+                <BackButton />
+              </div>
+            </div>
+
+            {/* Row 3: Map */}
+            <div className="rounded-lg overflow-hidden shadow-lg h-96">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2604.8947632845367!2d9.9582214!3d49.7930186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a28fd3a4bebb61%3A0x7e831419e9b92b3e!2sSalon77!5e0!3m2!1sde!2sde!4v1692547620584"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
         </div>
