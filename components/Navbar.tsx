@@ -3,37 +3,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { useState, useRef, useEffect } from 'react';
-
-const MENU_ITEMS = [
-  { label: 'Unterricht', href: '/unterricht' },
-  { label: 'Veranstaltungen', href: '/veranstaltungen' },
-  { label: 'Räumlichkeiten', href: '/raeumlichkeiten' },
-];
+import NavLink from './NavLink';
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        menuRef.current &&
-        !menuRef.current.contains(event.target as Node)
-      ) {
-        setIsMenuOpen(false);
-      }
-    };
-
-    if (isMenuOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-      return () =>
-        document.removeEventListener('mousedown', handleClickOutside);
-    }
-  }, [isMenuOpen]);
-
-  const isActive = (href: string) => pathname === href;
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b-2 border-gray-300">
@@ -57,55 +30,15 @@ export default function Navbar() {
 
           {/* Navigation Links */}
           <nav className="flex flex-wrap gap-6 sm:gap-8 justify-center text-sm sm:text-base">
-            <Link
-              href="/"
-              className={`font-medium transition-opacity hover:opacity-75 ${
-                pathname === '/' ? 'underline' : ''
-              }`}
-              style={{ color: pathname === '/' ? '#C9A961' : '#2c2c2c' }}
-            >
-              Home
-            </Link>
+            <NavLink href="/" label="Home" isActive={pathname === '/'} />
             <span className="text-gray-300">|</span>
-            <Link
-              href="/unterricht"
-              className={`font-medium transition-opacity hover:opacity-75 ${
-                pathname === '/unterricht' ? 'underline' : ''
-              }`}
-              style={{ color: pathname === '/unterricht' ? '#C9A961' : '#2c2c2c' }}
-            >
-              Unterricht
-            </Link>
+            <NavLink href="/unterricht" label="Unterricht" isActive={pathname === '/unterricht'} />
             <span className="text-gray-300">|</span>
-            <Link
-              href="/veranstaltungen"
-              className={`font-medium transition-opacity hover:opacity-75 ${
-                pathname === '/veranstaltungen' ? 'underline' : ''
-              }`}
-              style={{ color: pathname === '/veranstaltungen' ? '#C9A961' : '#2c2c2c' }}
-            >
-              Veranstaltungen
-            </Link>
+            <NavLink href="/veranstaltungen" label="Veranstaltungen" isActive={pathname === '/veranstaltungen'} />
             <span className="text-gray-300">|</span>
-            <Link
-              href="/raeumlichkeiten"
-              className={`font-medium transition-opacity hover:opacity-75 ${
-                pathname === '/raeumlichkeiten' ? 'underline' : ''
-              }`}
-              style={{ color: pathname === '/raeumlichkeiten' ? '#C9A961' : '#2c2c2c' }}
-            >
-              Räumlichkeiten
-            </Link>
+            <NavLink href="/raeumlichkeiten" label="Räumlichkeiten" isActive={pathname === '/raeumlichkeiten'} />
             <span className="text-gray-300">|</span>
-            <Link
-              href="/kontakt"
-              className={`font-medium transition-opacity hover:opacity-75 ${
-                pathname === '/kontakt' ? 'underline' : ''
-              }`}
-              style={{ color: pathname === '/kontakt' ? '#C9A961' : '#2c2c2c' }}
-            >
-              Kontakt
-            </Link>
+            <NavLink href="/kontakt" label="Kontakt" isActive={pathname === '/kontakt'} />
           </nav>
         </div>
       </nav>
