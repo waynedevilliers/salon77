@@ -43,7 +43,7 @@ export default function Footer() {
                   href="tel:+491717990218"
                   className="underline hover:opacity-75 transition-opacity cursor-pointer"
                 >
-                  ☎️ +49 (0)171/7990218
+                  +49 (0)171/7990218
                 </a>
               </p>
               <p>
