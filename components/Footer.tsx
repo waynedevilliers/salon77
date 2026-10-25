@@ -17,15 +17,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center items-center">
           {/* Column 1: Organization */}
           <div>
-            <h3 className="text-lg sm:text-xl font-bold mb-2">Salon77</h3>
-            <p className="text-sm mb-4">Würzburger Künstlerinitiative e.V.</p>
-            <p className="text-xs italic text-gray-100">
+            <h3 className="text-xl sm:text-2xl font-bold mb-2">Salon77</h3>
+            <p className="text-base mb-4">Würzburger Künstlerinitiative e.V.</p>
+            <p className="text-sm italic text-gray-100">
               Kunst, Tanz und Musik Förderung seit 1977.
             </p>
           </div>
 
           {/* Column 2: Address & Contact */}
-          <div className="text-sm space-y-3">
+          <div className="text-base space-y-3">
             <div>
               <a
                 href="https://www.google.com/maps/place/Salon+77/@49.7930186,9.9582214,17z"
@@ -59,8 +59,8 @@ export default function Footer() {
 
           {/* Column 3: Legal Links */}
           <div>
-            <h4 className="text-sm font-semibold mb-3">Information</h4>
-            <nav className="space-y-2 text-sm">
+            <h4 className="text-base font-semibold mb-3">Information</h4>
+            <nav className="space-y-2 text-base">
               {legalLinks.map((link) => (
                 <div key={link.href}>
                   <Link
@@ -77,7 +77,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="border-t border-gray-300 pt-6 text-center">
-          <div className="text-xs text-gray-100">
+          <div className="text-sm text-gray-100">
             © {year} Salon77 - Würzburger Künstlerinitiative e.V.
           </div>
         </div>
