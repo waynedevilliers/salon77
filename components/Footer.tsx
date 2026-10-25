@@ -41,17 +41,17 @@ export default function Footer() {
               <p>
                 <a
                   href="tel:+491717990218"
-                  className="hover:opacity-80 transition-opacity"
+                  className="underline hover:opacity-75 transition-opacity cursor-pointer"
                 >
-                  Telefon: +49 (0)171/7990218
+                  ☎️ +49 (0)171/7990218
                 </a>
               </p>
               <p>
                 <a
                   href="mailto:info@salon77.de"
-                  className="hover:opacity-80 transition-opacity"
+                  className="underline hover:opacity-75 transition-opacity cursor-pointer"
                 >
-                  E-Mail: info@salon77.de
+                  ✉️ info@salon77.de
                 </a>
               </p>
             </div>
