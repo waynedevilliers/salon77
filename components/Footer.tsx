@@ -28,9 +28,9 @@ export default function Footer() {
                 href="https://www.google.com/maps/place/Salon+77/@49.7930186,9.9582214,17z"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:opacity-80 transition-opacity"
+                className="underline hover:opacity-75 transition-opacity cursor-pointer"
               >
-                Richard-Wagner-Str. 60<br />
+                📍 Richard-Wagner-Str. 60<br />
                 97074 Würzburg
               </a>
             </p>
