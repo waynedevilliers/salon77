@@ -53,8 +53,8 @@ export default async function InstructorPage({ params }: PageProps) {
     <div className="flex flex-col">
       <JsonLd data={breadcrumbJsonLd(`/dozenten/${slug}`, instructor.name)} />
       <main className="flex-1">
-        <div className="max-w-5xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
-          <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] gap-8 md:gap-12">
+        <div className="max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+          <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,3fr)] gap-8 md:gap-12">
             {/* Left column: photo and contact */}
             <aside className="flex flex-col items-center gap-6">
               <InstructorPhoto name={instructor.name} className="w-56 h-56" />
