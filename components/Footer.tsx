@@ -66,17 +66,13 @@ export default function Footer({ year }: FooterProps) {
           {/* Column 2: Address & Contact */}
           <div className="space-y-3">
             <a
-              href="https://www.google.com/maps/place/Salon+77/@49.7930186,9.9582214,17z"
+              href={site.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 underline hover:opacity-75"
             >
               <MapPinIcon />
-              <span>
-                {site.address.street}
-                <br />
-                {site.address.postalCode} {site.address.city}
-              </span>
+              <span>{`Salon 77, ${site.address.street}, ${site.address.postalCode} ${site.address.city}`}</span>
             </a>
             <div className="space-y-2 border-t border-[var(--color-text)]/30 pt-3">
               <p>

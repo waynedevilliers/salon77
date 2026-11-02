@@ -40,9 +40,9 @@ describe('eventJsonLd', () => {
 describe('placeJsonLd', () => {
   it('uses the same address as the organization', () => {
     expect(placeJsonLd().address).toMatchObject({
-      streetAddress: 'Richard-Wagner-Str. 60',
+      streetAddress: 'Richard-Wagner-Straße 60',
       postalCode: '97074',
-      addressLocality: 'Würzburg',
+      addressLocality: 'Würzburg-Frauenland',
     });
   });
 });
