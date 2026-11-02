@@ -45,19 +45,9 @@ export default function Veranstaltungen() {
       />
       <main className="flex-1">
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-          <h1
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4"
-            style={{ color: 'var(--color-text)' }}
-          >
+          <h1 className="page-title" style={{ color: 'var(--color-text)' }}>
             Veranstaltungen
           </h1>
-          <p
-            className="text-lg sm:text-xl mb-12"
-            style={{ color: 'var(--color-text-muted)' }}
-          >
-            Klein-Montmartre - Kunsthandwerkermarkt
-          </p>
-
           {/* Event Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {EVENTS.map((event) => (

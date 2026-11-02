@@ -127,10 +127,7 @@ export default async function InstructorPage({ params }: PageProps) {
 
             {/* Right column: name, specialty and biography */}
             <article>
-              <h1
-                className="text-3xl sm:text-4xl font-bold mb-2"
-                style={{ color: 'var(--color-text)' }}
-              >
+              <h1 className="page-title" style={{ color: 'var(--color-text)' }}>
                 {instructor.name}
               </h1>
               <p
