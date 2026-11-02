@@ -31,19 +31,19 @@ export default function KleinMontmartre() {
           <div className="mb-12">
             <h1
               className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4"
-              style={{ color: '#2c2c2c' }}
+              style={{ color: 'var(--color-text)' }}
             >
               Klein-Montmartre
             </h1>
             <p
               className="text-lg sm:text-xl font-semibold mb-2"
-              style={{ color: '#B9BCB5' }}
+              style={{ color: 'var(--color-primary)' }}
             >
               Kunsthandwerkermarkt | NEXT: 8.05.27
             </p>
             <p
               className="text-base sm:text-lg"
-              style={{ color: '#666666' }}
+              style={{ color: 'var(--color-text-muted)' }}
             >
               📍 Leonhard-Frank-Promenade, Würzburg | 2x jährlich (Anfang Mai & Oktober)
             </p>
@@ -54,7 +54,7 @@ export default function KleinMontmartre() {
             <section>
               <p
                 className="text-base sm:text-lg leading-relaxed"
-                style={{ color: '#666666' }}
+                style={{ color: 'var(--color-text-muted)' }}
               >
                 Die Künstlerinitiative „Salon 77 e. V.“ präsentiert seit über 30 Jahren einen der ältesten und beliebtesten Kunsthandwerkermärkte in Würzburg.
               </p>
@@ -63,7 +63,7 @@ export default function KleinMontmartre() {
             <section>
               <p
                 className="text-base sm:text-lg leading-relaxed"
-                style={{ color: '#666666' }}
+                style={{ color: 'var(--color-text-muted)' }}
               >
                 Viele Aussteller mit Passion präsentieren und verkaufen ihre Handwerkskunst. Hier findest du Produkte aller Art wie zum Beispiel Taschen, Hüte, Bekleidung, Schmuck, Gemälde, Dekoartikel für Wohnung und Garten, Skulpturen, Geschirr, Seife, DIY-Produkte und vieles mehr aus allen erdenklichen (Natur-)Materialien wie unter anderem Holz, Metall, Fimo, Ton, Filz, Wolle, Leder, Glas, Papier, Stoff, Gips, Acrylfarbe, Trockenblumen und Edelsteinen.
               </p>
@@ -72,7 +72,7 @@ export default function KleinMontmartre() {
             <section>
               <p
                 className="text-base sm:text-lg leading-relaxed"
-                style={{ color: '#666666' }}
+                style={{ color: 'var(--color-text-muted)' }}
               >
                 Inspirierend, individuell, kreativ, beeindruckend und faszinierend sind Attribute, die man dem „Klein Montmartre“ zuweisen könnte. Die Veranstaltung zeichnet eine hohe Wertschätzung gegenüber jeder Handwerkskunst aus - fernab von stumpfem Konsum und belanglosen 0815 Produkten.
               </p>
@@ -81,7 +81,7 @@ export default function KleinMontmartre() {
             <section>
               <p
                 className="text-base sm:text-lg leading-relaxed"
-                style={{ color: '#666666' }}
+                style={{ color: 'var(--color-text-muted)' }}
               >
                 Es erwartet dich eine entspannte Atmosphäre direkt im Grünen am Main auf der Leonhard-Frank-Promenade mit ganz viel Platz für interessante Begegnungen und herzlichster Einladung zum Bewundern, Bestaunen, Stöbern & Kaufen!
               </p>
@@ -90,7 +90,7 @@ export default function KleinMontmartre() {
             <section>
               <p
                 className="text-base sm:text-lg leading-relaxed"
-                style={{ color: '#666666' }}
+                style={{ color: 'var(--color-text-muted)' }}
               >
                 Komme auch Du in den Besitz von echten Unikaten, passionierter Handarbeit und Produkten mit Geschichte, Herz und Hingabe. Das Team vom „Klein Montmartre“ und alle Aussteller freuen sich auf Deinen Besuch!
               </p>
@@ -101,26 +101,26 @@ export default function KleinMontmartre() {
           <div className="bg-white border border-gray-200 rounded-lg p-8 mb-16">
             <h2
               className="text-2xl font-bold mb-6"
-              style={{ color: '#C9A961' }}
+              style={{ color: 'var(--color-accent)' }}
             >
               Weitere Informationen
             </h2>
 
             <div className="space-y-4">
-              <p className="text-base" style={{ color: '#666666' }}>
+              <p className="text-base" style={{ color: 'var(--color-text-muted)' }}>
                 Mehr Impressionen findest du auf unserem Instagram Account{' '}
                 <a
                   href="https://www.instagram.com/klein_montmartre/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline hover:opacity-75"
-                  style={{ color: '#B9BCB5' }}
+                  style={{ color: 'var(--color-primary)' }}
                 >
                   @klein_montmartre
                 </a>
               </p>
 
-              <p className="text-base" style={{ color: '#666666' }}>
+              <p className="text-base" style={{ color: 'var(--color-text-muted)' }}>
                 Du möchtest deine Kunst beim „Klein Montmartre“ ausstellen?
               </p>
 
@@ -128,7 +128,7 @@ export default function KleinMontmartre() {
                 Email an kmm@salon77.de
               </ActionLink>
 
-              <p className="text-base mt-8" style={{ color: '#666666' }}>
+              <p className="text-base mt-8" style={{ color: 'var(--color-text-muted)' }}>
                 Oder melde dich direkt an:
               </p>
 
@@ -138,14 +138,14 @@ export default function KleinMontmartre() {
                 </ActionLink>
               </div>
 
-              <p className="text-base mt-6" style={{ color: '#666666' }}>
+              <p className="text-base mt-6" style={{ color: 'var(--color-text-muted)' }}>
                 Zur aktuellen Facebook Veranstaltung:{' '}
                 <a
                   href="https://fb.me/e/4XfvnFiVE"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline hover:opacity-75"
-                  style={{ color: '#B9BCB5' }}
+                  style={{ color: 'var(--color-primary)' }}
                 >
                   fb.me/e/4XfvnFiVE
                 </a>
@@ -157,15 +157,15 @@ export default function KleinMontmartre() {
           <div className="mb-16">
             <h2
               className="text-2xl font-bold mb-6"
-              style={{ color: '#C9A961' }}
+              style={{ color: 'var(--color-accent)' }}
             >
               Nächste Termine
             </h2>
             <div className="space-y-3">
-              <p className="text-lg font-semibold" style={{ color: '#2c2c2c' }}>
+              <p className="text-lg font-semibold" style={{ color: 'var(--color-text)' }}>
                 📅 Samstag, 08.05.2027
               </p>
-              <p className="text-lg font-semibold" style={{ color: '#2c2c2c' }}>
+              <p className="text-lg font-semibold" style={{ color: 'var(--color-text)' }}>
                 📅 Samstag, 02.10.2027
               </p>
             </div>
@@ -175,7 +175,7 @@ export default function KleinMontmartre() {
           <div>
             <h2
               className="text-2xl font-bold mb-8"
-              style={{ color: '#C9A961' }}
+              style={{ color: 'var(--color-accent)' }}
             >
               Impressionen
             </h2>

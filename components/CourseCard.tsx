@@ -35,17 +35,17 @@ export default function CourseCard({
     >
       <h3
         className="text-lg sm:text-xl font-bold mb-3 transition-colors"
-        style={{ color: '#C9A961' }}
+        style={{ color: 'var(--color-accent)' }}
       >
         {title}
       </h3>
       <p
         className="text-sm sm:text-base mb-4 flex-grow overflow-hidden"
-        style={{ color: '#666666' }}
+        style={{ color: 'var(--color-text-muted)' }}
       >
         {description}
       </p>
-      <p className="text-xs sm:text-sm mb-2" style={{ color: '#666666' }}>
+      <p className="text-xs sm:text-sm mb-2" style={{ color: 'var(--color-text-muted)' }}>
         {schedule}
       </p>
 
@@ -68,7 +68,7 @@ export default function CourseCard({
             </div>
             <p
               className="text-xs sm:text-sm font-semibold text-center"
-              style={{ color: '#2c2c2c' }}
+              style={{ color: 'var(--color-text)' }}
             >
               {instructors[0]}
             </p>
@@ -92,7 +92,7 @@ export default function CourseCard({
                 </div>
                 <p
                   className="text-xs sm:text-sm font-semibold text-center"
-                  style={{ color: '#2c2c2c' }}
+                  style={{ color: 'var(--color-text)' }}
                 >
                   {inst}
                 </p>

@@ -20,7 +20,7 @@ export default function ActionLink({
   className = 'px-6 py-2',
 }: ActionLinkProps) {
   const classes = `${baseClassName} ${className}`;
-  const style = { backgroundColor: '#B9BCB5' };
+  const style = { backgroundColor: 'var(--color-primary)' };
 
   if (href.startsWith('/')) {
     return (

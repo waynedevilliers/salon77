@@ -19,14 +19,14 @@ export default function Datenschutz() {
         <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
           <h1
             className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-12"
-            style={{ color: '#2c2c2c' }}
+            style={{ color: 'var(--color-text)' }}
           >
             Datenschutz
           </h1>
 
-          <div className="space-y-8" style={{ color: '#666666' }}>
+          <div className="space-y-8" style={{ color: 'var(--color-text-muted)' }}>
             <section>
-              <h2 className="text-2xl font-bold mb-4" style={{ color: '#C9A961' }}>
+              <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--color-accent)' }}>
                 Verantwortliche Stelle
               </h2>
               <p className="mb-2">
@@ -44,7 +44,7 @@ export default function Datenschutz() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-4" style={{ color: '#C9A961' }}>
+              <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--color-accent)' }}>
                 Ihre Betroffenenrechte
               </h2>
               <p className="mb-4">
@@ -80,7 +80,7 @@ export default function Datenschutz() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline hover:opacity-75"
-                  style={{ color: '#B9BCB5' }}
+                  style={{ color: 'var(--color-primary)' }}
                 >
                   https://www.bfdi.bund.de
                 </a>
@@ -88,7 +88,7 @@ export default function Datenschutz() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-4" style={{ color: '#C9A961' }}>
+              <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--color-accent)' }}>
                 Zwecke der Datenverarbeitung
               </h2>
               <p className="mb-4">
@@ -110,7 +110,7 @@ export default function Datenschutz() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-4" style={{ color: '#C9A961' }}>
+              <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--color-accent)' }}>
                 Löschung bzw. Sperrung der Daten
               </h2>
               <p className="mb-6">
@@ -124,7 +124,7 @@ export default function Datenschutz() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-4" style={{ color: '#C9A961' }}>
+              <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--color-accent)' }}>
                 Erfassung allgemeiner Informationen beim Besuch unserer Website
               </h2>
               <p className="mb-4">
@@ -159,7 +159,7 @@ export default function Datenschutz() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-4" style={{ color: '#C9A961' }}>
+              <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--color-accent)' }}>
                 Cookies
               </h2>
               <p className="mb-4">
@@ -190,7 +190,7 @@ export default function Datenschutz() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-4" style={{ color: '#C9A961' }}>
+              <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--color-accent)' }}>
                 SSL-Verschlüsselung
               </h2>
               <p className="mb-6">
@@ -201,7 +201,7 @@ export default function Datenschutz() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-4" style={{ color: '#C9A961' }}>
+              <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--color-accent)' }}>
                 Änderung unserer Datenschutzbestimmungen
               </h2>
               <p className="mb-6">
@@ -213,7 +213,7 @@ export default function Datenschutz() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-4" style={{ color: '#C9A961' }}>
+              <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--color-accent)' }}>
                 Fragen zum Datenschutz
               </h2>
               <p className="mb-6">

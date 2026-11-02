@@ -41,7 +41,7 @@ export default function Home() {
         <h1
           className="text-center mb-12"
           style={{
-            color: '#2c2c2c',
+            color: 'var(--color-text)',
             fontFamily: 'var(--font-display)',
             fontSize: 'clamp(1.5rem, 3vw, 2.25rem)',
             fontWeight: 600,

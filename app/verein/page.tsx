@@ -17,13 +17,13 @@ export default function Verein() {
         <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
           <h1
             className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-center"
-            style={{ color: '#2c2c2c' }}
+            style={{ color: 'var(--color-text)' }}
           >
             Verein
           </h1>
           <p
             className="text-lg text-center mb-12"
-            style={{ color: '#666666' }}
+            style={{ color: 'var(--color-text-muted)' }}
           >
             Die Künstlerinitiative
           </p>
@@ -35,13 +35,13 @@ export default function Verein() {
                 <div>
                   <h2
                     className="text-2xl sm:text-3xl font-bold mb-4"
-                    style={{ color: '#2c2c2c' }}
+                    style={{ color: 'var(--color-text)' }}
                   >
                     Der Salon 77
                   </h2>
                   <p
                     className="text-base sm:text-lg leading-relaxed"
-                    style={{ color: '#666666' }}
+                    style={{ color: 'var(--color-text-muted)' }}
                   >
                     Der Salon 77 ist für Würzburg einzigartig. Er besteht als gemeinnütziger Verein
                     seit dem Jahre 1977. Gefördert werden künstlerische Darbietungen in den Bereichen
@@ -52,13 +52,13 @@ export default function Verein() {
                 <div>
                   <h2
                     className="text-2xl sm:text-3xl font-bold mb-4"
-                    style={{ color: '#2c2c2c' }}
+                    style={{ color: 'var(--color-text)' }}
                   >
                     Unsere Mission
                   </h2>
                   <p
                     className="text-base sm:text-lg leading-relaxed mb-4"
-                    style={{ color: '#666666' }}
+                    style={{ color: 'var(--color-text-muted)' }}
                   >
                     Salon77 unterstützt und fördert künstlerische Aktivitäten in Würzburg. Wir bieten
                     Kurse, Workshops und Veranstaltungen an, die Menschen die Möglichkeit geben, ihre
@@ -67,7 +67,7 @@ export default function Verein() {
                   </p>
                   <p
                     className="text-base sm:text-lg leading-relaxed"
-                    style={{ color: '#666666' }}
+                    style={{ color: 'var(--color-text-muted)' }}
                   >
                     Unser Verein arbeitet mit erfahrenen Künstlern und Pädagogen zusammen, um eine
                     inspirierende und unterstützende Umgebung für alle Altersgruppen und Fähigkeitsstufen
@@ -78,7 +78,7 @@ export default function Verein() {
                 <div>
                   <h3
                     className="text-xl sm:text-2xl font-bold mb-4"
-                    style={{ color: '#C9A961' }}
+                    style={{ color: 'var(--color-accent)' }}
                   >
                     Fokus Bereiche
                   </h3>
@@ -86,11 +86,11 @@ export default function Verein() {
                     <li className="flex items-start">
                       <span
                         className="inline-block w-2 h-2 rounded-full mt-2 mr-3 flex-shrink-0"
-                        style={{ backgroundColor: '#ef3d6c' }}
+                        style={{ backgroundColor: 'var(--color-highlight)' }}
                       />
                       <span
                         className="text-base sm:text-lg"
-                        style={{ color: '#666666' }}
+                        style={{ color: 'var(--color-text-muted)' }}
                       >
                         Tanz und Bewegung
                       </span>
@@ -98,11 +98,11 @@ export default function Verein() {
                     <li className="flex items-start">
                       <span
                         className="inline-block w-2 h-2 rounded-full mt-2 mr-3 flex-shrink-0"
-                        style={{ backgroundColor: '#ef3d6c' }}
+                        style={{ backgroundColor: 'var(--color-highlight)' }}
                       />
                       <span
                         className="text-base sm:text-lg"
-                        style={{ color: '#666666' }}
+                        style={{ color: 'var(--color-text-muted)' }}
                       >
                         Musik und Gesang
                       </span>
@@ -110,11 +110,11 @@ export default function Verein() {
                     <li className="flex items-start">
                       <span
                         className="inline-block w-2 h-2 rounded-full mt-2 mr-3 flex-shrink-0"
-                        style={{ backgroundColor: '#ef3d6c' }}
+                        style={{ backgroundColor: 'var(--color-highlight)' }}
                       />
                       <span
                         className="text-base sm:text-lg"
-                        style={{ color: '#666666' }}
+                        style={{ color: 'var(--color-text-muted)' }}
                       >
                         Fotografie
                       </span>
@@ -122,11 +122,11 @@ export default function Verein() {
                     <li className="flex items-start">
                       <span
                         className="inline-block w-2 h-2 rounded-full mt-2 mr-3 flex-shrink-0"
-                        style={{ backgroundColor: '#ef3d6c' }}
+                        style={{ backgroundColor: 'var(--color-highlight)' }}
                       />
                       <span
                         className="text-base sm:text-lg"
-                        style={{ color: '#666666' }}
+                        style={{ color: 'var(--color-text-muted)' }}
                       >
                         Künstlerische Darbietungen
                       </span>
@@ -137,13 +137,13 @@ export default function Verein() {
                 <div>
                   <h2
                     className="text-2xl sm:text-3xl font-bold mb-4"
-                    style={{ color: '#2c2c2c' }}
+                    style={{ color: 'var(--color-text)' }}
                   >
                     Seit 1977
                   </h2>
                   <p
                     className="text-base sm:text-lg leading-relaxed"
-                    style={{ color: '#666666' }}
+                    style={{ color: 'var(--color-text-muted)' }}
                   >
                     Mit mehr als 45 Jahren Erfahrung hat sich Salon77 als eine führende Kunstinitiative
                     in Würzburg etabliert. Wir sind stolz darauf, eine vielfältige Gemeinschaft von

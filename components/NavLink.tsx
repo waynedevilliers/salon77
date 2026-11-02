@@ -13,7 +13,7 @@ export default function NavLink({ href, label, isActive }: NavLinkProps) {
       className={`font-medium transition-opacity hover:opacity-75 ${
         isActive ? 'underline' : ''
       }`}
-      style={{ color: isActive ? '#C9A961' : '#2c2c2c' }}
+      style={{ color: isActive ? 'var(--color-accent)' : 'var(--color-text)' }}
     >
       {label}
     </Link>

@@ -1,16 +1,18 @@
 import Link from 'next/link';
 import { site } from '@/content/site';
 
-export default function Footer() {
-  const year = new Date().getFullYear();
+interface FooterProps {
+  year: number;
+}
 
+export default function Footer({ year }: FooterProps) {
   const legalLinks = [
     { label: 'Impressum', href: '/impressum' },
     { label: 'Datenschutz', href: '/datenschutz' },
   ];
 
   return (
-    <footer className="mt-auto bg-[#b9bcb5] text-white">
+    <footer className="mt-auto bg-[var(--color-primary)] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center items-center">
           {/* Column 1: Organization */}

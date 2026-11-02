@@ -20,7 +20,7 @@ export default function Kontakt() {
         <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
           <h1
             className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-12"
-            style={{ color: '#2c2c2c' }}
+            style={{ color: 'var(--color-text)' }}
           >
             Kontakt
           </h1>
@@ -40,7 +40,7 @@ export default function Kontakt() {
             <div className="bg-white rounded-lg shadow-lg p-8 md:p-12">
               <h2
                 className="text-3xl font-bold mb-8"
-                style={{ color: '#C9A961' }}
+                style={{ color: 'var(--color-accent)' }}
               >
                 Salon77
               </h2>
@@ -51,11 +51,11 @@ export default function Kontakt() {
                   <div>
                     <h3
                       className="text-sm font-semibold mb-2 uppercase tracking-wide"
-                      style={{ color: '#B9BCB5' }}
+                      style={{ color: 'var(--color-primary)' }}
                     >
                       Organisation
                     </h3>
-                    <p style={{ color: '#2c2c2c' }} className="font-semibold">
+                    <p style={{ color: 'var(--color-text)' }} className="font-semibold">
                       Würzburger Künstlerinitiative e.V.
                     </p>
                   </div>
@@ -63,14 +63,14 @@ export default function Kontakt() {
                   <div>
                     <h3
                       className="text-sm font-semibold mb-2 uppercase tracking-wide"
-                      style={{ color: '#B9BCB5' }}
+                      style={{ color: 'var(--color-primary)' }}
                     >
                       Adresse
                     </h3>
-                    <p style={{ color: '#2c2c2c' }} className="font-semibold">
+                    <p style={{ color: 'var(--color-text)' }} className="font-semibold">
                       {site.address.street}
                     </p>
-                    <p style={{ color: '#666666' }}>
+                    <p style={{ color: 'var(--color-text-muted)' }}>
                       {site.address.postalCode} {site.address.city}
                     </p>
                   </div>
@@ -81,18 +81,18 @@ export default function Kontakt() {
                   <div>
                     <h3
                       className="text-sm font-semibold mb-2 uppercase tracking-wide"
-                      style={{ color: '#B9BCB5' }}
+                      style={{ color: 'var(--color-primary)' }}
                     >
                       Telefon
                     </h3>
                     <a
                       href="tel:017179990218"
                       className="hover:underline font-semibold"
-                      style={{ color: '#2c2c2c' }}
+                      style={{ color: 'var(--color-text)' }}
                     >
                       {site.phone}
                     </a>
-                    <p style={{ color: '#666666' }} className="text-sm mt-1">
+                    <p style={{ color: 'var(--color-text-muted)' }} className="text-sm mt-1">
                       2. Vorsitzende Mercedes Sebald
                     </p>
                   </div>
@@ -100,14 +100,14 @@ export default function Kontakt() {
                   <div>
                     <h3
                       className="text-sm font-semibold mb-2 uppercase tracking-wide"
-                      style={{ color: '#B9BCB5' }}
+                      style={{ color: 'var(--color-primary)' }}
                     >
                       Email
                     </h3>
                     <a
                       href="mailto:info@salon77.de"
                       className="hover:underline font-semibold"
-                      style={{ color: '#2c2c2c' }}
+                      style={{ color: 'var(--color-text)' }}
                     >
                       info@salon77.de
                     </a>

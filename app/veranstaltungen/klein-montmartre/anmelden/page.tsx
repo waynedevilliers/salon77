@@ -19,13 +19,13 @@ export default function AnmeldenPage() {
           <div className="mb-12">
             <h1
               className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4"
-              style={{ color: '#2c2c2c' }}
+              style={{ color: 'var(--color-text)' }}
             >
               Aussteller Anmeldung
             </h1>
             <p
               className="text-lg sm:text-xl"
-              style={{ color: '#666666' }}
+              style={{ color: 'var(--color-text-muted)' }}
             >
               Melde dich als Aussteller beim Klein-Montmartre Kunsthandwerkermarkt an.
             </p>
