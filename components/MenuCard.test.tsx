@@ -2,36 +2,35 @@
 import { render, screen } from '@testing-library/react';
 import MenuCard from './MenuCard';
 
+const card = {
+  title: 'Unterricht',
+  description: 'Tanz, Musik und Bewegung für Kinder und Erwachsene',
+  href: '/unterricht',
+  image: {
+    src: '/salon77/unterricht/DSC_2790_1_200x0.jpeg',
+    alt: 'Unterricht bei Salon77',
+    objectPosition: 'center',
+  },
+};
+
 describe('MenuCard', () => {
-  const mockCard = {
-    title: 'Test Card',
-    href: '/test',
-    image: {
-      src: 'https://example.com/test.jpg',
-      alt: 'Test image',
-    },
-  };
-
-  it('renders the title', () => {
-    render(<MenuCard {...mockCard} />);
-    expect(screen.getByText('Test Card')).toBeInTheDocument();
+  it('is a single link to the card page', () => {
+    render(<MenuCard {...card} />);
+    const links = screen.getAllByRole('link');
+    expect(links).toHaveLength(1);
+    expect(links[0]).toHaveAttribute('href', '/unterricht');
   });
 
-  it('renders the image with correct alt text', () => {
-    render(<MenuCard {...mockCard} />);
-    expect(screen.getByAltText('Test image')).toBeInTheDocument();
+  it('uses the title as the accessible name', () => {
+    render(<MenuCard {...card} />);
+    expect(
+      screen.getByRole('link', { name: 'Unterricht' })
+    ).toBeInTheDocument();
   });
 
-  it('links to the correct href', () => {
-    render(<MenuCard {...mockCard} />);
-    const link = screen.getByRole('link');
-    expect(link).toHaveAttribute('href', '/test');
-  });
-
-  it('renders with proper image alt text', () => {
-    render(<MenuCard {...mockCard} />);
-    const image = screen.getByAltText('Test image') as HTMLImageElement;
-    expect(image).toBeInTheDocument();
-    expect(image.src).toContain('test.jpg');
+  it('shows the description and the more-information label', () => {
+    render(<MenuCard {...card} />);
+    expect(screen.getByText(card.description)).toBeInTheDocument();
+    expect(screen.getByText('Mehr erfahren')).toBeInTheDocument();
   });
 });
