@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { site } from '@/content/site';
 
 export const metadata: Metadata = {
   title: 'Datenschutz | Salon77 - Würzburger Künstlerinitiative',
@@ -28,9 +29,9 @@ export default function Datenschutz() {
                 EU-Datenschutzgrundverordnung (DSGVO), ist:
               </p>
               <p className="mb-2 font-semibold">Salon77 | Würzburger Künstlerinitiative e.V.</p>
-              <p className="mb-2">Richard-Wagner-Str. 60 | 97074 Würzburg</p>
+              <p className="mb-2">{site.address.street} | {site.address.postalCode} {site.address.city}</p>
               <p className="mb-2">Amtsgericht Würzburg - Registergericht - VR 755</p>
-              <p className="mb-2">Tel: 0171 - 7990218 (Vorstand)</p>
+              <p className="mb-2">Tel: {site.phone} (Vorstand)</p>
               <p className="mb-6">
                 E-Mail:{' '}
                 <a

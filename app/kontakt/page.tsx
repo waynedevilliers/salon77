@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import BackButton from '@/components/BackButton';
 import MapConsent from '@/components/MapConsent';
+import { site } from '@/content/site';
 
 export const metadata: Metadata = {
   title: 'Kontakt | Salon77 - Würzburger Künstlerinitiative',
@@ -63,10 +64,10 @@ export default function Kontakt() {
                       Adresse
                     </h3>
                     <p style={{ color: '#2c2c2c' }} className="font-semibold">
-                      Richard-Wagner-Str. 60
+                      {site.address.street}
                     </p>
                     <p style={{ color: '#666666' }}>
-                      97074 Würzburg
+                      {site.address.postalCode} {site.address.city}
                     </p>
                   </div>
                 </div>
@@ -85,7 +86,7 @@ export default function Kontakt() {
                       className="hover:underline font-semibold"
                       style={{ color: '#2c2c2c' }}
                     >
-                      0171 - 7990218
+                      {site.phone}
                     </a>
                     <p style={{ color: '#666666' }} className="text-sm mt-1">
                       2. Vorsitzende Mercedes Sebald

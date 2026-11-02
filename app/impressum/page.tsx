@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { site } from '@/content/site';
 
 export const metadata: Metadata = {
   title: 'Impressum | Salon77 - Würzburger Künstlerinitiative',
@@ -23,11 +24,11 @@ export default function Impressum() {
               <h2 className="text-2xl font-bold mb-4" style={{ color: '#C9A961' }}>
                 Salon 77 Würzburger Künstlerinitiative e.V.
               </h2>
-              <p className="mb-2">Richard-Wagner-Str. 60</p>
-              <p className="mb-6">97074 Würzburg</p>
+              <p className="mb-2">{site.address.street}</p>
+              <p className="mb-6">{site.address.postalCode} {site.address.city}</p>
 
               <p className="mb-2">
-                <strong>Telefon:</strong> +49 (0)171/7990218
+                <strong>Telefon:</strong> {site.phone}
               </p>
               <p className="mb-8">
                 <strong>E-Mail:</strong>{' '}

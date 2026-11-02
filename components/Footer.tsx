@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { site } from '@/content/site';
 
 export default function Footer() {
   const year =
@@ -33,17 +34,17 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="underline hover:opacity-75 transition-opacity cursor-pointer"
               >
-                📍 Richard-Wagner-Str. 60<br />
-                97074 Würzburg
+                📍 {site.address.street}<br />
+                {site.address.postalCode} {site.address.city}
               </a>
             </div>
             <div className="space-y-1 pt-2 border-t border-gray-300">
               <p>
                 <a
-                  href="tel:+491717990218"
+                  href={site.phoneHref}
                   className="underline hover:opacity-75 transition-opacity cursor-pointer"
                 >
-                  +49 (0)171/7990218
+                  {site.phone}
                 </a>
               </p>
               <p>
