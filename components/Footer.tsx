@@ -1,11 +1,8 @@
-'use client';
-
 import Link from 'next/link';
 import { site } from '@/content/site';
 
 export default function Footer() {
-  const year =
-    typeof window !== 'undefined' ? new Date().getFullYear() : 2026;
+  const year = new Date().getFullYear();
 
   const legalLinks = [
     { label: 'Impressum', href: '/impressum' },
@@ -34,7 +31,8 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="underline hover:opacity-75 transition-opacity cursor-pointer"
               >
-                📍 {site.address.street}<br />
+                📍 {site.address.street}
+                <br />
                 {site.address.postalCode} {site.address.city}
               </a>
             </div>

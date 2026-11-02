@@ -1,7 +1,5 @@
-'use client';
-
-import Link from 'next/link';
 import Image from 'next/image';
+import ActionLink from '@/components/ActionLink';
 
 interface EventCardProps {
   title: string;
@@ -13,8 +11,15 @@ interface EventCardProps {
   buttonLink?: string;
 }
 
-export default function EventCard({ title, date, location, description, image, buttonText = 'Mehr Infos', buttonLink = '/kontakt' }: EventCardProps) {
-  const isExternalLink = buttonLink.startsWith('http');
+export default function EventCard({
+  title,
+  date,
+  location,
+  description,
+  image,
+  buttonText = 'Mehr Infos',
+  buttonLink = '/kontakt',
+}: EventCardProps) {
   return (
     <div className="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow overflow-hidden flex flex-col h-full">
       {/* Event Image */}
@@ -29,11 +34,17 @@ export default function EventCard({ title, date, location, description, image, b
 
       {/* Event Content */}
       <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-lg sm:text-xl font-bold mb-2 transition-colors" style={{ color: '#C9A961' }}>
+        <h3
+          className="text-lg sm:text-xl font-bold mb-2 transition-colors"
+          style={{ color: '#C9A961' }}
+        >
           {title}
         </h3>
 
-        <p className="text-sm sm:text-base mb-3 font-semibold" style={{ color: '#B9BCB5' }}>
+        <p
+          className="text-sm sm:text-base mb-3 font-semibold"
+          style={{ color: '#B9BCB5' }}
+        >
           {date}
         </p>
 
@@ -41,33 +52,16 @@ export default function EventCard({ title, date, location, description, image, b
           📍 {location}
         </p>
 
-        <p className="text-sm sm:text-base mb-6 flex-grow" style={{ color: '#666666' }}>
+        <p
+          className="text-sm sm:text-base mb-6 flex-grow"
+          style={{ color: '#666666' }}
+        >
           {description}
         </p>
 
-        {isExternalLink ? (
-          <a
-            href={buttonLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-6 py-2 rounded-md font-semibold transition-all text-white w-full text-center"
-            style={{ backgroundColor: '#B9BCB5' }}
-            onMouseEnter={(e) => e.currentTarget.style.opacity = '0.85'}
-            onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
-          >
-            {buttonText}
-          </a>
-        ) : (
-          <Link
-            href={buttonLink}
-            className="inline-block px-6 py-2 rounded-md font-semibold transition-all text-white w-full text-center"
-            style={{ backgroundColor: '#B9BCB5' }}
-            onMouseEnter={(e) => e.currentTarget.style.opacity = '0.85'}
-            onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
-          >
-            {buttonText}
-          </Link>
-        )}
+        <ActionLink href={buttonLink} className="w-full px-6 py-2 text-center">
+          {buttonText}
+        </ActionLink>
       </div>
     </div>
   );

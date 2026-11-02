@@ -28,47 +28,35 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
     setLightboxOpen(true);
   };
 
+  const renderTile = (image: GalleryImage, index: number) => (
+    <div
+      key={image.alt}
+      className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
+      onClick={() => handleImageClick(index)}
+    >
+      <Image
+        src={image.src}
+        alt={image.alt}
+        width={400}
+        height={300}
+        className="w-full h-64 sm:h-72 object-cover hover:scale-105 transition-transform duration-300"
+      />
+    </div>
+  );
+
   return (
     <>
       {/* Row 1 - First 3 images */}
       <div className="mb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {images.slice(0, 3).map((image, index) => (
-            <div
-              key={image.alt}
-              className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
-              onClick={() => handleImageClick(index)}
-            >
-              <Image
-                src={image.src}
-                alt={image.alt}
-                width={400}
-                height={300}
-                className="w-full h-64 sm:h-72 object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-          ))}
+          {images.slice(0, 3).map(renderTile)}
         </div>
       </div>
 
       {/* Row 2 - Remaining images */}
       <div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {images.slice(3).map((image, index) => (
-            <div
-              key={image.alt}
-              className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
-              onClick={() => handleImageClick(index + 3)}
-            >
-              <Image
-                src={image.src}
-                alt={image.alt}
-                width={400}
-                height={300}
-                className="w-full h-64 sm:h-72 object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-          ))}
+          {images.slice(3).map((image, index) => renderTile(image, index + 3))}
         </div>
       </div>
 
