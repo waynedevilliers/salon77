@@ -1,0 +1,24 @@
+# Salon77 - Würzburger Künstlerinitiative e.V.
+
+> Salon77 ist eine Künstlerinitiative in Würzburg (Richard-Wagner-Str. 60, 97074 Würzburg). Der Verein bietet seit 1977 Kurse in Tanz, Bewegung, Musik und Fotografie und organisiert den Kunsthandwerkermarkt Klein-Montmartre.
+
+Kontakt: +49 171 7990218, info@salon77.de
+
+## Seiten
+
+- [Startseite](https://salon77.de/): Überblick über Salon77 und das Angebot
+- [Übersicht](https://salon77.de/uebersicht): Kurse und Programme
+- [Unterricht](https://salon77.de/unterricht): Kurse in Tanz, Musik, Fotografie und mehr
+- [Wochenkurse](https://salon77.de/wochenkurse): Wöchentlicher Kursplan mit Zeiten
+- [Dozenten](https://salon77.de/dozenten): Dozentinnen und Dozenten
+- [Veranstaltungen](https://salon77.de/veranstaltungen): Kommende Veranstaltungen
+- [Klein-Montmartre](https://salon77.de/veranstaltungen/klein-montmartre): Kunsthandwerkermarkt in Würzburg, zweimal jährlich
+- [Räumlichkeiten](https://salon77.de/raeumlichkeiten): Studios und Räume für Tanz, Musik und Fotografie
+- [Verein](https://salon77.de/verein): Geschichte und Ziele der Künstlerinitiative
+- [Kontakt](https://salon77.de/kontakt): Adresse, Telefon, E-Mail und Anfahrt
+- [Impressum](https://salon77.de/impressum)
+- [Datenschutz](https://salon77.de/datenschutz)
+
+## Optional
+
+- [Sitemap](https://salon77.de/sitemap.xml)
