@@ -4,7 +4,7 @@ import { indexableRoutes } from '@/content/routes';
 const context = 'https://schema.org';
 
 /** Builds a BreadcrumbList from the home page down to the given path. */
-export function breadcrumbJsonLd(path: string) {
+export function breadcrumbJsonLd(path: string, lastLabel?: string) {
   const segments = path.split('/').filter(Boolean);
   const paths = segments.map(
     (_, index) => `/${segments.slice(0, index + 1).join('/')}`
@@ -19,7 +19,10 @@ export function breadcrumbJsonLd(path: string) {
       return {
         '@type': 'ListItem',
         position: index + 1,
-        name: route?.label ?? item.path,
+        name:
+          index === items.length - 1 && lastLabel
+            ? lastLabel
+            : (route?.label ?? item.path),
         item: `${site.url}${item.path}`,
       };
     }),
