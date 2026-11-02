@@ -59,9 +59,9 @@ export default async function InstructorPage({ params }: PageProps) {
             <aside className="flex flex-col items-center gap-6">
               <InstructorPhoto name={instructor.name} className="w-56 h-56" />
 
-              <ul className="space-y-3 w-full max-w-xs text-center">
+              <ul className="flex flex-col items-start gap-3">
                 {instructor.phone && (
-                  <li className="flex justify-center">
+                  <li>
                     <a
                       href={`tel:${instructor.phone.replace(/[^\d+]/g, '')}`}
                       className="inline-flex items-center gap-3 hover:opacity-75 break-all"
@@ -85,7 +85,7 @@ export default async function InstructorPage({ params }: PageProps) {
                   </li>
                 )}
                 {instructor.email && (
-                  <li className="flex justify-center">
+                  <li>
                     <a
                       href={`mailto:${instructor.email}`}
                       className="inline-flex items-center gap-3 hover:opacity-75 break-all"
@@ -110,7 +110,7 @@ export default async function InstructorPage({ params }: PageProps) {
                   </li>
                 )}
                 {instructor.website && (
-                  <li className="flex justify-center">
+                  <li>
                     <a
                       href={instructor.website}
                       target="_blank"
