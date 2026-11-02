@@ -20,10 +20,7 @@ export default function AnmeldenPage() {
       <main className="flex-1">
         <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
           <div className="mb-12">
-            <h1
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4"
-              style={{ color: 'var(--color-text)' }}
-            >
+            <h1 className="page-title" style={{ color: 'var(--color-text)' }}>
               Aussteller Anmeldung
             </h1>
             <p

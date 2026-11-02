@@ -9,13 +9,13 @@ import './globals.css';
 const playfair = Playfair_Display({
   subsets: ['latin'],
   weight: ['700', '900'],
-  variable: '--font-display',
+  variable: '--font-playfair',
 });
 
 const lato = Lato({
   subsets: ['latin'],
   weight: ['400', '700'],
-  variable: '--font-sans',
+  variable: '--font-lato',
 });
 
 export const metadata: Metadata = {

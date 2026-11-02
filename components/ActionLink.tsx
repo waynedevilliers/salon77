@@ -5,10 +5,11 @@ interface ActionLinkProps {
   children: React.ReactNode;
   /** Padding and width classes. The default matches the standard button. */
   className?: string;
+  style?: React.CSSProperties;
 }
 
 const baseClassName =
-  'inline-block rounded-md font-semibold text-white transition-opacity hover:opacity-[0.85]';
+  'inline-block rounded-md font-semibold transition-opacity hover:opacity-[0.85]';
 
 /**
  * Pill-style button used for calls to action. Internal paths use the Next.js
@@ -18,13 +19,18 @@ export default function ActionLink({
   href,
   children,
   className = 'px-6 py-2',
+  style,
 }: ActionLinkProps) {
   const classes = `${baseClassName} ${className}`;
-  const style = { backgroundColor: 'var(--color-primary)' };
+  const buttonStyle = {
+    backgroundColor: 'var(--color-button)',
+    color: 'var(--color-button-text)',
+    ...style,
+  };
 
   if (href.startsWith('/')) {
     return (
-      <Link href={href} className={classes} style={style}>
+      <Link href={href} className={classes} style={buttonStyle}>
         {children}
       </Link>
     );
@@ -36,7 +42,7 @@ export default function ActionLink({
     <a
       href={href}
       className={classes}
-      style={style}
+      style={buttonStyle}
       target={isExternal ? '_blank' : undefined}
       rel={isExternal ? 'noopener noreferrer' : undefined}
     >

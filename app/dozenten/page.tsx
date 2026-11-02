@@ -2,6 +2,7 @@ import JsonLd from '@/components/JsonLd';
 import { breadcrumbJsonLd } from '@/lib/structured-data';
 import { pageMetadata } from '@/lib/metadata';
 import InstructorCard from '@/components/InstructorCard';
+import { instructors } from '@/content/instructors';
 
 export const metadata = pageMetadata({
   title: 'Dozenten | Salon77 - Würzburger Künstlerinitiative',
@@ -9,31 +10,13 @@ export const metadata = pageMetadata({
   path: '/dozenten',
 });
 
-const INSTRUCTORS = [
-  { name: 'Andrea Kneis', specialty: 'Gesang' },
-  { name: 'Asami Krisan', specialty: 'Ballett' },
-  {
-    name: 'Hsiu-Yun Lu',
-    specialty: 'Zeitgenössischer Tanz, Taiji, Kindertanz',
-  },
-  { name: 'Mercedes Sebald Arguisuelas', specialty: 'Flamenco' },
-  { name: 'Michael Röthlein', specialty: 'Taiko' },
-  { name: 'Norbert Schmelz', specialty: 'Fotografie' },
-  { name: 'Robert Collomb', specialty: 'Gitarrenunterricht' },
-  { name: 'Simon Ort', specialty: 'Bass' },
-  { name: 'Stefanie Koch', specialty: 'Akkordeon' },
-];
-
 export default function Dozenten() {
   return (
     <div className="flex flex-col">
       <JsonLd data={breadcrumbJsonLd('/dozenten')} />
       <main className="flex-1">
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-          <h1
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-center"
-            style={{ color: 'var(--color-text)' }}
-          >
+          <h1 className="page-title" style={{ color: 'var(--color-text)' }}>
             Unsere Dozenten
           </h1>
           <p
@@ -45,8 +28,8 @@ export default function Dozenten() {
 
           {/* Instructors Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {INSTRUCTORS.map((instructor, index) => (
-              <InstructorCard key={index} instructor={instructor} />
+            {instructors.map((instructor) => (
+              <InstructorCard key={instructor.name} instructor={instructor} />
             ))}
           </div>
         </div>

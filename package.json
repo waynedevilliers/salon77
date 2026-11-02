@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node scripts/dev.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
@@ -19,7 +19,8 @@
     "format:check": "prettier --check .",
     "knip": "knip",
     "duplication": "jscpd app components lib content e2e --min-lines 5 --min-tokens 50",
-    "audit": "npm audit --audit-level=high"
+    "audit": "npm audit --audit-level=high",
+    "dev:stop": "node scripts/dev-stop.mjs"
   },
   "dependencies": {
     "next": "16.4.3",

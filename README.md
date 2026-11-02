@@ -120,11 +120,15 @@ cp .env.example .env.local
 # 3. Start development server
 npm run dev
 
-# 4. Open http://localhost:3000 in browser
+# 4. Open http://localhost:3001 in browser
 ```
 
 `.env.local` is ignored by git and must never be committed. The variables are
 listed in `.env.example`.
+
+One dev server per project: `npm run dev` stops old dev servers of this project
+and starts on port 3001. Set `DEV_PORT` to use another port. `npm run dev:stop`
+stops them without starting one.
 
 ### Build & Deploy
 
@@ -214,7 +218,8 @@ salon77/
 ### Available Commands
 
 ```bash
-npm run dev           # Start development server (http://localhost:3000)
+npm run dev           # Start development server on port 3001 (stops older dev servers first)
+npm run dev:stop      # Stop all dev servers of this project
 npm run build         # Build for production
 npm start             # Run production build
 npm run lint          # ESLint

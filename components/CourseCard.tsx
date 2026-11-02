@@ -1,5 +1,7 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import ActionLink from '@/components/ActionLink';
+import { findInstructorByName, instructorSlug } from '@/lib/instructors';
 
 interface CourseCardProps {
   title: string;
@@ -10,7 +12,7 @@ interface CourseCardProps {
 
 const INSTRUCTOR_IMAGES: Record<string, string> = {
   'Hsiu-Yun Lu': '/salon77/unterricht/kinder_taz.jpg',
-  'Asami Krisan': '/salon77/unterricht/ballet.jpg',
+  'Asami Krisan': '/salon77/dozenten/asami-krisan.jpg',
   'Mercedes Sebald': '/salon77/unterricht/Flamenco.jpg',
   'Robert Collomb': '/salon77/unterricht/rob_collomb.jpg',
   'Simon Ort': '/salon77/unterricht/bass.jpeg',
@@ -19,6 +21,40 @@ const INSTRUCTOR_IMAGES: Record<string, string> = {
   'Fabio Cassarino': '/salon77/unterricht/djing&produktion.png',
   'Norbert Schmelz': '/salon77/unterricht/fotografie.jpg',
 };
+
+function InstructorBlock({ name }: { name: string }) {
+  const profile = findInstructorByName(name);
+  const nameClass =
+    'text-base font-semibold text-center underline-offset-4 hover:underline';
+  const nameStyle = { color: 'var(--color-text)' };
+
+  return (
+    <div className="flex flex-col items-center">
+      <div className="mb-2 h-24 w-24 flex-shrink-0 overflow-hidden rounded-full border-2 border-gray-200">
+        <Image
+          src={INSTRUCTOR_IMAGES[name] || '/salon77/Salon77_logo_small.svg'}
+          alt={name}
+          width={96}
+          height={96}
+          className="h-full w-full object-cover"
+        />
+      </div>
+      {profile ? (
+        <Link
+          href={`/dozenten/${instructorSlug(profile.name)}`}
+          className={nameClass}
+          style={nameStyle}
+        >
+          {name}
+        </Link>
+      ) : (
+        <p className={nameClass} style={nameStyle}>
+          {name}
+        </p>
+      )}
+    </div>
+  );
+}
 
 export default function CourseCard({
   title,
@@ -30,86 +66,41 @@ export default function CourseCard({
 
   return (
     <div
-      className="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow p-6 flex flex-col h-screen-sm"
+      className="flex flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-lg"
       style={{ minHeight: '500px' }}
     >
       <h3
-        className="text-lg sm:text-xl font-bold mb-3 transition-colors"
-        style={{ color: 'var(--color-accent)' }}
+        className="mb-2 text-xl font-bold leading-[1.3] sm:text-2xl"
+        style={{ color: 'var(--color-heading)' }}
       >
         {title}
       </h3>
+      <span
+        aria-hidden="true"
+        className="mb-4 block h-0.5 w-10"
+        style={{ backgroundColor: 'var(--color-accent)' }}
+      />
       <p
-        className="text-sm sm:text-base mb-4 flex-grow overflow-hidden"
+        className="mb-4 text-base leading-[1.6]"
         style={{ color: 'var(--color-text-muted)' }}
       >
         {description}
       </p>
-      <p
-        className="text-xs sm:text-sm mb-2"
-        style={{ color: 'var(--color-text-muted)' }}
+      <ul
+        className="mb-6 mt-auto h-[3.2rem] list-disc pl-5 text-base font-semibold leading-[1.6] marker:text-base marker:leading-none marker:text-[var(--color-button)]"
+        style={{ color: 'var(--color-text)' }}
       >
-        {schedule}
-      </p>
+        <li>{schedule}</li>
+      </ul>
 
-      {/* Instructor Image(s) and Name(s) */}
-      <div className="flex flex-col items-center mb-6 mt-4">
-        {instructors.length === 1 ? (
-          // Single instructor
-          <div className="flex flex-col items-center">
-            <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-gray-200 mb-2 flex-shrink-0">
-              <Image
-                src={
-                  INSTRUCTOR_IMAGES[instructors[0]] ||
-                  '/salon77/Salon77_logo_small.svg'
-                }
-                alt={instructors[0]}
-                width={80}
-                height={80}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <p
-              className="text-xs sm:text-sm font-semibold text-center"
-              style={{ color: 'var(--color-text)' }}
-            >
-              {instructors[0]}
-            </p>
-          </div>
-        ) : (
-          // Multiple instructors
-          <div className="flex gap-4 justify-center">
-            {instructors.map((inst) => (
-              <div key={inst} className="flex flex-col items-center">
-                <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-gray-200 mb-2 flex-shrink-0">
-                  <Image
-                    src={
-                      INSTRUCTOR_IMAGES[inst] ||
-                      '/salon77/Salon77_logo_small.svg'
-                    }
-                    alt={inst}
-                    width={80}
-                    height={80}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <p
-                  className="text-xs sm:text-sm font-semibold text-center"
-                  style={{ color: 'var(--color-text)' }}
-                >
-                  {inst}
-                </p>
-              </div>
-            ))}
-          </div>
-        )}
+      <div className="mb-6 flex flex-wrap justify-center gap-6">
+        {instructors.map((name) => (
+          <InstructorBlock key={name} name={name} />
+        ))}
       </div>
 
-      <ActionLink
-        href="/kontakt"
-        className="mt-auto w-full px-6 py-2 text-center"
-      >
-        Kontakt aufnehmen
+      <ActionLink href="/kontakt" className="w-full px-6 py-3 text-center">
+        Probestunde anfragen
       </ActionLink>
     </div>
   );

@@ -1,5 +1,7 @@
 import { pageMetadata } from '@/lib/metadata';
 import MenuCard from '@/components/MenuCard';
+import NextEvent from '@/components/NextEvent';
+import { kleinMontmartreDates, kleinMontmartreTeaser } from '@/content/events';
 
 export const metadata = pageMetadata({
   title: 'Startseite | Salon77 - Würzburger Künstlerinitiative',
@@ -40,14 +42,12 @@ export default function Home() {
     <div className="flex flex-col">
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
         <h1
-          className="text-center mb-12"
+          className="mb-6 text-center leading-[1.1] sm:mb-8 lg:mb-12"
           style={{
-            color: 'var(--color-text)',
-            fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(1.5rem, 3vw, 2.25rem)',
-            fontWeight: 600,
-            letterSpacing: '-0.015em',
-            lineHeight: 1.2,
+            color: 'var(--color-accent)',
+            fontFamily: 'var(--font-sans)',
+            fontWeight: 700,
+            fontSize: 'clamp(2rem, 3.5vw + 0.5rem, 3rem)',
           }}
         >
           Die Künstlerinitiative in Würzburg-Frauenland
@@ -61,6 +61,8 @@ export default function Home() {
             ))}
           </div>
         </section>
+
+        <NextEvent {...kleinMontmartreTeaser} dates={kleinMontmartreDates} />
       </div>
     </div>
   );

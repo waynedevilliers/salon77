@@ -1,11 +1,7 @@
-'use client';
-
-import Image from 'next/image';
-
-interface Instructor {
-  name: string;
-  specialty: string;
-}
+import Link from 'next/link';
+import InstructorPhoto from '@/components/InstructorPhoto';
+import { instructorSlug } from '@/lib/instructors';
+import type { Instructor } from '@/content/instructors';
 
 export default function InstructorCard({
   instructor,
@@ -13,25 +9,14 @@ export default function InstructorCard({
   instructor: Instructor;
 }) {
   return (
-    <div className="flex flex-col items-center">
-      <div className="relative w-40 h-40 rounded-full overflow-hidden shadow-lg mb-4 bg-gray-200 flex items-center justify-center">
-        <Image
-          src={`/salon77/dozenten/${instructor.name.toLowerCase().replace(/\s+/g, '-')}.jpg`}
-          alt={instructor.name}
-          width={160}
-          height={160}
-          className="w-full h-full object-cover"
-          onError={(e) => {
-            e.currentTarget.style.display = 'none';
-          }}
-        />
-        <div className="absolute inset-0 bg-gray-300 flex items-center justify-center text-gray-500 text-sm">
-          Bild folgt
-        </div>
-      </div>
+    <Link
+      href={`/dozenten/${instructorSlug(instructor.name)}`}
+      className="group flex flex-col items-center transition-opacity hover:opacity-80"
+    >
+      <InstructorPhoto name={instructor.name} className="w-40 h-40 mb-4" />
 
       <h3
-        className="text-lg sm:text-xl font-bold text-center"
+        className="text-lg sm:text-xl font-bold text-center group-hover:underline"
         style={{ color: 'var(--color-text)' }}
       >
         {instructor.name}
@@ -42,6 +27,6 @@ export default function InstructorCard({
       >
         {instructor.specialty}
       </p>
-    </div>
+    </Link>
   );
 }
