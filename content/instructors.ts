@@ -29,9 +29,30 @@ export const instructors: Instructor[] = [
     specialty: 'Flamenco',
     bio: 'Mercedes Sebald Arguisuelas ist gebürtige Spanierin (Navarrés, Valencia) und in Würzburg aufgewachsen. Sie studierte Romanistik (Würzburg, Salamanca, Coimbra) und bildete sich in spanischer Folklore (Escuela Bolera, Danza Española, Jotas, Flamenco) bei legendären Altmeistern aus, unter anderem bei „Amor de Dios“ in Madrid. Regelmäßige Tanz-Fortbildungen in Sevilla. 2001 Choreografie-Auftrag für das Mainfranken Theater (Oper „Carmen“). 2002 Solo-Tänzerin auf Nordamerikas größter Folklore-Expo „Folklorama“ im „Spanish Pavilion“ in Winnipeg, Kanada. Zahlreiche regionale und überregionale Tanzauftritte.\n\nSeit 1999 ist sie aktives Mitglied der Würzburger Künstlerinitiative „Salon 77“. Sie unterrichtet spanische Folklore und entwickelte Projekte wie die Internationalen Tanztage in Würzburg. 2008 erhielt sie eine zertifizierte Fortbildung in BWL, Management, Marketing und Vertrieb. Sie arbeitet freiberuflich als Übersetzerin, Eventmanagerin und Tänzerin und war jahrelang Dozentin für spanische Sprache, Kultur und Folklore. 2009 erhielt sie die Kulturmedaille der Stadt Würzburg.\n\nTechnikklassen (A–F): Ein Warm-up und eine intensive Körperarbeit halten Körper und Geist fit. Fuß-, Arm- und Handtechnik sowie Palmas (Klatschen) werden zu verschiedenen Flamencostilen trainiert. Konzentration, Koordination, Balance und Rhythmusgefühl werden gefördert. Für alle Niveaus und jedes Alter.\n\nChoreografie-Klassen (AmV/M/F): Die wichtigsten Flamencostile (Palos), teils mit Live-Gitarre. Die Struktur des Tanzes wird erklärt, um eine sinngebende Körpersprache, natürliche Mimik und das Verständnis für Gesangs- und Gitarrenbegleitung aufzubauen.\n\nSevillanas – andalusische Folklore (Paartanz): Ein südspanischer Paartanz im 3/4-Takt mit vier Strophen (Coplas). Anfänger können sofort mittanzen. Ein Tanzpartner ist nicht nötig, getanzt wird als Frau und Mann oder als zwei Frauen.\n\nRegelmäßige Workshops (Frühjahr, Sommer, Herbst) sowie Einzel- und Gruppenunterricht für jede Altersstufe, auch auf Anfrage.',
   },
-  { name: 'Michael Röthlein', specialty: 'Taiko' },
-  { name: 'Norbert Schmelz', specialty: 'Fotografie' },
-  { name: 'Robert Collomb', specialty: 'Gitarrenunterricht' },
-  { name: 'Simon Ort', specialty: 'Bass' },
-  { name: 'Stefanie Koch', specialty: 'Akkordeon' },
+  {
+    name: 'Michael Röthlein',
+    specialty: 'Taiko',
+    website: 'http://www.todoroki.de',
+  },
+  {
+    name: 'Norbert Schmelz',
+    specialty: 'Fotografie',
+    website: 'http://www.schmelz-fotodesign.de/',
+  },
+  {
+    name: 'Robert Collomb',
+    specialty: 'Gitarrenunterricht',
+    website: 'https://www.gitarren-studio.com/',
+  },
+  {
+    name: 'Simon Ort',
+    specialty: 'Bass',
+    website: 'https://simonort.com',
+  },
+  {
+    name: 'Stefanie Koch',
+    specialty: 'Akkordeon',
+    bio: 'Ausbildung: Abschluss des Hochschulstudiums als Dipl.-Sozialpädagogin mit Studienschwerpunkt Musiktherapie 1999. Seither tätig als freiberufliche Musiklehrerin im Vertrag mit der Musikschule Fröhlich, die bundesweit und seit einigen Jahren auch international (Amerika, China u. a.) vertreten ist.\n\nFort- und Weiterbildung: Otto Richter (Human Holographics) seit 1995 bis 2026, einige Male als Assistenz. Diverse Musik-, Tanz- und Therapiefortbildungen seit ca. 1989. Ausbildung zur Seminarleiterin für Tanz- und Bewegungspädagogik (IEK Berlin, 08.2013). Regelmäßige Seminare zur beruflichen Fortbildung der Musikschule Fröhlich seit 2000. Für den ALV (Akkordeon-Lehrerverband e.V.) Berechtigung zur Abnahme der Schülerprüfung Stufe 1 bis 5. 11-monatige Ausbildung zur Rhythmustrainerin am FMZ München (2014/2015).\n\nMusikunterricht nach dem System der Musikschule Fröhlich: Das Besondere ist, dass das Unterrichtskonzept möglichst vielen Menschen jeden Alters zum „Spaß am Musizieren“ verhelfen möchte, damit sie lebenslang Freude an der Musik haben. Musik regt die Phantasie an, fördert die Konzentrationsfähigkeit und stärkt das logische Denken. Das Unterrichtsprogramm ist in kleinen Lernschritten aufgebaut und gehirngerecht konzipiert, sodass sich schnell Erfolge einstellen. Das ist eine wichtige Voraussetzung für stressfreies Lernen. Der Unterricht folgt Stundenverlaufsplänen, die auf langjähriger Unterrichtserfahrung eines Expertenteams beruhen.\n\nIn den Fortgeschrittenen-Gruppen (Jugendliche und Erwachsene) werden zunehmend Stücke aus allen Bereichen der Musik in mehrstimmigen Variationen erarbeitet, bis hin zum Orchestertraining. Seit 2005 besteht das Akkordeonorchester „Allegro“, das 2017 bis 2019 eine Partnerschaft mit dem niederländischen Akkordeonorchester „NJAO“ und dem Dirigenten J. Josemans hatte. Die Orchesterleitung der 13 bis 16 Spielerinnen und Spieler aller Altersstufen wurde 2018 bis 2021 durch den Akkordeonisten Haoyang Zhang unterstützt.',
+    website: 'https://akkordeon-und-mehr.de',
+  },
 ];
