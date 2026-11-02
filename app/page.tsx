@@ -42,7 +42,7 @@ export default function Home() {
         <h1
           className="text-center leading-[1.1]"
           style={{
-            color: 'var(--color-text)',
+            color: 'var(--color-accent)',
             fontFamily: 'var(--font-script)',
             fontWeight: 400,
             fontSize: 'clamp(2.5rem, 4vw + 1rem, 3.75rem)',
