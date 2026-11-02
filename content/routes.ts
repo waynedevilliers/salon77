@@ -1,4 +1,4 @@
-export interface SiteRoute {
+interface SiteRoute {
   path: string;
   label: string;
   priority: number;

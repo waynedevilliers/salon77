@@ -1,7 +1,5 @@
-'use client';
-
-import Link from 'next/link';
 import Image from 'next/image';
+import ActionLink from '@/components/ActionLink';
 
 interface CourseCardProps {
   title: string;
@@ -22,15 +20,29 @@ const INSTRUCTOR_IMAGES: Record<string, string> = {
   'Norbert Schmelz': '/salon77/unterricht/fotografie.jpg',
 };
 
-export default function CourseCard({ title, description, schedule, instructor }: CourseCardProps) {
-  const instructors = instructor.split(',').map(i => i.trim());
+export default function CourseCard({
+  title,
+  description,
+  schedule,
+  instructor,
+}: CourseCardProps) {
+  const instructors = instructor.split(',').map((i) => i.trim());
 
   return (
-    <div className="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow p-6 flex flex-col h-screen-sm" style={{ minHeight: '500px' }}>
-      <h3 className="text-lg sm:text-xl font-bold mb-3 transition-colors" style={{ color: '#C9A961' }}>
+    <div
+      className="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow p-6 flex flex-col h-screen-sm"
+      style={{ minHeight: '500px' }}
+    >
+      <h3
+        className="text-lg sm:text-xl font-bold mb-3 transition-colors"
+        style={{ color: '#C9A961' }}
+      >
         {title}
       </h3>
-      <p className="text-sm sm:text-base mb-4 flex-grow overflow-hidden" style={{ color: '#666666' }}>
+      <p
+        className="text-sm sm:text-base mb-4 flex-grow overflow-hidden"
+        style={{ color: '#666666' }}
+      >
         {description}
       </p>
       <p className="text-xs sm:text-sm mb-2" style={{ color: '#666666' }}>
@@ -44,14 +56,20 @@ export default function CourseCard({ title, description, schedule, instructor }:
           <div className="flex flex-col items-center">
             <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-gray-200 mb-2 flex-shrink-0">
               <Image
-                src={INSTRUCTOR_IMAGES[instructors[0]] || '/salon77/Salon77_logo_small.svg'}
+                src={
+                  INSTRUCTOR_IMAGES[instructors[0]] ||
+                  '/salon77/Salon77_logo_small.svg'
+                }
                 alt={instructors[0]}
                 width={80}
                 height={80}
                 className="w-full h-full object-cover"
               />
             </div>
-            <p className="text-xs sm:text-sm font-semibold text-center" style={{ color: '#2c2c2c' }}>
+            <p
+              className="text-xs sm:text-sm font-semibold text-center"
+              style={{ color: '#2c2c2c' }}
+            >
               {instructors[0]}
             </p>
           </div>
@@ -62,14 +80,20 @@ export default function CourseCard({ title, description, schedule, instructor }:
               <div key={inst} className="flex flex-col items-center">
                 <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-gray-200 mb-2 flex-shrink-0">
                   <Image
-                    src={INSTRUCTOR_IMAGES[inst] || '/salon77/Salon77_logo_small.svg'}
+                    src={
+                      INSTRUCTOR_IMAGES[inst] ||
+                      '/salon77/Salon77_logo_small.svg'
+                    }
                     alt={inst}
                     width={80}
                     height={80}
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <p className="text-xs sm:text-sm font-semibold text-center" style={{ color: '#2c2c2c' }}>
+                <p
+                  className="text-xs sm:text-sm font-semibold text-center"
+                  style={{ color: '#2c2c2c' }}
+                >
                   {inst}
                 </p>
               </div>
@@ -78,15 +102,12 @@ export default function CourseCard({ title, description, schedule, instructor }:
         )}
       </div>
 
-      <Link
+      <ActionLink
         href="/kontakt"
-        className="inline-block px-6 py-2 rounded-md font-semibold transition-all text-white mt-auto w-full text-center"
-        style={{ backgroundColor: '#B9BCB5' }}
-        onMouseEnter={(e) => e.currentTarget.style.opacity = '0.85'}
-        onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
+        className="mt-auto w-full px-6 py-2 text-center"
       >
         Kontakt aufnehmen
-      </Link>
+      </ActionLink>
     </div>
   );
 }

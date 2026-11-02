@@ -3,8 +3,7 @@ import { breadcrumbJsonLd, eventJsonLd } from '@/lib/structured-data';
 import { kleinMontmartreDates } from '@/content/events';
 import { pageMetadata } from '@/lib/metadata';
 import ImageGallery from '@/components/ImageGallery';
-import EmailButton from '@/components/EmailButton';
-import AnmeldenButton from '@/components/AnmeldenButton';
+import ActionLink from '@/components/ActionLink';
 
 export const metadata = pageMetadata({
   title: 'Klein-Montmartre | Salon77 - Kunsthandwerkermarkt Würzburg',
@@ -125,17 +124,18 @@ export default function KleinMontmartre() {
                 Du möchtest deine Kunst beim „Klein Montmartre“ ausstellen?
               </p>
 
-              <EmailButton email="kmm@salon77.de" text="Email an kmm@salon77.de" />
+              <ActionLink href="mailto:kmm@salon77.de" className="px-6 py-3">
+                Email an kmm@salon77.de
+              </ActionLink>
 
               <p className="text-base mt-8" style={{ color: '#666666' }}>
                 Oder melde dich direkt an:
               </p>
 
               <div className="mt-4">
-                <AnmeldenButton
-                  href="/veranstaltungen/klein-montmartre/anmelden"
-                  text="Anmelden"
-                />
+                <ActionLink href="/veranstaltungen/klein-montmartre/anmelden" className="px-8 py-3">
+                  Anmelden
+                </ActionLink>
               </div>
 
               <p className="text-base mt-6" style={{ color: '#666666' }}>

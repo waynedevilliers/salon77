@@ -1,7 +1,8 @@
 import JsonLd from '@/components/JsonLd';
 import { breadcrumbJsonLd } from '@/lib/structured-data';
 import { pageMetadata } from '@/lib/metadata';
-import Link from 'next/link';
+import BackButton from '@/components/BackButton';
+import EmailLink from '@/components/EmailLink';
 import { site } from '@/content/site';
 
 export const metadata = pageMetadata({
@@ -38,13 +39,7 @@ export default function Datenschutz() {
               <p className="mb-2">Tel: {site.phone} (Vorstand)</p>
               <p className="mb-6">
                 E-Mail:{' '}
-                <a
-                  href="mailto:info@salon77.de"
-                  className="underline hover:opacity-75"
-                  style={{ color: '#B9BCB5' }}
-                >
-                  info@salon77.de
-                </a>
+                <EmailLink address={site.email} />
               </p>
             </section>
 
@@ -227,24 +222,12 @@ export default function Datenschutz() {
                 unserer Organisation:
               </p>
               <p className="mb-6">
-                <a
-                  href="mailto:datenschutz@salon77.de"
-                  className="underline hover:opacity-75"
-                  style={{ color: '#B9BCB5' }}
-                >
-                  datenschutz@salon77.de
-                </a>
+                <EmailLink address="datenschutz@salon77.de" />
               </p>
             </section>
 
             <section className="pt-8 border-t border-gray-200 mt-12">
-              <Link
-                href="/"
-                className="inline-block px-6 py-2 rounded-md font-semibold text-white transition-opacity hover:opacity-75"
-                style={{ backgroundColor: '#B9BCB5' }}
-              >
-                Zurück zur Startseite
-              </Link>
+              <BackButton />
             </section>
           </div>
         </div>
