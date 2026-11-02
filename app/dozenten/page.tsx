@@ -2,27 +2,13 @@ import JsonLd from '@/components/JsonLd';
 import { breadcrumbJsonLd } from '@/lib/structured-data';
 import { pageMetadata } from '@/lib/metadata';
 import InstructorCard from '@/components/InstructorCard';
+import { instructors } from '@/content/instructors';
 
 export const metadata = pageMetadata({
   title: 'Dozenten | Salon77 - Würzburger Künstlerinitiative',
   description: 'Unsere Dozenten und Künstler bei Salon77',
   path: '/dozenten',
 });
-
-const INSTRUCTORS = [
-  { name: 'Andrea Kneis', specialty: 'Gesang' },
-  { name: 'Asami Krisan', specialty: 'Ballett' },
-  {
-    name: 'Hsiu-Yun Lu',
-    specialty: 'Zeitgenössischer Tanz, Taiji, Kindertanz',
-  },
-  { name: 'Mercedes Sebald Arguisuelas', specialty: 'Flamenco' },
-  { name: 'Michael Röthlein', specialty: 'Taiko' },
-  { name: 'Norbert Schmelz', specialty: 'Fotografie' },
-  { name: 'Robert Collomb', specialty: 'Gitarrenunterricht' },
-  { name: 'Simon Ort', specialty: 'Bass' },
-  { name: 'Stefanie Koch', specialty: 'Akkordeon' },
-];
 
 export default function Dozenten() {
   return (
@@ -45,8 +31,8 @@ export default function Dozenten() {
 
           {/* Instructors Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {INSTRUCTORS.map((instructor, index) => (
-              <InstructorCard key={index} instructor={instructor} />
+            {instructors.map((instructor) => (
+              <InstructorCard key={instructor.name} instructor={instructor} />
             ))}
           </div>
         </div>

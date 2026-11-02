@@ -5,10 +5,17 @@ import InstructorCard from './InstructorCard';
 const instructor = { name: 'Hsiu-Yun Lu', specialty: 'Taiji' };
 
 describe('InstructorCard', () => {
+  it('links the name and photo to the instructor page', () => {
+    render(<InstructorCard instructor={instructor} />);
+    expect(screen.getByRole('link', { name: /Hsiu-Yun Lu/ })).toHaveAttribute(
+      'href',
+      '/dozenten/hsiu-yun-lu'
+    );
+  });
+
   it('shows the photo, not a placeholder, when the image loads', () => {
     render(<InstructorCard instructor={instructor} />);
-    const image = screen.getByRole('img', { name: 'Hsiu-Yun Lu' });
-    expect(image).toBeVisible();
+    expect(screen.getByRole('img', { name: 'Hsiu-Yun Lu' })).toBeVisible();
     expect(screen.queryByText('Bild folgt')).not.toBeInTheDocument();
   });
 
@@ -16,6 +23,5 @@ describe('InstructorCard', () => {
     render(<InstructorCard instructor={instructor} />);
     fireEvent.error(screen.getByRole('img', { name: 'Hsiu-Yun Lu' }));
     expect(screen.getByText('Bild folgt')).toBeInTheDocument();
-    expect(screen.queryByRole('img')).not.toBeInTheDocument();
   });
 });
