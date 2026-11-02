@@ -1,15 +1,10 @@
-import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Übersicht | Salon77 - Würzburger Künstlerinitiative',
-  description:
-    'Übersicht der Kurse und Programme bei Salon77 in Würzburg.',
-  openGraph: {
-    title: 'Übersicht | Salon77',
-    description:
-      'Übersicht der Kurse und Programme bei Salon77 in Würzburg.',
-  },
-};
+  description: 'Übersicht der Kurse und Programme bei Salon77 in Würzburg.',
+  path: '/uebersicht',
+});
 
 export default function UebersichtPage() {
   return (

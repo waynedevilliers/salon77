@@ -1,13 +1,14 @@
-import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/metadata';
 import Image from 'next/image';
 import BackButton from '@/components/BackButton';
 import MapConsent from '@/components/MapConsent';
 import { site } from '@/content/site';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Kontakt | Salon77 - Würzburger Künstlerinitiative',
   description: 'Kontaktinformationen für Salon77 in Würzburg',
-};
+  path: '/kontakt',
+});
 
 export default function Kontakt() {
   return (

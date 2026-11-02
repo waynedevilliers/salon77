@@ -1,10 +1,11 @@
-import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/metadata';
 import InstructorCard from '@/components/InstructorCard';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Dozenten | Salon77 - Würzburger Künstlerinitiative',
   description: 'Unsere Dozenten und Künstler bei Salon77',
-};
+  path: '/dozenten',
+});
 
 const INSTRUCTORS = [
   { name: 'André Mabiala', specialty: 'Afrikanisches Trommeln' },

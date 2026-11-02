@@ -1,10 +1,11 @@
-import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/metadata';
 import ImageGallery from '@/components/ImageGallery';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Räumlichkeiten | Salon77 - Würzburger Künstlerinitiative',
   description: 'Entdecke unsere Räumlichkeiten und Studios für Tanz, Musik und Fotografie.',
-};
+  path: '/raeumlichkeiten',
+});
 
 const ROOMS = [
   {

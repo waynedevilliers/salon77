@@ -1,10 +1,11 @@
-import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/metadata';
 import BackButton from '@/components/BackButton';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Verein | Salon77 - Würzburger Künstlerinitiative',
   description: 'Erfahren Sie mehr über die Würzburger Künstlerinitiative Salon77',
-};
+  path: '/verein',
+});
 
 export default function Verein() {
   return (

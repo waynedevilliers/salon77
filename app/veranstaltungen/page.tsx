@@ -1,10 +1,11 @@
-import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/metadata';
 import EventCard from '@/components/EventCard';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Veranstaltungen | Salon77 - Würzburger Künstlerinitiative',
   description: 'Entdecke alle kommenden Veranstaltungen und Events bei Salon77.',
-};
+  path: '/veranstaltungen',
+});
 
 const EVENTS = [
   {

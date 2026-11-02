@@ -1,11 +1,11 @@
-import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/metadata';
 import CourseCard from '@/components/CourseCard';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Unterricht | Salon77 - Würzburger Künstlerinitiative',
-  description:
-    'Entdecke unsere umfangreiche Auswahl an Kursen und Unterricht in Tanz, Musik, Fotografie und mehr.',
-};
+  description: 'Entdecke unsere umfangreiche Auswahl an Kursen und Unterricht in Tanz, Musik, Fotografie und mehr.',
+  path: '/unterricht',
+});
 
 const COURSES = [
   {

@@ -1,11 +1,12 @@
-import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/metadata';
 import Link from 'next/link';
 import { site } from '@/content/site';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Datenschutz | Salon77 - Würzburger Künstlerinitiative',
   description: 'Datenschutzerklärung von Salon77',
-};
+  path: '/datenschutz',
+});
 
 export default function Datenschutz() {
   return (

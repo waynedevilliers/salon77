@@ -1,16 +1,11 @@
-import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/metadata';
 import MenuCard from '@/components/MenuCard';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Startseite | Salon77 - Würzburger Künstlerinitiative',
-  description:
-    'Salon77 - Die Würzburger Künstlerinitiative e.V. mit Kursen in Tanz, Bewegung, Musik und Fotografie.',
-  openGraph: {
-    title: 'Salon77 - Würzburger Künstlerinitiative',
-    description:
-      'Salon77 bietet Kurse in Tanz, Bewegung, Musik und Fotografie in Würzburg',
-  },
-};
+  description: 'Salon77 - Die Würzburger Künstlerinitiative e.V. mit Kursen in Tanz, Bewegung, Musik und Fotografie.',
+  path: '/',
+});
 
 const MENU_CARDS = [
   {

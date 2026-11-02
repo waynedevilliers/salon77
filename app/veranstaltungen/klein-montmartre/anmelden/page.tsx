@@ -1,10 +1,12 @@
-import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/metadata';
 import RegistrationForm from '@/components/RegistrationForm';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Anmeldung Klein-Montmartre | Salon77',
   description: 'Melde dich als Aussteller beim Klein-Montmartre Kunsthandwerkermarkt an.',
-};
+  path: '/veranstaltungen/klein-montmartre/anmelden',
+  noIndex: true,
+});
 
 export default function AnmeldenPage() {
   return (

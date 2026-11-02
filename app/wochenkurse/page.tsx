@@ -1,9 +1,10 @@
-import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Wochenkurse | Salon77 - Würzburger Künstlerinitiative',
   description: 'Wöchentliche Kurse aus allen Kunstbereichen im Salon77',
-};
+  path: '/wochenkurse',
+});
 
 const WEEKLY_COURSES = {
   Montags: [

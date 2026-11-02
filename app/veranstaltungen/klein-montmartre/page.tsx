@@ -1,12 +1,13 @@
-import { Metadata } from 'next';
+import { pageMetadata } from '@/lib/metadata';
 import ImageGallery from '@/components/ImageGallery';
 import EmailButton from '@/components/EmailButton';
 import AnmeldenButton from '@/components/AnmeldenButton';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Klein-Montmartre | Salon77 - Kunsthandwerkermarkt Würzburg',
   description: 'Klein-Montmartre Kunsthandwerkermarkt - Deutschlands ältester und beliebtester Kunsthandwerkermarkt in Würzburg.',
-};
+  path: '/veranstaltungen/klein-montmartre',
+});
 
 const GALLERY_IMAGES = [
   { src: '/salon77/kleinmomatra/IMG_7469.jpeg', alt: 'Klein-Montmartre 1' },
