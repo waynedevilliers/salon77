@@ -22,16 +22,6 @@ const EVENTS = [
     buttonText: 'Mehr Infos',
     buttonLink: '/veranstaltungen/klein-montmartre',
   },
-  {
-    title: 'Flamenco Festival',
-    date: 'Placeholder',
-    location: 'Würzburg',
-    description:
-      'Würzburg und Deutschlands ältestes Flamenco-Festival mit erstklassigen Künstlern aus Spanien und Europa.',
-    image: '/salon77/kleinmomatra/flamenco.webp',
-    buttonText: 'Zur Webseite',
-    buttonLink: 'https://www.wueflamencofestival.de/',
-  },
 ];
 
 export default function Veranstaltungen() {
