@@ -1,15 +1,21 @@
-import { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd';
+import { breadcrumbJsonLd } from '@/lib/structured-data';
+import { pageMetadata } from '@/lib/metadata';
 import Image from 'next/image';
 import BackButton from '@/components/BackButton';
+import MapConsent from '@/components/MapConsent';
+import { site } from '@/content/site';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Kontakt | Salon77 - Würzburger Künstlerinitiative',
   description: 'Kontaktinformationen für Salon77 in Würzburg',
-};
+  path: '/kontakt',
+});
 
 export default function Kontakt() {
   return (
     <div className="flex flex-col">
+      <JsonLd data={breadcrumbJsonLd('/kontakt')} />
       <main className="flex-1">
         <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
           <h1
@@ -62,10 +68,10 @@ export default function Kontakt() {
                       Adresse
                     </h3>
                     <p style={{ color: '#2c2c2c' }} className="font-semibold">
-                      Richard-Wagner-Str. 60
+                      {site.address.street}
                     </p>
                     <p style={{ color: '#666666' }}>
-                      97074 Würzburg
+                      {site.address.postalCode} {site.address.city}
                     </p>
                   </div>
                 </div>
@@ -84,7 +90,7 @@ export default function Kontakt() {
                       className="hover:underline font-semibold"
                       style={{ color: '#2c2c2c' }}
                     >
-                      0171 - 7990218
+                      {site.phone}
                     </a>
                     <p style={{ color: '#666666' }} className="text-sm mt-1">
                       2. Vorsitzende Mercedes Sebald
@@ -116,14 +122,9 @@ export default function Kontakt() {
 
             {/* Row 3: Map */}
             <div className="rounded-lg overflow-hidden shadow-lg h-96">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2604.8947632845367!2d9.9582214!3d49.7930186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a28fd3a4bebb61%3A0x7e831419e9b92b3e!2sSalon77!5e0!3m2!1sde!2sde!4v1692547620584"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
+              <MapConsent
+                embedSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2604.8947632845367!2d9.9582214!3d49.7930186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a28fd3a4bebb61%3A0x7e831419e9b92b3e!2sSalon77!5e0!3m2!1sde!2sde!4v1692547620584"
+                openHref="https://www.google.com/maps/place/Salon+77/.7930186,9.9582214,17z"
               />
             </div>
           </div>

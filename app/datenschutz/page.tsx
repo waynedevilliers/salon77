@@ -1,14 +1,19 @@
-import { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd';
+import { breadcrumbJsonLd } from '@/lib/structured-data';
+import { pageMetadata } from '@/lib/metadata';
 import Link from 'next/link';
+import { site } from '@/content/site';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Datenschutz | Salon77 - Würzburger Künstlerinitiative',
   description: 'Datenschutzerklärung von Salon77',
-};
+  path: '/datenschutz',
+});
 
 export default function Datenschutz() {
   return (
     <div className="flex flex-col">
+      <JsonLd data={breadcrumbJsonLd('/datenschutz')} />
       <main className="flex-1">
         <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
           <h1
@@ -28,9 +33,9 @@ export default function Datenschutz() {
                 EU-Datenschutzgrundverordnung (DSGVO), ist:
               </p>
               <p className="mb-2 font-semibold">Salon77 | Würzburger Künstlerinitiative e.V.</p>
-              <p className="mb-2">Richard-Wagner-Str. 60 | 97074 Würzburg</p>
+              <p className="mb-2">{site.address.street} | {site.address.postalCode} {site.address.city}</p>
               <p className="mb-2">Amtsgericht Würzburg - Registergericht - VR 755</p>
-              <p className="mb-2">Tel: 0171 - 7990218 (Vorstand)</p>
+              <p className="mb-2">Tel: {site.phone} (Vorstand)</p>
               <p className="mb-6">
                 E-Mail:{' '}
                 <a
@@ -163,7 +168,7 @@ export default function Datenschutz() {
                 Cookies
               </h2>
               <p className="mb-4">
-                Wie viele andere Webseiten verwenden wir auch so genannte „Cookies". Cookies sind
+                Wie viele andere Webseiten verwenden wir auch so genannte „Cookies“. Cookies sind
                 kleine Textdateien, die von einem Websiteserver auf Ihre Festplatte übertragen
                 werden. Hierdurch erhalten wir automatisch bestimmte Daten wie z. B. IP-Adresse,
                 verwendeter Browser, Betriebssystem und Ihre Verbindung zum Internet.

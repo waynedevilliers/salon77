@@ -1,11 +1,13 @@
-import { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd';
+import { breadcrumbJsonLd } from '@/lib/structured-data';
+import { pageMetadata } from '@/lib/metadata';
 import CourseCard from '@/components/CourseCard';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Unterricht | Salon77 - Würzburger Künstlerinitiative',
-  description:
-    'Entdecke unsere umfangreiche Auswahl an Kursen und Unterricht in Tanz, Musik, Fotografie und mehr.',
-};
+  description: 'Entdecke unsere umfangreiche Auswahl an Kursen und Unterricht in Tanz, Musik, Fotografie und mehr.',
+  path: '/unterricht',
+});
 
 const COURSES = [
   {
@@ -81,6 +83,7 @@ const COURSES = [
 export default function Unterricht() {
   return (
     <div className="flex flex-col min-h-screen">
+      <JsonLd data={breadcrumbJsonLd('/unterricht')} />
       <main className="flex-1">
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
           <h1

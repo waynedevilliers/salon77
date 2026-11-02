@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { securityHeaders } from "./lib/security-headers";
 
 const nextConfig: NextConfig = {
   cacheComponents: true,
@@ -10,6 +11,9 @@ const nextConfig: NextConfig = {
         hostname: 'images.unsplash.com',
       },
     ],
+  },
+  async headers() {
+    return [{ source: '/:path*', headers: securityHeaders }];
   },
 };
 

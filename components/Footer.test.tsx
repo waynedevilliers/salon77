@@ -1,5 +1,5 @@
 /// <reference types="vitest" />
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import Footer from './Footer';
 
 describe('Footer', () => {
@@ -10,28 +10,31 @@ describe('Footer', () => {
 
   it('renders Impressum link', () => {
     render(<Footer />);
-    const impressumLink = screen.getByTitle('Impressum');
+    const impressumLink = screen.getByRole('link', { name: 'Impressum' });
     expect(impressumLink).toHaveAttribute('href', '/impressum');
-    expect(impressumLink).toHaveTextContent('Impressum');
   });
 
   it('renders Datenschutz link', () => {
     render(<Footer />);
-    const datenschutzLink = screen.getByTitle('Datenschutz');
+    const datenschutzLink = screen.getByRole('link', { name: 'Datenschutz' });
     expect(datenschutzLink).toHaveAttribute('href', '/datenschutz');
-    expect(datenschutzLink).toHaveTextContent('Datenschutz');
   });
 
   it('renders copyright year', () => {
     render(<Footer />);
     const currentYear = new Date().getFullYear();
-    expect(screen.getByText(new RegExp(currentYear.toString()))).toBeInTheDocument();
+    expect(
+      screen.getByText(new RegExp(currentYear.toString()))
+    ).toBeInTheDocument();
   });
 
-  it('renders organization name', () => {
+  it('renders organization name in the footer', () => {
     render(<Footer />);
+    const footer = screen.getByRole('contentinfo');
     expect(
-      screen.getByText(/Würzburger Künstlerinitiative/)
+      within(footer).getByText(/Würzburger Künstlerinitiative/, {
+        selector: 'p',
+      })
     ).toBeInTheDocument();
   });
 });

@@ -1,10 +1,13 @@
-import { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd';
+import { breadcrumbJsonLd, placeJsonLd } from '@/lib/structured-data';
+import { pageMetadata } from '@/lib/metadata';
 import ImageGallery from '@/components/ImageGallery';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Räumlichkeiten | Salon77 - Würzburger Künstlerinitiative',
   description: 'Entdecke unsere Räumlichkeiten und Studios für Tanz, Musik und Fotografie.',
-};
+  path: '/raeumlichkeiten',
+});
 
 const ROOMS = [
   {
@@ -41,6 +44,8 @@ const GALLERY_IMAGES = [
 export default function Raeumlichkeiten() {
   return (
     <div className="flex flex-col">
+      <JsonLd data={breadcrumbJsonLd('/raeumlichkeiten')} />
+      <JsonLd data={placeJsonLd()} />
       <main className="flex-1">
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
           <h1

@@ -1,14 +1,19 @@
-import { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd';
+import { breadcrumbJsonLd } from '@/lib/structured-data';
+import { pageMetadata } from '@/lib/metadata';
 import Link from 'next/link';
+import { site } from '@/content/site';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Impressum | Salon77 - Würzburger Künstlerinitiative',
   description: 'Impressum und rechtliche Informationen von Salon77',
-};
+  path: '/impressum',
+});
 
 export default function Impressum() {
   return (
     <div className="flex flex-col">
+      <JsonLd data={breadcrumbJsonLd('/impressum')} />
       <main className="flex-1">
         <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
           <h1
@@ -23,11 +28,11 @@ export default function Impressum() {
               <h2 className="text-2xl font-bold mb-4" style={{ color: '#C9A961' }}>
                 Salon 77 Würzburger Künstlerinitiative e.V.
               </h2>
-              <p className="mb-2">Richard-Wagner-Str. 60</p>
-              <p className="mb-6">97074 Würzburg</p>
+              <p className="mb-2">{site.address.street}</p>
+              <p className="mb-6">{site.address.postalCode} {site.address.city}</p>
 
               <p className="mb-2">
-                <strong>Telefon:</strong> +49 (0)171/7990218
+                <strong>Telefon:</strong> {site.phone}
               </p>
               <p className="mb-8">
                 <strong>E-Mail:</strong>{' '}

@@ -1,10 +1,13 @@
-import { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd';
+import { breadcrumbJsonLd } from '@/lib/structured-data';
+import { pageMetadata } from '@/lib/metadata';
 import InstructorCard from '@/components/InstructorCard';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Dozenten | Salon77 - Würzburger Künstlerinitiative',
   description: 'Unsere Dozenten und Künstler bei Salon77',
-};
+  path: '/dozenten',
+});
 
 const INSTRUCTORS = [
   { name: 'André Mabiala', specialty: 'Afrikanisches Trommeln' },
@@ -22,6 +25,7 @@ const INSTRUCTORS = [
 export default function Dozenten() {
   return (
     <div className="flex flex-col">
+      <JsonLd data={breadcrumbJsonLd('/dozenten')} />
       <main className="flex-1">
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
           <h1

@@ -1,12 +1,16 @@
-import { Metadata } from 'next';
+import JsonLd from '@/components/JsonLd';
+import { breadcrumbJsonLd, eventJsonLd } from '@/lib/structured-data';
+import { kleinMontmartreDates } from '@/content/events';
+import { pageMetadata } from '@/lib/metadata';
 import ImageGallery from '@/components/ImageGallery';
 import EmailButton from '@/components/EmailButton';
 import AnmeldenButton from '@/components/AnmeldenButton';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Klein-Montmartre | Salon77 - Kunsthandwerkermarkt Würzburg',
   description: 'Klein-Montmartre Kunsthandwerkermarkt - Deutschlands ältester und beliebtester Kunsthandwerkermarkt in Würzburg.',
-};
+  path: '/veranstaltungen/klein-montmartre',
+});
 
 const GALLERY_IMAGES = [
   { src: '/salon77/kleinmomatra/IMG_7469.jpeg', alt: 'Klein-Montmartre 1' },
@@ -20,6 +24,8 @@ const GALLERY_IMAGES = [
 export default function KleinMontmartre() {
   return (
     <div className="flex flex-col">
+      <JsonLd data={breadcrumbJsonLd('/veranstaltungen/klein-montmartre')} />
+      <JsonLd data={kleinMontmartreDates.map((startDate) => eventJsonLd({ startDate, path: '/veranstaltungen/klein-montmartre' }))} />
       <main className="flex-1">
         <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
           {/* Header */}
@@ -51,7 +57,7 @@ export default function KleinMontmartre() {
                 className="text-base sm:text-lg leading-relaxed"
                 style={{ color: '#666666' }}
               >
-                Die Künstlerinitiative "Salon 77 e. V." präsentiert seit über 30 Jahren einen der ältesten und beliebtesten Kunsthandwerkermärkte in Würzburg.
+                Die Künstlerinitiative „Salon 77 e. V.“ präsentiert seit über 30 Jahren einen der ältesten und beliebtesten Kunsthandwerkermärkte in Würzburg.
               </p>
             </section>
 
@@ -69,7 +75,7 @@ export default function KleinMontmartre() {
                 className="text-base sm:text-lg leading-relaxed"
                 style={{ color: '#666666' }}
               >
-                Inspirierend, individuell, kreativ, beeindruckend und faszinierend sind Attribute, die man dem "Klein Montmartre" zuweisen könnte. Die Veranstaltung zeichnet eine hohe Wertschätzung gegenüber jeder Handwerkskunst aus - fernab von stumpfem Konsum und belanglosen 0815 Produkten.
+                Inspirierend, individuell, kreativ, beeindruckend und faszinierend sind Attribute, die man dem „Klein Montmartre“ zuweisen könnte. Die Veranstaltung zeichnet eine hohe Wertschätzung gegenüber jeder Handwerkskunst aus - fernab von stumpfem Konsum und belanglosen 0815 Produkten.
               </p>
             </section>
 
@@ -87,7 +93,7 @@ export default function KleinMontmartre() {
                 className="text-base sm:text-lg leading-relaxed"
                 style={{ color: '#666666' }}
               >
-                Komme auch Du in den Besitz von echten Unikaten, passionierter Handarbeit und Produkten mit Geschichte, Herz und Hingabe. Das Team vom "Klein Montmartre" und alle Aussteller freuen sich auf Deinen Besuch!
+                Komme auch Du in den Besitz von echten Unikaten, passionierter Handarbeit und Produkten mit Geschichte, Herz und Hingabe. Das Team vom „Klein Montmartre“ und alle Aussteller freuen sich auf Deinen Besuch!
               </p>
             </section>
           </div>
@@ -116,7 +122,7 @@ export default function KleinMontmartre() {
               </p>
 
               <p className="text-base" style={{ color: '#666666' }}>
-                Du möchtest deine Kunst beim "Klein Montmartre" ausstellen?
+                Du möchtest deine Kunst beim „Klein Montmartre“ ausstellen?
               </p>
 
               <EmailButton email="kmm@salon77.de" text="Email an kmm@salon77.de" />
