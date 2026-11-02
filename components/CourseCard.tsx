@@ -87,7 +87,7 @@ export default function CourseCard({
         {description}
       </p>
       <ul
-        className="mb-6 mt-auto min-h-[3rem] list-disc pl-5 text-base font-semibold marker:text-2xl marker:text-[var(--color-button)]"
+        className="mb-6 mt-auto h-[3.2rem] list-disc pl-5 text-base font-semibold leading-[1.6] marker:text-2xl marker:leading-none marker:text-[var(--color-button)]"
         style={{ color: 'var(--color-text)' }}
       >
         <li>{schedule}</li>
