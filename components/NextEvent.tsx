@@ -8,7 +8,7 @@ interface NextEventProps {
   href: string;
   image: { src: string; alt: string };
   dates: string[];
-  today?: Date;
+  todayIso: string;
 }
 
 /**
@@ -21,9 +21,9 @@ export default function NextEvent({
   href,
   image,
   dates,
-  today,
+  todayIso,
 }: NextEventProps) {
-  const next = nextUpcomingDate(dates, today);
+  const next = nextUpcomingDate(dates, todayIso);
   if (!next) return null;
 
   return (

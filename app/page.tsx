@@ -1,6 +1,7 @@
 import { pageMetadata } from '@/lib/metadata';
 import MenuCard from '@/components/MenuCard';
 import NextEvent from '@/components/NextEvent';
+import { getTodayIso } from '@/lib/dates';
 import { kleinMontmartreDates, kleinMontmartreTeaser } from '@/content/events';
 
 export const metadata = pageMetadata({
@@ -37,7 +38,8 @@ const MENU_CARDS = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const todayIso = await getTodayIso();
   return (
     <div className="flex flex-col">
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
@@ -62,7 +64,11 @@ export default function Home() {
           </div>
         </section>
 
-        <NextEvent {...kleinMontmartreTeaser} dates={kleinMontmartreDates} />
+        <NextEvent
+          {...kleinMontmartreTeaser}
+          dates={kleinMontmartreDates}
+          todayIso={todayIso}
+        />
       </div>
     </div>
   );
