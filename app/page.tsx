@@ -1,5 +1,7 @@
 import { pageMetadata } from '@/lib/metadata';
 import MenuCard from '@/components/MenuCard';
+import NextEvent from '@/components/NextEvent';
+import { kleinMontmartreDates, kleinMontmartreTeaser } from '@/content/events';
 
 export const metadata = pageMetadata({
   title: 'Startseite | Salon77 - Würzburger Künstlerinitiative',
@@ -59,6 +61,8 @@ export default function Home() {
             ))}
           </div>
         </section>
+
+        <NextEvent {...kleinMontmartreTeaser} dates={kleinMontmartreDates} />
       </div>
     </div>
   );
