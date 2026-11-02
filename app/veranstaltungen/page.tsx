@@ -24,7 +24,7 @@ const EVENTS = [
   },
   {
     title: 'Flamenco Festival',
-    date: 'Placeholder',
+    date: '',
     location: 'Würzburg',
     description:
       'Würzburg und Deutschlands ältestes Flamenco-Festival mit erstklassigen Künstlern aus Spanien und Europa.',
