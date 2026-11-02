@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 
 interface Instructor {
@@ -12,22 +13,23 @@ export default function InstructorCard({
 }: {
   instructor: Instructor;
 }) {
+  const [hasError, setHasError] = useState(false);
+
   return (
     <div className="flex flex-col items-center">
       <div className="relative w-40 h-40 rounded-full overflow-hidden shadow-lg mb-4 bg-gray-200 flex items-center justify-center">
-        <Image
-          src={`/salon77/dozenten/${instructor.name.toLowerCase().replace(/\s+/g, '-')}.jpg`}
-          alt={instructor.name}
-          width={160}
-          height={160}
-          className="w-full h-full object-cover"
-          onError={(e) => {
-            e.currentTarget.style.display = 'none';
-          }}
-        />
-        <div className="absolute inset-0 bg-gray-300 flex items-center justify-center text-gray-500 text-sm">
-          Bild folgt
-        </div>
+        {hasError ? (
+          <span className="text-sm text-gray-500">Bild folgt</span>
+        ) : (
+          <Image
+            src={`/salon77/dozenten/${instructor.name.toLowerCase().replace(/\s+/g, '-')}.jpg`}
+            alt={instructor.name}
+            width={160}
+            height={160}
+            className="w-full h-full object-cover"
+            onError={() => setHasError(true)}
+          />
+        )}
       </div>
 
       <h3
