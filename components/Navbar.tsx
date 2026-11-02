@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import NavLink from './NavLink';
+import NavDropdown from './NavDropdown';
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -28,32 +29,25 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* Navigation Links */}
-          <nav className="flex flex-wrap gap-6 sm:gap-8 justify-center text-sm sm:text-base">
+          {/* Navigation Links. Dozenten and Wochenkurse sit under Unterricht. */}
+          <nav className="flex flex-wrap gap-6 sm:gap-8 justify-center items-center text-sm sm:text-base">
             <NavLink href="/" label="Home" isActive={pathname === '/'} />
             <span className="text-gray-300">|</span>
-            <NavLink
-              href="/unterricht"
+            <NavDropdown
               label="Unterricht"
-              isActive={pathname === '/unterricht'}
-            />
-            <span className="text-gray-300">|</span>
-            <NavLink
-              href="/dozenten"
-              label="Dozenten"
-              isActive={pathname === '/dozenten'}
+              href="/unterricht"
+              isActive={pathname.startsWith('/unterricht')}
+              pathname={pathname}
+              items={[
+                { label: 'Dozenten', href: '/dozenten' },
+                { label: 'Wochenkurse', href: '/wochenkurse' },
+              ]}
             />
             <span className="text-gray-300">|</span>
             <NavLink
               href="/veranstaltungen"
               label="Veranstaltungen"
               isActive={pathname === '/veranstaltungen'}
-            />
-            <span className="text-gray-300">|</span>
-            <NavLink
-              href="/wochenkurse"
-              label="Wochenkurse"
-              isActive={pathname === '/wochenkurse'}
             />
             <span className="text-gray-300">|</span>
             <NavLink
