@@ -5,6 +5,44 @@ interface FooterProps {
   year: number;
 }
 
+const iconClass = 'h-5 w-5 flex-shrink-0';
+
+function MapPinIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className={iconClass}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z" />
+      <circle cx="12" cy="9.5" r="2.5" />
+    </svg>
+  );
+}
+
+function MailIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className={iconClass}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="M3 7l9 6 9-6" />
+    </svg>
+  );
+}
+
 export default function Footer({ year }: FooterProps) {
   const legalLinks = [
     { label: 'Impressum', href: '/impressum' },
@@ -12,47 +50,47 @@ export default function Footer({ year }: FooterProps) {
   ];
 
   return (
-    <footer className="mt-auto bg-[var(--color-primary)] text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center items-center">
+    <footer
+      className="mt-auto bg-[var(--color-primary)] text-[18px]"
+      style={{ color: 'var(--color-text)' }}
+    >
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+        <div className="mb-8 grid grid-cols-1 items-center gap-8 text-center md:grid-cols-3">
           {/* Column 1: Organization */}
           <div>
-            <h3 className="text-xl sm:text-2xl font-bold mb-2">Salon77</h3>
-            <p className="text-base mb-4">Würzburger Künstlerinitiative e.V.</p>
-            <p className="text-sm italic text-gray-100">
-              Kunst, Tanz und Musik Förderung seit 1977.
-            </p>
+            <h3 className="mb-2 text-xl font-bold sm:text-2xl">Salon77</h3>
+            <p className="mb-4">Würzburger Künstlerinitiative e.V.</p>
+            <p className="italic">Kunst, Tanz und Musik Förderung seit 1977.</p>
           </div>
 
           {/* Column 2: Address & Contact */}
-          <div className="text-base space-y-3">
-            <div>
-              <a
-                href="https://www.google.com/maps/place/Salon+77/@49.7930186,9.9582214,17z"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:opacity-75 transition-opacity cursor-pointer"
-              >
-                📍 {site.address.street}
+          <div className="space-y-3">
+            <a
+              href="https://www.google.com/maps/place/Salon+77/@49.7930186,9.9582214,17z"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 underline hover:opacity-75"
+            >
+              <MapPinIcon />
+              <span>
+                {site.address.street}
                 <br />
                 {site.address.postalCode} {site.address.city}
-              </a>
-            </div>
-            <div className="space-y-1 pt-2 border-t border-gray-300">
+              </span>
+            </a>
+            <div className="space-y-2 border-t border-[var(--color-text)]/30 pt-3">
               <p>
-                <a
-                  href={site.phoneHref}
-                  className="underline hover:opacity-75 transition-opacity cursor-pointer"
-                >
+                <a href={site.phoneHref} className="underline hover:opacity-75">
                   {site.phone}
                 </a>
               </p>
               <p>
                 <a
                   href="mailto:info@salon77.de"
-                  className="underline hover:opacity-75 transition-opacity cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 underline hover:opacity-75"
                 >
-                  ✉️ info@salon77.de
+                  <MailIcon />
+                  <span>info@salon77.de</span>
                 </a>
               </p>
             </div>
@@ -60,14 +98,11 @@ export default function Footer({ year }: FooterProps) {
 
           {/* Column 3: Legal Links */}
           <div>
-            <h4 className="text-base font-semibold mb-3">Information</h4>
-            <nav className="space-y-2 text-base">
+            <h4 className="mb-3 font-bold">Information</h4>
+            <nav className="space-y-2">
               {legalLinks.map((link) => (
                 <div key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="hover:opacity-80 transition-opacity"
-                  >
+                  <Link href={link.href} className="underline hover:opacity-75">
                     {link.label}
                   </Link>
                 </div>
@@ -77,10 +112,8 @@ export default function Footer({ year }: FooterProps) {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-gray-300 pt-6 text-center">
-          <div className="text-sm text-gray-100">
-            © {year} Salon77 - Würzburger Künstlerinitiative e.V.
-          </div>
+        <div className="border-t border-[var(--color-text)]/30 pt-6 text-center">
+          <div>© {year} Salon77 - Würzburger Künstlerinitiative e.V.</div>
         </div>
       </div>
     </footer>
