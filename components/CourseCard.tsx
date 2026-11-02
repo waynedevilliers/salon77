@@ -81,13 +81,13 @@ export default function CourseCard({
         style={{ backgroundColor: 'var(--color-accent)' }}
       />
       <p
-        className="mb-4 flex-grow text-base leading-[1.6]"
+        className="mb-4 text-base leading-[1.6]"
         style={{ color: 'var(--color-text-muted)' }}
       >
         {description}
       </p>
       <p
-        className="mb-6 flex items-center gap-2 text-base font-semibold"
+        className="mb-6 mt-auto flex min-h-[3rem] items-start gap-2 text-base font-semibold"
         style={{ color: 'var(--color-text)' }}
       >
         <span
@@ -98,7 +98,7 @@ export default function CourseCard({
         {schedule}
       </p>
 
-      <div className="mb-6 mt-auto flex flex-wrap justify-center gap-6">
+      <div className="mb-6 flex flex-wrap justify-center gap-6">
         {instructors.map((name) => (
           <InstructorBlock key={name} name={name} />
         ))}
