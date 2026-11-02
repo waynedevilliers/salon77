@@ -65,7 +65,11 @@ export default function NextEvent({
           </p>
         ))}
         <div className="mt-auto pt-2">
-          <ActionLink href={href} className="px-6 py-3">
+          <ActionLink
+            href={href}
+            className="px-6 py-3"
+            style={{ backgroundColor: 'var(--color-primary)', color: '#ffffff' }}
+          >
             Mehr zu Klein-Montmartre
           </ActionLink>
         </div>
