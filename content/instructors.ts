@@ -22,6 +22,7 @@ export const instructors: Instructor[] = [
   {
     name: 'Hsiu-Yun Lu',
     specialty: 'Zeitgenössischer Tanz, Taiji, Kindertanz',
+    bio: 'Ausbildung in klassischem Ballett und Modern Dance an der National Taiwan University of Arts. Weiterbildung in Tanzimprovisation (D. Rudko), Contact Improvisation (Paxton, Simson), Release Technik (S. Klein, T. Brown), Zeitgenössischem Tanz (J. Clarke), Taiji Dao Yin (Meister Hsiung Wei), Pilates Methode (Frances Carty-Melis). Tanzpädagogisches Studium in London und Köln. Tanzwissenschaftliches Studium Berlin. Langjährige Vipassana Meditationserfahrung.\n\nEhemaliges Mitglied des Cloud Gate Dance Theatre of Taiwan, Dance Forum Taipei, Nai-Ni Chen Dance Company (New York).\n\nLangjährige pädagogische Erfahrung in Taipei, Köln, Würzburg, Berlin.',
   },
   { name: 'Mercedes Sebald Arguisuelas', specialty: 'Flamenco' },
   { name: 'Michael Röthlein', specialty: 'Taiko' },
