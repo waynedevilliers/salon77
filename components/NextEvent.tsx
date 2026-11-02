@@ -64,7 +64,7 @@ export default function NextEvent({
             {paragraph}
           </p>
         ))}
-        <div className="mt-auto pt-2">
+        <div className="mt-auto flex justify-center pt-2 md:justify-start">
           <ActionLink href={href} className="px-6 py-3">
             Mehr zu Klein-Montmartre
           </ActionLink>
