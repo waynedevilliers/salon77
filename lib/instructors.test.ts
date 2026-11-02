@@ -13,11 +13,13 @@ describe('instructorSlug', () => {
     );
   });
 
-  it('keeps umlauts in composed form', () => {
-    expect(instructorSlug('Michael Röthlein')).toBe('michael-röthlein');
-    expect(instructorSlug('Michael Röthlein').normalize('NFC')).toBe(
-      'michael-röthlein'
-    );
+  it('writes umlauts as ae, oe, ue and ss in URLs', () => {
+    expect(instructorSlug('Michael Röthlein')).toBe('michael-roethlein');
+    expect(instructorSlug('Jörg Müßig')).toBe('joerg-muessig');
+  });
+
+  it('gives the same result for decomposed and composed umlauts', () => {
+    expect(instructorSlug('Michael Ro\u0308thlein')).toBe('michael-roethlein');
   });
 });
 
