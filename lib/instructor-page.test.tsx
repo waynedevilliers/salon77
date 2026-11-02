@@ -1,6 +1,6 @@
 /// <reference types="vitest" />
 import { render, screen } from '@testing-library/react';
-import InstructorPage, { generateStaticParams } from './page';
+import InstructorPage, { generateStaticParams } from '@/app/dozenten/[slug]/page';
 
 describe('instructor detail page', () => {
   it('creates a static page for every instructor', () => {

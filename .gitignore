@@ -45,3 +45,7 @@ next-env.d.ts
 /test-results/
 /playwright-report/
 /.lighthouseci/
+
+# local screenshots and captures
+/public/screenshots/
+/.vscode/
