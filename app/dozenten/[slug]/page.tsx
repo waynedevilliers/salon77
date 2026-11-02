@@ -66,12 +66,15 @@ export default async function InstructorPage({ params }: PageProps) {
 
           {instructor.bio && (
             <section className="space-y-4 mb-10">
-              <p
-                className="text-base sm:text-lg leading-relaxed"
-                style={{ color: 'var(--color-text-muted)' }}
-              >
-                {instructor.bio}
-              </p>
+              {instructor.bio.split('\n\n').map((paragraph) => (
+                <p
+                  key={paragraph.slice(0, 40)}
+                  className="text-base sm:text-lg leading-relaxed"
+                  style={{ color: 'var(--color-text-muted)' }}
+                >
+                  {paragraph}
+                </p>
+              ))}
             </section>
           )}
 
