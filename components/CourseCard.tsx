@@ -10,7 +10,7 @@ interface CourseCardProps {
 
 const INSTRUCTOR_IMAGES: Record<string, string> = {
   'Hsiu-Yun Lu': '/salon77/unterricht/kinder_taz.jpg',
-  'Asami Krisan': '/salon77/unterricht/ballet.jpg',
+  'Asami Krisan': '/salon77/dozenten/asami-krisan.jpg',
   'Mercedes Sebald': '/salon77/unterricht/Flamenco.jpg',
   'Robert Collomb': '/salon77/unterricht/rob_collomb.jpg',
   'Simon Ort': '/salon77/unterricht/bass.jpeg',
