@@ -41,14 +41,12 @@ export default function EventCard({
           {title}
         </h3>
 
-        {date && (
-          <p
-            className="text-sm sm:text-base mb-3 font-semibold"
-            style={{ color: 'var(--color-primary)' }}
-          >
-            {date}
-          </p>
-        )}
+        <p
+          className="text-sm sm:text-base mb-3 font-semibold"
+          style={{ color: 'var(--color-primary)' }}
+        >
+          {date || 'Termin folgt in Kürze'}
+        </p>
 
         <p
           className="text-xs sm:text-sm mb-4"
