@@ -43,13 +43,16 @@ Courses are listed in `/app/unterricht/page.tsx`. To add or edit a course:
 
 ### How to Update Instructors
 
-Instructors are listed in `/app/dozenten/page.tsx`. To add or edit an instructor:
+Instructors are listed in `/content/instructors.ts`. To add or edit an instructor:
 
-1. Find the `INSTRUCTORS` array in the file
+1. Find the `instructors` list in the file
 2. Each instructor has:
    - `name`: Full name
    - `specialty`: Area of expertise
-3. Add instructor photos to `/public/salon77/dozenten/` with filename format: `firstname-lastname.jpg`
+   - `bio` (optional): Biography, paragraphs separated by a blank line
+   - `phone`, `email`, `website` (optional): shown under the photo
+3. Add the photo to `/public/salon77/dozenten/` named after the slug of the name:
+   lowercase, umlauts as ae, oe, ue, ss (for example `michael-roethlein.jpg`)
 
 ### How to Update Weekly Course Schedule
 
@@ -117,7 +120,7 @@ npm install
 # 2. Copy the environment template and fill in the email settings
 cp .env.example .env.local
 
-# 3. Start development server
+# 3. Start development server (port 3001)
 npm run dev
 
 # 4. Open http://localhost:3001 in browser
@@ -159,46 +162,59 @@ repository, add the environment variables, and deploy.
 
 ```
 salon77/
-├── app/
-│   ├── layout.tsx                  # Root layout, fonts, JSON-LD for the association
+├── app/                            # Routes. Each page.tsx is one page.
+│   ├── layout.tsx                  # Root layout: fonts, header, breadcrumbs, footer
 │   ├── page.tsx                    # Home page
-│   ├── sitemap.ts                  # Generates /sitemap.xml
-│   ├── robots.ts                   # Generates /robots.txt
-│   ├── unterricht/page.tsx         # Courses page
-│   ├── dozenten/page.tsx           # Instructors page
-│   ├── wochenkurse/page.tsx        # Weekly courses schedule
-│   ├── veranstaltungen/            # Events and Klein-Montmartre (incl. registration)
-│   ├── raeumlichkeiten/            # Facilities page
-│   ├── verein/page.tsx             # Association page
-│   ├── kontakt/page.tsx            # Contact page
+│   ├── globals.css                 # Style schema: colours, sizes, spacing, base styles
+│   ├── sitemap.ts, robots.ts       # Generated /sitemap.xml and /robots.txt
+│   ├── unterricht/                 # Courses (with Dozenten and Wochenkurse)
+│   ├── dozenten/                   # Instructors list and [slug] detail pages
+│   ├── wochenkurse/                # Weekly schedule
+│   ├── veranstaltungen/            # Events, Klein-Montmartre and its registration form
+│   ├── raeumlichkeiten/            # Rooms and gallery
+│   ├── verein/, kontakt/           # Association and contact
 │   ├── impressum/, datenschutz/    # Legal pages
-│   ├── globals.css                 # Design tokens (colors, fonts, radii)
 │   └── actions/registration.ts     # Registration form submission
-├── components/                     # Reusable UI components
-│   ├── ActionLink.tsx              # Pill-style button/link (internal, external, mailto)
-│   ├── BackButton.tsx              # "Zurück zur Startseite"
-│   ├── CourseCard.tsx, EventCard.tsx, InstructorCard.tsx, MenuCard.tsx
-│   ├── EmailLink.tsx               # Address link
-│   ├── ImageGallery.tsx            # Photo gallery with lightbox (Client Component)
-│   ├── JsonLd.tsx                  # Renders schema.org data, escaped
-│   ├── MapConsent.tsx              # Google Maps loads only after a click
-│   ├── Navbar.tsx, NavLink.tsx, Footer.tsx
-│   └── RegistrationForm.tsx        # Registration form (Client Component)
-├── content/                        # Text and data, not hardcoded in components
-│   ├── site.ts                     # Name, address, phone, email, domain, share image
-│   ├── routes.ts                   # Indexable pages for sitemap and breadcrumbs
-│   ├── events.ts                   # Klein-Montmartre dates for structured data
+├── components/                     # Reusable UI. Server Components unless marked below.
+│   ├── Navbar.tsx, NavLink.tsx     # Header, desktop menu, hamburger menu (Client)
+│   ├── NavDropdown.tsx             # Menu item with sub-items (Client)
+│   ├── Breadcrumbs.tsx             # Trail from the home page (Client)
+│   ├── Footer.tsx                  # Footer with address, contact and legal links
+│   ├── ActionLink.tsx              # Button and link: internal, external, mailto
+│   ├── BackButton.tsx, EmailLink.tsx
+│   ├── MenuCard.tsx                # Home page card (whole card is one link)
+│   ├── CourseCard.tsx              # Course card with instructors (Unterricht)
+│   ├── EventCard.tsx               # Event card (Veranstaltungen)
+│   ├── NextEvent.tsx               # Next Klein-Montmartre date block
+│   ├── InstructorCard.tsx          # Instructor card (links to the detail page)
+│   ├── InstructorPhoto.tsx         # Round photo with "Bild folgt" fallback (Client)
+│   ├── InstructorPager.tsx         # Previous and next instructor buttons
+│   ├── ImageGallery.tsx            # Photos with lightbox (Client)
+│   ├── MapConsent.tsx              # Google Maps loads after a click (Client)
+│   ├── RegistrationForm.tsx        # Registration form (Client)
+│   ├── Reveal.tsx                  # Fades content in on scroll (Client)
+│   └── JsonLd.tsx                  # schema.org data, escaped
+├── content/                        # Text and data. Change facts here, not in components.
+│   ├── site.ts                     # Name, address, phone, email, domain, maps link
+│   ├── routes.ts                   # Public pages: sitemap, breadcrumb labels
+│   ├── instructors.ts              # Instructors: name, specialty, bio, contact, website
+│   ├── events.ts                   # Klein-Montmartre dates and teaser text
 │   └── map.ts                      # Map consent text
-├── lib/
+├── lib/                            # Logic and helpers, with unit tests next to them
 │   ├── metadata.ts                 # pageMetadata(): canonical, Open Graph, Twitter, robots
 │   ├── structured-data.ts          # Breadcrumb, Event and Place JSON-LD
-│   ├── security-headers.ts         # CSP, HSTS and other headers (used by next.config.ts)
-│   └── current-year.ts             # Copyright year, cached for a day
+│   ├── instructors.ts              # Slugs and instructor lookup
+│   ├── dates.ts                    # German date format and next-date lookup
+│   ├── security-headers.ts         # CSP, HSTS and other headers (next.config.ts)
+│   ├── current-year.ts             # Copyright year, cached for a day
+│   └── *.test.ts(x)                # Unit tests for the modules above and the pages
 ├── e2e/                            # Playwright: pages, links, navigation, accessibility
+├── scripts/                        # Local dev helpers: npm run dev, npm run dev:stop
 ├── public/
 │   ├── og/salon77.jpg              # 1200x630 share image
 │   ├── llms.txt                    # Site summary for AI assistants (maintained by hand)
-│   └── salon77/                    # Images and assets
+│   ├── salon77/                    # Site images. Instructor photos: dozenten/<slug>.jpg
+│   └── images/, logo/              # Source files, not referenced by the site
 ├── lighthouserc.json               # Lighthouse CI budgets
 ├── .github/workflows/ci.yml        # Lint, types, audit, unit, e2e, Lighthouse, build
 └── README.md                       # This file
@@ -206,11 +222,16 @@ salon77/
 
 ### Where to Change Shared Facts
 
-- **Name, address, phone, email, domain**: `content/site.ts`. Every page and the
-  structured data read from here, so they stay identical.
+- **Name, address, phone, email, domain, map link**: `content/site.ts`. The footer,
+  Kontakt, Impressum, Datenschutz and the structured data all read from here.
+- **Instructors**: `content/instructors.ts`. Add the photo as
+  `public/salon77/dozenten/<slug>.jpg`, where the slug is the name in lowercase with
+  umlauts written as ae, oe, ue and ss (for example `michael-roethlein.jpg`).
 - **Pages in the sitemap and breadcrumbs**: `content/routes.ts`. Add a new public
   page here as well as in `app/`.
-- **Event dates for structured data**: `content/events.ts`.
+- **Main menu**: `components/Navbar.tsx` (desktop and hamburger menus).
+- **Event dates**: `content/events.ts`. An event without a date shows
+  "Termin folgt in Kürze" on its card.
 - **Public summary for AI assistants**: `public/llms.txt`. This file is not generated,
   so update it when pages change.
 - **Page titles and descriptions**: pass them to `pageMetadata()` in each `page.tsx`.
@@ -218,10 +239,10 @@ salon77/
 ### Available Commands
 
 ```bash
-npm run dev           # Start development server on port 3001 (stops older dev servers first)
-npm run dev:stop      # Stop all dev servers of this project
-npm run build         # Build for production
-npm start             # Run production build
+npm run dev           # Dev server on port 3001. Stops older dev servers of this project first
+npm run dev:stop      # Stop this project's dev servers
+npm run build         # Build for production (all pages are statically generated)
+npm start             # Run the production build
 npm run lint          # ESLint
 npm run type-check    # TypeScript (strict)
 npm run format        # Prettier: write formatting
@@ -234,8 +255,8 @@ npm run duplication   # Find duplicated code (jscpd)
 npm run audit         # npm audit, fails on high or critical findings
 ```
 
-Browser tests use port 3000 by default. If another server is already on that
-port, set another one: `PLAYWRIGHT_PORT=3200 npm run e2e`.
+Use `DEV_PORT=3010 npm run dev` for another port. Browser tests use port 3000 by
+default; set `PLAYWRIGHT_PORT=3200 npm run e2e` if another server uses that port.
 
 Lighthouse CI runs in GitHub Actions. To run it locally after `npm run build`:
 
@@ -243,26 +264,36 @@ Lighthouse CI runs in GitHub Actions. To run it locally after `npm run build`:
 npx --yes @lhci/cli@0.15.1 autorun --config=lighthouserc.json
 ```
 
-### Design System
+### Style Schema and Design System
 
-- **Brand color**: `--color-primary` (#B9BCB5, taupe), used for buttons and footer
-- **Accent**: `--color-accent` (#C9A961, gold), used for section titles and active links
-- **Text**: `--color-text` (#2c2c2c) for headings, `--color-text-muted` (#666666) for body text
-- **Fonts**: Playfair Display (headings), Lato (body text)
+Every colour, size and spacing value is defined once, in `app/globals.css`, and
+used by name. Do not add raw hex values or pixel sizes to components.
 
-Colors are defined in `app/globals.css` under `@theme`. Components use them as
-`var(--color-…)` in inline styles or `bg-[var(--color-…)]` classes. Do not add
-hex values to components.
+- **Colours** (`--color-*`): `text` and `text-muted` for body text, `heading` for
+  card titles, `accent` for decorative gold (never for text), `accent-text` for links
+  and the active menu item, `button` and `button-text` for buttons, `sage-text` for
+  inactive menu items, `border` and `border-light` for dividers. Each text colour
+  meets WCAG AA (4.5:1) on its background; the values are noted in `globals.css`.
+- **Sizes and spacing** (`--size-*`, `--space-*`, `--line-*`): page title
+  (`--size-h1`), section heading (`--size-h2`), card title (`--size-h3`), body
+  (`--size-body`, never below 16px), title spacing, section gap, card padding and
+  button height.
+- **Page titles**: every page title uses the `page-title` class. It is centred, bold,
+  and has a gold rule below it.
+- **Buttons**: `ActionLink` is the only button style. It uses the button colours and
+  darkens on hover.
 
-Note: several design colors do not meet WCAG AA contrast (see the accessibility
-report). Changing them requires approval.
+Colours and sizes are used through these names, so changing a value in `globals.css`
+changes it on every page.
 
 ### Making Changes
 
-1. **Edit text on a page**: find the `.tsx` file and update the text directly
-2. **Change colors**: update the `@theme` section in `app/globals.css`
+1. **Edit text on a page**: find the `.tsx` file and update the text directly, or
+   the shared content in `content/`
+2. **Change colours, sizes or spacing**: update the value in `app/globals.css`
 3. **Add a new page**: create a folder in `app/` with a `page.tsx`, export
-   `pageMetadata()`, add the route to `content/routes.ts`, and add a test to `e2e/pages.spec.ts` if needed
+   `pageMetadata()`, add the route to `content/routes.ts`, and use the `page-title`
+   class for its heading
 4. **Add images**: upload to `public/salon77/[section]/`. Compress first and use
    `next/image`
 
