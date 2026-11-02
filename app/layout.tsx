@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Playfair_Display, Lato } from 'next/font/google';
 import Navbar from '@/components/Navbar';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import Footer from '@/components/Footer';
 import { site } from '@/content/site';
 import { getCurrentYear } from '@/lib/current-year';
@@ -83,6 +84,7 @@ export default async function RootLayout({
       </head>
       <body className="h-full flex flex-col">
         <Navbar />
+        <Breadcrumbs />
         <main className="flex-1">{children}</main>
         <Footer year={year} />
       </body>
