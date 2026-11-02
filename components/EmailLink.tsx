@@ -7,7 +7,7 @@ export default function EmailLink({ address }: EmailLinkProps) {
     <a
       href={`mailto:${address}`}
       className="underline hover:opacity-75"
-      style={{ color: '#B9BCB5' }}
+      style={{ color: 'var(--color-primary)' }}
     >
       {address}
     </a>

@@ -5,7 +5,8 @@ import ImageGallery from '@/components/ImageGallery';
 
 export const metadata = pageMetadata({
   title: 'Räumlichkeiten | Salon77 - Würzburger Künstlerinitiative',
-  description: 'Entdecke unsere Räumlichkeiten und Studios für Tanz, Musik und Fotografie.',
+  description:
+    'Entdecke unsere Räumlichkeiten und Studios für Tanz, Musik und Fotografie.',
   path: '/raeumlichkeiten',
 });
 
@@ -35,7 +36,10 @@ const ROOMS = [
 const GALLERY_IMAGES = [
   { src: '/salon77/raumligkeiten/Balletsaal.png', alt: 'Balletsaal' },
   { src: '/salon77/raumligkeiten/Klavierraum.png', alt: 'Klavierraum' },
-  { src: '/salon77/raumligkeiten/Kleinen_Tanzsaal.png', alt: 'Kleiner Tanzsaal' },
+  {
+    src: '/salon77/raumligkeiten/Kleinen_Tanzsaal.png',
+    alt: 'Kleiner Tanzsaal',
+  },
   { src: '/salon77/raumligkeiten/Haus.png', alt: 'Haus Außenansicht' },
   { src: '/salon77/raumligkeiten/Eingang.png', alt: 'Eingang' },
   { src: '/salon77/raumligkeiten/GangInnen.png', alt: 'Gang Innen' },
@@ -50,13 +54,13 @@ export default function Raeumlichkeiten() {
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
           <h1
             className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4"
-            style={{ color: '#2c2c2c' }}
+            style={{ color: 'var(--color-text)' }}
           >
             Räumlichkeiten
           </h1>
           <p
             className="text-lg sm:text-xl mb-12"
-            style={{ color: '#666666' }}
+            style={{ color: 'var(--color-text-muted)' }}
           >
             Viel Platz für Bewegung - Raum für Kunst
           </p>
@@ -67,13 +71,13 @@ export default function Raeumlichkeiten() {
               <div key={room.title}>
                 <h2
                   className="text-2xl sm:text-3xl font-bold mb-3"
-                  style={{ color: '#C9A961' }}
+                  style={{ color: 'var(--color-accent)' }}
                 >
                   {room.title}
                 </h2>
                 <p
                   className="text-base sm:text-lg leading-relaxed"
-                  style={{ color: '#666666' }}
+                  style={{ color: 'var(--color-text-muted)' }}
                 >
                   {room.description}
                 </p>

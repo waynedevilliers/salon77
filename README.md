@@ -5,6 +5,7 @@ A modern website for the Salon77 Würzburg artists' association (Würzburger Kü
 ## What is this website?
 
 This is a rebuilt version of the Salon77 website with:
+
 - **Home page** - showing the main sections and overview
 - **Courses page** (Unterricht) - display all courses with instructor info
 - **Instructors page** (Dozenten) - showcase all instructors with their specialties
@@ -30,6 +31,7 @@ Courses are listed in `/app/unterricht/page.tsx`. To add or edit a course:
    - `instructor`: Instructor name
 
 **Example:**
+
 ```javascript
 {
   title: 'Flamenco',
@@ -64,6 +66,7 @@ Weekly courses are listed in `/app/wochenkurse/page.tsx`. To update the schedule
 Events are in `/app/veranstaltungen/page.tsx` and `/app/veranstaltungen/klein-montmartre/page.tsx`.
 
 To edit Klein-Montmartre details:
+
 1. Open `/app/veranstaltungen/klein-montmartre/page.tsx`
 2. Update the text sections (paragraphs, dates, contact info)
 3. Update next dates in the "Nächste Termine" section
@@ -111,7 +114,8 @@ REGISTRATION_EMAIL=kmm@salon77.de
 # 1. Install dependencies
 npm install
 
-# 2. Create .env.local with email settings (see above)
+# 2. Copy the environment template and fill in the email settings
+cp .env.example .env.local
 
 # 3. Start development server
 npm run dev
@@ -119,58 +123,93 @@ npm run dev
 # 4. Open http://localhost:3000 in browser
 ```
 
+`.env.local` is ignored by git and must never be committed. The variables are
+listed in `.env.example`.
+
 ### Build & Deploy
 
 ```bash
-# Build for production
+# Build for production (all pages are statically generated)
 npm run build
 
 # Test production build locally
 npm start
-
-# Deploy to your hosting
-# (Push to main branch or use your deploy command)
 ```
+
+Deploy with any host that runs Next.js. Set the variables from `.env.example`
+in the host's settings. Deployment on Vercel: push the branch, connect the
+repository, add the environment variables, and deploy.
 
 ### Technology Stack
 
-- **Next.js 16** - React framework
-- **Tailwind CSS 4** - Styling
-- **TypeScript** - Type safety
-- **Nodemailer** - Email sending
-- **yet-another-react-lightbox** - Image gallery
+- **Next.js 16** (App Router, static generation, `cacheComponents`)
+- **React 19** and **TypeScript** (strict)
+- **Tailwind CSS 4** with design tokens in `app/globals.css`
+- **next/font** for self-hosted Playfair Display and Lato
+- **Nodemailer** for registration emails
+- **yet-another-react-lightbox** for the photo gallery
+- **Vitest** and **React Testing Library** for unit and component tests
+- **Playwright** and **@axe-core/playwright** for end-to-end and accessibility tests
 
 ### Project Structure
 
 ```
 salon77/
 ├── app/
+│   ├── layout.tsx                  # Root layout, fonts, JSON-LD for the association
 │   ├── page.tsx                    # Home page
+│   ├── sitemap.ts                  # Generates /sitemap.xml
+│   ├── robots.ts                   # Generates /robots.txt
 │   ├── unterricht/page.tsx         # Courses page
 │   ├── dozenten/page.tsx           # Instructors page
 │   ├── wochenkurse/page.tsx        # Weekly courses schedule
-│   ├── veranstaltungen/            # Events section
+│   ├── veranstaltungen/            # Events and Klein-Montmartre (incl. registration)
 │   ├── raeumlichkeiten/            # Facilities page
 │   ├── verein/page.tsx             # Association page
 │   ├── kontakt/page.tsx            # Contact page
-│   ├── globals.css                 # Design colors & fonts
-│   └── actions/registration.ts     # Form submission logic
+│   ├── impressum/, datenschutz/    # Legal pages
+│   ├── globals.css                 # Design tokens (colors, fonts, radii)
+│   └── actions/registration.ts     # Registration form submission
 ├── components/                     # Reusable UI components
-│   ├── Navbar.tsx                  # Top navigation
-│   ├── NavLink.tsx                 # Navigation link component
-│   ├── CourseCard.tsx              # Course display card
-│   ├── EventCard.tsx               # Event display card
-│   ├── InstructorCard.tsx          # Instructor card (Client Component)
-│   ├── ImageGallery.tsx            # Photo gallery with lightbox
-│   └── RegistrationForm.tsx        # Form component
-├── public/salon77/                 # All images and assets
-│   ├── unterricht/                 # Instructor photos
-│   ├── dozenten/                   # Instructor directory photos
-│   ├── veranstaltung/              # Event photos
-│   ├── kleinmomatra/               # Klein-Montmartre photos
-│   └── raumligkeiten/              # Facility photos
-└── README.md                        # This file
+│   ├── ActionLink.tsx              # Pill-style button/link (internal, external, mailto)
+│   ├── BackButton.tsx              # "Zurück zur Startseite"
+│   ├── CourseCard.tsx, EventCard.tsx, InstructorCard.tsx, MenuCard.tsx
+│   ├── EmailLink.tsx               # Address link
+│   ├── ImageGallery.tsx            # Photo gallery with lightbox (Client Component)
+│   ├── JsonLd.tsx                  # Renders schema.org data, escaped
+│   ├── MapConsent.tsx              # Google Maps loads only after a click
+│   ├── Navbar.tsx, NavLink.tsx, Footer.tsx
+│   └── RegistrationForm.tsx        # Registration form (Client Component)
+├── content/                        # Text and data, not hardcoded in components
+│   ├── site.ts                     # Name, address, phone, email, domain, share image
+│   ├── routes.ts                   # Indexable pages for sitemap and breadcrumbs
+│   ├── events.ts                   # Klein-Montmartre dates for structured data
+│   └── map.ts                      # Map consent text
+├── lib/
+│   ├── metadata.ts                 # pageMetadata(): canonical, Open Graph, Twitter, robots
+│   ├── structured-data.ts          # Breadcrumb, Event and Place JSON-LD
+│   ├── security-headers.ts         # CSP, HSTS and other headers (used by next.config.ts)
+│   └── current-year.ts             # Copyright year, cached for a day
+├── e2e/                            # Playwright: pages, links, navigation, accessibility
+├── public/
+│   ├── og/salon77.jpg              # 1200x630 share image
+│   ├── llms.txt                    # Site summary for AI assistants (maintained by hand)
+│   └── salon77/                    # Images and assets
+├── lighthouserc.json               # Lighthouse CI budgets
+├── .github/workflows/ci.yml        # Lint, types, audit, unit, e2e, Lighthouse, build
+└── README.md                       # This file
 ```
+
+### Where to Change Shared Facts
+
+- **Name, address, phone, email, domain**: `content/site.ts`. Every page and the
+  structured data read from here, so they stay identical.
+- **Pages in the sitemap and breadcrumbs**: `content/routes.ts`. Add a new public
+  page here as well as in `app/`.
+- **Event dates for structured data**: `content/events.ts`.
+- **Public summary for AI assistants**: `public/llms.txt`. This file is not generated,
+  so update it when pages change.
+- **Page titles and descriptions**: pass them to `pageMetadata()` in each `page.tsx`.
 
 ### Available Commands
 
@@ -178,48 +217,64 @@ salon77/
 npm run dev           # Start development server (http://localhost:3000)
 npm run build         # Build for production
 npm start             # Run production build
-npm run lint          # Check code quality
-npm run type-check    # Check TypeScript types
-npm test              # Run tests
-npm run e2e           # Run browser tests
+npm run lint          # ESLint
+npm run type-check    # TypeScript (strict)
+npm run format        # Prettier: write formatting
+npm run format:check  # Prettier: check formatting
+npm test              # Unit and component tests (Vitest)
+npm run test:coverage # Unit tests with coverage
+npm run e2e           # Browser tests (Playwright, all projects)
+npm run knip          # Find unused files, exports and dependencies
+npm run duplication   # Find duplicated code (jscpd)
+npm run audit         # npm audit, fails on high or critical findings
+```
+
+Browser tests use port 3000 by default. If another server is already on that
+port, set another one: `PLAYWRIGHT_PORT=3200 npm run e2e`.
+
+Lighthouse CI runs in GitHub Actions. To run it locally after `npm run build`:
+
+```bash
+npx --yes @lhci/cli@0.15.1 autorun --config=lighthouserc.json
 ```
 
 ### Design System
 
-- **Brand Color**: #B9BCB5 (taupe) - used for buttons and accents
-- **Gold Accents**: #C9A961 - used for section titles
-- **Text Colors**: #2c2c2c (dark) for headings, #666666 (gray) for body text
+- **Brand color**: `--color-primary` (#B9BCB5, taupe), used for buttons and footer
+- **Accent**: `--color-accent` (#C9A961, gold), used for section titles and active links
+- **Text**: `--color-text` (#2c2c2c) for headings, `--color-text-muted` (#666666) for body text
 - **Fonts**: Playfair Display (headings), Lato (body text)
 
-All colors are defined in `/app/globals.css` and can be changed there.
+Colors are defined in `app/globals.css` under `@theme`. Components use them as
+`var(--color-…)` in inline styles or `bg-[var(--color-…)]` classes. Do not add
+hex values to components.
+
+Note: several design colors do not meet WCAG AA contrast (see the accessibility
+report). Changing them requires approval.
 
 ### Making Changes
 
-1. **Edit text on a page**: Find the `.tsx` file and update the text directly
-2. **Change colors**: Update `/app/globals.css` @theme section
-3. **Change fonts**: Update `/app/globals.css` @theme section
-4. **Add new page**: Create new folder in `/app/` with `page.tsx` file
-5. **Add images**: Upload to `/public/salon77/[section]/` folder
+1. **Edit text on a page**: find the `.tsx` file and update the text directly
+2. **Change colors**: update the `@theme` section in `app/globals.css`
+3. **Add a new page**: create a folder in `app/` with a `page.tsx`, export
+   `pageMetadata()`, add the route to `content/routes.ts`, and add a test to `e2e/pages.spec.ts` if needed
+4. **Add images**: upload to `public/salon77/[section]/`. Compress first and use
+   `next/image`
 
-### Deployment
+### Security and Privacy
 
-The site can be deployed to:
-- Vercel (easiest - automatic from GitHub)
-- Netlify
-- Your own web hosting
-- AWS, Google Cloud, etc.
-
-For Vercel:
-1. Push code to GitHub
-2. Connect repository to Vercel
-3. Add `.env` variables in Vercel dashboard
-4. Automatic deployment on every push to main
+- Security headers are set for every route in `lib/security-headers.ts`. The
+  Content Security Policy allows only same-origin content plus the Google Maps
+  frame, which loads after the visitor clicks "Karte laden".
+- No third-party request is made without consent. Fonts are self-hosted through `next/font`.
+- Secrets belong in `.env.local`. Only `.env.example` is committed.
 
 ---
 
 ## Support
 
 For questions about:
+
 - **Design/Content**: Contact the project team
 - **Technical issues**: Check the code comments or contact a developer
 - **Hosting**: Contact your hosting provider

@@ -1,13 +1,16 @@
 ## Summary
+
 <!-- Brief description of changes -->
 
 ## Changes
+
 <!-- What was changed and why -->
 
-- 
-- 
+-
+-
 
 ## Testing
+
 <!-- How were these changes tested? -->
 
 - [ ] Unit tests pass
@@ -17,6 +20,7 @@
 - [ ] Lighthouse score remains 90+
 
 ## Screenshots (if applicable)
+
 <!-- Add screenshots of UI changes -->
 
 ## Checklist

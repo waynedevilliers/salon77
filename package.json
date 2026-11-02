@@ -14,7 +14,12 @@
     "test:coverage": "vitest --coverage",
     "e2e": "playwright test",
     "e2e:ui": "playwright test --ui",
-    "e2e:debug": "playwright test --debug"
+    "e2e:debug": "playwright test --debug",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "knip": "knip",
+    "duplication": "jscpd app components lib content e2e --min-lines 5 --min-tokens 50",
+    "audit": "npm audit --audit-level=high"
   },
   "dependencies": {
     "next": "16.4.3",
@@ -33,16 +38,18 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^4.3.2",
+    "@vitest/coverage-v8": "4.1.12",
     "eslint": "^9",
     "eslint-config-next": "16.4.3",
+    "jscpd": "5.4.2",
     "jsdom": "^25.0.0",
+    "knip": "5.88.1",
     "postcss": "^8.5.1",
     "prettier": "^3.4.2",
     "typescript": "^5",
     "vitest": "4.1.12"
   },
   "description": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).",
-  "main": "index.js",
   "keywords": [],
   "author": "John Black <wblack2050@gmail.com>",
   "license": "MIT"

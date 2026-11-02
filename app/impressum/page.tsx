@@ -19,30 +19,40 @@ export default function Impressum() {
         <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
           <h1
             className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-12"
-            style={{ color: '#2c2c2c' }}
+            style={{ color: 'var(--color-text)' }}
           >
             Impressum
           </h1>
 
-          <div className="space-y-8" style={{ color: '#666666' }}>
+          <div
+            className="space-y-8"
+            style={{ color: 'var(--color-text-muted)' }}
+          >
             <section>
-              <h2 className="text-2xl font-bold mb-4" style={{ color: '#C9A961' }}>
+              <h2
+                className="text-2xl font-bold mb-4"
+                style={{ color: 'var(--color-accent)' }}
+              >
                 Salon 77 Würzburger Künstlerinitiative e.V.
               </h2>
               <p className="mb-2">{site.address.street}</p>
-              <p className="mb-6">{site.address.postalCode} {site.address.city}</p>
+              <p className="mb-6">
+                {site.address.postalCode} {site.address.city}
+              </p>
 
               <p className="mb-2">
                 <strong>Telefon:</strong> {site.phone}
               </p>
               <p className="mb-8">
-                <strong>E-Mail:</strong>{' '}
-                <EmailLink address={site.email} />
+                <strong>E-Mail:</strong> <EmailLink address={site.email} />
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-4" style={{ color: '#C9A961' }}>
+              <h2
+                className="text-2xl font-bold mb-4"
+                style={{ color: 'var(--color-accent)' }}
+              >
                 Gemeinschaftlich vertretungsberechtigt
               </h2>
               <p className="mb-4">
@@ -58,7 +68,10 @@ export default function Impressum() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-4" style={{ color: '#C9A961' }}>
+              <h2
+                className="text-2xl font-bold mb-4"
+                style={{ color: 'var(--color-accent)' }}
+              >
                 Registrierung
               </h2>
               <p className="mb-2">
@@ -70,7 +83,10 @@ export default function Impressum() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold mb-4" style={{ color: '#C9A961' }}>
+              <h2
+                className="text-2xl font-bold mb-4"
+                style={{ color: 'var(--color-accent)' }}
+              >
                 Verantwortlich für redaktionelle Inhalte
               </h2>
               <p className="mb-4">V.i.S.d § 55 Abs. 2 RStV:</p>

@@ -1,8 +1,8 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   /* Salon77 brand color */
-  --color-primary: #B9BCB5;
+  --color-primary: #b9bcb5;
 
   /* Semantic color tokens */
   --color-surface: #ffffff;
@@ -13,6 +13,13 @@
   --color-text: #2c2c2c;
   --color-text-light: #ffffff;
   --color-text-muted: #666666;
+
+  /* Accent and state colors used across pages */
+  --color-accent: #c9a961;
+  --color-highlight: #ef3d6c;
+  --color-error: #c53030;
+  --color-border: #e0e0e0;
+  --color-text-faint: #999999;
 
   /* Legacy brand colors (keeping for component compatibility) */
   --color-clay: #b4573f;
@@ -56,7 +63,6 @@ body {
   background: #fafaf8;
   color: var(--color-text);
 }
-
 
 ::selection {
   background: rgba(189, 34, 30, 0.25);
@@ -126,7 +132,6 @@ body {
     font-size: 0.875rem;
     line-height: 1.5;
   }
-
 
   /* Micro-interactions */
   .hover-lift {

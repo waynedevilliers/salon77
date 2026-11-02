@@ -10,10 +10,12 @@ export const metadata = pageMetadata({
 });
 
 const INSTRUCTORS = [
-  { name: 'André Mabiala', specialty: 'Afrikanisches Trommeln' },
   { name: 'Andrea Kneis', specialty: 'Gesang' },
   { name: 'Asami Krisan', specialty: 'Ballett' },
-  { name: 'Hsiu-Yun Lu', specialty: 'Zeitgenössischer Tanz, Taiji, Kindertanz' },
+  {
+    name: 'Hsiu-Yun Lu',
+    specialty: 'Zeitgenössischer Tanz, Taiji, Kindertanz',
+  },
   { name: 'Mercedes Sebald Arguisuelas', specialty: 'Flamenco' },
   { name: 'Michael Röthlein', specialty: 'Taiko' },
   { name: 'Norbert Schmelz', specialty: 'Fotografie' },
@@ -30,13 +32,13 @@ export default function Dozenten() {
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
           <h1
             className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-center"
-            style={{ color: '#2c2c2c' }}
+            style={{ color: 'var(--color-text)' }}
           >
             Unsere Dozenten
           </h1>
           <p
             className="text-lg text-center mb-12"
-            style={{ color: '#666666' }}
+            style={{ color: 'var(--color-text-muted)' }}
           >
             Erfahrene Künstler und Pädagogen, die ihre Leidenschaft weitergeben
           </p>

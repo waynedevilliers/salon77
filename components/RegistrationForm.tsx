@@ -18,7 +18,9 @@ export default function RegistrationForm() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -49,7 +51,9 @@ export default function RegistrationForm() {
         setError(result.message);
       }
     } catch {
-      setError('Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
+      setError(
+        'Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.'
+      );
     } finally {
       setLoading(false);
     }
@@ -58,32 +62,45 @@ export default function RegistrationForm() {
   if (submitted) {
     return (
       <div className="bg-white rounded-lg shadow-lg p-8 text-center">
-        <h2 className="text-2xl font-bold mb-4" style={{ color: '#C9A961' }}>
+        <h2
+          className="text-2xl font-bold mb-4"
+          style={{ color: 'var(--color-accent)' }}
+        >
           Anmeldung erhalten!
         </h2>
-        <p className="text-lg" style={{ color: '#666666' }}>
-          Vielen Dank für deine Anmeldung. Wir werden dich in Kürze kontaktieren.
+        <p className="text-lg" style={{ color: 'var(--color-text-muted)' }}>
+          Vielen Dank für deine Anmeldung. Wir werden dich in Kürze
+          kontaktieren.
         </p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto">
-      <h2 className="text-2xl font-bold mb-8" style={{ color: '#C9A961' }}>
+    <form
+      onSubmit={handleSubmit}
+      className="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto"
+    >
+      <h2
+        className="text-2xl font-bold mb-8"
+        style={{ color: 'var(--color-accent)' }}
+      >
         Anmeldung Klein-Montmartre
       </h2>
 
       {error && (
         <div className="mb-6 p-4 bg-red-100 border border-red-400 rounded-md">
-          <p style={{ color: '#c53030' }}>{error}</p>
+          <p style={{ color: 'var(--color-error)' }}>{error}</p>
         </div>
       )}
 
       <div className="space-y-6">
         {/* Name */}
         <div>
-          <label className="block text-sm font-semibold mb-2" style={{ color: '#2c2c2c' }}>
+          <label
+            className="block text-sm font-semibold mb-2"
+            style={{ color: 'var(--color-text)' }}
+          >
             Vorname
           </label>
           <input
@@ -98,7 +115,10 @@ export default function RegistrationForm() {
 
         {/* Surname */}
         <div>
-          <label className="block text-sm font-semibold mb-2" style={{ color: '#2c2c2c' }}>
+          <label
+            className="block text-sm font-semibold mb-2"
+            style={{ color: 'var(--color-text)' }}
+          >
             Nachname
           </label>
           <input
@@ -113,7 +133,10 @@ export default function RegistrationForm() {
 
         {/* Address */}
         <div>
-          <label className="block text-sm font-semibold mb-2" style={{ color: '#2c2c2c' }}>
+          <label
+            className="block text-sm font-semibold mb-2"
+            style={{ color: 'var(--color-text)' }}
+          >
             Adresse
           </label>
           <input
@@ -128,7 +151,10 @@ export default function RegistrationForm() {
 
         {/* Email */}
         <div>
-          <label className="block text-sm font-semibold mb-2" style={{ color: '#2c2c2c' }}>
+          <label
+            className="block text-sm font-semibold mb-2"
+            style={{ color: 'var(--color-text)' }}
+          >
             Email
           </label>
           <input
@@ -143,7 +169,10 @@ export default function RegistrationForm() {
 
         {/* Phone */}
         <div>
-          <label className="block text-sm font-semibold mb-2" style={{ color: '#2c2c2c' }}>
+          <label
+            className="block text-sm font-semibold mb-2"
+            style={{ color: 'var(--color-text)' }}
+          >
             Handy / Telefon
           </label>
           <input
@@ -158,7 +187,10 @@ export default function RegistrationForm() {
 
         {/* Square Meters */}
         <div>
-          <label className="block text-sm font-semibold mb-2" style={{ color: '#2c2c2c' }}>
+          <label
+            className="block text-sm font-semibold mb-2"
+            style={{ color: 'var(--color-text)' }}
+          >
             Benötigte Fläche (Quadratmeter)
           </label>
           <input
@@ -175,7 +207,10 @@ export default function RegistrationForm() {
 
         {/* Description */}
         <div>
-          <label className="block text-sm font-semibold mb-2" style={{ color: '#2c2c2c' }}>
+          <label
+            className="block text-sm font-semibold mb-2"
+            style={{ color: 'var(--color-text)' }}
+          >
             Was möchtest du präsentieren oder verkaufen?
           </label>
           <textarea
@@ -193,9 +228,13 @@ export default function RegistrationForm() {
           type="submit"
           disabled={loading}
           className="w-full py-3 rounded-md font-semibold text-white transition-all disabled:opacity-50"
-          style={{ backgroundColor: '#B9BCB5' }}
-          onMouseEnter={(e) => !loading && (e.currentTarget.style.opacity = '0.85')}
-          onMouseLeave={(e) => !loading && (e.currentTarget.style.opacity = '1')}
+          style={{ backgroundColor: 'var(--color-primary)' }}
+          onMouseEnter={(e) =>
+            !loading && (e.currentTarget.style.opacity = '0.85')
+          }
+          onMouseLeave={(e) =>
+            !loading && (e.currentTarget.style.opacity = '1')
+          }
         >
           {loading ? 'Wird versendet...' : 'Anmeldung absenden'}
         </button>

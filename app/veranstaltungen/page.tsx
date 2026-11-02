@@ -6,7 +6,8 @@ import EventCard from '@/components/EventCard';
 
 export const metadata = pageMetadata({
   title: 'Veranstaltungen | Salon77 - Würzburger Künstlerinitiative',
-  description: 'Entdecke alle kommenden Veranstaltungen und Events bei Salon77.',
+  description:
+    'Entdecke alle kommenden Veranstaltungen und Events bei Salon77.',
   path: '/veranstaltungen',
 });
 
@@ -25,7 +26,8 @@ const EVENTS = [
     title: 'Flamenco Festival',
     date: 'Placeholder',
     location: 'Würzburg',
-    description: 'Würzburg und Deutschlands ältestes Flamenco-Festival mit erstklassigen Künstlern aus Spanien und Europa.',
+    description:
+      'Würzburg und Deutschlands ältestes Flamenco-Festival mit erstklassigen Künstlern aus Spanien und Europa.',
     image: '/salon77/kleinmomatra/flamenco.webp',
     buttonText: 'Zur Webseite',
     buttonLink: 'https://www.wueflamencofestival.de/',
@@ -36,18 +38,22 @@ export default function Veranstaltungen() {
   return (
     <div className="flex flex-col">
       <JsonLd data={breadcrumbJsonLd('/veranstaltungen')} />
-      <JsonLd data={kleinMontmartreDates.map((startDate) => eventJsonLd({ startDate, path: '/veranstaltungen/klein-montmartre' }))} />
+      <JsonLd
+        data={kleinMontmartreDates.map((startDate) =>
+          eventJsonLd({ startDate, path: '/veranstaltungen/klein-montmartre' })
+        )}
+      />
       <main className="flex-1">
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
           <h1
             className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4"
-            style={{ color: '#2c2c2c' }}
+            style={{ color: 'var(--color-text)' }}
           >
             Veranstaltungen
           </h1>
           <p
             className="text-lg sm:text-xl mb-12"
-            style={{ color: '#666666' }}
+            style={{ color: 'var(--color-text-muted)' }}
           >
             Klein-Montmartre - Kunsthandwerkermarkt
           </p>

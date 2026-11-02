@@ -36,25 +36,28 @@ export default function EventCard({
       <div className="p-6 flex flex-col flex-grow">
         <h3
           className="text-lg sm:text-xl font-bold mb-2 transition-colors"
-          style={{ color: '#C9A961' }}
+          style={{ color: 'var(--color-accent)' }}
         >
           {title}
         </h3>
 
         <p
           className="text-sm sm:text-base mb-3 font-semibold"
-          style={{ color: '#B9BCB5' }}
+          style={{ color: 'var(--color-primary)' }}
         >
           {date}
         </p>
 
-        <p className="text-xs sm:text-sm mb-4" style={{ color: '#666666' }}>
+        <p
+          className="text-xs sm:text-sm mb-4"
+          style={{ color: 'var(--color-text-muted)' }}
+        >
           📍 {location}
         </p>
 
         <p
           className="text-sm sm:text-base mb-6 flex-grow"
-          style={{ color: '#666666' }}
+          style={{ color: 'var(--color-text-muted)' }}
         >
           {description}
         </p>

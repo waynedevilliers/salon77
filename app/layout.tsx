@@ -3,6 +3,7 @@ import { Playfair_Display, Lato } from 'next/font/google';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { site } from '@/content/site';
+import { getCurrentYear } from '@/lib/current-year';
 import './globals.css';
 
 const playfair = Playfair_Display({
@@ -58,11 +59,13 @@ const organizationJsonLd = {
   sameAs: [site.instagramUrl],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const year = await getCurrentYear();
+
   return (
     <html
       lang={site.language}
@@ -81,7 +84,7 @@ export default function RootLayout({
       <body className="h-full flex flex-col">
         <Navbar />
         <main className="flex-1">{children}</main>
-        <Footer />
+        <Footer year={year} />
       </body>
     </html>
   );
