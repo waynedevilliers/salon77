@@ -3,6 +3,8 @@ export interface Instructor {
   specialty: string;
   /** Biography text. Shown on the detail page when present. */
   bio?: string;
+  /** Business email shown on the detail page. Only added when the address is public and for business use. */
+  email?: string;
   /** Personal website of the instructor, opened in a new tab. */
   website?: string;
 }
@@ -12,6 +14,7 @@ export const instructors: Instructor[] = [
     name: 'Andrea Kneis',
     specialty: 'Gesang',
     bio: 'Andrea Kneis unterrichtet Tanz seit 1994 und hat eine sozialpädagogische Ausbildung. Ihr Schwerpunkt liegt in der Tanzimprovisation und in verschiedenen Arten von Körperarbeit, wobei auch die zeitgenössische Tanztechnik eine wichtige Grundlage bildet. Seit der Ausbildung bei der amerikanischen Tänzerin Keriac bildet sie sich ständig bei international renommierten Lehrern weiter.',
+    email: 'info@andreakneis.de',
     website: 'http://andreakneis.de/',
   },
   {
@@ -37,6 +40,7 @@ export const instructors: Instructor[] = [
   {
     name: 'Norbert Schmelz',
     specialty: 'Fotografie',
+    email: 'info@schmelz-fotodesign.de',
     website: 'http://www.schmelz-fotodesign.de/',
   },
   {
