@@ -1,5 +1,6 @@
 import { pageMetadata } from '@/lib/metadata';
 import MenuCard from '@/components/MenuCard';
+import Reveal from '@/components/Reveal';
 import NextEvent from '@/components/NextEvent';
 import { getTodayIso } from '@/lib/dates';
 import { kleinMontmartreDates, kleinMontmartreTeaser } from '@/content/events';
@@ -59,7 +60,9 @@ export default async function Home() {
         <section>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {MENU_CARDS.map((card) => (
-              <MenuCard key={card.href} {...card} />
+              <Reveal key={card.href} className="h-full">
+                <MenuCard {...card} />
+              </Reveal>
             ))}
           </div>
         </section>
