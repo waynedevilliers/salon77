@@ -30,8 +30,8 @@
   --color-ink: #1a1a1a;
 
   /* Fonts (loaded via next/font, fallback to system) */
-  --font-display: 'Playfair Display', Georgia, Times New Roman, serif;
-  --font-sans: 'Lato', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-playfair), Georgia, 'Times New Roman', serif;
+  --font-sans: var(--font-lato), ui-sans-serif, system-ui, -apple-system, sans-serif;
 
   /* Shadows */
   --shadow-glow: 0 25px 80px rgba(189, 34, 30, 0.28);
