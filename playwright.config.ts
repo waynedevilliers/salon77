@@ -1,5 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 
+const port = process.env.PLAYWRIGHT_PORT ?? '3000';
+
 export default defineConfig({
   testDir: './e2e',
   fullyParallel: true,
@@ -8,7 +10,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: 'http://localhost:3000',
+    baseURL: `http://localhost:${port}`,
     trace: 'on-first-retry',
   },
   projects: [
@@ -24,10 +26,18 @@ export default defineConfig({
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },
+    {
+      name: 'mobile-chrome',
+      use: { ...devices['Pixel 7'] },
+    },
+    {
+      name: 'mobile-safari',
+      use: { ...devices['iPhone 14'] },
+    },
   ],
   webServer: {
-    command: 'npm run build && npm start',
-    url: 'http://localhost:3000',
+    command: `npm run build && npm start -- -p ${port}`,
+    url: `http://localhost:${port}`,
     reuseExistingServer: !process.env.CI,
   },
 });
