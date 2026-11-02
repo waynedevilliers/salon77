@@ -2,9 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main, dev, feature/**]
   pull_request:
-    branches: [main, dev]
 
 jobs:
   lint:
@@ -29,6 +27,17 @@ jobs:
       - run: npm ci
       - run: npm run type-check
 
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm audit --audit-level=high
+
   test:
     runs-on: ubuntu-latest
     steps:
@@ -52,6 +61,22 @@ jobs:
       - run: npx playwright install --with-deps
       - run: npm run build
       - run: npm run e2e
+
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+      # Lighthouse CI is run from npx rather than listed in package.json.
+      # Its dependency tree currently has high-severity advisories with no
+      # fix, which would fail the audit job. It runs only here, against our
+      # own build, and does not ship with the site.
+      - run: npx --yes @lhci/cli@0.15.1 autorun --config=lighthouserc.json
 
   build:
     runs-on: ubuntu-latest
