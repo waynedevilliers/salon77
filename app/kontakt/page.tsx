@@ -55,7 +55,10 @@ export default function Kontakt() {
                     >
                       Organisation
                     </h3>
-                    <p style={{ color: 'var(--color-text)' }} className="font-semibold">
+                    <p
+                      style={{ color: 'var(--color-text)' }}
+                      className="font-semibold"
+                    >
                       Würzburger Künstlerinitiative e.V.
                     </p>
                   </div>
@@ -67,7 +70,10 @@ export default function Kontakt() {
                     >
                       Adresse
                     </h3>
-                    <p style={{ color: 'var(--color-text)' }} className="font-semibold">
+                    <p
+                      style={{ color: 'var(--color-text)' }}
+                      className="font-semibold"
+                    >
                       {site.address.street}
                     </p>
                     <p style={{ color: 'var(--color-text-muted)' }}>
@@ -92,7 +98,10 @@ export default function Kontakt() {
                     >
                       {site.phone}
                     </a>
-                    <p style={{ color: 'var(--color-text-muted)' }} className="text-sm mt-1">
+                    <p
+                      style={{ color: 'var(--color-text-muted)' }}
+                      className="text-sm mt-1"
+                    >
                       2. Vorsitzende Mercedes Sebald
                     </p>
                   </div>

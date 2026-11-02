@@ -7,7 +7,8 @@ import ActionLink from '@/components/ActionLink';
 
 export const metadata = pageMetadata({
   title: 'Klein-Montmartre | Salon77 - Kunsthandwerkermarkt Würzburg',
-  description: 'Klein-Montmartre Kunsthandwerkermarkt - Deutschlands ältester und beliebtester Kunsthandwerkermarkt in Würzburg.',
+  description:
+    'Klein-Montmartre Kunsthandwerkermarkt - Deutschlands ältester und beliebtester Kunsthandwerkermarkt in Würzburg.',
   path: '/veranstaltungen/klein-montmartre',
 });
 
@@ -15,7 +16,10 @@ const GALLERY_IMAGES = [
   { src: '/salon77/kleinmomatra/IMG_7469.jpeg', alt: 'Klein-Montmartre 1' },
   { src: '/salon77/kleinmomatra/IMG_7481_2.jpeg', alt: 'Klein-Montmartre 2' },
   { src: '/salon77/kleinmomatra/IMG_7527.jpeg', alt: 'Klein-Montmartre 3' },
-  { src: '/salon77/kleinmomatra/Das_ist_Würzburg_-_Klein_Montmartre_am_Main01.jpeg', alt: 'Klein-Montmartre 4' },
+  {
+    src: '/salon77/kleinmomatra/Das_ist_Würzburg_-_Klein_Montmartre_am_Main01.jpeg',
+    alt: 'Klein-Montmartre 4',
+  },
   { src: '/salon77/kleinmomatra/IMG_7668.jpeg', alt: 'Klein-Montmartre 5' },
   { src: '/salon77/kleinmomatra/IMG_7795.jpeg', alt: 'Klein-Montmartre 6' },
 ];
@@ -24,7 +28,11 @@ export default function KleinMontmartre() {
   return (
     <div className="flex flex-col">
       <JsonLd data={breadcrumbJsonLd('/veranstaltungen/klein-montmartre')} />
-      <JsonLd data={kleinMontmartreDates.map((startDate) => eventJsonLd({ startDate, path: '/veranstaltungen/klein-montmartre' }))} />
+      <JsonLd
+        data={kleinMontmartreDates.map((startDate) =>
+          eventJsonLd({ startDate, path: '/veranstaltungen/klein-montmartre' })
+        )}
+      />
       <main className="flex-1">
         <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
           {/* Header */}
@@ -45,7 +53,8 @@ export default function KleinMontmartre() {
               className="text-base sm:text-lg"
               style={{ color: 'var(--color-text-muted)' }}
             >
-              📍 Leonhard-Frank-Promenade, Würzburg | 2x jährlich (Anfang Mai & Oktober)
+              📍 Leonhard-Frank-Promenade, Würzburg | 2x jährlich (Anfang Mai &
+              Oktober)
             </p>
           </div>
 
@@ -56,7 +65,9 @@ export default function KleinMontmartre() {
                 className="text-base sm:text-lg leading-relaxed"
                 style={{ color: 'var(--color-text-muted)' }}
               >
-                Die Künstlerinitiative „Salon 77 e. V.“ präsentiert seit über 30 Jahren einen der ältesten und beliebtesten Kunsthandwerkermärkte in Würzburg.
+                Die Künstlerinitiative „Salon 77 e. V.“ präsentiert seit über 30
+                Jahren einen der ältesten und beliebtesten Kunsthandwerkermärkte
+                in Würzburg.
               </p>
             </section>
 
@@ -65,7 +76,14 @@ export default function KleinMontmartre() {
                 className="text-base sm:text-lg leading-relaxed"
                 style={{ color: 'var(--color-text-muted)' }}
               >
-                Viele Aussteller mit Passion präsentieren und verkaufen ihre Handwerkskunst. Hier findest du Produkte aller Art wie zum Beispiel Taschen, Hüte, Bekleidung, Schmuck, Gemälde, Dekoartikel für Wohnung und Garten, Skulpturen, Geschirr, Seife, DIY-Produkte und vieles mehr aus allen erdenklichen (Natur-)Materialien wie unter anderem Holz, Metall, Fimo, Ton, Filz, Wolle, Leder, Glas, Papier, Stoff, Gips, Acrylfarbe, Trockenblumen und Edelsteinen.
+                Viele Aussteller mit Passion präsentieren und verkaufen ihre
+                Handwerkskunst. Hier findest du Produkte aller Art wie zum
+                Beispiel Taschen, Hüte, Bekleidung, Schmuck, Gemälde,
+                Dekoartikel für Wohnung und Garten, Skulpturen, Geschirr, Seife,
+                DIY-Produkte und vieles mehr aus allen erdenklichen
+                (Natur-)Materialien wie unter anderem Holz, Metall, Fimo, Ton,
+                Filz, Wolle, Leder, Glas, Papier, Stoff, Gips, Acrylfarbe,
+                Trockenblumen und Edelsteinen.
               </p>
             </section>
 
@@ -74,7 +92,11 @@ export default function KleinMontmartre() {
                 className="text-base sm:text-lg leading-relaxed"
                 style={{ color: 'var(--color-text-muted)' }}
               >
-                Inspirierend, individuell, kreativ, beeindruckend und faszinierend sind Attribute, die man dem „Klein Montmartre“ zuweisen könnte. Die Veranstaltung zeichnet eine hohe Wertschätzung gegenüber jeder Handwerkskunst aus - fernab von stumpfem Konsum und belanglosen 0815 Produkten.
+                Inspirierend, individuell, kreativ, beeindruckend und
+                faszinierend sind Attribute, die man dem „Klein Montmartre“
+                zuweisen könnte. Die Veranstaltung zeichnet eine hohe
+                Wertschätzung gegenüber jeder Handwerkskunst aus - fernab von
+                stumpfem Konsum und belanglosen 0815 Produkten.
               </p>
             </section>
 
@@ -83,7 +105,10 @@ export default function KleinMontmartre() {
                 className="text-base sm:text-lg leading-relaxed"
                 style={{ color: 'var(--color-text-muted)' }}
               >
-                Es erwartet dich eine entspannte Atmosphäre direkt im Grünen am Main auf der Leonhard-Frank-Promenade mit ganz viel Platz für interessante Begegnungen und herzlichster Einladung zum Bewundern, Bestaunen, Stöbern & Kaufen!
+                Es erwartet dich eine entspannte Atmosphäre direkt im Grünen am
+                Main auf der Leonhard-Frank-Promenade mit ganz viel Platz für
+                interessante Begegnungen und herzlichster Einladung zum
+                Bewundern, Bestaunen, Stöbern & Kaufen!
               </p>
             </section>
 
@@ -92,7 +117,10 @@ export default function KleinMontmartre() {
                 className="text-base sm:text-lg leading-relaxed"
                 style={{ color: 'var(--color-text-muted)' }}
               >
-                Komme auch Du in den Besitz von echten Unikaten, passionierter Handarbeit und Produkten mit Geschichte, Herz und Hingabe. Das Team vom „Klein Montmartre“ und alle Aussteller freuen sich auf Deinen Besuch!
+                Komme auch Du in den Besitz von echten Unikaten, passionierter
+                Handarbeit und Produkten mit Geschichte, Herz und Hingabe. Das
+                Team vom „Klein Montmartre“ und alle Aussteller freuen sich auf
+                Deinen Besuch!
               </p>
             </section>
           </div>
@@ -107,7 +135,10 @@ export default function KleinMontmartre() {
             </h2>
 
             <div className="space-y-4">
-              <p className="text-base" style={{ color: 'var(--color-text-muted)' }}>
+              <p
+                className="text-base"
+                style={{ color: 'var(--color-text-muted)' }}
+              >
                 Mehr Impressionen findest du auf unserem Instagram Account{' '}
                 <a
                   href="https://www.instagram.com/klein_montmartre/"
@@ -120,7 +151,10 @@ export default function KleinMontmartre() {
                 </a>
               </p>
 
-              <p className="text-base" style={{ color: 'var(--color-text-muted)' }}>
+              <p
+                className="text-base"
+                style={{ color: 'var(--color-text-muted)' }}
+              >
                 Du möchtest deine Kunst beim „Klein Montmartre“ ausstellen?
               </p>
 
@@ -128,17 +162,26 @@ export default function KleinMontmartre() {
                 Email an kmm@salon77.de
               </ActionLink>
 
-              <p className="text-base mt-8" style={{ color: 'var(--color-text-muted)' }}>
+              <p
+                className="text-base mt-8"
+                style={{ color: 'var(--color-text-muted)' }}
+              >
                 Oder melde dich direkt an:
               </p>
 
               <div className="mt-4">
-                <ActionLink href="/veranstaltungen/klein-montmartre/anmelden" className="px-8 py-3">
+                <ActionLink
+                  href="/veranstaltungen/klein-montmartre/anmelden"
+                  className="px-8 py-3"
+                >
                   Anmelden
                 </ActionLink>
               </div>
 
-              <p className="text-base mt-6" style={{ color: 'var(--color-text-muted)' }}>
+              <p
+                className="text-base mt-6"
+                style={{ color: 'var(--color-text-muted)' }}
+              >
                 Zur aktuellen Facebook Veranstaltung:{' '}
                 <a
                   href="https://fb.me/e/4XfvnFiVE"
@@ -162,10 +205,16 @@ export default function KleinMontmartre() {
               Nächste Termine
             </h2>
             <div className="space-y-3">
-              <p className="text-lg font-semibold" style={{ color: 'var(--color-text)' }}>
+              <p
+                className="text-lg font-semibold"
+                style={{ color: 'var(--color-text)' }}
+              >
                 📅 Samstag, 08.05.2027
               </p>
-              <p className="text-lg font-semibold" style={{ color: 'var(--color-text)' }}>
+              <p
+                className="text-lg font-semibold"
+                style={{ color: 'var(--color-text)' }}
+              >
                 📅 Samstag, 02.10.2027
               </p>
             </div>

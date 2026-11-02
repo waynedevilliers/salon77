@@ -3,7 +3,8 @@ import MenuCard from '@/components/MenuCard';
 
 export const metadata = pageMetadata({
   title: 'Startseite | Salon77 - Würzburger Künstlerinitiative',
-  description: 'Salon77 - Die Würzburger Künstlerinitiative e.V. mit Kursen in Tanz, Bewegung, Musik und Fotografie.',
+  description:
+    'Salon77 - Die Würzburger Künstlerinitiative e.V. mit Kursen in Tanz, Bewegung, Musik und Fotografie.',
   path: '/',
 });
 

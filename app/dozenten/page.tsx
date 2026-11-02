@@ -13,7 +13,10 @@ const INSTRUCTORS = [
   { name: 'André Mabiala', specialty: 'Afrikanisches Trommeln' },
   { name: 'Andrea Kneis', specialty: 'Gesang' },
   { name: 'Asami Krisan', specialty: 'Ballett' },
-  { name: 'Hsiu-Yun Lu', specialty: 'Zeitgenössischer Tanz, Taiji, Kindertanz' },
+  {
+    name: 'Hsiu-Yun Lu',
+    specialty: 'Zeitgenössischer Tanz, Taiji, Kindertanz',
+  },
   { name: 'Mercedes Sebald Arguisuelas', specialty: 'Flamenco' },
   { name: 'Michael Röthlein', specialty: 'Taiko' },
   { name: 'Norbert Schmelz', specialty: 'Fotografie' },

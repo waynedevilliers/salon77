@@ -5,7 +5,8 @@ import CourseCard from '@/components/CourseCard';
 
 export const metadata = pageMetadata({
   title: 'Unterricht | Salon77 - Würzburger Künstlerinitiative',
-  description: 'Entdecke unsere umfangreiche Auswahl an Kursen und Unterricht in Tanz, Musik, Fotografie und mehr.',
+  description:
+    'Entdecke unsere umfangreiche Auswahl an Kursen und Unterricht in Tanz, Musik, Fotografie und mehr.',
   path: '/unterricht',
 });
 
@@ -26,7 +27,8 @@ const COURSES = [
   },
   {
     title: 'Flamenco',
-    description: 'Flamenco als Kunstform mit Fokus auf Verständnis und Flexibilität. Ausdruck von Emotionen durch Tanz, Gesang und Gitarre.',
+    description:
+      'Flamenco als Kunstform mit Fokus auf Verständnis und Flexibilität. Ausdruck von Emotionen durch Tanz, Gesang und Gitarre.',
     schedule: 'Dienstags und Freitags ab 18:00 Uhr',
     instructor: 'Mercedes Sebald',
   },
@@ -39,7 +41,8 @@ const COURSES = [
   },
   {
     title: 'Bass',
-    description: 'Bassunterricht für alle Levels. Einzelunterricht mit professioneller Anleitung. Flexibles Lernen an der Bassgitarre.',
+    description:
+      'Bassunterricht für alle Levels. Einzelunterricht mit professioneller Anleitung. Flexibles Lernen an der Bassgitarre.',
     schedule: 'Montags und Freitags ab 14 Uhr',
     instructor: 'Simon Ort',
   },

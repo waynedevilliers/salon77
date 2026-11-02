@@ -5,7 +5,8 @@ import ImageGallery from '@/components/ImageGallery';
 
 export const metadata = pageMetadata({
   title: 'Räumlichkeiten | Salon77 - Würzburger Künstlerinitiative',
-  description: 'Entdecke unsere Räumlichkeiten und Studios für Tanz, Musik und Fotografie.',
+  description:
+    'Entdecke unsere Räumlichkeiten und Studios für Tanz, Musik und Fotografie.',
   path: '/raeumlichkeiten',
 });
 
@@ -35,7 +36,10 @@ const ROOMS = [
 const GALLERY_IMAGES = [
   { src: '/salon77/raumligkeiten/Balletsaal.png', alt: 'Balletsaal' },
   { src: '/salon77/raumligkeiten/Klavierraum.png', alt: 'Klavierraum' },
-  { src: '/salon77/raumligkeiten/Kleinen_Tanzsaal.png', alt: 'Kleiner Tanzsaal' },
+  {
+    src: '/salon77/raumligkeiten/Kleinen_Tanzsaal.png',
+    alt: 'Kleiner Tanzsaal',
+  },
   { src: '/salon77/raumligkeiten/Haus.png', alt: 'Haus Außenansicht' },
   { src: '/salon77/raumligkeiten/Eingang.png', alt: 'Eingang' },
   { src: '/salon77/raumligkeiten/GangInnen.png', alt: 'Gang Innen' },

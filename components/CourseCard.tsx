@@ -45,7 +45,10 @@ export default function CourseCard({
       >
         {description}
       </p>
-      <p className="text-xs sm:text-sm mb-2" style={{ color: 'var(--color-text-muted)' }}>
+      <p
+        className="text-xs sm:text-sm mb-2"
+        style={{ color: 'var(--color-text-muted)' }}
+      >
         {schedule}
       </p>
 

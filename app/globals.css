@@ -1,8 +1,8 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   /* Salon77 brand color */
-  --color-primary: #B9BCB5;
+  --color-primary: #b9bcb5;
 
   /* Semantic color tokens */
   --color-surface: #ffffff;
@@ -63,7 +63,6 @@ body {
   background: #fafaf8;
   color: var(--color-text);
 }
-
 
 ::selection {
   background: rgba(189, 34, 30, 0.25);
@@ -133,7 +132,6 @@ body {
     font-size: 0.875rem;
     line-height: 1.5;
   }
-
 
   /* Micro-interactions */
   .hover-lift {

@@ -5,6 +5,7 @@ A modern website for the Salon77 Würzburg artists' association (Würzburger Kü
 ## What is this website?
 
 This is a rebuilt version of the Salon77 website with:
+
 - **Home page** - showing the main sections and overview
 - **Courses page** (Unterricht) - display all courses with instructor info
 - **Instructors page** (Dozenten) - showcase all instructors with their specialties
@@ -30,6 +31,7 @@ Courses are listed in `/app/unterricht/page.tsx`. To add or edit a course:
    - `instructor`: Instructor name
 
 **Example:**
+
 ```javascript
 {
   title: 'Flamenco',
@@ -64,6 +66,7 @@ Weekly courses are listed in `/app/wochenkurse/page.tsx`. To update the schedule
 Events are in `/app/veranstaltungen/page.tsx` and `/app/veranstaltungen/klein-montmartre/page.tsx`.
 
 To edit Klein-Montmartre details:
+
 1. Open `/app/veranstaltungen/klein-montmartre/page.tsx`
 2. Update the text sections (paragraphs, dates, contact info)
 3. Update next dates in the "Nächste Termine" section
@@ -204,12 +207,14 @@ All colors are defined in `/app/globals.css` and can be changed there.
 ### Deployment
 
 The site can be deployed to:
+
 - Vercel (easiest - automatic from GitHub)
 - Netlify
 - Your own web hosting
 - AWS, Google Cloud, etc.
 
 For Vercel:
+
 1. Push code to GitHub
 2. Connect repository to Vercel
 3. Add `.env` variables in Vercel dashboard
@@ -220,6 +225,7 @@ For Vercel:
 ## Support
 
 For questions about:
+
 - **Design/Content**: Contact the project team
 - **Technical issues**: Check the code comments or contact a developer
 - **Hosting**: Contact your hosting provider

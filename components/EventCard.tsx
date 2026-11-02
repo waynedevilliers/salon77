@@ -48,7 +48,10 @@ export default function EventCard({
           {date}
         </p>
 
-        <p className="text-xs sm:text-sm mb-4" style={{ color: 'var(--color-text-muted)' }}>
+        <p
+          className="text-xs sm:text-sm mb-4"
+          style={{ color: 'var(--color-text-muted)' }}
+        >
           📍 {location}
         </p>
 

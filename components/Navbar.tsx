@@ -32,19 +32,47 @@ export default function Navbar() {
           <nav className="flex flex-wrap gap-6 sm:gap-8 justify-center text-sm sm:text-base">
             <NavLink href="/" label="Home" isActive={pathname === '/'} />
             <span className="text-gray-300">|</span>
-            <NavLink href="/unterricht" label="Unterricht" isActive={pathname === '/unterricht'} />
+            <NavLink
+              href="/unterricht"
+              label="Unterricht"
+              isActive={pathname === '/unterricht'}
+            />
             <span className="text-gray-300">|</span>
-            <NavLink href="/dozenten" label="Dozenten" isActive={pathname === '/dozenten'} />
+            <NavLink
+              href="/dozenten"
+              label="Dozenten"
+              isActive={pathname === '/dozenten'}
+            />
             <span className="text-gray-300">|</span>
-            <NavLink href="/veranstaltungen" label="Veranstaltungen" isActive={pathname === '/veranstaltungen'} />
+            <NavLink
+              href="/veranstaltungen"
+              label="Veranstaltungen"
+              isActive={pathname === '/veranstaltungen'}
+            />
             <span className="text-gray-300">|</span>
-            <NavLink href="/wochenkurse" label="Wochenkurse" isActive={pathname === '/wochenkurse'} />
+            <NavLink
+              href="/wochenkurse"
+              label="Wochenkurse"
+              isActive={pathname === '/wochenkurse'}
+            />
             <span className="text-gray-300">|</span>
-            <NavLink href="/raeumlichkeiten" label="Räumlichkeiten" isActive={pathname === '/raeumlichkeiten'} />
+            <NavLink
+              href="/raeumlichkeiten"
+              label="Räumlichkeiten"
+              isActive={pathname === '/raeumlichkeiten'}
+            />
             <span className="text-gray-300">|</span>
-            <NavLink href="/verein" label="Verein" isActive={pathname === '/verein'} />
+            <NavLink
+              href="/verein"
+              label="Verein"
+              isActive={pathname === '/verein'}
+            />
             <span className="text-gray-300">|</span>
-            <NavLink href="/kontakt" label="Kontakt" isActive={pathname === '/kontakt'} />
+            <NavLink
+              href="/kontakt"
+              label="Kontakt"
+              isActive={pathname === '/kontakt'}
+            />
           </nav>
         </div>
       </nav>

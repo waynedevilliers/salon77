@@ -7,7 +7,11 @@ interface Instructor {
   specialty: string;
 }
 
-export default function InstructorCard({ instructor }: { instructor: Instructor }) {
+export default function InstructorCard({
+  instructor,
+}: {
+  instructor: Instructor;
+}) {
   return (
     <div className="flex flex-col items-center">
       <div className="relative w-40 h-40 rounded-full overflow-hidden shadow-lg mb-4 bg-gray-200 flex items-center justify-center">
