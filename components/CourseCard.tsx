@@ -86,17 +86,12 @@ export default function CourseCard({
       >
         {description}
       </p>
-      <p
-        className="mb-6 mt-auto flex min-h-[3rem] items-start gap-2 text-base font-semibold"
+      <ul
+        className="mb-6 mt-auto min-h-[3rem] list-disc pl-5 text-base font-semibold marker:text-[var(--color-button)]"
         style={{ color: 'var(--color-text)' }}
       >
-        <span
-          aria-hidden="true"
-          className="h-2.5 w-2.5 flex-shrink-0 rounded-full"
-          style={{ backgroundColor: 'var(--color-button)' }}
-        />
-        {schedule}
-      </p>
+        <li>{schedule}</li>
+      </ul>
 
       <div className="mb-6 flex flex-wrap justify-center gap-6">
         {instructors.map((name) => (
