@@ -281,4 +281,14 @@ body {
     padding-top: var(--space-title-top);
     margin: 0 0 var(--space-title-bottom);
   }
+
+  /* Short gold rule under every page title. */
+  .page-title::after {
+    content: '';
+    display: block;
+    width: 3rem;
+    height: 2px;
+    margin: 0.875rem auto 0;
+    background: var(--color-accent);
+  }
 }
