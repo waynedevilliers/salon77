@@ -29,7 +29,7 @@ export default function NextEvent({
   return (
     <section
       aria-labelledby="next-event-title"
-      className="reveal mt-12 grid grid-cols-1 gap-6 overflow-hidden rounded-xl border border-[var(--color-border)] bg-white p-4 md:grid-cols-[2fr_3fr] md:gap-8 md:p-6 lg:mt-16"
+      className="mt-12 grid grid-cols-1 gap-6 overflow-hidden rounded-xl border border-[var(--color-border)] bg-white p-4 md:grid-cols-[2fr_3fr] md:gap-8 md:p-6 lg:mt-16"
     >
       <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-gray-200">
         <Image
