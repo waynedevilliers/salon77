@@ -16,6 +16,10 @@
 
   /* Accent and state colors used across pages */
   --color-accent: #c9a961;
+  /* Text colours checked against white (WCAG AA 4.5:1). */
+  --color-accent-text: #b35c2e; /* logo orange, darkened: 4.68:1; button background with white text */
+  --color-heading: #444444; /* 9.74:1; card titles */
+  --color-sage-text: #4f5e52; /* 6.87:1; inactive menu items */
   --color-highlight: #ef3d6c;
   --color-error: #c53030;
   --color-border: #e0e0e0;
