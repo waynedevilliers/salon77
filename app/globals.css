@@ -17,8 +17,8 @@
   /* Accent and state colors used across pages */
   --color-accent: #c9a961;
   /* Text colours checked against white (WCAG AA 4.5:1). */
-  --color-button: #e8a070; /* logo orange: button background */
-  --color-button-text: #2c2c2c; /* 6.45:1 on the button */
+  --color-button: #f2b893; /* lighter logo orange: button background */
+  --color-button-text: #2c2c2c; /* 8.02:1 on the button */
   --color-accent-text: #b35c2e; /* logo orange, darkened: 4.68:1; button background with white text */
   --color-heading: #444444; /* 9.74:1; card titles */
   --color-sage-text: #4f5e52; /* 6.87:1; inactive menu items */
