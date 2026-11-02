@@ -43,9 +43,9 @@ export default function Home() {
           className="mb-6 text-center leading-[1.1] sm:mb-8 lg:mb-12"
           style={{
             color: 'var(--color-accent)',
-            fontFamily: 'var(--font-script)',
-            fontWeight: 400,
-            fontSize: 'clamp(2.5rem, 4vw + 1rem, 3.75rem)',
+            fontFamily: 'var(--font-sans)',
+            fontWeight: 700,
+            fontSize: 'clamp(2rem, 3.5vw + 0.5rem, 3rem)',
           }}
         >
           Die Künstlerinitiative in Würzburg-Frauenland

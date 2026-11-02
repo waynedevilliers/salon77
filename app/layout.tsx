@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Playfair_Display, Lato, Allura } from 'next/font/google';
+import { Playfair_Display, Lato } from 'next/font/google';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { site } from '@/content/site';
@@ -16,15 +16,6 @@ const lato = Lato({
   subsets: ['latin'],
   weight: ['400', '700'],
   variable: '--font-lato',
-});
-
-const allura = Allura({
-  subsets: ['latin'],
-  weight: '400',
-  display: 'swap',
-  variable: '--font-allura',
-  // Decorative only: page title. Never for body text.
-  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -78,7 +69,7 @@ export default async function RootLayout({
   return (
     <html
       lang={site.language}
-      className={`${playfair.variable} ${lato.variable} ${allura.variable}`}
+      className={`${playfair.variable} ${lato.variable}`}
     >
       <head>
         <meta charSet="utf-8" />
