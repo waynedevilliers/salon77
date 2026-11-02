@@ -14,12 +14,6 @@
   --color-text-light: #ffffff;
   --color-text-muted: #666666;
 
-  /* Home page tokens. Text colors are checked against white (WCAG AA 4.5:1). */
-  --color-heading: #444444; /* 9.74:1 on white */
-  --color-accent-text: #7a5c1e; /* 6.22:1 on white; button background with white text */
-  --color-sage-text: #4f5e52; /* 6.87:1 on white; inactive menu items */
-  --color-border-light: #ececea; /* decorative dividers only */
-
   /* Accent and state colors used across pages */
   --color-accent: #c9a961;
   --color-highlight: #ef3d6c;
@@ -36,10 +30,8 @@
   --color-ink: #1a1a1a;
 
   /* Fonts (loaded via next/font, fallback to system) */
-  --font-body: var(--font-lato), system-ui, sans-serif;
-  --font-display: var(--font-playfair), Georgia, serif;
-  --font-script: var(--font-allura), cursive;
-  --font-sans: var(--font-body);
+  --font-display: 'Playfair Display', Georgia, Times New Roman, serif;
+  --font-sans: 'Lato', ui-sans-serif, system-ui, -apple-system, sans-serif;
 
   /* Shadows */
   --shadow-glow: 0 25px 80px rgba(189, 34, 30, 0.28);

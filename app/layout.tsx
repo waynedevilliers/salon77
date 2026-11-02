@@ -1,10 +1,22 @@
 import type { Metadata } from 'next';
-import { lato, playfair, allura } from '@/app/fonts';
+import { Playfair_Display, Lato } from 'next/font/google';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { site } from '@/content/site';
 import { getCurrentYear } from '@/lib/current-year';
 import './globals.css';
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['700', '900'],
+  variable: '--font-display',
+});
+
+const lato = Lato({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  variable: '--font-sans',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -57,7 +69,7 @@ export default async function RootLayout({
   return (
     <html
       lang={site.language}
-      className={`${lato.variable} ${playfair.variable} ${allura.variable}`}
+      className={`${playfair.variable} ${lato.variable}`}
     >
       <head>
         <meta charSet="utf-8" />

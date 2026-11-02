@@ -5,7 +5,6 @@ interface ActionLinkProps {
   children: React.ReactNode;
   /** Padding and width classes. The default matches the standard button. */
   className?: string;
-  style?: React.CSSProperties;
 }
 
 const baseClassName =
@@ -19,14 +18,13 @@ export default function ActionLink({
   href,
   children,
   className = 'px-6 py-2',
-  style,
 }: ActionLinkProps) {
   const classes = `${baseClassName} ${className}`;
-  const buttonStyle = { backgroundColor: 'var(--color-primary)', ...style };
+  const style = { backgroundColor: 'var(--color-primary)' };
 
   if (href.startsWith('/')) {
     return (
-      <Link href={href} className={classes} style={buttonStyle}>
+      <Link href={href} className={classes} style={style}>
         {children}
       </Link>
     );
@@ -38,7 +36,7 @@ export default function ActionLink({
     <a
       href={href}
       className={classes}
-      style={buttonStyle}
+      style={style}
       target={isExternal ? '_blank' : undefined}
       rel={isExternal ? 'noopener noreferrer' : undefined}
     >
