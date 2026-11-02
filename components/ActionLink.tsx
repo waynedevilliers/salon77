@@ -9,7 +9,7 @@ interface ActionLinkProps {
 }
 
 const baseClassName =
-  'inline-block rounded-md font-semibold text-white transition-opacity hover:opacity-[0.85]';
+  'inline-block rounded-md font-semibold transition-opacity hover:opacity-[0.85]';
 
 /**
  * Pill-style button used for calls to action. Internal paths use the Next.js
@@ -22,7 +22,11 @@ export default function ActionLink({
   style,
 }: ActionLinkProps) {
   const classes = `${baseClassName} ${className}`;
-  const buttonStyle = { backgroundColor: 'var(--color-primary)', ...style };
+  const buttonStyle = {
+    backgroundColor: 'var(--color-button)',
+    color: 'var(--color-button-text)',
+    ...style,
+  };
 
   if (href.startsWith('/')) {
     return (

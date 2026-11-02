@@ -113,11 +113,7 @@ export default function CourseCard({
         ))}
       </div>
 
-      <ActionLink
-        href="/kontakt"
-        className="w-full px-6 py-3 text-center"
-        style={{ backgroundColor: 'var(--color-accent-text)' }}
-      >
+      <ActionLink href="/kontakt" className="w-full px-6 py-3 text-center">
         Probestunde anfragen
       </ActionLink>
     </div>
