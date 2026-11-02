@@ -66,7 +66,7 @@ export default function CourseCard({
 
   return (
     <div
-      className="flex flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-lg"
+      className="reveal flex flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-lg"
       style={{ minHeight: '500px' }}
     >
       <h3
