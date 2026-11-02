@@ -14,3 +14,23 @@ export function findInstructor(slug: string): Instructor | undefined {
     (instructor) => instructorSlug(instructor.name) === slug
   );
 }
+
+/**
+ * The instructors before and after the given one in list order, wrapping
+ * around at both ends, so the pager can always move in both directions.
+ */
+export function getAdjacentInstructors(slug: string): {
+  previous: Instructor;
+  next: Instructor;
+} | null {
+  const index = instructors.findIndex(
+    (instructor) => instructorSlug(instructor.name) === slug
+  );
+  if (index === -1) return null;
+
+  const count = instructors.length;
+  return {
+    previous: instructors[(index - 1 + count) % count],
+    next: instructors[(index + 1) % count],
+  };
+}

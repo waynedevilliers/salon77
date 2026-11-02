@@ -1,5 +1,9 @@
 /// <reference types="vitest" />
-import { findInstructor, instructorSlug } from './instructors';
+import {
+  findInstructor,
+  getAdjacentInstructors,
+  instructorSlug,
+} from './instructors';
 
 describe('instructorSlug', () => {
   it('lowercases the name and joins words with hyphens', () => {
@@ -24,5 +28,26 @@ describe('findInstructor', () => {
 
   it('returns undefined for an unknown slug', () => {
     expect(findInstructor('niemand')).toBeUndefined();
+  });
+});
+
+describe('getAdjacentInstructors', () => {
+  it('returns the neighbours in list order', () => {
+    const adjacent = getAdjacentInstructors('hsiu-yun-lu');
+    expect(adjacent?.previous.name).toBe('Asami Krisan');
+    expect(adjacent?.next.name).toBe('Mercedes Sebald Arguisuelas');
+  });
+
+  it('wraps around at the start and the end of the list', () => {
+    expect(getAdjacentInstructors('andrea-kneis')?.previous.name).toBe(
+      'Stefanie Koch'
+    );
+    expect(getAdjacentInstructors('stefanie-koch')?.next.name).toBe(
+      'Andrea Kneis'
+    );
+  });
+
+  it('returns null for an unknown slug', () => {
+    expect(getAdjacentInstructors('niemand')).toBeNull();
   });
 });

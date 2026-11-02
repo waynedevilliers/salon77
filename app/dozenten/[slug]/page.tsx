@@ -5,7 +5,12 @@ import JsonLd from '@/components/JsonLd';
 import InstructorPhoto from '@/components/InstructorPhoto';
 import BackButton from '@/components/BackButton';
 import { instructors } from '@/content/instructors';
-import { findInstructor, instructorSlug } from '@/lib/instructors';
+import ActionLink from '@/components/ActionLink';
+import {
+  findInstructor,
+  getAdjacentInstructors,
+  instructorSlug,
+} from '@/lib/instructors';
 import { pageMetadata } from '@/lib/metadata';
 import { breadcrumbJsonLd } from '@/lib/structured-data';
 
@@ -38,7 +43,8 @@ export async function generateMetadata({
 export default async function InstructorPage({ params }: PageProps) {
   const { slug } = await params;
   const instructor = findInstructor(slug);
-  if (!instructor) notFound();
+  const adjacent = getAdjacentInstructors(slug);
+  if (!instructor || !adjacent) notFound();
 
   return (
     <div className="flex flex-col">
@@ -91,6 +97,24 @@ export default async function InstructorPage({ params }: PageProps) {
               </a>
             </p>
           )}
+
+          <nav
+            aria-label="Weitere Dozenten"
+            className="flex items-center justify-between gap-4 mb-10"
+          >
+            <ActionLink
+              href={`/dozenten/${instructorSlug(adjacent.previous.name)}`}
+              className="px-4 py-2"
+            >
+              ← {adjacent.previous.name}
+            </ActionLink>
+            <ActionLink
+              href={`/dozenten/${instructorSlug(adjacent.next.name)}`}
+              className="px-4 py-2"
+            >
+              {adjacent.next.name} →
+            </ActionLink>
+          </nav>
 
           <div className="flex flex-col items-center gap-4 pt-8 border-t border-gray-200">
             <Link
