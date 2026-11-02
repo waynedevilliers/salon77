@@ -9,7 +9,7 @@ interface ActionLinkProps {
 }
 
 const baseClassName =
-  'inline-flex items-center justify-center rounded-md font-bold text-[length:var(--size-body)] transition-opacity hover:opacity-[0.85] min-h-[var(--button-min-height)]';
+  'inline-flex items-center justify-center rounded-md font-bold text-[length:var(--size-body)] transition-colors duration-200 motion-safe:hover:-translate-y-0.5 min-h-[var(--button-min-height)] bg-[var(--color-button)] hover:bg-[var(--color-button-hover)]';
 
 /**
  * Pill-style button used for calls to action. Internal paths use the Next.js
@@ -23,7 +23,6 @@ export default function ActionLink({
 }: ActionLinkProps) {
   const classes = `${baseClassName} ${className}`;
   const buttonStyle = {
-    backgroundColor: 'var(--color-button)',
     color: 'var(--color-button-text)',
     ...style,
   };

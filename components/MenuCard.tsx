@@ -13,7 +13,7 @@ interface MenuCardProps {
 export default function MenuCard({ title, href, image }: MenuCardProps) {
   return (
     <Link href={href} className="group">
-      <div className="relative overflow-hidden rounded-lg bg-white border border-gray-200 shadow-sm hover:shadow-lg transition-shadow h-full">
+      <div className="relative overflow-hidden rounded-lg bg-white border border-gray-200 shadow-sm transition-[transform,box-shadow] duration-300 motion-safe:hover:-translate-y-1 hover:shadow-lg h-full">
         {/* Image */}
         <div className="relative h-64 sm:h-72 overflow-hidden bg-gray-200">
           <Image

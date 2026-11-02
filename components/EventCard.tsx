@@ -21,7 +21,7 @@ export default function EventCard({
   buttonLink = '/kontakt',
 }: EventCardProps) {
   return (
-    <div className="bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-shadow overflow-hidden flex flex-col h-full">
+    <div className="bg-white border border-gray-200 rounded-lg shadow-sm transition-[transform,box-shadow] duration-300 motion-safe:hover:-translate-y-1 hover:shadow-lg overflow-hidden flex flex-col h-full">
       {/* Event Image */}
       <div className="relative w-full h-64 sm:h-80 overflow-hidden bg-gray-200">
         <Image

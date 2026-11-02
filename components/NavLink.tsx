@@ -16,7 +16,7 @@ export default function NavLink({
   return (
     <Link
       href={href}
-      className={`font-medium transition-opacity hover:opacity-75 ${
+      className={`font-medium underline-offset-4 transition-colors hover:underline ${
         isActive ? 'underline' : ''
       } ${className}`}
       style={{ color: isActive ? 'var(--color-accent)' : 'var(--color-text)' }}
