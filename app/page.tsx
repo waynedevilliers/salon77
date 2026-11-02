@@ -40,11 +40,11 @@ const MENU_CARDS = [
 export default function Home() {
   return (
     <div className="flex flex-col">
-      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
         <h1
-          className="mb-6 text-center leading-[1.1] sm:mb-8 lg:mb-12"
+          className="mb-6 pt-[var(--space-title-top)] text-center leading-[1.1] sm:mb-8 lg:mb-12"
           style={{
-            color: 'var(--color-accent)',
+            color: 'var(--color-text)',
             fontFamily: 'var(--font-sans)',
             fontWeight: 700,
             fontSize: 'clamp(2rem, 3.5vw + 0.5rem, 3rem)',
