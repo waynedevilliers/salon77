@@ -32,6 +32,7 @@
   /* Fonts (loaded via next/font, fallback to system) */
   --font-display: var(--font-playfair), Georgia, 'Times New Roman', serif;
   --font-sans: var(--font-lato), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-script: var(--font-allura), cursive;
 
   /* Shadows */
   --shadow-glow: 0 25px 80px rgba(189, 34, 30, 0.28);
