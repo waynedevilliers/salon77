@@ -31,7 +31,7 @@ export default function NextEvent({
       aria-labelledby="next-event-title"
       className="mt-12 grid grid-cols-1 gap-6 overflow-hidden rounded-xl border border-[var(--color-border)] bg-white p-4 md:grid-cols-[2fr_3fr] md:gap-8 md:p-6 lg:mt-16"
     >
-      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-gray-200">
+      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-gray-200 md:aspect-auto md:h-full md:min-h-64">
         <Image
           src={image.src}
           alt={image.alt}
@@ -42,11 +42,23 @@ export default function NextEvent({
       </div>
 
       <div className="flex flex-col gap-4">
-        <p
-          className="text-sm font-bold uppercase tracking-wide"
-          style={{ color: 'var(--color-accent-text)' }}
-        >
-          Nächster Termin: <time dateTime={next}>{formatGermanDate(next)}</time>
+        <p className="inline-flex w-fit items-center gap-2 self-start rounded-full px-4 py-1.5 text-base">
+          <span
+            className="font-semibold uppercase tracking-wide"
+            style={{ color: 'var(--color-text)' }}
+          >
+            Nächster Termin
+          </span>
+          <time
+            dateTime={next}
+            className="rounded-md px-2 font-bold"
+            style={{
+              backgroundColor: 'var(--color-accent)',
+              color: 'var(--color-text)',
+            }}
+          >
+            {formatGermanDate(next)}
+          </time>
         </p>
         <h2
           id="next-event-title"
