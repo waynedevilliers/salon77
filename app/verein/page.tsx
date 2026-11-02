@@ -1,3 +1,5 @@
+import JsonLd from '@/components/JsonLd';
+import { breadcrumbJsonLd } from '@/lib/structured-data';
 import { pageMetadata } from '@/lib/metadata';
 import BackButton from '@/components/BackButton';
 
@@ -10,6 +12,7 @@ export const metadata = pageMetadata({
 export default function Verein() {
   return (
     <div className="flex flex-col">
+      <JsonLd data={breadcrumbJsonLd('/verein')} />
       <main className="flex-1">
         <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
           <h1

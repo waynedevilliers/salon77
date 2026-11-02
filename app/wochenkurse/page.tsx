@@ -1,3 +1,5 @@
+import JsonLd from '@/components/JsonLd';
+import { breadcrumbJsonLd } from '@/lib/structured-data';
 import { pageMetadata } from '@/lib/metadata';
 
 export const metadata = pageMetadata({
@@ -39,6 +41,7 @@ const WEEKLY_COURSES = {
 export default function Wochenkurse() {
   return (
     <div className="flex flex-col">
+      <JsonLd data={breadcrumbJsonLd('/wochenkurse')} />
       <main className="flex-1">
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
           <h1

@@ -1,3 +1,6 @@
+import JsonLd from '@/components/JsonLd';
+import { breadcrumbJsonLd, eventJsonLd } from '@/lib/structured-data';
+import { kleinMontmartreDates } from '@/content/events';
 import { pageMetadata } from '@/lib/metadata';
 import EventCard from '@/components/EventCard';
 
@@ -32,6 +35,8 @@ const EVENTS = [
 export default function Veranstaltungen() {
   return (
     <div className="flex flex-col">
+      <JsonLd data={breadcrumbJsonLd('/veranstaltungen')} />
+      <JsonLd data={kleinMontmartreDates.map((startDate) => eventJsonLd({ startDate, path: '/veranstaltungen/klein-montmartre' }))} />
       <main className="flex-1">
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
           <h1

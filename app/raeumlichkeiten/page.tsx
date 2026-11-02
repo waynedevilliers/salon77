@@ -1,3 +1,5 @@
+import JsonLd from '@/components/JsonLd';
+import { breadcrumbJsonLd, placeJsonLd } from '@/lib/structured-data';
 import { pageMetadata } from '@/lib/metadata';
 import ImageGallery from '@/components/ImageGallery';
 
@@ -42,6 +44,8 @@ const GALLERY_IMAGES = [
 export default function Raeumlichkeiten() {
   return (
     <div className="flex flex-col">
+      <JsonLd data={breadcrumbJsonLd('/raeumlichkeiten')} />
+      <JsonLd data={placeJsonLd()} />
       <main className="flex-1">
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
           <h1
