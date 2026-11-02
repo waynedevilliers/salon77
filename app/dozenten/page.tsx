@@ -10,7 +10,6 @@ export const metadata = pageMetadata({
 });
 
 const INSTRUCTORS = [
-  { name: 'André Mabiala', specialty: 'Afrikanisches Trommeln' },
   { name: 'Andrea Kneis', specialty: 'Gesang' },
   { name: 'Asami Krisan', specialty: 'Ballett' },
   {
