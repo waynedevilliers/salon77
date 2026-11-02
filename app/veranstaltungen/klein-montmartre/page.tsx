@@ -34,7 +34,7 @@ export default function KleinMontmartre() {
         )}
       />
       <main className="flex-1">
-        <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
           {/* Header */}
           <div className="mb-12">
             <h1 className="page-title" style={{ color: 'var(--color-text)' }}>
