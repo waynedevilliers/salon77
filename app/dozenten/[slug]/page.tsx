@@ -59,12 +59,12 @@ export default async function InstructorPage({ params }: PageProps) {
             <aside className="flex flex-col items-center gap-6">
               <InstructorPhoto name={instructor.name} className="w-56 h-56" />
 
-              <ul className="space-y-3 w-full max-w-xs">
+              <ul className="space-y-3 w-full max-w-xs text-center">
                 {instructor.phone && (
-                  <li>
+                  <li className="flex justify-center">
                     <a
                       href={`tel:${instructor.phone.replace(/[^\d+]/g, '')}`}
-                      className="flex items-center gap-3 hover:opacity-75 break-all"
+                      className="inline-flex items-center gap-3 hover:opacity-75 break-all"
                       style={{ color: 'var(--color-text)' }}
                     >
                       <svg
@@ -85,10 +85,10 @@ export default async function InstructorPage({ params }: PageProps) {
                   </li>
                 )}
                 {instructor.email && (
-                  <li>
+                  <li className="flex justify-center">
                     <a
                       href={`mailto:${instructor.email}`}
-                      className="flex items-center gap-3 hover:opacity-75 break-all"
+                      className="inline-flex items-center gap-3 hover:opacity-75 break-all"
                       style={{ color: 'var(--color-text)' }}
                     >
                       <svg
@@ -110,12 +110,12 @@ export default async function InstructorPage({ params }: PageProps) {
                   </li>
                 )}
                 {instructor.website && (
-                  <li>
+                  <li className="flex justify-center">
                     <a
                       href={instructor.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 underline hover:opacity-75 break-all"
+                      className="inline-flex items-center gap-3 underline hover:opacity-75 break-all"
                       style={{ color: 'var(--color-text)' }}
                     >
                       Website besuchen
