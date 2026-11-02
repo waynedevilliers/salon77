@@ -48,7 +48,7 @@ export default function RegistrationForm() {
       } else {
         setError(result.message);
       }
-    } catch (err) {
+    } catch {
       setError('Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
     } finally {
       setLoading(false);

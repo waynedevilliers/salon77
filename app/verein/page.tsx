@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import Image from 'next/image';
 import BackButton from '@/components/BackButton';
 
 export const metadata: Metadata = {

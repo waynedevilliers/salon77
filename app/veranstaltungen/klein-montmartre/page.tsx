@@ -51,7 +51,7 @@ export default function KleinMontmartre() {
                 className="text-base sm:text-lg leading-relaxed"
                 style={{ color: '#666666' }}
               >
-                Die Künstlerinitiative "Salon 77 e. V." präsentiert seit über 30 Jahren einen der ältesten und beliebtesten Kunsthandwerkermärkte in Würzburg.
+                Die Künstlerinitiative „Salon 77 e. V.“ präsentiert seit über 30 Jahren einen der ältesten und beliebtesten Kunsthandwerkermärkte in Würzburg.
               </p>
             </section>
 
@@ -69,7 +69,7 @@ export default function KleinMontmartre() {
                 className="text-base sm:text-lg leading-relaxed"
                 style={{ color: '#666666' }}
               >
-                Inspirierend, individuell, kreativ, beeindruckend und faszinierend sind Attribute, die man dem "Klein Montmartre" zuweisen könnte. Die Veranstaltung zeichnet eine hohe Wertschätzung gegenüber jeder Handwerkskunst aus - fernab von stumpfem Konsum und belanglosen 0815 Produkten.
+                Inspirierend, individuell, kreativ, beeindruckend und faszinierend sind Attribute, die man dem „Klein Montmartre“ zuweisen könnte. Die Veranstaltung zeichnet eine hohe Wertschätzung gegenüber jeder Handwerkskunst aus - fernab von stumpfem Konsum und belanglosen 0815 Produkten.
               </p>
             </section>
 
@@ -87,7 +87,7 @@ export default function KleinMontmartre() {
                 className="text-base sm:text-lg leading-relaxed"
                 style={{ color: '#666666' }}
               >
-                Komme auch Du in den Besitz von echten Unikaten, passionierter Handarbeit und Produkten mit Geschichte, Herz und Hingabe. Das Team vom "Klein Montmartre" und alle Aussteller freuen sich auf Deinen Besuch!
+                Komme auch Du in den Besitz von echten Unikaten, passionierter Handarbeit und Produkten mit Geschichte, Herz und Hingabe. Das Team vom „Klein Montmartre“ und alle Aussteller freuen sich auf Deinen Besuch!
               </p>
             </section>
           </div>
@@ -116,7 +116,7 @@ export default function KleinMontmartre() {
               </p>
 
               <p className="text-base" style={{ color: '#666666' }}>
-                Du möchtest deine Kunst beim "Klein Montmartre" ausstellen?
+                Du möchtest deine Kunst beim „Klein Montmartre“ ausstellen?
               </p>
 
               <EmailButton email="kmm@salon77.de" text="Email an kmm@salon77.de" />

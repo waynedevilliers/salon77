@@ -163,7 +163,7 @@ export default function Datenschutz() {
                 Cookies
               </h2>
               <p className="mb-4">
-                Wie viele andere Webseiten verwenden wir auch so genannte „Cookies". Cookies sind
+                Wie viele andere Webseiten verwenden wir auch so genannte „Cookies“. Cookies sind
                 kleine Textdateien, die von einem Websiteserver auf Ihre Festplatte übertragen
                 werden. Hierdurch erhalten wir automatisch bestimmte Daten wie z. B. IP-Adresse,
                 verwendeter Browser, Betriebssystem und Ihre Verbindung zum Internet.
