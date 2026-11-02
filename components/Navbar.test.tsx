@@ -1,23 +1,19 @@
 /// <reference types="vitest" />
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import { usePathname } from 'next/navigation';
 import Navbar from './Navbar';
-
-const mockUsePathname = vi.mocked(usePathname);
 
 vi.mock('next/navigation', () => ({
   usePathname: vi.fn(),
 }));
 
-const menuItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Unterricht', href: '/unterricht' },
-  { label: 'Dozenten', href: '/dozenten' },
-  { label: 'Veranstaltungen', href: '/veranstaltungen' },
-  { label: 'Wochenkurse', href: '/wochenkurse' },
-  { label: 'Räumlichkeiten', href: '/raeumlichkeiten' },
-  { label: 'Verein', href: '/verein' },
-  { label: 'Kontakt', href: '/kontakt' },
+const mockUsePathname = vi.mocked(usePathname);
+
+const expectedLinks = [
+  { name: 'Unterricht', href: '/unterricht' },
+  { name: 'Veranstaltungen', href: '/veranstaltungen' },
+  { name: 'Räumlichkeiten', href: '/raeumlichkeiten' },
+  { name: 'Kontakt', href: '/kontakt' },
 ];
 
 describe('Navbar', () => {
@@ -25,34 +21,63 @@ describe('Navbar', () => {
     mockUsePathname.mockReturnValue('/');
   });
 
-  it('renders the logo linking to the start page', () => {
+  it('shows exactly four menu links with the correct hrefs', () => {
     render(<Navbar />);
-    expect(
-      screen.getByRole('img', { name: 'Salon77 Logo' })
-    ).toBeInTheDocument();
+    const menu = screen.getByRole('navigation', { name: 'Hauptmenü' });
+    const links = within(menu).getAllByRole('link');
+
+    expect(links).toHaveLength(4);
+    expectedLinks.forEach((link, index) => {
+      expect(links[index]).toHaveTextContent(link.name);
+      expect(links[index]).toHaveAttribute('href', link.href);
+    });
+  });
+
+  it('does not list Home in the menu and links the logo to the start page', () => {
+    render(<Navbar />);
+    const menu = screen.getByRole('navigation', { name: 'Hauptmenü' });
+    expect(within(menu).queryByRole('link', { name: 'Home' })).toBeNull();
     expect(
       screen.getByRole('link', { name: 'Salon77 - Zur Startseite' })
     ).toHaveAttribute('href', '/');
   });
 
-  it('renders every menu link with the correct href', () => {
+  it('marks the active page with aria-current', () => {
+    mockUsePathname.mockReturnValue('/kontakt');
     render(<Navbar />);
-    for (const item of menuItems) {
-      expect(screen.getByRole('link', { name: item.label })).toHaveAttribute(
-        'href',
-        item.href
-      );
-    }
+    const menu = screen.getByRole('navigation', { name: 'Hauptmenü' });
+    expect(within(menu).getByRole('link', { name: 'Kontakt' })).toHaveAttribute(
+      'aria-current',
+      'page'
+    );
   });
 
-  it('marks the active page', () => {
-    mockUsePathname.mockReturnValue('/unterricht');
+  it('opens and closes the mobile menu with the toggle button', () => {
     render(<Navbar />);
-    expect(screen.getByRole('link', { name: 'Unterricht' })).toHaveClass(
-      'underline'
-    );
-    expect(screen.getByRole('link', { name: 'Home' })).not.toHaveClass(
-      'underline'
+    const toggle = screen.getByRole('button', { name: 'Menü öffnen' });
+    expect(toggle).toHaveAttribute('aria-expanded', 'false');
+
+    fireEvent.click(toggle);
+    expect(
+      screen.getByRole('button', { name: 'Menü schließen' })
+    ).toHaveAttribute('aria-expanded', 'true');
+    expect(
+      screen.getAllByRole('navigation', { name: 'Hauptmenü' })
+    ).toHaveLength(2);
+
+    fireEvent.click(screen.getByRole('button', { name: 'Menü schließen' }));
+    expect(
+      screen.getAllByRole('navigation', { name: 'Hauptmenü' })
+    ).toHaveLength(1);
+  });
+
+  it('closes the mobile menu when Escape is pressed', () => {
+    render(<Navbar />);
+    fireEvent.click(screen.getByRole('button', { name: 'Menü öffnen' }));
+    fireEvent.keyDown(document, { key: 'Escape' });
+    expect(screen.getByRole('button', { name: 'Menü öffnen' })).toHaveAttribute(
+      'aria-expanded',
+      'false'
     );
   });
 });

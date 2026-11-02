@@ -4,16 +4,25 @@ interface NavLinkProps {
   href: string;
   label: string;
   isActive: boolean;
+  className?: string;
 }
 
-export default function NavLink({ href, label, isActive }: NavLinkProps) {
+export default function NavLink({
+  href,
+  label,
+  isActive,
+  className = '',
+}: NavLinkProps) {
   return (
     <Link
       href={href}
-      className={`font-medium transition-opacity hover:opacity-75 ${
-        isActive ? 'underline' : ''
-      }`}
-      style={{ color: isActive ? 'var(--color-accent)' : 'var(--color-text)' }}
+      aria-current={isActive ? 'page' : undefined}
+      className={`font-normal transition-opacity hover:opacity-75 ${
+        isActive ? 'underline underline-offset-4' : ''
+      } ${className}`}
+      style={{
+        color: isActive ? 'var(--color-accent-text)' : 'var(--color-sage-text)',
+      }}
     >
       {label}
     </Link>
