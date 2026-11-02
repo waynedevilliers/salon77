@@ -41,3 +41,15 @@ export function getAdjacentInstructors(slug: string): {
     next: instructors[(index + 1) % count],
   };
 }
+
+/**
+ * The instructor profile for a name as written on course cards. Course cards
+ * sometimes use a shorter name ("Mercedes Sebald"), so a prefix match is used.
+ * Returns undefined when there is no profile page.
+ */
+export function findInstructorByName(name: string): Instructor | undefined {
+  return instructors.find(
+    (instructor) =>
+      instructor.name === name || instructor.name.startsWith(`${name} `)
+  );
+}
