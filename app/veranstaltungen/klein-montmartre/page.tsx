@@ -22,6 +22,33 @@ const GALLERY_IMAGES = [
   },
   { src: '/salon77/kleinmomatra/IMG_7668.jpeg', alt: 'Klein-Montmartre 5' },
   { src: '/salon77/kleinmomatra/IMG_7795.jpeg', alt: 'Klein-Montmartre 6' },
+  {
+    src: '/salon77/kleinmomatra/Das_ist_Würzburg_-_Klein_Montmartre_Mai_2023_-_03.jpeg',
+    alt: 'Klein-Montmartre 7',
+  },
+  {
+    src: '/salon77/kleinmomatra/Das_ist_Würzburg_-_Klein_Montmartre_am_Main03.jpeg',
+    alt: 'Klein-Montmartre 8',
+  },
+  { src: '/salon77/kleinmomatra/IMG_0472_3.jpeg', alt: 'Klein-Montmartre 9' },
+  { src: '/salon77/kleinmomatra/IMG_5950_2.jpeg', alt: 'Klein-Montmartre 10' },
+  { src: '/salon77/kleinmomatra/IMG_6127_4.jpeg', alt: 'Klein-Montmartre 11' },
+  { src: '/salon77/kleinmomatra/IMG_7674_2.jpeg', alt: 'Klein-Montmartre 12' },
+  { src: '/salon77/kleinmomatra/IMG_7729_2.jpeg', alt: 'Klein-Montmartre 13' },
+  { src: '/salon77/kleinmomatra/IMG_7744_2.jpeg', alt: 'Klein-Montmartre 14' },
+  { src: '/salon77/kleinmomatra/IMG_7763_2.jpeg', alt: 'Klein-Montmartre 15' },
+  { src: '/salon77/kleinmomatra/IMG_7764_2.jpeg', alt: 'Klein-Montmartre 16' },
+  { src: '/salon77/kleinmomatra/IMG_7895_2.jpeg', alt: 'Klein-Montmartre 17' },
+  { src: '/salon77/kleinmomatra/IMG_8191.jpeg', alt: 'Klein-Montmartre 18' },
+  {
+    src: '/salon77/kleinmomatra/Plakat_Aufsteller_Bewerbung.png',
+    alt: 'Klein-Montmartre 19',
+  },
+  {
+    src: '/salon77/kleinmomatra/Sticker_Klein_Montmartre_2023_01.jpg',
+    alt: 'Klein-Montmartre 20',
+  },
+  { src: '/salon77/kleinmomatra/flamenco.webp', alt: 'Klein-Montmartre 21' },
 ];
 
 export default function KleinMontmartre() {
@@ -41,7 +68,7 @@ export default function KleinMontmartre() {
               Klein-Montmartre
             </h1>
             <p
-              className="text-lg sm:text-xl font-semibold mb-2"
+              className="text-lg sm:text-xl font-semibold mb-4"
               style={{ color: 'var(--color-primary)' }}
             >
               Kunsthandwerkermarkt | NEXT: 8.05.27
