@@ -78,6 +78,12 @@ Alternatives: Dropdown under Unterricht with Wochenkurse and Dozenten
 (rejected: hides the schedule). Menu reduced to 4 items (rejected:
 hides important pages).
 
+Update: Verein moved to the footer ("Über den Verein"), because most
+visitors come for courses, events and rooms, and fewer menu items fit the
+compact sticky header. The menu is now Home | Unterricht | Wochenkurse |
+Veranstaltungen | Räumlichkeiten | Kontakt. Verein is not marked active in
+the menu, since it is not in the menu.
+
 ## 2026-11-03: Dozenten as section 2 of Unterricht
 
 Status: done (step 5.2, committed locally, not yet pushed)

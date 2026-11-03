@@ -45,6 +45,7 @@ function MailIcon() {
 
 export default function Footer({ year }: FooterProps) {
   const legalLinks = [
+    { label: 'Über den Verein', href: '/verein' },
     { label: 'Impressum', href: '/impressum' },
     { label: 'Datenschutz', href: '/datenschutz' },
   ];

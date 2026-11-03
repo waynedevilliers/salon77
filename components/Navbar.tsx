@@ -12,7 +12,6 @@ const mainItems = [
   { label: 'Wochenkurse', href: '/wochenkurse' },
   { label: 'Veranstaltungen', href: '/veranstaltungen' },
   { label: 'Räumlichkeiten', href: '/raeumlichkeiten' },
-  { label: 'Verein', href: '/verein' },
   { label: 'Kontakt', href: '/kontakt' },
 ];
 
@@ -143,14 +142,6 @@ export default function Navbar() {
               href="/raeumlichkeiten"
               label="Räumlichkeiten"
               isActive={pathname === '/raeumlichkeiten'}
-            />
-            <span aria-hidden="true" style={{ color: 'var(--color-border)' }}>
-              |
-            </span>
-            <NavLink
-              href="/verein"
-              label="Verein"
-              isActive={pathname === '/verein'}
             />
             <span aria-hidden="true" style={{ color: 'var(--color-border)' }}>
               |
