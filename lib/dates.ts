@@ -1,4 +1,4 @@
-import { cacheLife } from 'next/cache';
+import { connection } from 'next/server';
 
 /** Formats an ISO date (2027-05-08) as German (08.05.2027). */
 export function formatGermanDate(isoDate: string): string {
@@ -7,12 +7,12 @@ export function formatGermanDate(isoDate: string): string {
 }
 
 /**
- * Today's date as an ISO string. Cached for a day, so pages can be prerendered
- * without reading the clock on every build.
+ * Today's date as an ISO string, read on every request. The home page depends
+ * on it, so it is rendered per request rather than prerendered.
  */
 export async function getTodayIso(): Promise<string> {
-  'use cache';
-  cacheLife('days');
+  // Read per request, so an event is never shown after its date has passed.
+  await connection();
   return new Date().toISOString().slice(0, 10);
 }
 

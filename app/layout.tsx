@@ -45,7 +45,7 @@ const organizationJsonLd = {
   address: {
     '@type': 'PostalAddress',
     streetAddress: site.address.street,
-    addressLocality: site.address.city,
+    addressLocality: site.address.locality,
     postalCode: site.address.postalCode,
     addressCountry: site.address.country,
   },

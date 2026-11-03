@@ -49,7 +49,7 @@ export function eventJsonLd({
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'Leonhard-Frank-Promenade',
-        addressLocality: site.address.city,
+        addressLocality: site.address.locality,
         addressCountry: site.address.country,
       },
     },
@@ -71,7 +71,7 @@ export function placeJsonLd() {
     address: {
       '@type': 'PostalAddress',
       streetAddress: site.address.street,
-      addressLocality: site.address.city,
+      addressLocality: site.address.locality,
       postalCode: site.address.postalCode,
       addressCountry: site.address.country,
     },

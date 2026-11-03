@@ -2,10 +2,9 @@ import { pageMetadata } from '@/lib/metadata';
 import MenuCard from '@/components/MenuCard';
 import Reveal from '@/components/Reveal';
 import HomeIntro from '@/components/HomeIntro';
-import NextEvent from '@/components/NextEvent';
-import { getTodayIso } from '@/lib/dates';
+import UpcomingEvent from '@/components/UpcomingEvent';
+import { Suspense } from 'react';
 import { homeCards } from '@/content/home';
-import { kleinMontmartreDates, kleinMontmartreTeaser } from '@/content/events';
 
 export const metadata = pageMetadata({
   title: 'Startseite | Salon77 - Würzburger Künstlerinitiative',
@@ -14,8 +13,7 @@ export const metadata = pageMetadata({
   path: '/',
 });
 
-export default async function Home() {
-  const todayIso = await getTodayIso();
+export default function Home() {
   return (
     <div className="flex flex-col">
       <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
@@ -43,12 +41,9 @@ export default async function Home() {
             ))}
           </div>
         </section>
-
-        <NextEvent
-          {...kleinMontmartreTeaser}
-          dates={kleinMontmartreDates}
-          todayIso={todayIso}
-        />
+        <Suspense fallback={null}>
+          <UpcomingEvent />
+        </Suspense>
       </div>
     </div>
   );

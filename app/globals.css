@@ -25,6 +25,7 @@
   --color-sage-text: #4f5e52; /* 6.87:1; inactive menu items */
   --color-highlight: #ef3d6c;
   --color-error: #c53030;
+  --color-border-light: #ececea; /* decorative dividers only */
   --color-border: #e0e0e0;
   --color-text-faint: #999999;
 

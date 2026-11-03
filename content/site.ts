@@ -11,6 +11,9 @@ export const site = {
   address: {
     street: 'Richard-Wagner-Straße 60',
     postalCode: '97074',
+    /** Postal city, used in structured data. */
+    locality: 'Würzburg',
+    /** Name shown on the site: the district of the postal city. */
     city: 'Würzburg-Frauenland',
     country: 'DE',
   },

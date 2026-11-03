@@ -42,7 +42,7 @@ describe('placeJsonLd', () => {
     expect(placeJsonLd().address).toMatchObject({
       streetAddress: 'Richard-Wagner-Straße 60',
       postalCode: '97074',
-      addressLocality: 'Würzburg-Frauenland',
+      addressLocality: 'Würzburg',
     });
   });
 });
