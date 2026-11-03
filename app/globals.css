@@ -15,15 +15,17 @@
   --color-text-muted: #666666;
 
   /* Accent and state colors used across pages */
-  --color-accent: #c9a961;
+  --color-accent: #e59d6c; /* peach: backgrounds, borders, decoration */
   /* Text colours checked against white (WCAG AA 4.5:1). */
-  --color-button: #f2b893; /* lighter logo orange: button background */
-  --color-button-text: #2c2c2c; /* 8.02:1 on the button */
-  --color-accent-text: #b35c2e; /* logo orange, darkened: 4.68:1; button background with white text */
+  --color-button: #e59d6c; /* peach button background */
+  --color-button-hover: #d98c58; /* 4.93:1 with dark text */
+  --color-button-text: #303030; /* 5.89:1 on the button */
+  --color-accent-text: #a65a2e; /* peach text: 5.09:1 on white */
   --color-heading: #444444; /* 9.74:1; card titles */
   --color-sage-text: #4f5e52; /* 6.87:1; inactive menu items */
   --color-highlight: #ef3d6c;
   --color-error: #c53030;
+  --color-border-light: #ececea; /* decorative dividers only */
   --color-border: #e0e0e0;
   --color-text-faint: #999999;
 
@@ -54,6 +56,22 @@
 
 :root {
   color-scheme: light;
+
+  /* Style schema: sizes and spacing. Use these names, not raw values. */
+  --size-h1: clamp(2rem, 4vw + 0.5rem, 3rem); /* page title */
+  --size-h2: clamp(1.5rem, 2vw + 0.75rem, 1.75rem); /* section heading */
+  --size-h3: clamp(1.25rem, 1vw + 1rem, 1.375rem); /* card title */
+  --size-body: 1rem; /* body, labels and schedule: never below 16px */
+  --line-h1: 1.2;
+  --line-h3: 1.3;
+  --line-body: 1.6;
+  --space-title-top: clamp(2rem, 3vw + 1rem, 3rem);
+  --space-title-bottom: 2.5rem;
+  --space-section: 3rem;
+  --space-card: 1rem;
+  --space-card-desktop: 1.5rem;
+  --button-min-height: 3rem; /* 48px */
+  --button-padding-x: 1.5rem;
 }
 
 * {
@@ -67,7 +85,9 @@ html {
 body {
   margin: 0;
   font-family: var(--font-sans);
-  background: #fafaf8;
+  background-color: #fafaf8;
+  /* Very faint grain, about 4% opacity, for a warmer paper feel. */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.04'/></svg>");
   color: var(--color-text);
 }
 
@@ -233,14 +253,54 @@ body {
 
 /* Every page title (h1) uses this style, so size and spacing match. */
 @layer components {
+  /* Fade and rise on scroll (see components/Reveal.tsx). */
+  .reveal {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+
+  /* Without JavaScript the observer never runs, so content stays visible. */
+  @media (scripting: none) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .reveal-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
   .page-title {
     font-family: var(--font-sans);
-    font-size: clamp(2rem, 4vw + 0.5rem, 3rem);
+    font-size: var(--size-h1);
     font-weight: 700;
-    line-height: 1.2;
+    line-height: var(--line-h1);
     text-align: center;
     color: var(--color-text);
-    padding-top: 2rem;
-    margin: 0 0 2.5rem;
+    padding-top: var(--space-title-top);
+    margin: 0 0 var(--space-title-bottom);
+  }
+
+  /* Short gold rule under every page title. */
+  .page-title::after {
+    content: '';
+    display: block;
+    width: 3rem;
+    height: 2px;
+    margin: 0.875rem auto 0;
+    background: var(--color-accent);
   }
 }

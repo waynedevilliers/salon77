@@ -2,6 +2,7 @@ import JsonLd from '@/components/JsonLd';
 import { breadcrumbJsonLd } from '@/lib/structured-data';
 import { pageMetadata } from '@/lib/metadata';
 import CourseCard from '@/components/CourseCard';
+import Reveal from '@/components/Reveal';
 
 export const metadata = pageMetadata({
   title: 'Unterricht | Salon77 - Würzburger Künstlerinitiative',
@@ -88,20 +89,21 @@ export default function Unterricht() {
     <div className="flex flex-col min-h-screen">
       <JsonLd data={breadcrumbJsonLd('/unterricht')} />
       <main className="flex-1">
-        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
           <h1 className="page-title" style={{ color: 'var(--color-text)' }}>
             Unterricht & Kurse
           </h1>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {COURSES.map((course) => (
-              <CourseCard
-                key={course.title}
-                title={course.title}
-                description={course.description}
-                schedule={course.schedule}
-                instructor={course.instructor}
-              />
+              <Reveal key={course.title} className="h-full">
+                <CourseCard
+                  title={course.title}
+                  description={course.description}
+                  schedule={course.schedule}
+                  instructor={course.instructor}
+                />
+              </Reveal>
             ))}
           </div>
         </div>

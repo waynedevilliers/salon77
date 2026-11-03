@@ -53,7 +53,7 @@ export default async function InstructorPage({ params }: PageProps) {
     <div className="flex flex-col">
       <JsonLd data={breadcrumbJsonLd(`/dozenten/${slug}`, instructor.name)} />
       <main className="flex-1">
-        <div className="max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+        <div className="max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-10 sm:pb-14">
           <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_minmax(0,3fr)] gap-8 md:gap-12">
             {/* Left column: photo and contact */}
             <aside className="flex flex-col items-center gap-6">
@@ -76,7 +76,7 @@ export default async function InstructorPage({ params }: PageProps) {
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        style={{ color: 'var(--color-primary)' }}
+                        style={{ color: 'var(--color-sage-text)' }}
                       >
                         <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z" />
                       </svg>
@@ -100,7 +100,7 @@ export default async function InstructorPage({ params }: PageProps) {
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        style={{ color: 'var(--color-primary)' }}
+                        style={{ color: 'var(--color-sage-text)' }}
                       >
                         <rect x="2" y="4" width="20" height="16" rx="2" />
                         <path d="m22 6-10 7L2 6" />
@@ -132,7 +132,7 @@ export default async function InstructorPage({ params }: PageProps) {
               </h1>
               <p
                 className="text-lg font-semibold mb-6"
-                style={{ color: 'var(--color-primary)' }}
+                style={{ color: 'var(--color-sage-text)' }}
               >
                 {instructor.specialty}
               </p>

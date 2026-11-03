@@ -16,7 +16,7 @@ export default function Impressum() {
     <div className="flex flex-col">
       <JsonLd data={breadcrumbJsonLd('/impressum')} />
       <main className="flex-1">
-        <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
           <h1 className="page-title" style={{ color: 'var(--color-text)' }}>
             Impressum
           </h1>
@@ -28,7 +28,7 @@ export default function Impressum() {
             <section>
               <h2
                 className="text-2xl font-bold mb-4"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Salon 77 Würzburger Künstlerinitiative e.V.
               </h2>
@@ -48,7 +48,7 @@ export default function Impressum() {
             <section>
               <h2
                 className="text-2xl font-bold mb-4"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Gemeinschaftlich vertretungsberechtigt
               </h2>
@@ -67,7 +67,7 @@ export default function Impressum() {
             <section>
               <h2
                 className="text-2xl font-bold mb-4"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Registrierung
               </h2>
@@ -82,7 +82,7 @@ export default function Impressum() {
             <section>
               <h2
                 className="text-2xl font-bold mb-4"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Verantwortlich für redaktionelle Inhalte
               </h2>

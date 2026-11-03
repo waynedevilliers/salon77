@@ -9,16 +9,14 @@ describe('formatGermanDate', () => {
 
 describe('nextUpcomingDate', () => {
   it('returns the first date that is today or later', () => {
-    const today = new Date('2027-01-15T12:00:00Z');
-    expect(nextUpcomingDate(['2027-10-02', '2027-05-08'], today)).toBe(
+    expect(nextUpcomingDate(['2027-10-02', '2027-05-08'], '2027-01-15')).toBe(
       '2027-05-08'
     );
   });
 
   it('returns undefined when every date has passed', () => {
-    const today = new Date('2028-01-15T12:00:00Z');
     expect(
-      nextUpcomingDate(['2027-10-02', '2027-05-08'], today)
+      nextUpcomingDate(['2027-10-02', '2027-05-08'], '2028-01-15')
     ).toBeUndefined();
   });
 });

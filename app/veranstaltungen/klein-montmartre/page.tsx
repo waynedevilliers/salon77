@@ -22,6 +22,33 @@ const GALLERY_IMAGES = [
   },
   { src: '/salon77/kleinmomatra/IMG_7668.jpeg', alt: 'Klein-Montmartre 5' },
   { src: '/salon77/kleinmomatra/IMG_7795.jpeg', alt: 'Klein-Montmartre 6' },
+  {
+    src: '/salon77/kleinmomatra/Das_ist_Würzburg_-_Klein_Montmartre_Mai_2023_-_03.jpeg',
+    alt: 'Klein-Montmartre 7',
+  },
+  {
+    src: '/salon77/kleinmomatra/Das_ist_Würzburg_-_Klein_Montmartre_am_Main03.jpeg',
+    alt: 'Klein-Montmartre 8',
+  },
+  { src: '/salon77/kleinmomatra/IMG_0472_3.jpeg', alt: 'Klein-Montmartre 9' },
+  { src: '/salon77/kleinmomatra/IMG_5950_2.jpeg', alt: 'Klein-Montmartre 10' },
+  { src: '/salon77/kleinmomatra/IMG_6127_4.jpeg', alt: 'Klein-Montmartre 11' },
+  { src: '/salon77/kleinmomatra/IMG_7674_2.jpeg', alt: 'Klein-Montmartre 12' },
+  { src: '/salon77/kleinmomatra/IMG_7729_2.jpeg', alt: 'Klein-Montmartre 13' },
+  { src: '/salon77/kleinmomatra/IMG_7744_2.jpeg', alt: 'Klein-Montmartre 14' },
+  { src: '/salon77/kleinmomatra/IMG_7763_2.jpeg', alt: 'Klein-Montmartre 15' },
+  { src: '/salon77/kleinmomatra/IMG_7764_2.jpeg', alt: 'Klein-Montmartre 16' },
+  { src: '/salon77/kleinmomatra/IMG_7895_2.jpeg', alt: 'Klein-Montmartre 17' },
+  { src: '/salon77/kleinmomatra/IMG_8191.jpeg', alt: 'Klein-Montmartre 18' },
+  {
+    src: '/salon77/kleinmomatra/Plakat_Aufsteller_Bewerbung.png',
+    alt: 'Klein-Montmartre 19',
+  },
+  {
+    src: '/salon77/kleinmomatra/Sticker_Klein_Montmartre_2023_01.jpg',
+    alt: 'Klein-Montmartre 20',
+  },
+  { src: '/salon77/flamenco.webp', alt: 'Klein-Montmartre 21' },
 ];
 
 export default function KleinMontmartre() {
@@ -34,15 +61,15 @@ export default function KleinMontmartre() {
         )}
       />
       <main className="flex-1">
-        <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
           {/* Header */}
           <div className="mb-12">
             <h1 className="page-title" style={{ color: 'var(--color-text)' }}>
               Klein-Montmartre
             </h1>
             <p
-              className="text-lg sm:text-xl font-semibold mb-2"
-              style={{ color: 'var(--color-primary)' }}
+              className="text-lg sm:text-xl font-semibold mb-4"
+              style={{ color: 'var(--color-sage-text)' }}
             >
               Kunsthandwerkermarkt | NEXT: 8.05.27
             </p>
@@ -126,7 +153,7 @@ export default function KleinMontmartre() {
           <div className="bg-white border border-gray-200 rounded-lg p-8 mb-16">
             <h2
               className="text-2xl font-bold mb-6"
-              style={{ color: 'var(--color-accent)' }}
+              style={{ color: 'var(--color-accent-text)' }}
             >
               Weitere Informationen
             </h2>
@@ -142,7 +169,7 @@ export default function KleinMontmartre() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline hover:opacity-75"
-                  style={{ color: 'var(--color-primary)' }}
+                  style={{ color: 'var(--color-sage-text)' }}
                 >
                   @klein_montmartre
                 </a>
@@ -185,7 +212,7 @@ export default function KleinMontmartre() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline hover:opacity-75"
-                  style={{ color: 'var(--color-primary)' }}
+                  style={{ color: 'var(--color-sage-text)' }}
                 >
                   fb.me/e/4XfvnFiVE
                 </a>
@@ -197,7 +224,7 @@ export default function KleinMontmartre() {
           <div className="mb-16">
             <h2
               className="text-2xl font-bold mb-6"
-              style={{ color: 'var(--color-accent)' }}
+              style={{ color: 'var(--color-accent-text)' }}
             >
               Nächste Termine
             </h2>
@@ -221,7 +248,7 @@ export default function KleinMontmartre() {
           <div>
             <h2
               className="text-2xl font-bold mb-8"
-              style={{ color: 'var(--color-accent)' }}
+              style={{ color: 'var(--color-accent-text)' }}
             >
               Impressionen
             </h2>

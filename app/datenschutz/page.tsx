@@ -16,7 +16,7 @@ export default function Datenschutz() {
     <div className="flex flex-col">
       <JsonLd data={breadcrumbJsonLd('/datenschutz')} />
       <main className="flex-1">
-        <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
           <h1 className="page-title" style={{ color: 'var(--color-text)' }}>
             Datenschutz
           </h1>
@@ -28,7 +28,7 @@ export default function Datenschutz() {
             <section>
               <h2
                 className="text-2xl font-bold mb-4"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Verantwortliche Stelle
               </h2>
@@ -55,7 +55,7 @@ export default function Datenschutz() {
             <section>
               <h2
                 className="text-2xl font-bold mb-4"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Ihre Betroffenenrechte
               </h2>
@@ -100,7 +100,7 @@ export default function Datenschutz() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline hover:opacity-75"
-                  style={{ color: 'var(--color-primary)' }}
+                  style={{ color: 'var(--color-sage-text)' }}
                 >
                   https://www.bfdi.bund.de
                 </a>
@@ -110,7 +110,7 @@ export default function Datenschutz() {
             <section>
               <h2
                 className="text-2xl font-bold mb-4"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Zwecke der Datenverarbeitung
               </h2>
@@ -143,7 +143,7 @@ export default function Datenschutz() {
             <section>
               <h2
                 className="text-2xl font-bold mb-4"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Löschung bzw. Sperrung der Daten
               </h2>
@@ -162,7 +162,7 @@ export default function Datenschutz() {
             <section>
               <h2
                 className="text-2xl font-bold mb-4"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Erfassung allgemeiner Informationen beim Besuch unserer Website
               </h2>
@@ -209,7 +209,7 @@ export default function Datenschutz() {
             <section>
               <h2
                 className="text-2xl font-bold mb-4"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Cookies
               </h2>
@@ -250,7 +250,7 @@ export default function Datenschutz() {
             <section>
               <h2
                 className="text-2xl font-bold mb-4"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 SSL-Verschlüsselung
               </h2>
@@ -264,7 +264,7 @@ export default function Datenschutz() {
             <section>
               <h2
                 className="text-2xl font-bold mb-4"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Änderung unserer Datenschutzbestimmungen
               </h2>
@@ -281,7 +281,7 @@ export default function Datenschutz() {
             <section>
               <h2
                 className="text-2xl font-bold mb-4"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Fragen zum Datenschutz
               </h2>

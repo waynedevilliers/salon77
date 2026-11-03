@@ -1,4 +1,10 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
+
+/** On phones the menu is behind the hamburger button; open it when it is there. */
+async function openMenuIfHidden(page: Page) {
+  const toggle = page.getByRole('button', { name: 'Menü öffnen' });
+  if (await toggle.isVisible()) await toggle.click();
+}
 
 test.describe('Home Page', () => {
   test.beforeEach(async ({ page }) => {
@@ -14,6 +20,7 @@ test.describe('Home Page', () => {
     const logo = page.getByRole('link', { name: 'Salon77 - Zur Startseite' });
     await expect(logo).toBeVisible();
 
+    await openMenuIfHidden(page);
     for (const label of ['Unterricht', 'Veranstaltungen', 'Räumlichkeiten']) {
       await expect(
         page.locator('header').getByRole('link', { name: label, exact: true })
@@ -53,27 +60,25 @@ test.describe('Home Page', () => {
   });
 
   test('responds to navigation menu clicks', async ({ page }) => {
-    await page
-      .locator('header')
-      .getByRole('link', { name: 'Unterricht', exact: true })
-      .click();
-    await expect(page).toHaveURL('/unterricht');
-
-    await page
-      .locator('header')
-      .getByRole('link', { name: 'Veranstaltungen', exact: true })
-      .click();
-    await expect(page).toHaveURL('/veranstaltungen');
-
-    await page
-      .locator('header')
-      .getByRole('link', { name: 'Räumlichkeiten', exact: true })
-      .click();
-    await expect(page).toHaveURL('/raeumlichkeiten');
+    const targets = [
+      { name: 'Unterricht', url: '/unterricht' },
+      { name: 'Veranstaltungen', url: '/veranstaltungen' },
+      { name: 'Räumlichkeiten', url: '/raeumlichkeiten' },
+    ];
+    for (const target of targets) {
+      // On phones the menu closes after each link, so open it again.
+      await openMenuIfHidden(page);
+      await page
+        .locator('header')
+        .getByRole('link', { name: target.name, exact: true })
+        .click();
+      await expect(page).toHaveURL(target.url);
+      await page.goto('/');
+    }
   });
 
   test('responds to menu card clicks', async ({ page }) => {
-    await page.locator('a[href="/unterricht"]').first().click();
+    await page.locator('main a[href="/unterricht"]').first().click();
     await expect(page).toHaveURL('/unterricht');
   });
 });

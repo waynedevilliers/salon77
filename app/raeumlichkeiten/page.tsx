@@ -51,7 +51,7 @@ export default function Raeumlichkeiten() {
       <JsonLd data={breadcrumbJsonLd('/raeumlichkeiten')} />
       <JsonLd data={placeJsonLd()} />
       <main className="flex-1">
-        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
           <h1 className="page-title" style={{ color: 'var(--color-text)' }}>
             Räumlichkeiten
           </h1>
@@ -68,7 +68,7 @@ export default function Raeumlichkeiten() {
               <div key={room.title}>
                 <h2
                   className="text-2xl sm:text-3xl font-bold mb-3"
-                  style={{ color: 'var(--color-accent)' }}
+                  style={{ color: 'var(--color-accent-text)' }}
                 >
                   {room.title}
                 </h2>

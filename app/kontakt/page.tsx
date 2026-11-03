@@ -17,7 +17,7 @@ export default function Kontakt() {
     <div className="flex flex-col">
       <JsonLd data={breadcrumbJsonLd('/kontakt')} />
       <main className="flex-1">
-        <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
           <h1 className="page-title" style={{ color: 'var(--color-text)' }}>
             Kontakt
           </h1>
@@ -26,7 +26,7 @@ export default function Kontakt() {
             {/* Row 1: Image */}
             <div className="relative rounded-lg overflow-hidden shadow-lg h-96">
               <Image
-                src="/salon77/kleinmomatra/kontakt.png"
+                src="/salon77/kontakt.png"
                 alt="Salon77 Kontakt"
                 fill
                 className="w-full h-full object-cover"
@@ -37,7 +37,7 @@ export default function Kontakt() {
             <div className="bg-white rounded-lg shadow-lg p-8 md:p-12">
               <h2
                 className="text-3xl font-bold mb-8"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Salon77
               </h2>
@@ -48,7 +48,7 @@ export default function Kontakt() {
                   <div>
                     <h3
                       className="text-sm font-semibold mb-2 uppercase tracking-wide"
-                      style={{ color: 'var(--color-primary)' }}
+                      style={{ color: 'var(--color-sage-text)' }}
                     >
                       Organisation
                     </h3>
@@ -63,7 +63,7 @@ export default function Kontakt() {
                   <div>
                     <h3
                       className="text-sm font-semibold mb-2 uppercase tracking-wide"
-                      style={{ color: 'var(--color-primary)' }}
+                      style={{ color: 'var(--color-sage-text)' }}
                     >
                       Adresse
                     </h3>
@@ -84,7 +84,7 @@ export default function Kontakt() {
                   <div>
                     <h3
                       className="text-sm font-semibold mb-2 uppercase tracking-wide"
-                      style={{ color: 'var(--color-primary)' }}
+                      style={{ color: 'var(--color-sage-text)' }}
                     >
                       Telefon
                     </h3>
@@ -106,7 +106,7 @@ export default function Kontakt() {
                   <div>
                     <h3
                       className="text-sm font-semibold mb-2 uppercase tracking-wide"
-                      style={{ color: 'var(--color-primary)' }}
+                      style={{ color: 'var(--color-sage-text)' }}
                     >
                       Email
                     </h3>

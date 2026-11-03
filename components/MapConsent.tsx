@@ -32,8 +32,8 @@ export default function MapConsent({ embedSrc, openHref }: MapConsentProps) {
       <button
         type="button"
         onClick={() => setLoaded(true)}
-        className="rounded px-5 py-2 font-semibold text-white transition-opacity hover:opacity-80"
-        style={{ backgroundColor: 'var(--color-accent)' }}
+        className="rounded px-5 py-2 font-semibold text-[var(--color-button-text)] transition-opacity hover:opacity-80"
+        style={{ backgroundColor: 'var(--color-button)' }}
       >
         {mapContent.loadButton}
       </button>

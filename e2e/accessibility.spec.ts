@@ -8,6 +8,9 @@ const allPaths = [
 ];
 
 test.describe('Accessibility (WCAG 2.2 AA)', () => {
+  // Reduced motion turns off the scroll fade, so axe measures the final colours.
+  test.use({ reducedMotion: 'reduce' });
+
   for (const path of allPaths) {
     test(`${path} has no axe violations`, async ({ page }) => {
       await page.goto(path);

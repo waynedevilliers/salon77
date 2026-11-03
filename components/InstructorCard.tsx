@@ -23,7 +23,7 @@ export default function InstructorCard({
       </h3>
       <p
         className="text-sm text-center"
-        style={{ color: 'var(--color-primary)' }}
+        style={{ color: 'var(--color-sage-text)' }}
       >
         {instructor.specialty}
       </p>

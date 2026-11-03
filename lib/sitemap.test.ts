@@ -1,5 +1,5 @@
 /// <reference types="vitest" />
-import sitemap from './sitemap';
+import sitemap from '@/app/sitemap';
 import { indexableRoutes } from '@/content/routes';
 import { instructors } from '@/content/instructors';
 
