@@ -69,7 +69,7 @@ export default function KleinMontmartre() {
             </h1>
             <p
               className="text-lg sm:text-xl font-semibold mb-4"
-              style={{ color: 'var(--color-primary)' }}
+              style={{ color: 'var(--color-sage-text)' }}
             >
               Kunsthandwerkermarkt | NEXT: 8.05.27
             </p>
@@ -169,7 +169,7 @@ export default function KleinMontmartre() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline hover:opacity-75"
-                  style={{ color: 'var(--color-primary)' }}
+                  style={{ color: 'var(--color-sage-text)' }}
                 >
                   @klein_montmartre
                 </a>
@@ -212,7 +212,7 @@ export default function KleinMontmartre() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline hover:opacity-75"
-                  style={{ color: 'var(--color-primary)' }}
+                  style={{ color: 'var(--color-sage-text)' }}
                 >
                   fb.me/e/4XfvnFiVE
                 </a>

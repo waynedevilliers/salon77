@@ -100,11 +100,13 @@ export default function RegistrationForm() {
           <label
             className="block text-sm font-semibold mb-2"
             style={{ color: 'var(--color-text)' }}
+
+            htmlFor="name"
           >
             Vorname
           </label>
           <input
-            type="text"
+            id="name"
             name="name"
             value={formData.name}
             onChange={handleChange}
@@ -118,11 +120,13 @@ export default function RegistrationForm() {
           <label
             className="block text-sm font-semibold mb-2"
             style={{ color: 'var(--color-text)' }}
+
+            htmlFor="surname"
           >
             Nachname
           </label>
           <input
-            type="text"
+            id="surname"
             name="surname"
             value={formData.surname}
             onChange={handleChange}
@@ -136,11 +140,13 @@ export default function RegistrationForm() {
           <label
             className="block text-sm font-semibold mb-2"
             style={{ color: 'var(--color-text)' }}
+
+            htmlFor="address"
           >
             Adresse
           </label>
           <input
-            type="text"
+            id="address"
             name="address"
             value={formData.address}
             onChange={handleChange}
@@ -154,11 +160,14 @@ export default function RegistrationForm() {
           <label
             className="block text-sm font-semibold mb-2"
             style={{ color: 'var(--color-text)' }}
+
+            htmlFor="email"
           >
             Email
           </label>
           <input
             type="email"
+            id="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
@@ -172,11 +181,14 @@ export default function RegistrationForm() {
           <label
             className="block text-sm font-semibold mb-2"
             style={{ color: 'var(--color-text)' }}
+
+            htmlFor="phone"
           >
             Handy / Telefon
           </label>
           <input
             type="tel"
+            id="phone"
             name="phone"
             value={formData.phone}
             onChange={handleChange}
@@ -190,11 +202,14 @@ export default function RegistrationForm() {
           <label
             className="block text-sm font-semibold mb-2"
             style={{ color: 'var(--color-text)' }}
+
+            htmlFor="squareMeters"
           >
             Benötigte Fläche (Quadratmeter)
           </label>
           <input
             type="number"
+            id="squareMeters"
             name="squareMeters"
             value={formData.squareMeters}
             onChange={handleChange}
@@ -210,10 +225,13 @@ export default function RegistrationForm() {
           <label
             className="block text-sm font-semibold mb-2"
             style={{ color: 'var(--color-text)' }}
+
+            htmlFor="description"
           >
             Was möchtest du präsentieren oder verkaufen?
           </label>
           <textarea
+            id="description"
             name="description"
             value={formData.description}
             onChange={handleChange}
@@ -227,8 +245,8 @@ export default function RegistrationForm() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full py-3 rounded-md font-semibold text-white transition-all disabled:opacity-50"
-          style={{ backgroundColor: 'var(--color-primary)' }}
+          className="w-full py-3 rounded-md font-semibold text-[var(--color-button-text)] transition-all disabled:opacity-50"
+          style={{ backgroundColor: 'var(--color-button)' }}
           onMouseEnter={(e) =>
             !loading && (e.currentTarget.style.opacity = '0.85')
           }

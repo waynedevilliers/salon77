@@ -100,7 +100,7 @@ export default function Datenschutz() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline hover:opacity-75"
-                  style={{ color: 'var(--color-primary)' }}
+                  style={{ color: 'var(--color-sage-text)' }}
                 >
                   https://www.bfdi.bund.de
                 </a>

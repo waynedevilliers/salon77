@@ -48,7 +48,7 @@ export default function Kontakt() {
                   <div>
                     <h3
                       className="text-sm font-semibold mb-2 uppercase tracking-wide"
-                      style={{ color: 'var(--color-primary)' }}
+                      style={{ color: 'var(--color-sage-text)' }}
                     >
                       Organisation
                     </h3>
@@ -63,7 +63,7 @@ export default function Kontakt() {
                   <div>
                     <h3
                       className="text-sm font-semibold mb-2 uppercase tracking-wide"
-                      style={{ color: 'var(--color-primary)' }}
+                      style={{ color: 'var(--color-sage-text)' }}
                     >
                       Adresse
                     </h3>
@@ -84,7 +84,7 @@ export default function Kontakt() {
                   <div>
                     <h3
                       className="text-sm font-semibold mb-2 uppercase tracking-wide"
-                      style={{ color: 'var(--color-primary)' }}
+                      style={{ color: 'var(--color-sage-text)' }}
                     >
                       Telefon
                     </h3>
@@ -106,7 +106,7 @@ export default function Kontakt() {
                   <div>
                     <h3
                       className="text-sm font-semibold mb-2 uppercase tracking-wide"
-                      style={{ color: 'var(--color-primary)' }}
+                      style={{ color: 'var(--color-sage-text)' }}
                     >
                       Email
                     </h3>

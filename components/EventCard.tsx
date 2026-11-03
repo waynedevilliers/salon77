@@ -43,7 +43,7 @@ export default function EventCard({
 
         <p
           className="text-sm sm:text-base mb-3 font-semibold"
-          style={{ color: 'var(--color-primary)' }}
+          style={{ color: 'var(--color-sage-text)' }}
         >
           {date || 'Termin folgt in Kürze'}
         </p>
