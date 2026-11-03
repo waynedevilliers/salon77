@@ -18,6 +18,10 @@
   --color-accent: #c9a961;
   /* Text colours checked against white (WCAG AA 4.5:1). */
   --color-button: #f2b893; /* lighter logo orange: button background */
+  /* Peach accent for the home page (contrast: text 5.09:1 on white; #303030 on peach 5.89:1). */
+  --color-peach: #e59d6c;
+  --color-peach-text: #a65a2e;
+  --color-on-peach: #303030;
   --color-button-hover: #e8a070; /* darker logo orange on hover */
   --color-button-text: #2c2c2c; /* 8.02:1 on the button */
   --color-accent-text: #b35c2e; /* logo orange, darkened: 4.68:1; button background with white text */
