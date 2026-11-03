@@ -11,6 +11,9 @@ import {
   instructorSlug,
 } from '@/lib/instructors';
 import { pageMetadata } from '@/lib/metadata';
+import ActionLink from '@/components/ActionLink';
+import { courses } from '@/content/courses';
+import { findInstructorByName } from '@/lib/instructors';
 import { breadcrumbJsonLd } from '@/lib/structured-data';
 
 interface PageProps {
@@ -49,6 +52,14 @@ export default async function InstructorPage({ params }: PageProps) {
     <InstructorPager previous={adjacent.previous} next={adjacent.next} />
   );
 
+  const firstName = instructor.name.split(' ')[0];
+  const teacherCourses = courses.filter((course) =>
+    course.instructor
+      .split(',')
+      .map((name) => findInstructorByName(name.trim())?.name)
+      .includes(instructor.name)
+  );
+
   return (
     <div className="flex flex-col">
       <JsonLd data={breadcrumbJsonLd(`/dozenten/${slug}`, instructor.name)} />
@@ -80,7 +91,7 @@ export default async function InstructorPage({ params }: PageProps) {
                       >
                         <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z" />
                       </svg>
-                      <span>{instructor.phone}</span>
+                      <span>{instructor.phone.replace('/', ' ')}</span>
                     </a>
                   </li>
                 )}
@@ -115,10 +126,23 @@ export default async function InstructorPage({ params }: PageProps) {
                       href={instructor.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-3 underline hover:opacity-75 break-all"
+                      className="inline-flex items-center gap-2 underline hover:opacity-75 break-all"
                       style={{ color: 'var(--color-text)' }}
                     >
                       Website besuchen
+                      <svg
+                        aria-hidden="true"
+                        viewBox="0 0 24 24"
+                        className="h-4 w-4 shrink-0"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6" />
+                      </svg>
+                      <span className="sr-only">(öffnet in neuem Tab)</span>
                     </a>
                   </li>
                 )}
@@ -127,7 +151,10 @@ export default async function InstructorPage({ params }: PageProps) {
 
             {/* Right column: name, specialty and biography */}
             <article>
-              <h1 className="page-title" style={{ color: 'var(--color-text)' }}>
+              <h1
+                className="page-title text-left after:mx-0"
+                style={{ color: 'var(--color-text)' }}
+              >
                 {instructor.name}
               </h1>
               <p
@@ -147,6 +174,44 @@ export default async function InstructorPage({ params }: PageProps) {
                     {paragraph}
                   </p>
                 ))}
+
+              {teacherCourses.length > 0 && (
+                <section className="mt-10" aria-labelledby="teacher-courses">
+                  <h2
+                    id="teacher-courses"
+                    className="mb-4 text-2xl font-bold sm:text-3xl"
+                    style={{ color: 'var(--color-text)' }}
+                  >
+                    Kurse bei {firstName}
+                  </h2>
+                  <ul className="space-y-4">
+                    {teacherCourses.map((course) => (
+                      <li key={course.title}>
+                        <Link href="/unterricht#kurse" className="group block">
+                          <span
+                            className="block text-lg font-bold group-hover:underline"
+                            style={{ color: 'var(--color-text)' }}
+                          >
+                            {course.title}
+                          </span>
+                          <span
+                            className="block text-base"
+                            style={{ color: 'var(--color-sage-text)' }}
+                          >
+                            {course.schedule}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )}
+
+              <div className="mt-10">
+                <ActionLink href="/kontakt" className="min-h-12 px-6 py-3">
+                  Probestunde anfragen
+                </ActionLink>
+              </div>
             </article>
           </div>
 
@@ -154,7 +219,7 @@ export default async function InstructorPage({ params }: PageProps) {
             {pager}
             <p className="text-center">
               <Link
-                href="/dozenten"
+                href="/unterricht#dozenten"
                 className="underline hover:opacity-75"
                 style={{ color: 'var(--color-text-muted)' }}
               >

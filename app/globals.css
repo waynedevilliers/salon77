@@ -82,6 +82,22 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Teacher photo grows slightly on hover, only where hover is available. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .instructor-photo img {
+    transition: transform 0.3s ease;
+  }
+  .group:hover .instructor-photo img {
+    transform: scale(1.05);
+  }
+}
+
 body {
   margin: 0;
   font-family: var(--font-sans);

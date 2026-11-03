@@ -21,7 +21,7 @@ export default function InstructorPhoto({
 
   return (
     <div
-      className={`relative ${className} rounded-full overflow-hidden shadow-lg bg-gray-200 flex items-center justify-center`}
+      className={`instructor-photo relative ${className} flex items-center justify-center overflow-hidden rounded-full bg-gray-200 shadow-lg`}
     >
       {hasError ? (
         <span className="text-sm text-gray-500">Bild folgt</span>

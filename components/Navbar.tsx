@@ -5,21 +5,28 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import NavLink from './NavLink';
-import NavDropdown from './NavDropdown';
-
-const subItems = [
-  { label: 'Dozenten', href: '/dozenten' },
-  { label: 'Wochenkurse', href: '/wochenkurse' },
-];
 
 const mainItems = [
   { label: 'Home', href: '/' },
   { label: 'Unterricht', href: '/unterricht' },
+  { label: 'Wochenkurse', href: '/wochenkurse' },
   { label: 'Veranstaltungen', href: '/veranstaltungen' },
   { label: 'Räumlichkeiten', href: '/raeumlichkeiten' },
   { label: 'Verein', href: '/verein' },
   { label: 'Kontakt', href: '/kontakt' },
 ];
+
+/**
+ * Unterricht stays marked on its own page and on every teacher profile page.
+ */
+function isActiveItem(href: string, pathname: string): boolean {
+  if (href === '/unterricht') {
+    return (
+      pathname.startsWith('/unterricht') || pathname.startsWith('/dozenten')
+    );
+  }
+  return pathname === href;
+}
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -90,19 +97,9 @@ export default function Navbar() {
                     <NavLink
                       href={item.href}
                       label={item.label}
-                      isActive={pathname === item.href}
+                      isActive={isActiveItem(item.href, pathname)}
                       className="flex min-h-12 items-center px-6 text-lg"
                     />
-                    {item.href === '/unterricht' &&
-                      subItems.map((sub) => (
-                        <NavLink
-                          key={sub.href}
-                          href={sub.href}
-                          label={sub.label}
-                          isActive={pathname === sub.href}
-                          className="flex min-h-12 items-center pl-12 pr-6 text-base"
-                        />
-                      ))}
                   </li>
                 ))}
               </ul>
@@ -115,33 +112,49 @@ export default function Navbar() {
             className="hidden flex-wrap items-center justify-center gap-6 text-base lg:flex sm:gap-8"
           >
             <NavLink href="/" label="Home" isActive={pathname === '/'} />
-            <span className="text-gray-500">|</span>
-            <NavDropdown
-              label="Unterricht"
+            <span aria-hidden="true" style={{ color: 'var(--color-border)' }}>
+              |
+            </span>
+            <NavLink
               href="/unterricht"
-              isActive={pathname.startsWith('/unterricht')}
-              pathname={pathname}
-              items={subItems}
+              label="Unterricht"
+              isActive={isActiveItem('/unterricht', pathname)}
             />
-            <span className="text-gray-500">|</span>
+            <span aria-hidden="true" style={{ color: 'var(--color-border)' }}>
+              |
+            </span>
+            <NavLink
+              href="/wochenkurse"
+              label="Wochenkurse"
+              isActive={pathname === '/wochenkurse'}
+            />
+            <span aria-hidden="true" style={{ color: 'var(--color-border)' }}>
+              |
+            </span>
             <NavLink
               href="/veranstaltungen"
               label="Veranstaltungen"
               isActive={pathname === '/veranstaltungen'}
             />
-            <span className="text-gray-500">|</span>
+            <span aria-hidden="true" style={{ color: 'var(--color-border)' }}>
+              |
+            </span>
             <NavLink
               href="/raeumlichkeiten"
               label="Räumlichkeiten"
               isActive={pathname === '/raeumlichkeiten'}
             />
-            <span className="text-gray-500">|</span>
+            <span aria-hidden="true" style={{ color: 'var(--color-border)' }}>
+              |
+            </span>
             <NavLink
               href="/verein"
               label="Verein"
               isActive={pathname === '/verein'}
             />
-            <span className="text-gray-500">|</span>
+            <span aria-hidden="true" style={{ color: 'var(--color-border)' }}>
+              |
+            </span>
             <NavLink
               href="/kontakt"
               label="Kontakt"

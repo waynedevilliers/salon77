@@ -1,4 +1,4 @@
-import ActionLink from '@/components/ActionLink';
+import Link from 'next/link';
 import { instructorSlug } from '@/lib/instructors';
 import type { Instructor } from '@/content/instructors';
 
@@ -8,33 +8,35 @@ interface InstructorPagerProps {
 }
 
 /**
- * Previous and next buttons for moving through the instructors. Large
- * buttons with arrows, one on each side, so they are easy to find.
+ * Previous and next teacher as small text links with arrows.
  */
 export default function InstructorPager({
   previous,
   next,
 }: InstructorPagerProps) {
+  const linkClass =
+    'text-base font-bold underline underline-offset-4 hover:opacity-75';
+  const linkStyle = { color: 'var(--color-accent-text)' };
+
   return (
-    <nav aria-label="Dozenten durchblättern" className="grid grid-cols-2 gap-4">
-      <ActionLink
+    <nav
+      aria-label="Weitere Dozenten"
+      className="flex items-center justify-between gap-4"
+    >
+      <Link
         href={`/dozenten/${instructorSlug(previous.name)}`}
-        className="flex items-center justify-center gap-3 px-4 py-3 text-base sm:text-lg text-center"
+        className={linkClass}
+        style={linkStyle}
       >
-        <span aria-hidden="true" className="text-2xl leading-none">
-          ←
-        </span>
-        <span className="min-w-0 truncate">{previous.name}</span>
-      </ActionLink>
-      <ActionLink
+        <span aria-hidden="true">←</span> {previous.name}
+      </Link>
+      <Link
         href={`/dozenten/${instructorSlug(next.name)}`}
-        className="flex items-center justify-center gap-3 px-4 py-3 text-base sm:text-lg text-center"
+        className={linkClass}
+        style={linkStyle}
       >
-        <span className="min-w-0 truncate">{next.name}</span>
-        <span aria-hidden="true" className="text-2xl leading-none">
-          →
-        </span>
-      </ActionLink>
+        {next.name} <span aria-hidden="true">→</span>
+      </Link>
     </nav>
   );
 }

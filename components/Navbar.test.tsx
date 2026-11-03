@@ -1,5 +1,5 @@
 /// <reference types="vitest" />
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import { usePathname } from 'next/navigation';
 import Navbar from './Navbar';
 
@@ -12,6 +12,7 @@ vi.mock('next/navigation', () => ({
 const menuItems = [
   { label: 'Home', href: '/' },
   { label: 'Unterricht', href: '/unterricht' },
+  { label: 'Wochenkurse', href: '/wochenkurse' },
   { label: 'Veranstaltungen', href: '/veranstaltungen' },
   { label: 'Räumlichkeiten', href: '/raeumlichkeiten' },
   { label: 'Verein', href: '/verein' },
@@ -33,8 +34,12 @@ describe('Navbar', () => {
     ).toHaveAttribute('href', '/');
   });
 
-  it('renders every top-level menu link with the correct href', () => {
+  it('renders exactly the seven menu links with the correct hrefs', () => {
     render(<Navbar />);
+    const links = within(
+      screen.getByRole('navigation', { name: 'Hauptmenü' })
+    ).getAllByRole('link');
+    expect(links).toHaveLength(7);
     for (const item of menuItems) {
       expect(screen.getByRole('link', { name: item.label })).toHaveAttribute(
         'href',
@@ -51,22 +56,6 @@ describe('Navbar', () => {
     );
     expect(screen.getByRole('link', { name: 'Home' })).not.toHaveClass(
       'underline'
-    );
-  });
-
-  it('shows Dozenten and Wochenkurse under Unterricht after opening it', () => {
-    render(<Navbar />);
-    expect(screen.queryByRole('link', { name: 'Dozenten' })).toBeNull();
-    fireEvent.click(
-      screen.getByRole('button', { name: /Unterseiten von Unterricht öffnen/ })
-    );
-    expect(screen.getByRole('link', { name: 'Dozenten' })).toHaveAttribute(
-      'href',
-      '/dozenten'
-    );
-    expect(screen.getByRole('link', { name: 'Wochenkurse' })).toHaveAttribute(
-      'href',
-      '/wochenkurse'
     );
   });
 });

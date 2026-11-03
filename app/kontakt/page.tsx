@@ -12,6 +12,8 @@ export const metadata = pageMetadata({
   path: '/kontakt',
 });
 
+// TODO: read the ?kurs=<course-slug> query (set by the course card's Probestunde
+// button) and pre-select that course in the contact form.
 export default function Kontakt() {
   return (
     <div className="flex flex-col">
@@ -99,7 +101,7 @@ export default function Kontakt() {
                       style={{ color: 'var(--color-text-muted)' }}
                       className="text-sm mt-1"
                     >
-                      2. Vorsitzende Mercedes Sebald
+                      2. Vorsitzende Mercedes Sebald Arguisuelas
                     </p>
                   </div>
 
