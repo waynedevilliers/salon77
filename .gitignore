@@ -49,3 +49,9 @@ next-env.d.ts
 # local screenshots and captures
 /public/screenshots/
 /.vscode/
+
+# local Claude Code settings (personal, not shared)
+.claude/settings.local.json
+
+# logs
+*.log
