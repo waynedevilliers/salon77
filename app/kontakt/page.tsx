@@ -12,6 +12,8 @@ export const metadata = pageMetadata({
   path: '/kontakt',
 });
 
+// TODO: read the ?kurs=<course-slug> query (set by the course card's Probestunde
+// button) and pre-select that course in the contact form.
 export default function Kontakt() {
   return (
     <div className="flex flex-col">

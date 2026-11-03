@@ -36,7 +36,7 @@ describe('CourseCard teacher links', () => {
       <CourseCard
         title="DJing"
         description="DJing"
-        schedule="Nach Absprache"
+        schedule="Nach Vereinbarung"
         instructor="Sebastian Kandert"
       />
     );
@@ -44,5 +44,19 @@ describe('CourseCard teacher links', () => {
       screen.queryByRole('link', { name: /Sebastian Kandert/ })
     ).toBeNull();
     expect(screen.getByText('Sebastian Kandert')).toBeInTheDocument();
+  });
+
+  it('links Probestunde to the contact page for this course', () => {
+    render(
+      <CourseCard
+        title="Kindertanz & -Ballett"
+        description="Kinder"
+        schedule="Montags"
+        instructor="Hsiu-Yun Lu"
+      />
+    );
+    expect(
+      screen.getByRole('link', { name: 'Probestunde anfragen' })
+    ).toHaveAttribute('href', '/kontakt?kurs=kindertanz-ballett');
   });
 });

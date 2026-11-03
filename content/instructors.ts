@@ -65,7 +65,7 @@ export const instructors: Instructor[] = [
     cardImage: '/salon77/unterricht/rob_collomb.jpg',
     email: 'collomb@web.de',
     phone: '01784725902',
-    specialty: 'Gitarrenunterricht',
+    specialty: 'Gitarre',
     website: 'https://www.gitarren-studio.com/',
   },
   {

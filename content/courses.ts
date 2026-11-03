@@ -12,7 +12,7 @@ export const courses: Course[] = [
     title: 'Kindertanz & -Ballett',
     description:
       'Kreativer Kindertanz (4-5 Jahre) mit Pre-Ballett-Übungen. Modernes Kinderballett (ab 5 Jahre) mit Grundlagen des Balletts. Fördert Koordination, Beweglichkeit, Kreativität und Sozialkompetenz.',
-    schedule: 'Montags, Donnerstags und Freitags ab 15 Uhr',
+    schedule: 'Montags, Donnerstags und Freitags ab 15:00 Uhr',
     instructor: 'Hsiu-Yun Lu',
   },
   {
@@ -40,21 +40,21 @@ export const courses: Course[] = [
     title: 'Bass',
     description:
       'Bassunterricht für alle Levels. Einzelunterricht mit professioneller Anleitung. Flexibles Lernen an der Bassgitarre.',
-    schedule: 'Montags und Freitags ab 14 Uhr',
+    schedule: 'Montags und Freitags ab 14:00 Uhr',
     instructor: 'Simon Ort',
   },
   {
     title: 'Akkordeon',
     description:
       'Akkordeonunterricht in Kleingruppen. Erlernen Sie die drei Säulen der Musik: Melodie, Harmonie und Rhythmus. Stilrichtungen: Klassik, Pop, Musette, Swing. Fördert Gedächtnis, Konzentration und logisches Denken.',
-    schedule: 'Nach Absprache',
+    schedule: 'Nach Vereinbarung',
     instructor: 'Stefanie Koch',
   },
   {
     title: 'DJing & Musikproduktion',
     description:
       'Lerne professionelles DJing und Musikproduktion. Von den Basics bis zum Profi Level. Praktische Workshops mit modernen Techniken und Equipment.',
-    schedule: 'Nach Absprache',
+    schedule: 'Nach Vereinbarung',
     instructor: 'Sebastian Kandert, Fabio Cassarino',
   },
   {
@@ -65,7 +65,7 @@ export const courses: Course[] = [
     instructor: 'Norbert Schmelz',
   },
   {
-    title: 'Modern Tanz: Zeitgenössischer Tanz',
+    title: 'Moderner Tanz: Zeitgenössischer Tanz',
     description:
       'Künstlerischer Tanz für Erwachsene. Erkunden Sie Ihr Bewegungspotential durch Atemübungen, Yin-Yang-Prinzipien und Tanzkomposition. Mit Pilates kombiniert. Für alle Altersstufen.',
     schedule: 'Donnerstags ab 18:00 Uhr',
