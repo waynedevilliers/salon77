@@ -48,7 +48,7 @@ const GALLERY_IMAGES = [
     src: '/salon77/kleinmomatra/Sticker_Klein_Montmartre_2023_01.jpg',
     alt: 'Klein-Montmartre 20',
   },
-  { src: '/salon77/kleinmomatra/flamenco.webp', alt: 'Klein-Montmartre 21' },
+  { src: '/salon77/flamenco.webp', alt: 'Klein-Montmartre 21' },
 ];
 
 export default function KleinMontmartre() {

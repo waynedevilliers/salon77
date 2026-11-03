@@ -28,7 +28,7 @@ const EVENTS = [
     location: 'Würzburg',
     description:
       'Würzburg und Deutschlands ältestes Flamenco-Festival mit erstklassigen Künstlern aus Spanien und Europa.',
-    image: '/salon77/kleinmomatra/flamenco.webp',
+    image: '/salon77/flamenco.webp',
     buttonText: 'Zur Webseite',
     buttonLink: 'https://www.wueflamencofestival.de/',
   },
