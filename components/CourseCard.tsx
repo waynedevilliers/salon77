@@ -19,40 +19,44 @@ const COURSE_ONLY_IMAGES: Record<string, string> = {
 
 function InstructorBlock({ name }: { name: string }) {
   const profile = findInstructorByName(name);
-  const nameClass =
-    'text-base font-semibold text-center underline-offset-4 hover:underline';
-  const nameStyle = { color: 'var(--color-text)' };
+  const image =
+    findInstructorByName(name)?.cardImage ??
+    COURSE_ONLY_IMAGES[name] ??
+    '/salon77/Salon77_logo_small.svg';
 
-  return (
-    <div className="flex flex-col items-center">
+  const content = (
+    <>
       <div className="mb-2 h-24 w-24 flex-shrink-0 overflow-hidden rounded-full border-2 border-gray-200">
         <Image
-          src={
-            findInstructorByName(name)?.cardImage ??
-            COURSE_ONLY_IMAGES[name] ??
-            '/salon77/Salon77_logo_small.svg'
-          }
+          src={image}
           alt={name}
           width={96}
           height={96}
           className="h-full w-full object-cover"
         />
       </div>
-      {profile ? (
-        <Link
-          href={`/dozenten/${instructorSlug(profile.name)}`}
-          className={nameClass}
-          style={nameStyle}
-        >
-          {name}
-        </Link>
-      ) : (
-        <p className={nameClass} style={nameStyle}>
-          {name}
-        </p>
-      )}
-    </div>
+      <span
+        className="text-center text-base font-semibold underline-offset-4 group-hover:underline"
+        style={{ color: 'var(--color-text)' }}
+      >
+        {name}
+      </span>
+    </>
   );
+
+  // With a profile, the photo and the name are one link to it.
+  if (profile) {
+    return (
+      <Link
+        href={`/dozenten/${instructorSlug(profile.name)}`}
+        className="group flex flex-col items-center rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-accent-text)]"
+      >
+        {content}
+      </Link>
+    );
+  }
+
+  return <div className="flex flex-col items-center">{content}</div>;
 }
 
 export default function CourseCard({
