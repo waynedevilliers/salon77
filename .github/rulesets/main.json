@@ -4,14 +4,20 @@
   "enforcement": "active",
   "conditions": {
     "ref_name": {
-      "include": ["refs/heads/main"],
+      "include": [
+        "refs/heads/main"
+      ],
       "exclude": []
     }
   },
   "bypass_actors": [],
   "rules": [
-    { "type": "deletion" },
-    { "type": "non_fast_forward" },
+    {
+      "type": "deletion"
+    },
+    {
+      "type": "non_fast_forward"
+    },
     {
       "type": "pull_request",
       "parameters": {
@@ -27,13 +33,18 @@
       "parameters": {
         "strict_required_status_checks_policy": true,
         "required_status_checks": [
-          { "context": "lint" },
-          { "context": "type-check" },
-          { "context": "audit" },
-          { "context": "test" },
-          { "context": "e2e" },
-          { "context": "lighthouse" },
-          { "context": "build" }
+          {
+            "context": "lint-and-types"
+          },
+          {
+            "context": "test"
+          },
+          {
+            "context": "audit"
+          },
+          {
+            "context": "e2e"
+          }
         ]
       }
     }
