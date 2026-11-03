@@ -11,6 +11,9 @@ import {
   instructorSlug,
 } from '@/lib/instructors';
 import { pageMetadata } from '@/lib/metadata';
+import ActionLink from '@/components/ActionLink';
+import { courses } from '@/content/courses';
+import { findInstructorByName } from '@/lib/instructors';
 import { breadcrumbJsonLd } from '@/lib/structured-data';
 
 interface PageProps {
@@ -47,6 +50,14 @@ export default async function InstructorPage({ params }: PageProps) {
 
   const pager = (
     <InstructorPager previous={adjacent.previous} next={adjacent.next} />
+  );
+
+  const firstName = instructor.name.split(' ')[0];
+  const teacherCourses = courses.filter((course) =>
+    course.instructor
+      .split(',')
+      .map((name) => findInstructorByName(name.trim())?.name)
+      .includes(instructor.name)
   );
 
   return (
@@ -127,7 +138,10 @@ export default async function InstructorPage({ params }: PageProps) {
 
             {/* Right column: name, specialty and biography */}
             <article>
-              <h1 className="page-title" style={{ color: 'var(--color-text)' }}>
+              <h1
+                className="page-title text-left after:mx-0"
+                style={{ color: 'var(--color-text)' }}
+              >
                 {instructor.name}
               </h1>
               <p
@@ -147,6 +161,44 @@ export default async function InstructorPage({ params }: PageProps) {
                     {paragraph}
                   </p>
                 ))}
+
+              {teacherCourses.length > 0 && (
+                <section className="mt-10" aria-labelledby="teacher-courses">
+                  <h2
+                    id="teacher-courses"
+                    className="mb-4 text-2xl font-bold sm:text-3xl"
+                    style={{ color: 'var(--color-text)' }}
+                  >
+                    Kurse bei {firstName}
+                  </h2>
+                  <ul className="space-y-4">
+                    {teacherCourses.map((course) => (
+                      <li key={course.title}>
+                        <Link href="/unterricht#kurse" className="group block">
+                          <span
+                            className="block text-lg font-bold group-hover:underline"
+                            style={{ color: 'var(--color-text)' }}
+                          >
+                            {course.title}
+                          </span>
+                          <span
+                            className="block text-base"
+                            style={{ color: 'var(--color-sage-text)' }}
+                          >
+                            {course.schedule}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )}
+
+              <div className="mt-10">
+                <ActionLink href="/kontakt" className="min-h-12 px-6 py-3">
+                  Probestunde anfragen
+                </ActionLink>
+              </div>
             </article>
           </div>
 
@@ -154,7 +206,7 @@ export default async function InstructorPage({ params }: PageProps) {
             {pager}
             <p className="text-center">
               <Link
-                href="/dozenten"
+                href="/unterricht#dozenten"
                 className="underline hover:opacity-75"
                 style={{ color: 'var(--color-text-muted)' }}
               >

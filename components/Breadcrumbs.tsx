@@ -30,13 +30,22 @@ export default function Breadcrumbs() {
   if (pathname === '/') return null;
 
   const segments = pathname.split('/').filter(Boolean);
-  const items = [
-    { label: 'Startseite', href: '/' },
-    ...segments.map((segment, index) => {
-      const href = `/${segments.slice(0, index + 1).join('/')}`;
-      return { label: labelFor(href, segment, index, segments), href };
-    }),
-  ];
+  // Teacher profile: Startseite › Unterricht › Dozenten › Name
+  const isProfile = segments.length === 2 && segments[0] === 'dozenten';
+  const items = isProfile
+    ? [
+        { label: 'Startseite', href: '/' },
+        { label: 'Unterricht', href: '/unterricht' },
+        { label: 'Dozenten', href: '/unterricht#dozenten' },
+        { label: labelFor(pathname, segments[1], 1, segments), href: pathname },
+      ]
+    : [
+        { label: 'Startseite', href: '/' },
+        ...segments.map((segment, index) => {
+          const href = `/${segments.slice(0, index + 1).join('/')}`;
+          return { label: labelFor(href, segment, index, segments), href };
+        }),
+      ];
 
   return (
     <nav
