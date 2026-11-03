@@ -31,7 +31,7 @@ const COURSES = [
     description:
       'Flamenco als Kunstform mit Fokus auf Verständnis und Flexibilität. Ausdruck von Emotionen durch Tanz, Gesang und Gitarre.',
     schedule: 'Dienstags und Freitags ab 18:00 Uhr',
-    instructor: 'Mercedes Sebald',
+    instructor: 'Mercedes Sebald Arguisuelas',
   },
   {
     title: 'Gitarre',

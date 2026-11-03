@@ -99,7 +99,7 @@ export default function Kontakt() {
                       style={{ color: 'var(--color-text-muted)' }}
                       className="text-sm mt-1"
                     >
-                      2. Vorsitzende Mercedes Sebald
+                      2. Vorsitzende Mercedes Sebald Arguisuelas
                     </p>
                   </div>
 

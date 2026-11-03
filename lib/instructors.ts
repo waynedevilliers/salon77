@@ -44,7 +44,7 @@ export function getAdjacentInstructors(slug: string): {
 
 /**
  * The instructor profile for a name as written on course cards. Course cards
- * sometimes use a shorter name ("Mercedes Sebald"), so a prefix match is used.
+ * use the full name, so the match is exact.
  * Returns undefined when there is no profile page.
  */
 export function findInstructorByName(name: string): Instructor | undefined {

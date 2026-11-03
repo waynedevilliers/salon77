@@ -37,7 +37,7 @@ Courses are listed in `/app/unterricht/page.tsx`. To add or edit a course:
   title: 'Flamenco',
   description: 'Flamenco as an art form with focus on understanding and flexibility.',
   schedule: 'Dienstags und Freitags ab 18:00 Uhr',
-  instructor: 'Mercedes Sebald',
+  instructor: 'Mercedes Sebald Arguisuelas',
 }
 ```
 

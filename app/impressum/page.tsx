@@ -55,7 +55,7 @@ export default function Impressum() {
               <p className="mb-4">
                 <strong>1. Vorsitzender:</strong>
                 <br />
-                Mercedes Sebald
+                Mercedes Sebald Arguisuelas
               </p>
               <p className="mb-8">
                 <strong>2. Vorsitzender:</strong>
@@ -87,7 +87,7 @@ export default function Impressum() {
                 Verantwortlich für redaktionelle Inhalte
               </h2>
               <p className="mb-4">V.i.S.d § 55 Abs. 2 RStV:</p>
-              <p>Mercedes Sebald</p>
+              <p>Mercedes Sebald Arguisuelas</p>
             </section>
 
             <section className="pt-8 border-t border-gray-200 mt-12">
