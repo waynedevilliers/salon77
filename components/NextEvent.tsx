@@ -74,7 +74,7 @@ export default function NextEvent({
             href={href}
             className="px-6 py-3"
             style={{
-              backgroundColor: 'var(--color-accent)',
+              backgroundColor: 'var(--color-button)',
               color: 'var(--color-button-text)',
             }}
           >
