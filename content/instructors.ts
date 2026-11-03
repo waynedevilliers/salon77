@@ -1,6 +1,8 @@
 export interface Instructor {
   name: string;
   specialty: string;
+  /** Photo shown on course cards (may be a course photo, not a portrait). */
+  cardImage?: string;
   /** Biography text. Shown on the detail page when present. */
   bio?: string;
   /** Phone number as shown on the salon77 site, shown under the photo. */
@@ -22,6 +24,7 @@ export const instructors: Instructor[] = [
   },
   {
     name: 'Asami Krisan',
+    cardImage: '/salon77/dozenten/asami-krisan.jpg',
     email: 'mar-asamikrisan@web.de',
     phone: '0931/2994377',
     specialty: 'Ballett',
@@ -29,12 +32,14 @@ export const instructors: Instructor[] = [
   },
   {
     name: 'Hsiu-Yun Lu',
+    cardImage: '/salon77/unterricht/kinder_taz.jpg',
     email: 'elegantewolke@yahoo.com',
     specialty: 'Zeitgenössischer Tanz, Taiji, Kindertanz',
     bio: 'Ausbildung in klassischem Ballett und Modern Dance an der National Taiwan University of Arts. Weiterbildung in Tanzimprovisation (D. Rudko), Contact Improvisation (Paxton, Simson), Release Technik (S. Klein, T. Brown), Zeitgenössischem Tanz (J. Clarke), Taiji Dao Yin (Meister Hsiung Wei), Pilates Methode (Frances Carty-Melis). Tanzpädagogisches Studium in London und Köln. Tanzwissenschaftliches Studium Berlin. Langjährige Vipassana Meditationserfahrung.\n\nEhemaliges Mitglied des Cloud Gate Dance Theatre of Taiwan, Dance Forum Taipei, Nai-Ni Chen Dance Company (New York).\n\nLangjährige pädagogische Erfahrung in Taipei, Köln, Würzburg, Berlin.',
   },
   {
     name: 'Mercedes Sebald Arguisuelas',
+    cardImage: '/salon77/unterricht/Flamenco.jpg',
     email: 'mercedesflamenca@web.de',
     phone: '01717990218',
     specialty: 'Flamenco',
@@ -49,6 +54,7 @@ export const instructors: Instructor[] = [
   },
   {
     name: 'Norbert Schmelz',
+    cardImage: '/salon77/unterricht/fotografie.jpg',
     phone: '0170 99 42 658',
     specialty: 'Fotografie',
     email: 'info@schmelz-fotodesign.de',
@@ -56,6 +62,7 @@ export const instructors: Instructor[] = [
   },
   {
     name: 'Robert Collomb',
+    cardImage: '/salon77/unterricht/rob_collomb.jpg',
     email: 'collomb@web.de',
     phone: '01784725902',
     specialty: 'Gitarrenunterricht',
@@ -63,12 +70,14 @@ export const instructors: Instructor[] = [
   },
   {
     name: 'Simon Ort',
+    cardImage: '/salon77/unterricht/bass.jpeg',
     email: 'simon@ortnet.de',
     specialty: 'Bass',
     website: 'https://simonort.com',
   },
   {
     name: 'Stefanie Koch',
+    cardImage: '/salon77/unterricht/akkordeon.png',
     specialty: 'Akkordeon',
     bio: 'Ausbildung: Abschluss des Hochschulstudiums als Dipl.-Sozialpädagogin mit Studienschwerpunkt Musiktherapie 1999. Seither tätig als freiberufliche Musiklehrerin im Vertrag mit der Musikschule Fröhlich, die bundesweit und seit einigen Jahren auch international (Amerika, China u. a.) vertreten ist.\n\nFort- und Weiterbildung: Otto Richter (Human Holographics) seit 1995 bis 2026, einige Male als Assistenz. Diverse Musik-, Tanz- und Therapiefortbildungen seit ca. 1989. Ausbildung zur Seminarleiterin für Tanz- und Bewegungspädagogik (IEK Berlin, 08.2013). Regelmäßige Seminare zur beruflichen Fortbildung der Musikschule Fröhlich seit 2000. Für den ALV (Akkordeon-Lehrerverband e.V.) Berechtigung zur Abnahme der Schülerprüfung Stufe 1 bis 5. 11-monatige Ausbildung zur Rhythmustrainerin am FMZ München (2014/2015).\n\nMusikunterricht nach dem System der Musikschule Fröhlich: Das Besondere ist, dass das Unterrichtskonzept möglichst vielen Menschen jeden Alters zum „Spaß am Musizieren“ verhelfen möchte, damit sie lebenslang Freude an der Musik haben. Musik regt die Phantasie an, fördert die Konzentrationsfähigkeit und stärkt das logische Denken. Das Unterrichtsprogramm ist in kleinen Lernschritten aufgebaut und gehirngerecht konzipiert, sodass sich schnell Erfolge einstellen. Das ist eine wichtige Voraussetzung für stressfreies Lernen. Der Unterricht folgt Stundenverlaufsplänen, die auf langjähriger Unterrichtserfahrung eines Expertenteams beruhen.\n\nIn den Fortgeschrittenen-Gruppen (Jugendliche und Erwachsene) werden zunehmend Stücke aus allen Bereichen der Musik in mehrstimmigen Variationen erarbeitet, bis hin zum Orchestertraining. Seit 2005 besteht das Akkordeonorchester „Allegro“, das 2017 bis 2019 eine Partnerschaft mit dem niederländischen Akkordeonorchester „NJAO“ und dem Dirigenten J. Josemans hatte. Die Orchesterleitung der 13 bis 16 Spielerinnen und Spieler aller Altersstufen wurde 2018 bis 2021 durch den Akkordeonisten Haoyang Zhang unterstützt.',
     website: 'https://akkordeon-und-mehr.de',
