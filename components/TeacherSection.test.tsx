@@ -31,10 +31,8 @@ describe('TeacherSection', () => {
     }
   });
 
-  it('shows "Profil ansehen" on every card', () => {
+  it('does not show "Profil ansehen" on the cards', () => {
     render(<TeacherSection />);
-    expect(screen.getAllByText('Profil ansehen')).toHaveLength(
-      instructors.length
-    );
+    expect(screen.queryByText('Profil ansehen')).toBeNull();
   });
 });
