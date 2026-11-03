@@ -91,7 +91,7 @@ export default async function InstructorPage({ params }: PageProps) {
                       >
                         <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z" />
                       </svg>
-                      <span>{instructor.phone}</span>
+                      <span>{instructor.phone.replace('/', ' ')}</span>
                     </a>
                   </li>
                 )}
@@ -126,10 +126,23 @@ export default async function InstructorPage({ params }: PageProps) {
                       href={instructor.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-3 underline hover:opacity-75 break-all"
+                      className="inline-flex items-center gap-2 underline hover:opacity-75 break-all"
                       style={{ color: 'var(--color-text)' }}
                     >
                       Website besuchen
+                      <svg
+                        aria-hidden="true"
+                        viewBox="0 0 24 24"
+                        className="h-4 w-4 shrink-0"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6" />
+                      </svg>
+                      <span className="sr-only">(öffnet in neuem Tab)</span>
                     </a>
                   </li>
                 )}
