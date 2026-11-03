@@ -28,7 +28,7 @@ export default function Datenschutz() {
             <section>
               <h2
                 className="text-2xl font-bold mb-4"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Verantwortliche Stelle
               </h2>
@@ -55,7 +55,7 @@ export default function Datenschutz() {
             <section>
               <h2
                 className="text-2xl font-bold mb-4"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Ihre Betroffenenrechte
               </h2>
@@ -110,7 +110,7 @@ export default function Datenschutz() {
             <section>
               <h2
                 className="text-2xl font-bold mb-4"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Zwecke der Datenverarbeitung
               </h2>
@@ -143,7 +143,7 @@ export default function Datenschutz() {
             <section>
               <h2
                 className="text-2xl font-bold mb-4"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Löschung bzw. Sperrung der Daten
               </h2>
@@ -162,7 +162,7 @@ export default function Datenschutz() {
             <section>
               <h2
                 className="text-2xl font-bold mb-4"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Erfassung allgemeiner Informationen beim Besuch unserer Website
               </h2>
@@ -209,7 +209,7 @@ export default function Datenschutz() {
             <section>
               <h2
                 className="text-2xl font-bold mb-4"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Cookies
               </h2>
@@ -250,7 +250,7 @@ export default function Datenschutz() {
             <section>
               <h2
                 className="text-2xl font-bold mb-4"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 SSL-Verschlüsselung
               </h2>
@@ -264,7 +264,7 @@ export default function Datenschutz() {
             <section>
               <h2
                 className="text-2xl font-bold mb-4"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Änderung unserer Datenschutzbestimmungen
               </h2>
@@ -281,7 +281,7 @@ export default function Datenschutz() {
             <section>
               <h2
                 className="text-2xl font-bold mb-4"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Fragen zum Datenschutz
               </h2>

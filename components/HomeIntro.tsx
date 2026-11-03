@@ -15,8 +15,8 @@ export default function HomeIntro() {
         href={homeIntro.cta.href}
         className="min-h-12 w-full px-6 py-3 sm:w-auto"
         style={{
-          backgroundColor: 'var(--color-peach)',
-          color: 'var(--color-on-peach)',
+          backgroundColor: 'var(--color-accent)',
+          color: 'var(--color-button-text)',
         }}
       >
         {homeIntro.cta.label}

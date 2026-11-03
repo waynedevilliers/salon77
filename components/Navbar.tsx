@@ -115,7 +115,7 @@ export default function Navbar() {
             className="hidden flex-wrap items-center justify-center gap-6 text-base lg:flex sm:gap-8"
           >
             <NavLink href="/" label="Home" isActive={pathname === '/'} />
-            <span className="text-gray-300">|</span>
+            <span className="text-gray-500">|</span>
             <NavDropdown
               label="Unterricht"
               href="/unterricht"
@@ -123,25 +123,25 @@ export default function Navbar() {
               pathname={pathname}
               items={subItems}
             />
-            <span className="text-gray-300">|</span>
+            <span className="text-gray-500">|</span>
             <NavLink
               href="/veranstaltungen"
               label="Veranstaltungen"
               isActive={pathname === '/veranstaltungen'}
             />
-            <span className="text-gray-300">|</span>
+            <span className="text-gray-500">|</span>
             <NavLink
               href="/raeumlichkeiten"
               label="Räumlichkeiten"
               isActive={pathname === '/raeumlichkeiten'}
             />
-            <span className="text-gray-300">|</span>
+            <span className="text-gray-500">|</span>
             <NavLink
               href="/verein"
               label="Verein"
               isActive={pathname === '/verein'}
             />
-            <span className="text-gray-300">|</span>
+            <span className="text-gray-500">|</span>
             <NavLink
               href="/kontakt"
               label="Kontakt"

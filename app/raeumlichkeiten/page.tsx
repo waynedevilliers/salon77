@@ -68,7 +68,7 @@ export default function Raeumlichkeiten() {
               <div key={room.title}>
                 <h2
                   className="text-2xl sm:text-3xl font-bold mb-3"
-                  style={{ color: 'var(--color-accent)' }}
+                  style={{ color: 'var(--color-accent-text)' }}
                 >
                   {room.title}
                 </h2>

@@ -29,8 +29,8 @@ export default function MenuCard({
 
       <div className="flex flex-1 flex-col gap-3 p-6">
         <h3
-          className="text-xl font-bold sm:text-2xl"
-          style={{ color: 'var(--color-peach-text)' }}
+          className="text-xl font-semibold sm:text-2xl"
+          style={{ color: 'var(--color-accent-text)' }}
         >
           {title}
         </h3>
@@ -40,7 +40,7 @@ export default function MenuCard({
         >
           {description}
         </p>
-        <span className="mt-auto inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-[var(--color-peach)] px-6 py-3 text-base font-bold text-[var(--color-on-peach)] transition-colors duration-200">
+        <span className="mt-auto inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-[var(--color-accent)] px-6 py-3 text-base font-bold text-[var(--color-button-text)] transition-colors duration-200">
           Mehr erfahren
           <svg
             aria-hidden="true"

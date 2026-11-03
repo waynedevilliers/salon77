@@ -28,7 +28,7 @@ export default function Impressum() {
             <section>
               <h2
                 className="text-2xl font-bold mb-4"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Salon 77 Würzburger Künstlerinitiative e.V.
               </h2>
@@ -48,7 +48,7 @@ export default function Impressum() {
             <section>
               <h2
                 className="text-2xl font-bold mb-4"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Gemeinschaftlich vertretungsberechtigt
               </h2>
@@ -67,7 +67,7 @@ export default function Impressum() {
             <section>
               <h2
                 className="text-2xl font-bold mb-4"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Registrierung
               </h2>
@@ -82,7 +82,7 @@ export default function Impressum() {
             <section>
               <h2
                 className="text-2xl font-bold mb-4"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Verantwortlich für redaktionelle Inhalte
               </h2>

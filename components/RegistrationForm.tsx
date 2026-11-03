@@ -64,7 +64,7 @@ export default function RegistrationForm() {
       <div className="bg-white rounded-lg shadow-lg p-8 text-center">
         <h2
           className="text-2xl font-bold mb-4"
-          style={{ color: 'var(--color-accent)' }}
+          style={{ color: 'var(--color-accent-text)' }}
         >
           Anmeldung erhalten!
         </h2>
@@ -83,7 +83,7 @@ export default function RegistrationForm() {
     >
       <h2
         className="text-2xl font-bold mb-8"
-        style={{ color: 'var(--color-accent)' }}
+        style={{ color: 'var(--color-accent-text)' }}
       >
         Anmeldung Klein-Montmartre
       </h2>

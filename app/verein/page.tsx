@@ -38,7 +38,7 @@ export default function Verein() {
             <div>
               <h2
                 className="text-2xl sm:text-3xl font-bold mb-3"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Der Salon 77
               </h2>
@@ -56,7 +56,7 @@ export default function Verein() {
             <div>
               <h2
                 className="text-2xl sm:text-3xl font-bold mb-3"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Unsere Mission
               </h2>
@@ -83,7 +83,7 @@ export default function Verein() {
             <div>
               <h2
                 className="text-2xl sm:text-3xl font-bold mb-3"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Fokus Bereiche
               </h2>
@@ -103,7 +103,7 @@ export default function Verein() {
             <div>
               <h2
                 className="text-2xl sm:text-3xl font-bold mb-3"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Seit 1977
               </h2>

@@ -37,7 +37,7 @@ export default function Kontakt() {
             <div className="bg-white rounded-lg shadow-lg p-8 md:p-12">
               <h2
                 className="text-3xl font-bold mb-8"
-                style={{ color: 'var(--color-accent)' }}
+                style={{ color: 'var(--color-accent-text)' }}
               >
                 Salon77
               </h2>

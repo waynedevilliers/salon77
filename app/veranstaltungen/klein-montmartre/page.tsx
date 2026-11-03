@@ -153,7 +153,7 @@ export default function KleinMontmartre() {
           <div className="bg-white border border-gray-200 rounded-lg p-8 mb-16">
             <h2
               className="text-2xl font-bold mb-6"
-              style={{ color: 'var(--color-accent)' }}
+              style={{ color: 'var(--color-accent-text)' }}
             >
               Weitere Informationen
             </h2>
@@ -224,7 +224,7 @@ export default function KleinMontmartre() {
           <div className="mb-16">
             <h2
               className="text-2xl font-bold mb-6"
-              style={{ color: 'var(--color-accent)' }}
+              style={{ color: 'var(--color-accent-text)' }}
             >
               Nächste Termine
             </h2>
@@ -248,7 +248,7 @@ export default function KleinMontmartre() {
           <div>
             <h2
               className="text-2xl font-bold mb-8"
-              style={{ color: 'var(--color-accent)' }}
+              style={{ color: 'var(--color-accent-text)' }}
             >
               Impressionen
             </h2>

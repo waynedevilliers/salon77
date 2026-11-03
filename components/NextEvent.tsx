@@ -53,8 +53,8 @@ export default function NextEvent({
             dateTime={next}
             className="rounded-md px-2 font-bold"
             style={{
-              backgroundColor: 'var(--color-peach)',
-              color: 'var(--color-on-peach)',
+              backgroundColor: 'var(--color-accent)',
+              color: 'var(--color-button-text)',
             }}
           >
             {formatGermanDate(next)}
@@ -63,7 +63,7 @@ export default function NextEvent({
         <h2
           id="next-event-title"
           className="text-2xl font-bold leading-[1.3] lg:text-3xl"
-          style={{ color: 'var(--color-peach-text)' }}
+          style={{ color: 'var(--color-accent-text)' }}
         >
           {title}
         </h2>
@@ -81,8 +81,8 @@ export default function NextEvent({
             href={href}
             className="px-6 py-3"
             style={{
-              backgroundColor: 'var(--color-peach)',
-              color: 'var(--color-on-peach)',
+              backgroundColor: 'var(--color-accent)',
+              color: 'var(--color-button-text)',
             }}
           >
             Mehr zu Klein-Montmartre

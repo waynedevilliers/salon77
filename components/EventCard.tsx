@@ -36,7 +36,7 @@ export default function EventCard({
       <div className="p-6 flex flex-col flex-grow">
         <h3
           className="text-lg sm:text-xl font-bold mb-2 transition-colors"
-          style={{ color: 'var(--color-accent)' }}
+          style={{ color: 'var(--color-accent-text)' }}
         >
           {title}
         </h3>
