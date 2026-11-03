@@ -49,14 +49,7 @@ export default function NextEvent({
           >
             Nächster Termin
           </span>
-          <time
-            dateTime={next}
-            className="rounded-md px-2 font-bold"
-            style={{
-              backgroundColor: 'var(--color-accent)',
-              color: 'var(--color-button-text)',
-            }}
-          >
+          <time dateTime={next} className="rounded-md px-2 font-bold">
             {formatGermanDate(next)}
           </time>
         </p>

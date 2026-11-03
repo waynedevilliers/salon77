@@ -261,6 +261,14 @@ body {
       transform 0.6s ease;
   }
 
+  /* Without JavaScript the observer never runs, so content stays visible. */
+  @media (scripting: none) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
   .reveal-visible {
     opacity: 1;
     transform: none;
