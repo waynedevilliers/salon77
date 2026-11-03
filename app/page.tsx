@@ -4,6 +4,7 @@ import Reveal from '@/components/Reveal';
 import HomeIntro from '@/components/HomeIntro';
 import NextEvent from '@/components/NextEvent';
 import { getTodayIso } from '@/lib/dates';
+import { homeCards } from '@/content/home';
 import { kleinMontmartreDates, kleinMontmartreTeaser } from '@/content/events';
 
 export const metadata = pageMetadata({
@@ -12,33 +13,6 @@ export const metadata = pageMetadata({
     'Salon77 - Die Würzburger Künstlerinitiative e.V. mit Kursen in Tanz, Bewegung, Musik und Fotografie.',
   path: '/',
 });
-
-const MENU_CARDS = [
-  {
-    title: 'Unterricht',
-    href: '/unterricht',
-    image: {
-      src: '/salon77/homepage/unterricht_card_1.jpg',
-      alt: 'Unterricht - Kurse und Programme bei Salon77',
-    },
-  },
-  {
-    title: 'Veranstaltungen',
-    href: '/veranstaltungen',
-    image: {
-      src: '/salon77/kleinmomatra/IMG_6127_4.jpeg',
-      alt: 'Veranstaltungen - Events bei Salon77',
-    },
-  },
-  {
-    title: 'Räumlichkeiten',
-    href: '/raeumlichkeiten',
-    image: {
-      src: '/salon77/raumligkeiten/Balletsaal.png',
-      alt: 'Räumlichkeiten - Unsere Studios und Räume',
-    },
-  },
-];
 
 export default async function Home() {
   const todayIso = await getTodayIso();
@@ -62,7 +36,7 @@ export default async function Home() {
         {/* Menu Cards */}
         <section>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {MENU_CARDS.map((card) => (
+            {homeCards.map((card) => (
               <Reveal key={card.href} className="h-full">
                 <MenuCard {...card} />
               </Reveal>
