@@ -237,7 +237,7 @@ export default function KleinMontmartre() {
             >
               Impressionen
             </h2>
-            <ImageGallery images={GALLERY_IMAGES} />
+            <ImageGallery images={GALLERY_IMAGES} previewCount={6} />
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <ActionLink
                 href="https://www.instagram.com/klein_montmartre/"
