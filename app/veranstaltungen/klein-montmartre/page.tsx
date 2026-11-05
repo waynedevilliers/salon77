@@ -1,6 +1,7 @@
+import { Suspense } from 'react';
 import JsonLd from '@/components/JsonLd';
-import { breadcrumbJsonLd, eventJsonLd } from '@/lib/structured-data';
-import { kleinMontmartreDates } from '@/content/events';
+import KleinMontmartreFacts from '@/components/KleinMontmartreFacts';
+import { breadcrumbJsonLd } from '@/lib/structured-data';
 import { pageMetadata } from '@/lib/metadata';
 import ImageGallery from '@/components/ImageGallery';
 import ActionLink from '@/components/ActionLink';
@@ -55,11 +56,6 @@ export default function KleinMontmartre() {
   return (
     <div className="flex flex-col">
       <JsonLd data={breadcrumbJsonLd('/veranstaltungen/klein-montmartre')} />
-      <JsonLd
-        data={kleinMontmartreDates.map((startDate) =>
-          eventJsonLd({ startDate, path: '/veranstaltungen/klein-montmartre' })
-        )}
-      />
       <main className="flex-1">
         <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
           {/* Header */}
@@ -72,13 +68,6 @@ export default function KleinMontmartre() {
               style={{ color: 'var(--color-sage-text)' }}
             >
               Kunsthandwerkermarkt | NEXT: 8.05.27
-            </p>
-            <p
-              className="text-base sm:text-lg"
-              style={{ color: 'var(--color-text-muted)' }}
-            >
-              📍 Leonhard-Frank-Promenade, Würzburg | 2x jährlich (Anfang Mai &
-              Oktober)
             </p>
           </div>
 
@@ -149,6 +138,13 @@ export default function KleinMontmartre() {
             </section>
           </div>
 
+          {/* Facts box, below the intro text */}
+          <div className="mb-16">
+            <Suspense fallback={null}>
+              <KleinMontmartreFacts />
+            </Suspense>
+          </div>
+
           {/* Contact & Links Section */}
           <div className="bg-white border border-gray-200 rounded-lg p-8 mb-16">
             <h2
@@ -216,30 +212,6 @@ export default function KleinMontmartre() {
                 >
                   fb.me/e/4XfvnFiVE
                 </a>
-              </p>
-            </div>
-          </div>
-
-          {/* Next Dates */}
-          <div className="mb-16">
-            <h2
-              className="text-2xl font-bold mb-6"
-              style={{ color: 'var(--color-accent-text)' }}
-            >
-              Nächste Termine
-            </h2>
-            <div className="space-y-3">
-              <p
-                className="text-lg font-semibold"
-                style={{ color: 'var(--color-text)' }}
-              >
-                📅 Samstag, 08.05.2027
-              </p>
-              <p
-                className="text-lg font-semibold"
-                style={{ color: 'var(--color-text)' }}
-              >
-                📅 Samstag, 02.10.2027
               </p>
             </div>
           </div>

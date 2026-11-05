@@ -6,16 +6,21 @@ import { mapContent } from '@/content/map';
 interface MapConsentProps {
   embedSrc: string;
   openHref: string;
+  title?: string;
 }
 
-export default function MapConsent({ embedSrc, openHref }: MapConsentProps) {
+export default function MapConsent({
+  embedSrc,
+  openHref,
+  title = mapContent.title,
+}: MapConsentProps) {
   const [loaded, setLoaded] = useState(false);
 
   if (loaded) {
     return (
       <iframe
         src={embedSrc}
-        title={mapContent.title}
+        title={title}
         width="100%"
         height="100%"
         style={{ border: 0 }}

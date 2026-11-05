@@ -12,3 +12,17 @@ export const kleinMontmartreTeaser = {
     alt: 'Klein-Montmartre Kunsthandwerkermarkt am Main',
   },
 };
+
+/** Facts box on the Klein-Montmartre page. Empty fields are hidden. */
+export const kleinMontmartreFacts = {
+  location: 'Leonhard-Frank-Promenade, Würzburg',
+  frequency: '2x jährlich, Anfang Mai und Oktober',
+  // TODO: add the start time once it is confirmed.
+  time: '',
+  // TODO: add the admission price once it is confirmed.
+  admission: '',
+  mapEmbedSrc:
+    'https://www.google.com/maps?q=Leonhard-Frank-Promenade,+W%C3%BCrzburg&output=embed',
+  mapOpenHref:
+    'https://www.google.com/maps/search/?api=1&query=Leonhard-Frank-Promenade,+W%C3%BCrzburg',
+};
