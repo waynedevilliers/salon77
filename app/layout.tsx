@@ -82,7 +82,7 @@ export default async function RootLayout({
           }}
         />
       </head>
-      <body className="h-full flex flex-col">
+      <body className="min-h-full flex flex-col">
         <Navbar />
         <Breadcrumbs />
         <main className="flex-1">{children}</main>

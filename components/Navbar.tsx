@@ -33,10 +33,10 @@ export default function Navbar() {
   const panelId = useId();
 
   return (
-    <header className="sticky top-0 z-50 border-b-2 border-gray-300 bg-white">
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-center py-6 lg:space-y-6 lg:py-10">
-          {/* One logo for every screen size. It always links home. */}
+    <>
+      {/* One logo for every screen size. It always links home. It scrolls away. */}
+      <div className="bg-white">
+        <div className="mx-auto flex max-w-7xl justify-center px-4 py-6 sm:px-6 lg:px-8 lg:py-10">
           <Link
             href="/"
             aria-label="Salon77 - Zur Startseite"
@@ -51,15 +51,20 @@ export default function Navbar() {
               priority
             />
           </Link>
+        </div>
+      </div>
 
-          {/* Phones and tablets: hamburger button at the right of the logo */}
+      {/* The menu bar sticks to the top of the window while the page scrolls. */}
+      <header className="sticky top-0 z-50 border-b-2 border-gray-300 bg-white">
+        <div className="relative mx-auto flex min-h-16 max-w-7xl items-center justify-center px-4 sm:px-6 lg:px-8">
+          {/* Phones and tablets: hamburger button */}
           <button
             type="button"
             aria-expanded={menuOpen}
             aria-controls={panelId}
             aria-label={menuOpen ? 'Menü schließen' : 'Menü öffnen'}
             onClick={() => setMenuOpen((open) => !open)}
-            className="mt-3 flex h-11 w-11 items-center justify-center rounded-md lg:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-md lg:hidden"
             style={{ color: 'var(--color-text)' }}
           >
             <svg
@@ -105,13 +110,16 @@ export default function Navbar() {
             </nav>
           )}
 
-          {/* Large screens: horizontal menu under the logo */}
+          {/* Large screens: horizontal menu */}
           <nav
             aria-label="Hauptmenü"
             className="hidden flex-wrap items-center justify-center gap-6 text-base lg:flex sm:gap-8"
           >
             <NavLink href="/" label="Home" isActive={pathname === '/'} />
-            <span aria-hidden="true" style={{ color: 'var(--color-border)' }}>
+            <span
+              aria-hidden="true"
+              style={{ color: 'var(--color-text-faint)' }}
+            >
               |
             </span>
             <NavLink
@@ -119,7 +127,10 @@ export default function Navbar() {
               label="Unterricht"
               isActive={isActiveItem('/unterricht', pathname)}
             />
-            <span aria-hidden="true" style={{ color: 'var(--color-border)' }}>
+            <span
+              aria-hidden="true"
+              style={{ color: 'var(--color-text-faint)' }}
+            >
               |
             </span>
             <NavLink
@@ -127,7 +138,10 @@ export default function Navbar() {
               label="Wochenkurse"
               isActive={pathname === '/wochenkurse'}
             />
-            <span aria-hidden="true" style={{ color: 'var(--color-border)' }}>
+            <span
+              aria-hidden="true"
+              style={{ color: 'var(--color-text-faint)' }}
+            >
               |
             </span>
             <NavLink
@@ -135,7 +149,10 @@ export default function Navbar() {
               label="Veranstaltungen"
               isActive={pathname === '/veranstaltungen'}
             />
-            <span aria-hidden="true" style={{ color: 'var(--color-border)' }}>
+            <span
+              aria-hidden="true"
+              style={{ color: 'var(--color-text-faint)' }}
+            >
               |
             </span>
             <NavLink
@@ -143,7 +160,10 @@ export default function Navbar() {
               label="Räumlichkeiten"
               isActive={pathname === '/raeumlichkeiten'}
             />
-            <span aria-hidden="true" style={{ color: 'var(--color-border)' }}>
+            <span
+              aria-hidden="true"
+              style={{ color: 'var(--color-text-faint)' }}
+            >
               |
             </span>
             <NavLink
@@ -153,7 +173,7 @@ export default function Navbar() {
             />
           </nav>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 }
