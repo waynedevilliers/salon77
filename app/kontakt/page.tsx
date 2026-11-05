@@ -28,7 +28,7 @@ export default function Kontakt() {
             {/* Row 1: Image */}
             <div className="relative rounded-lg overflow-hidden shadow-lg h-96">
               <Image
-                src="/salon77/kontakt.png"
+                src="/kontakt_images/kontakt.png"
                 alt="Salon77 Kontakt"
                 fill
                 className="w-full h-full object-cover"

@@ -22,7 +22,7 @@ export const homeCards: HomeCard[] = [
     description: 'Tanz, Musik und Bewegung für Kinder und Erwachsene',
     href: '/unterricht',
     image: {
-      src: '/salon77/homepage/unterricht_card_1.jpg',
+      src: '/homepage_images/unterricht_card_1.jpg',
       alt: 'Unterricht - Kurse und Programme bei Salon77',
     },
   },
@@ -32,7 +32,7 @@ export const homeCards: HomeCard[] = [
     description: 'Märkte, Konzerte und Aufführungen im Jahr',
     href: '/veranstaltungen',
     image: {
-      src: '/salon77/kleinmomatra/IMG_6127_4.jpeg',
+      src: '/klein_montmartre_images/IMG_6127_4.jpeg',
       alt: 'Veranstaltungen - Events bei Salon77',
     },
   },
@@ -42,7 +42,7 @@ export const homeCards: HomeCard[] = [
     description: 'Helle Säle für Kurse und Proben',
     href: '/raeumlichkeiten',
     image: {
-      src: '/salon77/raumligkeiten/Balletsaal.png',
+      src: '/raeumlichkeiten_images/Balletsaal.png',
       alt: 'Räumlichkeiten - Unsere Studios und Räume',
     },
   },

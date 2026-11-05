@@ -18,7 +18,7 @@ const EVENTS = [
     location: 'Leonhard-Frank-Promenade, Würzburg',
     description:
       'Kunsthandwerkermarkt mit über 30 Jahren Tradition. Viele Aussteller präsentieren ihre handwerkliche Kunstkunst. Eine entspannte Atmosphäre direkt im Grünen am Main mit Platz für interessante Begegnungen. 2x jährlich (Mai & Oktober).',
-    image: '/salon77/kleinmomatra/IMG_7469.jpeg',
+    image: '/klein_montmartre_images/IMG_7469.jpeg',
     buttonText: 'Mehr Infos',
     buttonLink: '/veranstaltungen/klein-montmartre',
   },
@@ -28,7 +28,7 @@ const EVENTS = [
     location: 'Würzburg',
     description:
       'Würzburg und Deutschlands ältestes Flamenco-Festival mit erstklassigen Künstlern aus Spanien und Europa.',
-    image: '/salon77/flamenco.webp',
+    image: '/veranstaltungen_images/flamenco.webp',
     buttonText: 'Zur Webseite',
     buttonLink: 'https://www.wueflamencofestival.de/',
   },

@@ -43,7 +43,7 @@ export default function Navbar() {
             className="shrink-0"
           >
             <Image
-              src="/salon77/Salon77_logo_big.png"
+              src="/site_images/Salon77_logo_big.png"
               alt="Salon77 Logo"
               width={280}
               height={140}

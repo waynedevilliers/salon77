@@ -30,7 +30,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
 
   const renderTile = (image: GalleryImage, index: number) => (
     <div
-      key={image.alt}
+      key={image.src}
       className="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
       onClick={() => handleImageClick(index)}
     >
@@ -39,6 +39,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
         alt={image.alt}
         width={400}
         height={300}
+        sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
         className="w-full h-64 sm:h-72 object-cover hover:scale-105 transition-transform duration-300"
       />
     </div>

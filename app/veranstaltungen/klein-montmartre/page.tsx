@@ -13,43 +13,89 @@ export const metadata = pageMetadata({
   path: '/veranstaltungen/klein-montmartre',
 });
 
+// TODO for the client: the alt texts marked "Impression vom Klein-Montmartre"
+// are generic. Send a short description of each photo to replace them.
 const GALLERY_IMAGES = [
-  { src: '/salon77/kleinmomatra/IMG_7469.jpeg', alt: 'Klein-Montmartre 1' },
-  { src: '/salon77/kleinmomatra/IMG_7481_2.jpeg', alt: 'Klein-Montmartre 2' },
-  { src: '/salon77/kleinmomatra/IMG_7527.jpeg', alt: 'Klein-Montmartre 3' },
   {
-    src: '/salon77/kleinmomatra/Das_ist_Würzburg_-_Klein_Montmartre_am_Main01.jpeg',
-    alt: 'Klein-Montmartre 4',
-  },
-  { src: '/salon77/kleinmomatra/IMG_7668.jpeg', alt: 'Klein-Montmartre 5' },
-  { src: '/salon77/kleinmomatra/IMG_7795.jpeg', alt: 'Klein-Montmartre 6' },
-  {
-    src: '/salon77/kleinmomatra/Das_ist_Würzburg_-_Klein_Montmartre_Mai_2023_-_03.jpeg',
-    alt: 'Klein-Montmartre 7',
+    src: '/klein_montmartre_images/IMG_7469.jpeg',
+    alt: 'Blühende Kastanie vor Marktständen am Main',
   },
   {
-    src: '/salon77/kleinmomatra/Das_ist_Würzburg_-_Klein_Montmartre_am_Main03.jpeg',
-    alt: 'Klein-Montmartre 8',
-  },
-  { src: '/salon77/kleinmomatra/IMG_0472_3.jpeg', alt: 'Klein-Montmartre 9' },
-  { src: '/salon77/kleinmomatra/IMG_5950_2.jpeg', alt: 'Klein-Montmartre 10' },
-  { src: '/salon77/kleinmomatra/IMG_6127_4.jpeg', alt: 'Klein-Montmartre 11' },
-  { src: '/salon77/kleinmomatra/IMG_7674_2.jpeg', alt: 'Klein-Montmartre 12' },
-  { src: '/salon77/kleinmomatra/IMG_7729_2.jpeg', alt: 'Klein-Montmartre 13' },
-  { src: '/salon77/kleinmomatra/IMG_7744_2.jpeg', alt: 'Klein-Montmartre 14' },
-  { src: '/salon77/kleinmomatra/IMG_7763_2.jpeg', alt: 'Klein-Montmartre 15' },
-  { src: '/salon77/kleinmomatra/IMG_7764_2.jpeg', alt: 'Klein-Montmartre 16' },
-  { src: '/salon77/kleinmomatra/IMG_7895_2.jpeg', alt: 'Klein-Montmartre 17' },
-  { src: '/salon77/kleinmomatra/IMG_8191.jpeg', alt: 'Klein-Montmartre 18' },
-  {
-    src: '/salon77/kleinmomatra/Plakat_Aufsteller_Bewerbung.png',
-    alt: 'Klein-Montmartre 19',
+    src: '/klein_montmartre_images/IMG_7481_2.jpeg',
+    alt: 'Aussteller mit Tees, Kräutern und Seifen an seinem Stand',
   },
   {
-    src: '/salon77/kleinmomatra/Sticker_Klein_Montmartre_2023_01.jpg',
-    alt: 'Klein-Montmartre 20',
+    src: '/klein_montmartre_images/IMG_7527.jpeg',
+    alt: 'Holzwaren von Stefan Weiß Design am Stand',
   },
-  { src: '/salon77/flamenco.webp', alt: 'Klein-Montmartre 21' },
+  {
+    src: '/klein_montmartre_images/Das_ist_Würzburg_-_Klein_Montmartre_am_Main01.jpeg',
+    alt: 'Marktstände auf der Promenade am Main',
+  },
+  {
+    src: '/klein_montmartre_images/IMG_7668.jpeg',
+    alt: 'Zwei Ausstellerinnen mit Schmuck und Keramik',
+  },
+  {
+    src: '/klein_montmartre_images/IMG_7795.jpeg',
+    alt: 'Keramikaussteller mit Schalen und Krügen',
+  },
+  {
+    src: '/klein_montmartre_images/Das_ist_Würzburg_-_Klein_Montmartre_Mai_2023_-_03.jpeg',
+    alt: 'Marktstand auf einer Wiese mit Gänseblümchen',
+  },
+  {
+    src: '/klein_montmartre_images/Das_ist_Würzburg_-_Klein_Montmartre_am_Main03.jpeg',
+    alt: 'Luftaufnahme vom Markt am Mainufer mit Besuchern',
+  },
+  {
+    src: '/klein_montmartre_images/IMG_0472_3.jpeg',
+    alt: 'Keramik und Geschirr auf einem Tisch im Grünen',
+  },
+  {
+    src: '/klein_montmartre_images/IMG_5950_2.jpeg',
+    alt: 'Impression vom Klein-Montmartre',
+  },
+  {
+    src: '/klein_montmartre_images/IMG_6127_4.jpeg',
+    alt: 'Impression vom Klein-Montmartre',
+  },
+  {
+    src: '/klein_montmartre_images/IMG_7674_2.jpeg',
+    alt: 'Impression vom Klein-Montmartre',
+  },
+  {
+    src: '/klein_montmartre_images/IMG_7729_2.jpeg',
+    alt: 'Impression vom Klein-Montmartre',
+  },
+  {
+    src: '/klein_montmartre_images/IMG_7744_2.jpeg',
+    alt: 'Impression vom Klein-Montmartre',
+  },
+  {
+    src: '/klein_montmartre_images/IMG_7763_2.jpeg',
+    alt: 'Impression vom Klein-Montmartre',
+  },
+  {
+    src: '/klein_montmartre_images/IMG_7764_2.jpeg',
+    alt: 'Impression vom Klein-Montmartre',
+  },
+  {
+    src: '/klein_montmartre_images/IMG_7895_2.jpeg',
+    alt: 'Impression vom Klein-Montmartre',
+  },
+  {
+    src: '/klein_montmartre_images/IMG_8191.jpeg',
+    alt: 'Impression vom Klein-Montmartre',
+  },
+  {
+    src: '/klein_montmartre_images/Plakat_Aufsteller_Bewerbung.png',
+    alt: 'Plakat: Bewerbung als Aussteller beim Klein-Montmartre',
+  },
+  {
+    src: '/klein_montmartre_images/Sticker_Klein_Montmartre_2023_01.jpg',
+    alt: 'Sticker Klein-Montmartre mit Kontaktdaten',
+  },
 ];
 
 export default function KleinMontmartre() {
@@ -192,6 +238,46 @@ export default function KleinMontmartre() {
               Impressionen
             </h2>
             <ImageGallery images={GALLERY_IMAGES} />
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <ActionLink
+                href="https://www.instagram.com/klein_montmartre/"
+                variant="secondary"
+                className="w-full px-6 py-3 sm:w-auto"
+              >
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  className="mr-2 h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                </svg>
+                Mehr Bilder auf Instagram
+                <span className="sr-only"> (öffnet in neuem Tab)</span>
+              </ActionLink>
+              <ActionLink
+                href="https://fb.me/e/4XfvnFiVE"
+                variant="secondary"
+                className="w-full px-6 py-3 sm:w-auto"
+              >
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  className="mr-2 h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <rect x="3" y="5" width="18" height="16" rx="2" />
+                  <path d="M3 10h18M8 3v4M16 3v4" />
+                </svg>
+                Zur Facebook Veranstaltung
+                <span className="sr-only"> (öffnet in neuem Tab)</span>
+              </ActionLink>
+            </div>
           </div>
         </div>
       </main>

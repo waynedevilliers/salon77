@@ -7,7 +7,7 @@ const card = {
   description: 'Tanz, Musik und Bewegung für Kinder und Erwachsene',
   href: '/unterricht',
   image: {
-    src: '/salon77/homepage/unterricht_card_1.jpg',
+    src: '/homepage_images/unterricht_card_1.jpg',
     alt: 'Unterricht bei Salon77',
   },
 };

@@ -24,7 +24,7 @@ describe('pageMetadata', () => {
     });
     expect(openGraph?.images).toEqual([
       expect.objectContaining({
-        url: 'https://salon77.de/og/salon77.jpg',
+        url: 'https://salon77.de/site_images/salon77.jpg',
         width: 1200,
         height: 630,
       }),
@@ -34,7 +34,7 @@ describe('pageMetadata', () => {
   it('sets a large Twitter card with the same share image', () => {
     expect(pageMetadata(input).twitter).toMatchObject({
       card: 'summary_large_image',
-      images: ['https://salon77.de/og/salon77.jpg'],
+      images: ['https://salon77.de/site_images/salon77.jpg'],
     });
   });
 
