@@ -21,16 +21,12 @@ const WEEKLY_COURSES = {
       time: '14:45 - 15:45 Uhr',
       course: 'Akkordeon- Crash- Gruppe (leicht Fortgeschrittene)',
     },
-    { time: '17:00 - 18:00 Uhr', course: 'Flamenco für Anfänger*innen' },
+    { time: '17:30 - 18:30 Uhr', course: 'Flamenco für Anfänger*innen' },
     {
       time: '17:30 - 18:30 Uhr',
       course: 'Akkordeon-Unterricht für Fortgeschrittene',
     },
-    { time: '18:30 - 19:30 Uhr', course: 'Flamenco' },
-    {
-      time: '18:30 - 19:30 Uhr',
-      course: 'Akkordeon-Kurs für Fortgeschrittene',
-    },
+    { time: '18:45 - 19:45 Uhr', course: 'Flamenco' },
     { time: '19:00 - 21:00 Uhr', course: 'Afrikanisches Trommeln' },
   ],
   Mittwochs: [{ time: '18:30 - 19:45 Uhr', course: 'Ballett für Erwachsene' }],
@@ -70,11 +66,11 @@ export default function Wochenkurse() {
               <div
                 key={dayIndex}
                 className="border-l-4 pl-6"
-                style={{ borderColor: 'var(--color-highlight)' }}
+                style={{ borderColor: 'var(--color-accent)' }}
               >
                 <h2
                   className="text-2xl sm:text-3xl font-bold mb-6"
-                  style={{ color: 'var(--color-highlight)' }}
+                  style={{ color: 'var(--color-accent-text)' }}
                 >
                   {day}
                 </h2>
@@ -103,7 +99,7 @@ export default function Wochenkurse() {
           <p
             className="text-center mt-12 pt-8 border-t-2"
             style={{
-              color: 'var(--color-text-faint)',
+              color: 'var(--color-text-muted)',
               borderColor: 'var(--color-border)',
             }}
           >
