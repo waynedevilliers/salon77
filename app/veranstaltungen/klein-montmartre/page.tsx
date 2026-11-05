@@ -145,76 +145,43 @@ export default function KleinMontmartre() {
             </Suspense>
           </div>
 
-          {/* Contact & Links Section */}
-          <div className="bg-white border border-gray-200 rounded-lg p-8 mb-16">
+          {/* Exhibitors */}
+          <section className="mb-16">
             <h2
               className="text-2xl font-bold mb-6"
               style={{ color: 'var(--color-accent-text)' }}
             >
-              Weitere Informationen
+              Für Aussteller
             </h2>
-
-            <div className="space-y-4">
-              <p
-                className="text-base"
-                style={{ color: 'var(--color-text-muted)' }}
+            <p
+              className="text-base sm:text-lg leading-relaxed mb-6"
+              style={{ color: 'var(--color-text-muted)' }}
+            >
+              Du möchtest deine Kunst beim Klein-Montmartre ausstellen? Melde
+              dich direkt online an oder schreib uns eine E-Mail.
+            </p>
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <ActionLink
+                href="/veranstaltungen/klein-montmartre/anmelden"
+                className="px-8 py-3"
               >
-                Mehr Impressionen findest du auf unserem Instagram Account{' '}
-                <a
-                  href="https://www.instagram.com/klein_montmartre/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline hover:opacity-75"
-                  style={{ color: 'var(--color-sage-text)' }}
-                >
-                  @klein_montmartre
-                </a>
-              </p>
-
-              <p
-                className="text-base"
-                style={{ color: 'var(--color-text-muted)' }}
-              >
-                Du möchtest deine Kunst beim „Klein Montmartre“ ausstellen?
-              </p>
-
-              <ActionLink href="mailto:kmm@salon77.de" className="px-6 py-3">
-                Email an kmm@salon77.de
+                Jetzt anmelden
               </ActionLink>
-
-              <p
-                className="text-base mt-8"
-                style={{ color: 'var(--color-text-muted)' }}
+              <ActionLink
+                href="mailto:kmm@salon77.de"
+                variant="secondary"
+                className="px-8 py-3"
               >
-                Oder melde dich direkt an:
-              </p>
-
-              <div className="mt-4">
-                <ActionLink
-                  href="/veranstaltungen/klein-montmartre/anmelden"
-                  className="px-8 py-3"
-                >
-                  Anmelden
-                </ActionLink>
-              </div>
-
-              <p
-                className="text-base mt-6"
-                style={{ color: 'var(--color-text-muted)' }}
-              >
-                Zur aktuellen Facebook Veranstaltung:{' '}
-                <a
-                  href="https://fb.me/e/4XfvnFiVE"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline hover:opacity-75"
-                  style={{ color: 'var(--color-sage-text)' }}
-                >
-                  fb.me/e/4XfvnFiVE
-                </a>
-              </p>
+                E-Mail schreiben
+              </ActionLink>
             </div>
-          </div>
+            <p
+              className="mt-4 text-base"
+              style={{ color: 'var(--color-text)' }}
+            >
+              E-Mail: kmm@salon77.de
+            </p>
+          </section>
 
           {/* Gallery */}
           <div>
