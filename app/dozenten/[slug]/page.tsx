@@ -208,7 +208,10 @@ export default async function InstructorPage({ params }: PageProps) {
               )}
 
               <div className="mt-10">
-                <ActionLink href="/kontakt" className="min-h-12 px-6 py-3">
+                <ActionLink
+                  href={`mailto:${instructor.email ?? 'info@salon77.de'}?subject=${encodeURIComponent(`Probestunde bei ${instructor.name}`)}`}
+                  className="min-h-12 px-6 py-3"
+                >
                   Probestunde anfragen
                 </ActionLink>
               </div>

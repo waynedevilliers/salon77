@@ -2,7 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ActionLink from '@/components/ActionLink';
 import { findInstructorByName, instructorSlug } from '@/lib/instructors';
-import { courseSlug } from '@/lib/courses';
 
 interface CourseCardProps {
   title: string;
@@ -103,9 +102,8 @@ export default function CourseCard({
         ))}
       </div>
 
-      {/* TODO: the contact page reads ?kurs= and pre-selects the course. Not built yet. */}
       <ActionLink
-        href={`/kontakt?kurs=${courseSlug(title)}`}
+        href="/unterricht#dozenten"
         className="w-full px-6 py-3 text-center"
       >
         Probestunde anfragen

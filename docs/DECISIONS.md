@@ -51,12 +51,17 @@ Status: done
 
 Decision: Headline plus a supporting line ("Tanz, Musik, Bewegung und
 Fotografie für alle Altersstufen") and one main button
-"Probestunde anfragen". Cards are fully clickable and have a one line
+"Probestunde bei unseren Dozenten anfragen", which links to the teacher
+section on /unterricht#dozenten. Cards are fully clickable and have a one line
 description.
 
 Why: The headline says who Salon77 is, the supporting line says what
 a visitor gets. A trial lesson is the most valuable action a visitor
 can take, so it is the main call to action.
+
+Update: the button used to link to /kontakt. It now links to the teacher
+section, because a trial lesson is booked with the teacher. The teacher
+section has a short explanation of how to do that.
 
 ## 2026-11-03: Menu
 

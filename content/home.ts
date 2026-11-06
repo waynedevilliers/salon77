@@ -2,8 +2,8 @@
 export const homeIntro = {
   supportingLine: 'Tanz, Musik, Bewegung und Fotografie für alle Altersstufen',
   cta: {
-    label: 'Probestunde anfragen',
-    href: '/kontakt',
+    label: 'Probestunde bei unseren Dozenten anfragen',
+    href: '/unterricht#dozenten',
   },
 };
 
