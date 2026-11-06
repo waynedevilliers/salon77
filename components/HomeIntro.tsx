@@ -6,8 +6,8 @@ export default function HomeIntro() {
   return (
     <div className="flex flex-col items-center gap-6 pb-8 text-center sm:pb-12">
       <p
-        className="text-[length:var(--size-body)] leading-[var(--line-body)] sm:text-lg"
-        style={{ color: 'var(--color-text-muted)' }}
+        className="mx-auto max-w-[640px] text-[18px] leading-[var(--line-body)] min-[600px]:text-[20px]"
+        style={{ color: 'var(--color-text)' }}
       >
         {homeIntro.supportingLine}
       </p>

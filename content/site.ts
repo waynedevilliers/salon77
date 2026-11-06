@@ -6,8 +6,8 @@ export const site = {
   language: 'de',
   description:
     'Salon77 bietet Kurse in Tanz, Bewegung, Musik und Fotografie in Würzburg',
-  logoPath: '/salon77/Salon77_logo_big.png',
-  shareImagePath: '/og/salon77.jpg',
+  logoPath: '/site_images/Salon77_logo_big.png',
+  shareImagePath: '/site_images/salon77.jpg',
   address: {
     street: 'Richard-Wagner-Straße 60',
     postalCode: '97074',

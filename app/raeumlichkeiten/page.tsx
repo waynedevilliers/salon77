@@ -34,15 +34,15 @@ const ROOMS = [
 ];
 
 const GALLERY_IMAGES = [
-  { src: '/salon77/raumligkeiten/Balletsaal.png', alt: 'Balletsaal' },
-  { src: '/salon77/raumligkeiten/Klavierraum.png', alt: 'Klavierraum' },
+  { src: '/raeumlichkeiten_images/Balletsaal.png', alt: 'Balletsaal' },
+  { src: '/raeumlichkeiten_images/Klavierraum.png', alt: 'Klavierraum' },
   {
-    src: '/salon77/raumligkeiten/Kleinen_Tanzsaal.png',
+    src: '/raeumlichkeiten_images/Kleinen_Tanzsaal.png',
     alt: 'Kleiner Tanzsaal',
   },
-  { src: '/salon77/raumligkeiten/Haus.png', alt: 'Haus Außenansicht' },
-  { src: '/salon77/raumligkeiten/Eingang.png', alt: 'Eingang' },
-  { src: '/salon77/raumligkeiten/GangInnen.png', alt: 'Gang Innen' },
+  { src: '/raeumlichkeiten_images/Haus.png', alt: 'Haus Außenansicht' },
+  { src: '/raeumlichkeiten_images/Eingang.png', alt: 'Eingang' },
+  { src: '/raeumlichkeiten_images/GangInnen.png', alt: 'Gang Innen' },
 ];
 
 export default function Raeumlichkeiten() {
@@ -51,7 +51,7 @@ export default function Raeumlichkeiten() {
       <JsonLd data={breadcrumbJsonLd('/raeumlichkeiten')} />
       <JsonLd data={placeJsonLd()} />
       <main className="flex-1">
-        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
+        <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
           <h1 className="page-title" style={{ color: 'var(--color-text)' }}>
             Räumlichkeiten
           </h1>

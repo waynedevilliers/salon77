@@ -46,7 +46,7 @@ describe('CourseCard teacher links', () => {
     expect(screen.getByText('Sebastian Kandert')).toBeInTheDocument();
   });
 
-  it('links Probestunde to the contact page for this course', () => {
+  it('links Probestunde to the teacher section', () => {
     render(
       <CourseCard
         title="Kindertanz & -Ballett"
@@ -57,6 +57,6 @@ describe('CourseCard teacher links', () => {
     );
     expect(
       screen.getByRole('link', { name: 'Probestunde anfragen' })
-    ).toHaveAttribute('href', '/kontakt?kurs=kindertanz-ballett');
+    ).toHaveAttribute('href', '/unterricht#dozenten');
   });
 });

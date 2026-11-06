@@ -40,7 +40,7 @@ export default function MenuCard({
         >
           {description}
         </p>
-        <span className="mt-auto inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-[var(--color-accent)] px-6 py-3 text-base font-bold text-[var(--color-button-text)] transition-colors duration-200">
+        <span className="mt-auto inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-[var(--color-button)] transition-colors duration-200 group-hover:bg-[var(--color-button-hover)] px-6 py-3 text-base font-bold text-[var(--color-button-text)] transition-colors duration-200">
           Mehr erfahren
           <svg
             aria-hidden="true"

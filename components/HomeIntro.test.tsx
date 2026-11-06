@@ -12,10 +12,12 @@ describe('HomeIntro', () => {
     ).toBeInTheDocument();
   });
 
-  it('shows the call to action linking to the contact page', () => {
+  it('shows the call to action linking to the teacher section', () => {
     render(<HomeIntro />);
     expect(
-      screen.getByRole('link', { name: 'Probestunde anfragen' })
-    ).toHaveAttribute('href', '/kontakt');
+      screen.getByRole('link', {
+        name: 'Probestunde bei unseren Dozenten anfragen',
+      })
+    ).toHaveAttribute('href', '/unterricht#dozenten');
   });
 });

@@ -2,7 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ActionLink from '@/components/ActionLink';
 import { findInstructorByName, instructorSlug } from '@/lib/instructors';
-import { courseSlug } from '@/lib/courses';
 
 interface CourseCardProps {
   title: string;
@@ -14,8 +13,8 @@ interface CourseCardProps {
 // Course-only teachers have no profile yet, so their course photo is kept here.
 // TODO(client): add profiles for these teachers and move the photos to content/instructors.ts.
 const COURSE_ONLY_IMAGES: Record<string, string> = {
-  'Sebastian Kandert': '/salon77/unterricht/sebastien.webp',
-  'Fabio Cassarino': '/salon77/unterricht/djing&produktion.png',
+  'Sebastian Kandert': '/unterricht_images/sebastien.webp',
+  'Fabio Cassarino': '/unterricht_images/djing&produktion.png',
 };
 
 function InstructorBlock({ name }: { name: string }) {
@@ -23,7 +22,7 @@ function InstructorBlock({ name }: { name: string }) {
   const image =
     findInstructorByName(name)?.cardImage ??
     COURSE_ONLY_IMAGES[name] ??
-    '/salon77/Salon77_logo_small.svg';
+    '/site_images/Salon77_logo_small.svg';
 
   const content = (
     <>
@@ -103,9 +102,8 @@ export default function CourseCard({
         ))}
       </div>
 
-      {/* TODO: the contact page reads ?kurs= and pre-selects the course. Not built yet. */}
       <ActionLink
-        href={`/kontakt?kurs=${courseSlug(title)}`}
+        href="/unterricht#dozenten"
         className="w-full px-6 py-3 text-center"
       >
         Probestunde anfragen

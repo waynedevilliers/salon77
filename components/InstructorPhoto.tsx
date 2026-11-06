@@ -27,7 +27,7 @@ export default function InstructorPhoto({
         <span className="text-sm text-gray-500">Bild folgt</span>
       ) : (
         <Image
-          src={`/salon77/dozenten/${instructorSlug(name)}.jpg`}
+          src={`/dozenten_images/${instructorSlug(name)}.jpg`}
           alt={name}
           width={320}
           height={320}

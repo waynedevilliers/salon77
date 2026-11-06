@@ -12,21 +12,23 @@ export const courses: Course[] = [
     title: 'Kindertanz & -Ballett',
     description:
       'Kreativer Kindertanz (4-5 Jahre) mit Pre-Ballett-Übungen. Modernes Kinderballett (ab 5 Jahre) mit Grundlagen des Balletts. Fördert Koordination, Beweglichkeit, Kreativität und Sozialkompetenz.',
-    schedule: 'Montags, Donnerstags und Freitags ab 15:00 Uhr',
+    schedule:
+      'Montags 15:50 - 17:00 Uhr, Donnerstags 16:30 - 17:20 Uhr und Freitags 15:00 - 16:20 Uhr',
     instructor: 'Hsiu-Yun Lu',
   },
   {
     title: 'Ballett für Erwachsene',
     description:
       'Klassisches Ballett mit strengen Formen der Disziplin und Körperbeherrschung. Verbessert Körperhaltung, Konzentration und Koordination. Fördert Körperbewusstsein, Selbstvertrauen und reduziert Stress.',
-    schedule: 'Montags und Freitags ab 18:00 Uhr',
+    schedule: 'Mittwochs 18:30 - 19:45 Uhr',
     instructor: 'Asami Krisan',
   },
   {
     title: 'Flamenco',
     description:
       'Flamenco als Kunstform mit Fokus auf Verständnis und Flexibilität. Ausdruck von Emotionen durch Tanz, Gesang und Gitarre.',
-    schedule: 'Dienstags und Freitags ab 18:00 Uhr',
+    schedule:
+      'Dienstags 17:30 - 18:30 Uhr und 18:45 - 19:45 Uhr, Freitags 18:00 - 19:00 Uhr',
     instructor: 'Mercedes Sebald Arguisuelas',
   },
   {
@@ -68,14 +70,14 @@ export const courses: Course[] = [
     title: 'Moderner Tanz: Zeitgenössischer Tanz',
     description:
       'Künstlerischer Tanz für Erwachsene. Erkunden Sie Ihr Bewegungspotential durch Atemübungen, Yin-Yang-Prinzipien und Tanzkomposition. Mit Pilates kombiniert. Für alle Altersstufen.',
-    schedule: 'Donnerstags ab 18:00 Uhr',
+    schedule: 'Donnerstags 18:50 - 19:40 Uhr',
     instructor: 'Hsiu-Yun Lu',
   },
   {
     title: 'Taiji',
     description:
       'Meditation in Bewegung. Sanfte, fließende Bewegungen für Körper und Seele. Fokus auf Atmung, Körperenergie und inneres Wohlbefinden. Daoyin-Übungen für erweiterte Körperräume.',
-    schedule: 'Freitags um 10:30 Uhr',
+    schedule: 'Freitags 10:30 - 11:40 Uhr',
     instructor: 'Hsiu-Yun Lu',
   },
 ];

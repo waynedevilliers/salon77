@@ -15,7 +15,6 @@ const menuItems = [
   { label: 'Wochenkurse', href: '/wochenkurse' },
   { label: 'Veranstaltungen', href: '/veranstaltungen' },
   { label: 'Räumlichkeiten', href: '/raeumlichkeiten' },
-  { label: 'Verein', href: '/verein' },
   { label: 'Kontakt', href: '/kontakt' },
 ];
 
@@ -34,12 +33,12 @@ describe('Navbar', () => {
     ).toHaveAttribute('href', '/');
   });
 
-  it('renders exactly the seven menu links with the correct hrefs', () => {
+  it('renders exactly the six menu links with the correct hrefs', () => {
     render(<Navbar />);
     const links = within(
       screen.getByRole('navigation', { name: 'Hauptmenü' })
     ).getAllByRole('link');
-    expect(links).toHaveLength(7);
+    expect(links).toHaveLength(6);
     for (const item of menuItems) {
       expect(screen.getByRole('link', { name: item.label })).toHaveAttribute(
         'href',
