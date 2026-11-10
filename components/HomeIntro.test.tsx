@@ -7,17 +7,13 @@ describe('HomeIntro', () => {
     render(<HomeIntro />);
     expect(
       screen.getByText(
-        'Tanz, Musik, Bewegung und Fotografie für alle Altersstufen'
+        'Tanz, Musik, Design und Fotografie'
       )
     ).toBeInTheDocument();
   });
 
-  it('shows the call to action linking to the teacher section', () => {
+  it('does not show a call to action link', () => {
     render(<HomeIntro />);
-    expect(
-      screen.getByRole('link', {
-        name: 'Probestunde bei unseren Dozenten anfragen',
-      })
-    ).toHaveAttribute('href', '/unterricht#dozenten');
+    expect(screen.queryByRole('link')).not.toBeInTheDocument();
   });
 });
