@@ -20,6 +20,9 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+// The pages are prerendered, so waiting for params does not slow navigation.
+export const instant = false;
+
 export function generateStaticParams() {
   return instructors.map((instructor) => ({
     slug: instructorSlug(instructor.name),

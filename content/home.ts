@@ -1,10 +1,6 @@
 /** Text for the home page introduction. */
 export const homeIntro = {
-  supportingLine: 'Tanz, Musik, Bewegung und Fotografie für alle Altersstufen',
-  cta: {
-    label: 'Probestunde bei unseren Dozenten anfragen',
-    href: '/unterricht#dozenten',
-  },
+  supportingLine: 'Tanz, Musik, Design und Fotografie',
 };
 
 export interface HomeCard {

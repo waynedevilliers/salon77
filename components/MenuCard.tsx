@@ -11,7 +11,8 @@ export default function MenuCard({
   description,
   href,
   image,
-}: HomeCard) {
+  priority = false,
+}: HomeCard & { priority?: boolean }) {
   return (
     <Link
       href={href}
@@ -23,6 +24,7 @@ export default function MenuCard({
           alt={image.alt}
           width={400}
           height={300}
+          priority={priority}
           className="h-full w-full object-cover transition-transform duration-300 motion-safe:group-hover:scale-[1.03]"
         />
       </div>

@@ -34,9 +34,9 @@ export default function Home() {
         {/* Menu Cards */}
         <section>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {homeCards.map((card) => (
+            {homeCards.map((card, index) => (
               <Reveal key={card.href} className="h-full">
-                <MenuCard {...card} />
+                <MenuCard {...card} priority={index === 0} />
               </Reveal>
             ))}
           </div>

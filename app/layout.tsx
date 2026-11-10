@@ -71,6 +71,7 @@ export default async function RootLayout({
     <html
       lang={site.language}
       className={`${playfair.variable} ${lato.variable}`}
+      data-scroll-behavior="smooth"
     >
       <head>
         <meta charSet="utf-8" />

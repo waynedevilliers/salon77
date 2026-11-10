@@ -49,19 +49,17 @@ hard to read. Self hosting avoids requests to Google servers (DSGVO).
 
 Status: done
 
-Decision: Headline plus a supporting line ("Tanz, Musik, Bewegung und
-Fotografie für alle Altersstufen") and one main button
-"Probestunde bei unseren Dozenten anfragen", which links to the teacher
-section on /unterricht#dozenten. Cards are fully clickable and have a one line
+Decision: Headline plus a supporting line ("Tanz, Musik, Design und
+Fotografie"). Cards are fully clickable and have a one line
 description.
 
 Why: The headline says who Salon77 is, the supporting line says what
-a visitor gets. A trial lesson is the most valuable action a visitor
-can take, so it is the main call to action.
+a visitor gets. The home page leads straight to the section cards.
 
-Update: the button used to link to /kontakt. It now links to the teacher
-section, because a trial lesson is booked with the teacher. The teacher
-section has a short explanation of how to do that.
+Update (2026-11-10): the "Probestunde bei unseren Dozenten anfragen"
+button was removed from the home page on request. It was previously the
+main call to action, linking to the teacher section on /unterricht#dozenten.
+The trial lesson booking is still explained on /unterricht.
 
 ## 2026-11-03: Menu
 
@@ -134,7 +132,22 @@ Why: Small steps make it easy to keep good changes and undo bad ones.
 Extensive end to end testing cost too much time and tokens for a site
 of this size.
 
+## 2026-11-10: Teacher names on the Wochenkurse timetable
+
+Status: done, teachers for Pilates, Afrikanisches Trommeln, Sevillanas and
+Ballet (Freitag) still missing
+
+Decision: Each weekly course shows its teacher ("mit Name") and the name
+links to the teacher profile. Courses without a known teacher show no name.
+
+Why: Visitors looking at the timetable want to know who teaches a course
+and can open the profile from there.
+
 ## Open questions (for the client)
+
+- Who teaches Pilates (Montag, Donnerstag), Afrikanisches Trommeln,
+  Sevillanas and Ballet (Freitag 19:00)? These are not in the course data,
+  so they are shown without a teacher.
 
 - Teacher data mismatches from the 5.1 report (for example Andrea
   Kneis: subject "Gesang", bio about dance).
