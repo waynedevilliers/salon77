@@ -24,7 +24,11 @@ const WEEKLY_COURSES: Record<
       course: 'Kinderballett (ab 8 mit Vorkenntnisse)',
       teacher: 'Hsiu-Yun Lu',
     },
-    { time: '18:10 - 19:20 Uhr', course: 'Pilates' },
+    {
+      time: '18:10 - 19:20 Uhr',
+      course: 'Pilates',
+      teacher: 'Hsiu-Yun Lu',
+    },
   ],
   Dienstags: [
     {

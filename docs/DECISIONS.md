@@ -164,8 +164,8 @@ Status: done
 Decision: André Mabiala is added as a teacher (profile, teacher section and
 course card "Afrikanisches Trommeln", Dienstag 19:00 - 21:00 Uhr). The photo
 is the one from his Salon77 profile. The client also confirmed these teachers
-for the timetable: Pilates Donnerstag 17:40 - 18:50 Uhr (Hsiu-Yun Lu),
-Sevillanas Freitag 18:00 - 19:00 Uhr (Mercedes Sebald Arguisuelas), Ballet
+for the timetable: Pilates Montag 18:10 - 19:20 Uhr and Donnerstag 17:40 -
+18:50 Uhr (Hsiu-Yun Lu), Sevillanas Freitag 18:00 - 19:00 Uhr (Mercedes Sebald Arguisuelas), Ballet
 Freitag 19:00 - 20:30 Uhr (Asami Krisan).
 
 Why: The client supplied the teacher information. Teachers without an active
@@ -184,9 +184,6 @@ Considered: Keeping "Gesang" and rewriting the bio. Rejected, the client
 confirmed dance.
 
 ## Open questions (for the client)
-
-- Who teaches Pilates on Montag 18:10 - 19:20 Uhr? It is shown without a
-  teacher until the client confirms.
 
 - Other teacher data mismatches from the 5.1 report, if any (Andrea
   Kneis is resolved, see 2026-11-11).
