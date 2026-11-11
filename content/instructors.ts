@@ -23,6 +23,13 @@ export const instructors: Instructor[] = [
     website: 'http://andreakneis.de/',
   },
   {
+    name: 'André Mabiala',
+    cardImage: '/dozenten_images/andre-mabiala.jpg',
+    specialty: 'Afrikanisches Trommeln',
+    bio: 'Mit Spaß und Witz leitet André Mabiala seine Trommelkurse für Kinder, bei denen jeder die Grundschläge auf der Djembe erlernen kann. André Mabiala ist ein afrikanischer Trommellehrer aus dem Kongo/Kinshasa. Außerdem ist er gelernter Kinderpfleger und leitet seit 2004 als Dozent im Salon77 afrikanische Trommelkurse für Erwachsene.\n\nAndré Mabiala erlernte die Zaubertrommelkunst von seinem Opa schon von frühester Kindheit an. Die Trommel kann das Leben der Kinder oder auch Erwachsenen verändern.\n\nKonzentrationsfähigkeit und soziale Kompetenz werden durch das gemeinsame rhythmische Zusammenspiel in der Gruppe gefördert.\n\nFür Projekte zum Thema Afrika in Kindergärten, Schulen, Betrieben oder auch Veranstaltungen kommt André Mabiala gerne zu Ihnen und bringt Ihnen so viele Trommeln mit, wie Sie es wünschen.\n\nNeben dem Trommelworkshop für Groß und Klein, bietet André auch Trommelbaukurse an.',
+    email: 'andremabiala@gmx.de',
+  },
+  {
     name: 'Asami Krisan',
     cardImage: '/dozenten_images/asami-krisan.jpg',
     email: 'mar-asamikrisan@web.de',

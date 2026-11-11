@@ -7,7 +7,8 @@ import InstructorPage, {
 describe('instructor detail page', () => {
   it('creates a static page for every instructor', () => {
     expect(generateStaticParams()).toContainEqual({ slug: 'andrea-kneis' });
-    expect(generateStaticParams().length).toBe(9);
+    expect(generateStaticParams().length).toBe(10);
+    expect(generateStaticParams()).toContainEqual({ slug: 'andre-mabiala' });
   });
 
   it('shows name, specialty and biography', async () => {
@@ -20,5 +21,15 @@ describe('instructor detail page', () => {
     ).toBeInTheDocument();
     expect(screen.getByText('Tanz')).toBeInTheDocument();
     expect(screen.getByText(/unterrichtet Tanz seit 1994/)).toBeInTheDocument();
+  });
+
+  it('offers a contact link with the teacher name and no trial lesson wording', async () => {
+    const page = await InstructorPage({
+      params: Promise.resolve({ slug: 'andrea-kneis' }),
+    });
+    render(page);
+    const link = screen.getByRole('link', { name: 'Kontakt zu Andrea Kneis' });
+    expect(link.getAttribute('href')).toContain('subject=Anfrage%20bei%20Andrea%20Kneis');
+    expect(screen.queryByText(/Probestunde/)).toBeNull();
   });
 });

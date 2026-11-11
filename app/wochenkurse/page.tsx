@@ -24,7 +24,11 @@ const WEEKLY_COURSES: Record<
       course: 'Kinderballett (ab 8 mit Vorkenntnisse)',
       teacher: 'Hsiu-Yun Lu',
     },
-    { time: '18:10 - 19:20 Uhr', course: 'Pilates' },
+    {
+      time: '18:10 - 19:20 Uhr',
+      course: 'Pilates',
+      teacher: 'Hsiu-Yun Lu',
+    },
   ],
   Dienstags: [
     {
@@ -47,7 +51,11 @@ const WEEKLY_COURSES: Record<
       course: 'Flamenco',
       teacher: 'Mercedes Sebald Arguisuelas',
     },
-    { time: '19:00 - 21:00 Uhr', course: 'Afrikanisches Trommeln' },
+    {
+      time: '19:00 - 21:00 Uhr',
+      course: 'Afrikanisches Trommeln',
+      teacher: 'André Mabiala',
+    },
   ],
   Mittwochs: [
     {
@@ -62,7 +70,11 @@ const WEEKLY_COURSES: Record<
       course: 'Kreativer Kindertanz (ab 4 Jahre)',
       teacher: 'Hsiu-Yun Lu',
     },
-    { time: '17:40 - 18:50 Uhr', course: 'Pilates' },
+    {
+      time: '17:40 - 18:50 Uhr',
+      course: 'Pilates',
+      teacher: 'Hsiu-Yun Lu',
+    },
     {
       time: '18:50 - 19:40 Uhr',
       course: 'Zeitgenössischer Tanz',
@@ -81,8 +93,16 @@ const WEEKLY_COURSES: Record<
       course: 'Kindertanz (ab 4)',
       teacher: 'Hsiu-Yun Lu',
     },
-    { time: '18:00 - 19:00 Uhr', course: 'Sevillanas' },
-    { time: '19:00 - 20:30 Uhr', course: 'Ballet' },
+    {
+      time: '18:00 - 19:00 Uhr',
+      course: 'Sevillanas',
+      teacher: 'Mercedes Sebald Arguisuelas',
+    },
+    {
+      time: '19:00 - 20:30 Uhr',
+      course: 'Ballet',
+      teacher: 'Asami Krisan',
+    },
   ],
 };
 

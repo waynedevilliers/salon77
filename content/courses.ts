@@ -41,7 +41,7 @@ export const courses: Course[] = [
   {
     title: 'Gitarre',
     description:
-      'Gitarrenunterricht für Kinder, Teenager und Erwachsene. Stilrichtungen: Rock, Pop, Liedbegleitung, Klassik und Flamenco. Einzel- und Gruppenunterricht. Kostenlose Probestunde.',
+      'Gitarrenunterricht für Kinder, Teenager und Erwachsene. Stilrichtungen: Rock, Pop, Liedbegleitung, Klassik und Flamenco. Einzel- und Gruppenunterricht.',
     schedule: ['Nach Vereinbarung'],
     instructor: 'Robert Collomb',
   },
@@ -86,5 +86,12 @@ export const courses: Course[] = [
       'Meditation in Bewegung. Sanfte, fließende Bewegungen für Körper und Seele. Fokus auf Atmung, Körperenergie und inneres Wohlbefinden. Daoyin-Übungen für erweiterte Körperräume.',
     schedule: ['Freitags 10:30 - 11:40 Uhr'],
     instructor: 'Hsiu-Yun Lu',
+  },
+  {
+    title: 'Afrikanisches Trommeln',
+    description:
+      'Trommelkurse für Kinder und Erwachsene. Die Grundschläge auf der Djembe erlernen und im Gruppenspiel Konzentration und soziale Kompetenz fördern. Auch Trommelbaukurse und Workshops für Projekte.',
+    schedule: ['Dienstags 19:00 - 21:00 Uhr'],
+    instructor: 'André Mabiala',
   },
 ];

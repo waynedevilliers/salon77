@@ -157,6 +157,20 @@ explained on /unterricht and in the teacher section.
 Open: the button now leads to the teacher section, not to course details.
 Confirm with the client whether it should link somewhere else.
 
+## 2026-11-11: André Mabiala teaches African drumming
+
+Status: done
+
+Decision: André Mabiala is added as a teacher (profile, teacher section and
+course card "Afrikanisches Trommeln", Dienstag 19:00 - 21:00 Uhr). The photo
+is the one from his Salon77 profile. The client also confirmed these teachers
+for the timetable: Pilates Montag 18:10 - 19:20 Uhr and Donnerstag 17:40 -
+18:50 Uhr (Hsiu-Yun Lu), Sevillanas Freitag 18:00 - 19:00 Uhr (Mercedes Sebald Arguisuelas), Ballet
+Freitag 19:00 - 20:30 Uhr (Asami Krisan).
+
+Why: The client supplied the teacher information. Teachers without an active
+course (for example Andrea Kneis) still appear in the teacher section.
+
 ## 2026-11-11: Andrea Kneis teaches dance
 
 Status: done
@@ -169,11 +183,21 @@ Why: The client confirmed she teaches dance. The earlier specialty "Gesang"
 Considered: Keeping "Gesang" and rewriting the bio. Rejected, the client
 confirmed dance.
 
-## Open questions (for the client)
+## 2026-11-11: No "Probestunde" wording on the site
 
-- Who teaches Pilates (Montag, Donnerstag), Afrikanisches Trommeln,
-  Sevillanas and Ballet (Freitag 19:00)? These are not in the course data,
-  so they are shown without a teacher.
+Status: done
+
+Decision: The word "Probestunde" is removed from all pages. The teacher profile
+button reads "Kontakt zu {Name}" (mailto subject "Anfrage bei {Name}"). The
+teacher section intro asks visitors to contact a teacher directly. The
+"Kostenlose Probestunde" line is removed from the Gitarre course description.
+
+Why: The client asked for the wording to be removed everywhere.
+
+Open: the free trial lesson offer for Gitarre is no longer mentioned on the
+site. Confirm with the client whether it should be stated another way.
+
+## Open questions (for the client)
 
 - Other teacher data mismatches from the 5.1 report, if any (Andrea
   Kneis is resolved, see 2026-11-11).

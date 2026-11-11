@@ -10,10 +10,12 @@ describe('Wochenkurse page', () => {
     ).toHaveAttribute('href', '/dozenten/mercedes-sebald-arguisuelas');
   });
 
-  it('shows a course without a known teacher as plain text', () => {
+  it('names the teacher on both Pilates classes', () => {
     render(<Wochenkurse />);
-    const pilates = screen.getAllByText('Pilates');
-    expect(pilates).toHaveLength(2);
-    pilates.forEach((el) => expect(el.closest('a')).toBeNull());
+    for (const time of ['18:10 - 19:20 Uhr', '17:40 - 18:50 Uhr']) {
+      const row = screen.getByText(time).parentElement;
+      expect(row?.textContent).toContain('Pilates');
+      expect(row?.textContent).toContain('Hsiu-Yun Lu');
+    }
   });
 });
