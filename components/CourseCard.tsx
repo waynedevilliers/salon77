@@ -6,7 +6,7 @@ import { findInstructorByName, instructorSlug } from '@/lib/instructors';
 interface CourseCardProps {
   title: string;
   description: string;
-  schedule: string;
+  schedule: string[];
   instructor: string;
 }
 
@@ -90,10 +90,12 @@ export default function CourseCard({
         {description}
       </p>
       <ul
-        className="mb-6 mt-auto h-[3.2rem] list-disc pl-5 text-base font-semibold leading-[1.6] marker:text-base marker:leading-none marker:text-[var(--color-button)]"
+        className="mb-6 mt-auto h-[5.5rem] list-disc pl-5 text-base font-semibold leading-[1.6] marker:text-base marker:leading-none marker:text-[var(--color-button)]"
         style={{ color: 'var(--color-text)' }}
       >
-        <li>{schedule}</li>
+        {schedule.map((slot) => (
+          <li key={slot}>{slot}</li>
+        ))}
       </ul>
 
       <div className="mb-6 flex flex-wrap justify-center gap-6">

@@ -171,13 +171,25 @@ Freitag 19:00 - 20:30 Uhr (Asami Krisan).
 Why: The client supplied the teacher information. Teachers without an active
 course (for example Andrea Kneis) still appear in the teacher section.
 
+## 2026-11-11: Andrea Kneis teaches dance
+
+Status: done
+
+Decision: Andrea Kneis's specialty is "Tanz" (dance), matching her biography.
+
+Why: The client confirmed she teaches dance. The earlier specialty "Gesang"
+(singing) was a data error from the 5.1 report.
+
+Considered: Keeping "Gesang" and rewriting the bio. Rejected, the client
+confirmed dance.
+
 ## Open questions (for the client)
 
 - Who teaches Pilates on Montag 18:10 - 19:20 Uhr? It is shown without a
   teacher until the client confirms.
 
-- Teacher data mismatches from the 5.1 report (for example Andrea
-  Kneis: subject "Gesang", bio about dance).
+- Other teacher data mismatches from the 5.1 report, if any (Andrea
+  Kneis is resolved, see 2026-11-11).
 - Wochenkurse page vs course times on /unterricht: course cards already
   show times. Decide whether Wochenkurse becomes a weekly timetable
   view of the same data or is dropped.
