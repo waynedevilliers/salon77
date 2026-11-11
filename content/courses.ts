@@ -41,7 +41,7 @@ export const courses: Course[] = [
   {
     title: 'Gitarre',
     description:
-      'Gitarrenunterricht für Kinder, Teenager und Erwachsene. Stilrichtungen: Rock, Pop, Liedbegleitung, Klassik und Flamenco. Einzel- und Gruppenunterricht. Kostenlose Probestunde.',
+      'Gitarrenunterricht für Kinder, Teenager und Erwachsene. Stilrichtungen: Rock, Pop, Liedbegleitung, Klassik und Flamenco. Einzel- und Gruppenunterricht.',
     schedule: ['Nach Vereinbarung'],
     instructor: 'Robert Collomb',
   },
