@@ -201,7 +201,7 @@ export default async function InstructorPage({ params }: PageProps) {
                             className="block text-base"
                             style={{ color: 'var(--color-sage-text)' }}
                           >
-                            {course.schedule}
+                            {course.schedule.join(', ')}
                           </span>
                         </Link>
                       </li>

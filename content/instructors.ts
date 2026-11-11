@@ -17,7 +17,7 @@ export const instructors: Instructor[] = [
   {
     name: 'Andrea Kneis',
     phone: '0931/8047450',
-    specialty: 'Gesang',
+    specialty: 'Tanz',
     bio: 'Andrea Kneis unterrichtet Tanz seit 1994 und hat eine sozialpädagogische Ausbildung. Ihr Schwerpunkt liegt in der Tanzimprovisation und in verschiedenen Arten von Körperarbeit, wobei auch die zeitgenössische Tanztechnik eine wichtige Grundlage bildet. Seit der Ausbildung bei der amerikanischen Tänzerin Keriac bildet sie sich ständig bei international renommierten Lehrern weiter.',
     email: 'info@andreakneis.de',
     website: 'http://andreakneis.de/',

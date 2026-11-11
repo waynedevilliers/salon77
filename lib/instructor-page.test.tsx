@@ -18,7 +18,7 @@ describe('instructor detail page', () => {
     expect(
       screen.getByRole('heading', { level: 1, name: 'Andrea Kneis' })
     ).toBeInTheDocument();
-    expect(screen.getByText('Gesang')).toBeInTheDocument();
+    expect(screen.getByText('Tanz')).toBeInTheDocument();
     expect(screen.getByText(/unterrichtet Tanz seit 1994/)).toBeInTheDocument();
   });
 });
