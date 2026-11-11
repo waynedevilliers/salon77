@@ -8,7 +8,7 @@ describe('CourseCard teacher links', () => {
       <CourseCard
         title="Kindertanz"
         description="Tanz für Kinder"
-        schedule="Montags 15 Uhr"
+        schedule={['Montags 15 Uhr']}
         instructor="Hsiu-Yun Lu"
       />
     );
@@ -22,7 +22,7 @@ describe('CourseCard teacher links', () => {
       <CourseCard
         title="Flamenco"
         description="Flamenco"
-        schedule="Dienstags"
+        schedule={['Dienstags']}
         instructor="Mercedes Sebald Arguisuelas"
       />
     );
@@ -36,7 +36,7 @@ describe('CourseCard teacher links', () => {
       <CourseCard
         title="DJing"
         description="DJing"
-        schedule="Nach Vereinbarung"
+        schedule={['Nach Vereinbarung']}
         instructor="Sebastian Kandert"
       />
     );
@@ -51,12 +51,33 @@ describe('CourseCard teacher links', () => {
       <CourseCard
         title="Kindertanz & -Ballett"
         description="Kinder"
-        schedule="Montags"
+        schedule={['Montags']}
         instructor="Hsiu-Yun Lu"
       />
     );
     expect(
       screen.getByRole('link', { name: 'Mehr erfahren' })
     ).toHaveAttribute('href', '/unterricht#dozenten');
+  });
+
+  it('shows each time slot on its own line', () => {
+    render(
+      <CourseCard
+        title="Kindertanz & -Ballett"
+        description="Kinder"
+        schedule={[
+          'Montags 15:50 - 17:00 Uhr',
+          'Donnerstags 16:30 - 17:20 Uhr',
+          'Freitags 15:00 - 16:20 Uhr',
+        ]}
+        instructor="Hsiu-Yun Lu"
+      />
+    );
+    const items = screen.getAllByRole('listitem');
+    expect(items.map((li) => li.textContent)).toEqual([
+      'Montags 15:50 - 17:00 Uhr',
+      'Donnerstags 16:30 - 17:20 Uhr',
+      'Freitags 15:00 - 16:20 Uhr',
+    ]);
   });
 });
