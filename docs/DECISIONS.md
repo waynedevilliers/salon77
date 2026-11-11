@@ -183,6 +183,20 @@ Why: The client confirmed she teaches dance. The earlier specialty "Gesang"
 Considered: Keeping "Gesang" and rewriting the bio. Rejected, the client
 confirmed dance.
 
+## 2026-11-11: No "Probestunde" wording on the site
+
+Status: done
+
+Decision: The word "Probestunde" is removed from all pages. The teacher profile
+button reads "Kontakt zu {Name}" (mailto subject "Anfrage bei {Name}"). The
+teacher section intro asks visitors to contact a teacher directly. The
+"Kostenlose Probestunde" line is removed from the Gitarre course description.
+
+Why: The client asked for the wording to be removed everywhere.
+
+Open: the free trial lesson offer for Gitarre is no longer mentioned on the
+site. Confirm with the client whether it should be stated another way.
+
 ## Open questions (for the client)
 
 - Other teacher data mismatches from the 5.1 report, if any (Andrea
