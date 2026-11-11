@@ -157,14 +157,26 @@ explained on /unterricht and in the teacher section.
 Open: the button now leads to the teacher section, not to course details.
 Confirm with the client whether it should link somewhere else.
 
+## 2026-11-11: Andrea Kneis teaches dance
+
+Status: done
+
+Decision: Andrea Kneis's specialty is "Tanz" (dance), matching her biography.
+
+Why: The client confirmed she teaches dance. The earlier specialty "Gesang"
+(singing) was a data error from the 5.1 report.
+
+Considered: Keeping "Gesang" and rewriting the bio. Rejected, the client
+confirmed dance.
+
 ## Open questions (for the client)
 
 - Who teaches Pilates (Montag, Donnerstag), Afrikanisches Trommeln,
   Sevillanas and Ballet (Freitag 19:00)? These are not in the course data,
   so they are shown without a teacher.
 
-- Teacher data mismatches from the 5.1 report (for example Andrea
-  Kneis: subject "Gesang", bio about dance).
+- Other teacher data mismatches from the 5.1 report, if any (Andrea
+  Kneis is resolved, see 2026-11-11).
 - Wochenkurse page vs course times on /unterricht: course cards already
   show times. Decide whether Wochenkurse becomes a weekly timetable
   view of the same data or is dropped.
