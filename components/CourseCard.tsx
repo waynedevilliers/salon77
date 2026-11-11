@@ -106,7 +106,7 @@ export default function CourseCard({
         href="/unterricht#dozenten"
         className="w-full px-6 py-3 text-center"
       >
-        Probestunde anfragen
+        Mehr erfahren
       </ActionLink>
     </div>
   );

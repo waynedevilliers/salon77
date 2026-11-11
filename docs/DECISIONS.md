@@ -143,6 +143,20 @@ links to the teacher profile. Courses without a known teacher show no name.
 Why: Visitors looking at the timetable want to know who teaches a course
 and can open the profile from there.
 
+## 2026-11-11: "Mehr erfahren" on course cards
+
+Status: done
+
+Decision: The button on every course card on /unterricht reads "Mehr erfahren"
+(was "Probestunde anfragen"). It still links to the teacher section
+/unterricht#dozenten.
+
+Why: The client asked for the more neutral wording. The trial lesson is still
+explained on /unterricht and in the teacher section.
+
+Open: the button now leads to the teacher section, not to course details.
+Confirm with the client whether it should link somewhere else.
+
 ## Open questions (for the client)
 
 - Who teaches Pilates (Montag, Donnerstag), Afrikanisches Trommeln,
