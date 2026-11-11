@@ -12,8 +12,16 @@ describe('Wochenkurse page', () => {
 
   it('shows a course without a known teacher as plain text', () => {
     render(<Wochenkurse />);
+    // Montag Pilates has no teacher yet; Donnerstag Pilates has one (see below).
     const pilates = screen.getAllByText('Pilates');
-    expect(pilates).toHaveLength(2);
-    pilates.forEach((el) => expect(el.closest('a')).toBeNull());
+    const plain = pilates.filter((el) => !el.closest('a'));
+    expect(plain).toHaveLength(1);
+  });
+
+  it('links the Donnerstag Pilates teacher', () => {
+    render(<Wochenkurse />);
+    const row = screen.getByText('17:40 - 18:50 Uhr').parentElement;
+    expect(row?.textContent).toContain('Pilates');
+    expect(row?.textContent).toContain('Hsiu-Yun Lu');
   });
 });

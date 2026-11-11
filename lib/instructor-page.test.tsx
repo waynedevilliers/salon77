@@ -7,7 +7,8 @@ import InstructorPage, {
 describe('instructor detail page', () => {
   it('creates a static page for every instructor', () => {
     expect(generateStaticParams()).toContainEqual({ slug: 'andrea-kneis' });
-    expect(generateStaticParams().length).toBe(9);
+    expect(generateStaticParams().length).toBe(10);
+    expect(generateStaticParams()).toContainEqual({ slug: 'andre-mabiala' });
   });
 
   it('shows name, specialty and biography', async () => {

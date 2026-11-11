@@ -80,4 +80,11 @@ export const courses: Course[] = [
     schedule: 'Freitags 10:30 - 11:40 Uhr',
     instructor: 'Hsiu-Yun Lu',
   },
+  {
+    title: 'Afrikanisches Trommeln',
+    description:
+      'Trommelkurse für Kinder und Erwachsene. Die Grundschläge auf der Djembe erlernen und im Gruppenspiel Konzentration und soziale Kompetenz fördern. Auch Trommelbaukurse und Workshops für Projekte.',
+    schedule: 'Dienstags 19:00 - 21:00 Uhr',
+    instructor: 'André Mabiala',
+  },
 ];

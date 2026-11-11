@@ -13,6 +13,9 @@ export function instructorSlug(name: string): string {
     .replace(/ö/g, 'oe')
     .replace(/ü/g, 'ue')
     .replace(/ß/g, 'ss')
+    // Other accents: é becomes e, so "André" gives "andre".
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
     .replace(/\s+/g, '-');
 }
 
