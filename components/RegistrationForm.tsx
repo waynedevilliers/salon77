@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   submitRegistration,
   type SubmitResult,
@@ -27,7 +27,7 @@ const emptyForm: Record<RegistrationField, string> & { website: string } = {
 const labelClass =
   'block text-base font-semibold mb-2 text-[var(--color-text)]';
 const fieldClass =
-  'w-full min-h-11 px-4 py-2 border border-[var(--color-border)] rounded-md text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] aria-[invalid=true]:border-[var(--color-error)]';
+  'w-full min-h-11 px-4 py-2 border border-[var(--color-text-muted)] rounded-md text-[var(--color-text)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-text)] aria-[invalid=true]:border-[var(--color-error)]';
 
 function errorMessage(result: SubmitResult): string {
   switch (result.status) {
@@ -122,6 +122,12 @@ export default function RegistrationForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const successHeading = useRef<HTMLHeadingElement>(null);
+
+  // The form is replaced by the thank-you message, so move focus to it.
+  useEffect(() => {
+    if (submitted) successHeading.current?.focus();
+  }, [submitted]);
 
   const handleChange = (id: RegistrationField, value: string) => {
     setFormData((prev) => ({ ...prev, [id]: value }));
@@ -152,11 +158,12 @@ export default function RegistrationForm() {
 
   if (submitted) {
     return (
-      <div
-        role="status"
-        className="bg-[var(--color-surface)] rounded-lg shadow-lg p-8 text-center"
-      >
-        <h2 className="text-2xl font-bold mb-4 text-[var(--color-accent-text)]">
+      <div className="bg-[var(--color-surface)] rounded-lg shadow-lg p-8 text-center">
+        <h2
+          ref={successHeading}
+          tabIndex={-1}
+          className="text-2xl font-bold mb-4 text-[var(--color-accent-text)] focus:outline-none"
+        >
           {t.successTitle}
         </h2>
         <p className="text-lg text-[var(--color-text-muted)]">

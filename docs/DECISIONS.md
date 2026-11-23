@@ -226,6 +226,17 @@ there switches the form off: the registration page returns 404, the "Jetzt
 anmelden" button is hidden, and the server refuses submissions. The email link
 stays.
 
+On the form only, field borders use `--color-text-muted` (5.7:1 on white) and
+the focus ring `--color-accent-text` (5.1:1), so both meet the 3:1 minimum for
+controls. After sending, focus moves to the thank-you heading.
+
+Zod (4.6.7, exact) is added as a dependency for the server checks. It was
+already installed through ESLint and knip.
+
+The rate limit assumes the site runs on Vercel, which sets the visitor address
+in x-forwarded-for. Visitors without a known address share one bucket of 30
+attempts. Revisit `lib/client-key.ts` before moving to another host.
+
 Why: The form is the only public input on the site. Before this change,
 visitor input went into the email HTML unescaped, there was no server-side
 validation, and nothing stopped the form being used to send unlimited email.

@@ -13,6 +13,8 @@ import {
 } from '@/lib/registration';
 import { createRequestCode } from '@/lib/request-code';
 
+const UNKNOWN_VISITOR_LIMIT = 30;
+
 export type SubmitResult =
   | { status: 'success' }
   | { status: 'invalid'; fieldErrors: FieldErrors }
@@ -73,9 +75,13 @@ export async function submitRegistration(
   // Bots get the same answer as people, so they do not learn about the trap.
   if (isBot(input)) return { status: 'success' };
 
-  if (isRateLimited(`registration:${clientKey(await headers())}`)) {
-    return { status: 'rate-limited' };
-  }
+  // Visitors without a known address share one bucket with a higher limit,
+  // so one of them cannot block everybody else.
+  const visitor = clientKey(await headers());
+  const limited = visitor
+    ? isRateLimited(`registration:${visitor}`)
+    : isRateLimited('registration:unknown', Date.now(), UNKNOWN_VISITOR_LIMIT);
+  if (limited) return { status: 'rate-limited' };
 
   const parsed = parseRegistration(input);
   if (!parsed.success) {

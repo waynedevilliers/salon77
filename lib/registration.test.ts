@@ -62,6 +62,16 @@ describe('parseRegistration', () => {
     expect(result.success).toBe(false);
   });
 
+  it('rejects line breaks in single-line fields but keeps them in the description', () => {
+    expect(
+      parseRegistration({ ...valid, name: 'Anna\nTelefon: 0' }).success
+    ).toBe(false);
+    expect(parseRegistration({ ...valid, phone: '0171\n123' }).success).toBe(
+      false
+    );
+    expect(parseRegistration(valid).success).toBe(true);
+  });
+
   it('rejects input that is not an object', () => {
     expect(parseRegistration(null).success).toBe(false);
   });

@@ -58,9 +58,10 @@ describe('RegistrationForm', () => {
     render(<RegistrationForm />);
     fillValid();
     submit();
-    expect(
-      await screen.findByRole('heading', { name: 'Anmeldung erhalten!' })
-    ).toBeInTheDocument();
+    const heading = await screen.findByRole('heading', {
+      name: 'Anmeldung erhalten!',
+    });
+    expect(heading).toHaveFocus();
     expect(submitRegistration).toHaveBeenCalledWith({
       name: 'Anna',
       surname: 'Müller',

@@ -6,7 +6,9 @@ import {
 } from '@/content/registration';
 import { escapeHtml } from './escape-html';
 
-const text = (max: number) => z.string().trim().min(1).max(max);
+const multiline = (max: number) => z.string().trim().min(1).max(max);
+// Single-line fields: no line breaks, so a value cannot fake extra lines in the email.
+const text = (max: number) => multiline(max).regex(/^[^\r\n]*$/);
 
 /** Server-side rules for the Klein-Montmartre registration. */
 export const registrationSchema = z.object({
@@ -19,21 +21,16 @@ export const registrationSchema = z.object({
     .trim()
     .min(3)
     .max(limits.phone)
-    .regex(/^[0-9+()/.\s-]+$/),
+    .regex(/^[0-9+()/. -]+$/),
   squareMeters: z.coerce
     .number()
     .finite()
     .min(limits.squareMetersMin)
     .max(limits.squareMetersMax),
-  description: text(limits.description),
+  description: multiline(limits.description),
 });
 
 export type Registration = z.infer<typeof registrationSchema>;
-
-export type RegistrationInput = Record<RegistrationField, string> & {
-  /** Honeypot: hidden from people, so only bots fill it in. */
-  website?: string;
-};
 
 export type FieldErrors = Partial<Record<RegistrationField, string>>;
 

@@ -125,6 +125,19 @@ describe('submitRegistration', () => {
     expect(await submitRegistration(valid)).toEqual({ status: 'success' });
   });
 
+  it('gives visitors without a known address a shared, larger limit', async () => {
+    requestHeaders = new Headers();
+    for (let i = 0; i < 30; i++) {
+      expect(await submitRegistration(valid)).toEqual({ status: 'success' });
+    }
+    expect(await submitRegistration(valid)).toEqual({
+      status: 'rate-limited',
+    });
+
+    requestHeaders = new Headers({ 'x-forwarded-for': '203.0.113.5' });
+    expect(await submitRegistration(valid)).toEqual({ status: 'success' });
+  });
+
   it('refuses submissions while the form is switched off', async () => {
     content.enabled = false;
     expect(await submitRegistration(valid)).toEqual({ status: 'closed' });
