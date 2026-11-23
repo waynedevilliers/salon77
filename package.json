@@ -23,7 +23,7 @@
     "dev:stop": "node scripts/dev-stop.mjs"
   },
   "dependencies": {
-    "next": "16.4.3",
+    "next": "16.4.6",
     "nodemailer": "10.2.1",
     "react": "19.3.0",
     "react-dom": "19.3.0",
@@ -41,7 +41,7 @@
     "@vitejs/plugin-react": "^4.3.2",
     "@vitest/coverage-v8": "4.1.12",
     "eslint": "^9",
-    "eslint-config-next": "16.4.3",
+    "eslint-config-next": "16.4.6",
     "jscpd": "5.4.2",
     "jsdom": "^25.0.0",
     "knip": "5.88.1",

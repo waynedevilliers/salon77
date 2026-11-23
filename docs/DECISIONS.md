@@ -197,6 +197,19 @@ Why: The client asked for the wording to be removed everywhere.
 Open: the free trial lesson offer for Gitarre is no longer mentioned on the
 site. Confirm with the client whether it should be stated another way.
 
+## 2026-11-23: Next.js 16.4.6 (security update)
+
+Status: done
+
+Decision: Next.js and eslint-config-next go from 16.4.3 to 16.4.6.
+
+Why: npm audit lists seven moderate advisories for Next.js 16.0 to 16.4.4,
+several in `use cache` and Cache Components, which this site has switched on.
+16.4.6 fixes them and was released on 2026-11-09, so it meets the rule of
+versions at least two weeks old.
+
+Considered: Waiting for 16.5. Rejected, the fix is a patch release.
+
 ## Open questions (for the client)
 
 - Other teacher data mismatches from the 5.1 report, if any (Andrea
