@@ -5,6 +5,7 @@ import { breadcrumbJsonLd } from '@/lib/structured-data';
 import { pageMetadata } from '@/lib/metadata';
 import ImageGallery from '@/components/ImageGallery';
 import ActionLink from '@/components/ActionLink';
+import { registration } from '@/content/registration';
 
 export const metadata = pageMetadata({
   title: 'Klein-Montmartre | Salon77 - Kunsthandwerkermarkt Würzburg',
@@ -203,18 +204,18 @@ export default function KleinMontmartre() {
               className="text-base sm:text-lg leading-relaxed mb-6"
               style={{ color: 'var(--color-text-muted)' }}
             >
-              Du möchtest deine Kunst beim Klein-Montmartre ausstellen? Melde
-              dich direkt online an oder schreib uns eine E-Mail.
+              {registration.enabled
+                ? 'Du möchtest deine Kunst beim Klein-Montmartre ausstellen? Melde dich direkt online an oder schreib uns eine E-Mail.'
+                : 'Du möchtest deine Kunst beim Klein-Montmartre ausstellen? Schreib uns eine E-Mail.'}
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
+              {registration.enabled && (
+                <ActionLink href={registration.path} className="px-8 py-3">
+                  Jetzt anmelden
+                </ActionLink>
+              )}
               <ActionLink
-                href="/veranstaltungen/klein-montmartre/anmelden"
-                className="px-8 py-3"
-              >
-                Jetzt anmelden
-              </ActionLink>
-              <ActionLink
-                href="mailto:kmm@salon77.de"
+                href={`mailto:${registration.contactEmail}`}
                 variant="secondary"
                 className="px-8 py-3"
               >
@@ -225,7 +226,7 @@ export default function KleinMontmartre() {
               className="mt-4 text-base"
               style={{ color: 'var(--color-text)' }}
             >
-              E-Mail: kmm@salon77.de
+              E-Mail: {registration.contactEmail}
             </p>
           </section>
 

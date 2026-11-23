@@ -1,10 +1,11 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { indexableRoutes } from '../content/routes';
+import { registration } from '../content/registration';
 
 const allPaths = [
   ...indexableRoutes.map((route) => route.path),
-  '/veranstaltungen/klein-montmartre/anmelden',
+  ...(registration.enabled ? [registration.path] : []),
 ];
 
 test.describe('Accessibility (WCAG 2.2 AA)', () => {

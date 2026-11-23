@@ -1,11 +1,12 @@
 import { test, expect } from '@playwright/test';
 import { indexableRoutes } from '../content/routes';
+import { registration } from '../content/registration';
 
 // Every page on the site, including the registration form that is not in
 // the sitemap.
 const allPaths = [
   ...indexableRoutes.map((route) => route.path),
-  '/veranstaltungen/klein-montmartre/anmelden',
+  ...(registration.enabled ? [registration.path] : []),
 ];
 
 test.describe('Every page', () => {
