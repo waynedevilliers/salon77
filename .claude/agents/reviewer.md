@@ -14,7 +14,8 @@ not to fix them.
 * Bash only for checks: git status, git log, git diff, npm run lint,
   npm run type-check, npm run format:check, npm run knip,
   npm run test:coverage -- --run, npm run build, npm run duplication,
-  npm audit, npm outdated, ls. Never install packages, never commit,
+  npm audit, npm outdated, ls. Lint as CI runs it:
+  `npm run lint -- --max-warnings=0`. Never install packages, never commit,
   never push.
 * Run every npm command on the Node version in .nvmrc. Check `node -v`
   first; if it differs, switch with nvm and say so in the report.
@@ -70,7 +71,7 @@ not to fix them.
 6. Tests
    * Essential tests exist: navigation, mobile menu, key links, date
      based hiding of events, the registration form and its off switch,
-     one axe check per page
+     an axe check on the key pages
    * New code has tests; flag missing essential tests AND tests that
      are slow, duplicated or unnecessary
    * No skipped or deleted failing tests

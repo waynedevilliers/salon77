@@ -15,7 +15,8 @@ docs/reviews/.
 * For each page given to you (default: /, /unterricht,
   /veranstaltungen/klein-montmartre, /kontakt), capture each size with
   a short Playwright script (Node, using the project's
-  @playwright/test):
+  @playwright/test). Put the script in the system temp folder, never
+  in the project:
   1. Open the page at the viewport size (375x667 or 1440x900).
   2. Scroll slowly from top to bottom in steps of one viewport
      height, waiting about 500ms per step. The home page cards fade in

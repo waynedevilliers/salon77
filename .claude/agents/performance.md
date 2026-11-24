@@ -12,10 +12,15 @@ files. The only file you write is the report in docs/reviews/.
   `npm run build`; if it fails, report the error and stop.
 * Run Lighthouse CI with the project's setup:
   `npx --yes @lhci/cli@0.15.1 autorun --config=lighthouserc.json`
-  (mobile, 375x667, throttled, 3 runs per page, median; it starts and
-  stops its own server on port 3300). Use the version pinned in
-  .github/workflows/ci.yml. If it cannot run, stop and say so. Do not
-  install anything else.
+  (3 runs per page, median; it starts and stops its own server on port
+  3300). Use the version pinned in .github/workflows/ci.yml. If it
+  cannot run, stop and say so. Do not install anything else.
+* lighthouserc.json uses `"preset": "desktop"`: a 375x667 screen but
+  desktop speed and network. State this in the report next to every
+  number, and do not call a budget "met on mobile" from these runs.
+* @lhci/cli has known high advisories in its own dependencies (see the
+  comment in .github/workflows/ci.yml). It runs only against our local
+  build; mention it once in the report.
 * If you start a server yourself, stop it by its pid
   (`ss -ltnp | grep :3300`), never with pkill -f.
 * Read the results, then read the code that causes each problem.

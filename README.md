@@ -24,6 +24,7 @@ npm run test:coverage # unit tests with coverage (thresholds as in CI)
 npm run e2e          # browser tests (Playwright)
 npm run mobile-check -- http://localhost:3001  # phone view numbers and screenshots
 npm run privacy-scan -- http://localhost:3300  # cookies, storage and outside requests (production build)
+npx playwright install chromium   # once, before e2e and the two scripts above
 ```
 
 Deployment: any host that runs Next.js. Set the variables from `.env.example`

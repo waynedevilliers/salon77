@@ -14,6 +14,12 @@ if (!baseUrl) {
   );
   process.exit(1);
 }
+// Local only: the script submits the empty form, which the live site would
+// count against its rate limit.
+if (!['localhost', '127.0.0.1'].includes(new URL(baseUrl).hostname)) {
+  console.error(`Local servers only, not ${baseUrl}.`);
+  process.exit(1);
+}
 
 const outDir = join(process.cwd(), 'docs/reviews/mobile');
 const sizes = [
@@ -184,10 +190,22 @@ async function scrollThrough(page) {
 
 async function reachable(url) {
   try {
-    await fetch(url, { signal: AbortSignal.timeout(5000) });
-    return true;
+    // fetch resolves on 4xx and 5xx too, so an error page must fail here as well.
+    const response = await fetch(url, { signal: AbortSignal.timeout(5000) });
+    return response.ok;
   } catch {
     return false;
+  }
+}
+
+// Opens a page and stops the run if it is an error page, which would
+// otherwise be measured like a real one.
+async function open(page, url) {
+  const response = await page.goto(url, { waitUntil: 'load' });
+  if (!response?.ok()) {
+    throw new Error(
+      `Could not load ${url} (status ${response?.status() ?? 'unknown'})`
+    );
   }
 }
 
@@ -215,7 +233,7 @@ async function main() {
     for (const path of pages) {
       for (const size of sizes) {
         const page = await browser.newPage({ viewport: size });
-        await page.goto(baseUrl + path, { waitUntil: 'load' });
+        await open(page, baseUrl + path);
         await scrollThrough(page);
         runs.push({
           page: path,
@@ -231,7 +249,7 @@ async function main() {
       const page = await browser.newPage({
         viewport: { width: 375, height: 667 },
       });
-      await page.goto(baseUrl + action.path, { waitUntil: 'load' });
+      await open(page, baseUrl + action.path);
       await page.waitForTimeout(700);
       if (action.fullPage) await scrollThrough(page);
       if (action.prepare) await action.prepare(page);

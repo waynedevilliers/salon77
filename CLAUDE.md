@@ -82,7 +82,8 @@ mostly on a phone.
 
 - One h1 per page, headings in order, alt texts, visible focus, contrast at
   least 4.5:1, tap targets at least 44px with 8px spacing.
-- Motion only with `motion-safe:`.
+- Motion respects reduced motion: `motion-safe:` in classes, or a
+  `prefers-reduced-motion` rule in `app/globals.css`.
 
 ## Testing
 

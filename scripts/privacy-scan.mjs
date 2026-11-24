@@ -129,7 +129,10 @@ async function main() {
       if ((await mapButton.count()) > 0) {
         phase = 'afterMapClick';
         await mapButton.first().click();
-        await page.waitForLoadState('networkidle');
+        // The map may keep loading tiles; record what came in the first 10 seconds.
+        await page
+          .waitForLoadState('networkidle', { timeout: 10000 })
+          .catch(() => {});
         mapClicked = true;
       }
       const after = {

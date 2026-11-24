@@ -40,6 +40,11 @@ Tooling, tests and agents are in place.
 
 ## Code, not started (no launch blocker)
 
+- `lighthouserc.json` uses the desktop preset (desktop speed on a phone-sized
+  screen), so the "mobile" budgets are measured at desktop speed. Switch to
+  mobile throttling as its own step: CI's Lighthouse results will change.
+- The active menu item has no `aria-current` (`components/NavLink.tsx`).
+
 - Some older components use raw Tailwind greys (for example
   `components/MapConsent.tsx`) instead of colour tokens. Change only with
   the same values, and only when that component is touched.
