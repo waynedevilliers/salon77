@@ -1,9 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import Lightbox from 'yet-another-react-lightbox';
-import 'yet-another-react-lightbox/styles.css';
+
+// The lightbox script and styles load only when a visitor opens an image.
+const GalleryLightbox = dynamic(() => import('./GalleryLightbox'), {
+  ssr: false,
+});
 
 interface GalleryImage {
   src: string;
@@ -22,6 +26,8 @@ export default function ImageGallery({
 }: ImageGalleryProps) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
+  // Set on the first open and kept, so the lightbox loads once and stays loaded.
+  const [lightboxUsed, setLightboxUsed] = useState(false);
 
   const visibleImages = previewCount ? images.slice(0, previewCount) : images;
   const hasMore = visibleImages.length < images.length;
@@ -33,6 +39,7 @@ export default function ImageGallery({
 
   const handleImageClick = (index: number) => {
     setLightboxIndex(index);
+    setLightboxUsed(true);
     setLightboxOpen(true);
   };
 
@@ -85,12 +92,14 @@ export default function ImageGallery({
       )}
 
       {/* Lightbox Gallery */}
-      <Lightbox
-        open={lightboxOpen}
-        close={() => setLightboxOpen(false)}
-        slides={lightboxSlides}
-        index={lightboxIndex}
-      />
+      {lightboxUsed && (
+        <GalleryLightbox
+          open={lightboxOpen}
+          close={() => setLightboxOpen(false)}
+          slides={lightboxSlides}
+          index={lightboxIndex}
+        />
+      )}
     </>
   );
 }
