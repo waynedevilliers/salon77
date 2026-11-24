@@ -12,14 +12,11 @@ interface Course {
 
 /**
  * One course card for a teacher with several courses. It looks like every
- * other course card and shows one course at a time. A row of pills with the
- * short course names shows which courses the teacher gives; the open one is
- * filled, and a tap shows that course on the same card. All courses are laid
- * on top of each other, so the card keeps the height of the longest one.
+ * other course card and shows one course at a time. Equal segments "1. Kurs",
+ * "2. Kurs", ... switch the course on the same card; the open one is filled.
+ * All courses are laid on top of each other, so the card keeps the height of
+ * the longest one.
  */
-/** "Moderner Tanz: Zeitgenössischer Tanz" -> "Moderner Tanz". */
-const shortTitle = (title: string) => title.split(':')[0].trim();
-
 export default function TeacherCourseCard({ courses }: { courses: Course[] }) {
   const [index, setIndex] = useState(0);
   const [moved, setMoved] = useState(false);
@@ -59,24 +56,29 @@ export default function TeacherCourseCard({ courses }: { courses: Course[] }) {
               {...course}
               switcher={
                 <div
-                  className="mb-4 flex flex-wrap gap-2"
+                  className="mb-4 flex overflow-hidden rounded-md border border-[var(--color-border)]"
                   role="group"
                   aria-label={`Kurse von ${course.instructor}`}
                 >
-                  {courses.map((pillCourse, pillIndex) => {
-                    const open = pillIndex === courseIndex;
+                  {courses.map((segmentCourse, segmentIndex) => {
+                    const open = segmentIndex === courseIndex;
                     return (
                       <button
-                        key={pillCourse.title}
+                        key={segmentCourse.title}
                         type="button"
                         data-course={courseIndex}
-                        data-control={`pill-${pillIndex}`}
-                        onClick={() => show(pillIndex)}
+                        data-control={`pill-${segmentIndex}`}
+                        onClick={() => show(segmentIndex)}
                         aria-pressed={open}
-                        className={`inline-flex min-h-11 items-center rounded-full border px-4 text-base font-semibold transition-colors duration-200 ${
+                        aria-label={`${segmentIndex + 1}. Kurs: ${segmentCourse.title}`}
+                        className={`min-h-11 flex-1 px-2 text-base font-semibold transition-colors duration-200 ${
+                          segmentIndex > 0
+                            ? 'border-l border-[var(--color-border)]'
+                            : ''
+                        } ${
                           open
-                            ? 'border-[var(--color-button)] bg-[var(--color-button)]'
-                            : 'border-[var(--color-border)] bg-[var(--color-surface)] hover:bg-[var(--color-surface-alt)]'
+                            ? 'bg-[var(--color-button)]'
+                            : 'bg-[var(--color-surface)] hover:bg-[var(--color-surface-alt)]'
                         }`}
                         style={{
                           color: open
@@ -84,7 +86,7 @@ export default function TeacherCourseCard({ courses }: { courses: Course[] }) {
                             : 'var(--color-text)',
                         }}
                       >
-                        {shortTitle(pillCourse.title)}
+                        {segmentIndex + 1}. Kurs
                       </button>
                     );
                   })}
