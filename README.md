@@ -66,8 +66,7 @@ slug, for example `public/salon77/dozenten/michael-roethlein.jpg`.
 ## Agents (Claude Code)
 
 Read only agents in `.claude/agents/`. Each writes one report to
-`docs/reviews/`; generated screenshots and scan results there are not
-committed.
+`docs/reviews/`, which stays local and is not committed.
 
 | Agent | Checks | When |
 |---|---|---|
