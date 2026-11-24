@@ -25,7 +25,10 @@ export default function TeacherSection() {
         Dozenten und nimm direkt Kontakt auf. Die Kontaktdaten findest du auf
         der jeweiligen Profilseite.
       </p>
-      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      {/* Side by side (from two columns), every row is as tall as the tallest
+          card, so the cards match the teacher with the most courses. One
+          column on phones needs no equal height. */}
+      <div className="grid grid-cols-1 gap-8 sm:auto-rows-fr sm:grid-cols-2 lg:grid-cols-4">
         {instructors.map((instructor) => (
           <InstructorCard key={instructor.name} instructor={instructor} />
         ))}

@@ -11,9 +11,8 @@ import {
   instructorSlug,
 } from '@/lib/instructors';
 import { pageMetadata } from '@/lib/metadata';
+import { coursesOf } from '@/lib/teacher-courses';
 import ActionLink from '@/components/ActionLink';
-import { courses } from '@/content/courses';
-import { findInstructorByName } from '@/lib/instructors';
 import { breadcrumbJsonLd } from '@/lib/structured-data';
 
 interface PageProps {
@@ -56,12 +55,7 @@ export default async function InstructorPage({ params }: PageProps) {
   );
 
   const firstName = instructor.name.split(' ')[0];
-  const teacherCourses = courses.filter((course) =>
-    course.instructor
-      .split(',')
-      .map((name) => findInstructorByName(name.trim())?.name)
-      .includes(instructor.name)
-  );
+  const teacherCourses = coursesOf(instructor.name);
 
   return (
     <div className="flex flex-col">

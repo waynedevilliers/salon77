@@ -285,6 +285,26 @@ relative URLs.
 Alternative: Keep the directive in production and drop it only for tests.
 Rejected: the tests would then not check the headers the site really sends.
 
+## 2026-11-24: One card per teacher, courses listed on the card
+
+Status: done
+
+Decision: Every teacher has exactly one card in "Unsere Dozenten". Below the
+subject, the card lists the teacher's courses from `content/courses.ts`:
+course name and days only (for example "Pilates · Mo, Do"); the full times
+stay on the profile page. Teachers without a course show no list. From two
+columns upward, every card is as tall as the one with the most courses; on
+phones (one column) cards keep their own height. Pilates (Hsiu-Yun Lu,
+Montag 18:10 and Donnerstag 17:40) was added to the course data, so it also
+has a course card on /unterricht and appears on her profile.
+
+Why: Hsiu-Yun Lu appeared on three course cards but her teacher card did not
+say what she teaches when. Days fit on a card; eight time slots do not.
+
+Alternatives: A course carousel or a scrolling list inside the card
+(rejected: hides content and is awkward on phones), a count only ("5 Kurse")
+(rejected: says less than names and days).
+
 ## Open questions (for the client)
 
 - Other teacher data mismatches from the 5.1 report, if any (Andrea
@@ -298,3 +318,5 @@ Rejected: the tests would then not check the headers the site really sends.
   kept), the email (SMTP) provider, the hosting provider, or the Google Maps
   map loaded after a click. The club or a lawyer needs to supply this text.
 - Registration form: is 100 m² the right upper limit for the stand area?
+- Pilates course text on /unterricht is a placeholder (PLACEHOLDER(client) in
+  `content/courses.ts`); please confirm or replace it.

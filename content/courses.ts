@@ -81,6 +81,14 @@ export const courses: Course[] = [
     instructor: 'Hsiu-Yun Lu',
   },
   {
+    title: 'Pilates',
+    // PLACEHOLDER(client): confirm this description.
+    description:
+      'Ganzkörpertraining nach der Pilates-Methode. Kräftigt die Körpermitte, verbessert Haltung und Beweglichkeit und schult die Atmung. Für alle Altersstufen.',
+    schedule: ['Montags 18:10 - 19:20 Uhr', 'Donnerstags 17:40 - 18:50 Uhr'],
+    instructor: 'Hsiu-Yun Lu',
+  },
+  {
     title: 'Taiji',
     description:
       'Meditation in Bewegung. Sanfte, fließende Bewegungen für Körper und Seele. Fokus auf Atmung, Körperenergie und inneres Wohlbefinden. Daoyin-Übungen für erweiterte Körperräume.',
