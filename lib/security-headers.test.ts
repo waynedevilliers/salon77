@@ -26,6 +26,12 @@ describe('securityHeaders', () => {
     expect(csp).toContain("frame-ancestors 'none'");
   });
 
+  it('does not upgrade requests, which breaks Safari on a local http server', () => {
+    expect(headerValue('Content-Security-Policy')).not.toContain(
+      'upgrade-insecure-requests'
+    );
+  });
+
   it('enables HSTS with a two year max-age', () => {
     expect(headerValue('Strict-Transport-Security')).toBe(
       'max-age=63072000; includeSubDomains; preload'
