@@ -43,7 +43,8 @@ describe('TeacherSection', () => {
 
   it("lists all of Hsiu-Yun Lu's courses on her one card", () => {
     render(<TeacherSection />);
-    const list = screen.getByRole('list', { name: 'Kurse von Hsiu-Yun Lu' });
+    const card = screen.getByRole('link', { name: /Hsiu-Yun Lu/ });
+    const list = within(card).getByRole('list');
     const items = within(list).getAllByRole('listitem');
     const titles = coursesOf('Hsiu-Yun Lu').map((course) => course.title);
     expect(titles).toHaveLength(4);
@@ -54,11 +55,20 @@ describe('TeacherSection', () => {
     expect(items[0]).toHaveTextContent('Kindertanz & -Ballett · Mo, Do, Fr');
   });
 
-  it('shows no course list for a teacher without courses', () => {
+  it('includes the courses in the name screen readers announce for the card', () => {
     render(<TeacherSection />);
     expect(
-      screen.queryByRole('list', { name: 'Kurse von Andrea Kneis' })
-    ).not.toBeInTheDocument();
+      screen.getByRole('link', { name: /Hsiu-Yun Lu/ }).textContent
+    ).toContain('Pilates · Mo, Do');
+    expect(
+      screen.getByRole('link', { name: /Pilates · Mo, Do/ })
+    ).toHaveAttribute('href', '/dozenten/hsiu-yun-lu');
+  });
+
+  it('shows no course list for a teacher without courses', () => {
+    render(<TeacherSection />);
+    const card = screen.getByRole('link', { name: /Andrea Kneis/ });
+    expect(within(card).queryByRole('list')).not.toBeInTheDocument();
   });
 
   it('does not show "Profil ansehen" on the cards', () => {

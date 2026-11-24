@@ -299,7 +299,7 @@ Montag 18:10 and Donnerstag 17:40) was added to the course data, so it also
 has a course card on /unterricht and appears on her profile.
 
 Why: Hsiu-Yun Lu appeared on three course cards but her teacher card did not
-say what she teaches when. Days fit on a card; eight time slots do not.
+say what she teaches when. Days fit on a card; her seven time slots do not.
 
 Alternatives: A course carousel or a scrolling list inside the card
 (rejected: hides content and is awkward on phones), a count only ("5 Kurse")
@@ -319,4 +319,9 @@ Alternatives: A course carousel or a scrolling list inside the card
   map loaded after a click. The club or a lawyer needs to supply this text.
 - Registration form: is 100 m² the right upper limit for the stand area?
 - Pilates course text on /unterricht is a placeholder (PLACEHOLDER(client) in
-  `content/courses.ts`); please confirm or replace it.
+  `content/courses.ts`); please confirm or replace it, and whether Pilates
+  belongs in Hsiu-Yun Lu's subject line.
+- Course data vs Wochenkurse timetable, now visible on the teacher cards:
+  Akkordeon (Stefanie Koch) says "Nach Vereinbarung" but the timetable has
+  Tuesday 14:45 and 17:30; Ballett (Asami Krisan) has Wednesday only but the
+  timetable also has Friday 19:00. Which is right?

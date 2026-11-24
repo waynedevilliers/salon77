@@ -37,7 +37,6 @@ export default function InstructorCard({
 
       {teacherCourses.length > 0 && (
         <ul
-          aria-label={`Kurse von ${instructor.name}`}
           className="mt-3 space-y-1 text-center text-base"
           style={{ color: 'var(--color-text-muted)' }}
         >
