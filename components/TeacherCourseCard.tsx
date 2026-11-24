@@ -12,17 +12,20 @@ interface Course {
 
 /**
  * One course card for a teacher with several courses. It looks like every
- * other course card and shows one course at a time. Arrows flip the same card
- * to the previous or next course (wrapping around); a dot per course shows
- * where you are and jumps to that course. All courses are laid on top of each
- * other, so the card keeps the height of the longest one.
+ * other course card and shows one course at a time. A row of pills with the
+ * short course names shows which courses the teacher gives; the open one is
+ * filled, and a tap shows that course on the same card. All courses are laid
+ * on top of each other, so the card keeps the height of the longest one.
  */
+/** "Moderner Tanz: Zeitgenössischer Tanz" -> "Moderner Tanz". */
+const shortTitle = (title: string) => title.split(':')[0].trim();
+
 export default function TeacherCourseCard({ courses }: { courses: Course[] }) {
   const [index, setIndex] = useState(0);
   const [moved, setMoved] = useState(false);
   const container = useRef<HTMLDivElement>(null);
 
-  const [focusKey, setFocusKey] = useState('next');
+  const [focusKey, setFocusKey] = useState('pill-0');
 
   // The clicked control is now on a hidden copy of the card, so move focus to
   // the same control on the visible one.
@@ -35,14 +38,11 @@ export default function TeacherCourseCard({ courses }: { courses: Course[] }) {
       ?.focus();
   }, [index, moved, focusKey]);
 
-  const show = (target: number, control: string) => {
+  const show = (target: number) => {
     setMoved(true);
-    setFocusKey(control);
-    setIndex((target + courses.length) % courses.length);
+    setFocusKey(`pill-${target}`);
+    setIndex(target);
   };
-
-  const arrowClassName =
-    'inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] text-2xl leading-none transition-colors duration-200 hover:bg-[var(--color-surface-alt)]';
 
   return (
     <div ref={container} className="grid h-full">
@@ -59,58 +59,35 @@ export default function TeacherCourseCard({ courses }: { courses: Course[] }) {
               {...course}
               switcher={
                 <div
-                  className="mb-4 flex items-center justify-center gap-3"
+                  className="mb-4 flex flex-wrap gap-2"
                   role="group"
                   aria-label={`Kurse von ${course.instructor}`}
                 >
-                  <button
-                    type="button"
-                    data-course={courseIndex}
-                    data-control="previous"
-                    onClick={() => show(courseIndex - 1, 'previous')}
-                    aria-label="Vorheriger Kurs"
-                    className={arrowClassName}
-                    style={{ color: 'var(--color-text)' }}
-                  >
-                    ‹
-                  </button>
-                  {courses.map((dotCourse, dotIndex) => (
-                    <button
-                      key={dotCourse.title}
-                      type="button"
-                      data-course={courseIndex}
-                      data-control={`dot-${dotIndex}`}
-                      onClick={() => show(dotIndex, `dot-${dotIndex}`)}
-                      aria-label={`Kurs ${dotIndex + 1} von ${courses.length}: ${dotCourse.title}`}
-                      aria-current={
-                        dotIndex === courseIndex ? 'true' : undefined
-                      }
-                      className="inline-flex h-11 w-8 items-center justify-center"
-                    >
-                      <span
-                        aria-hidden="true"
-                        className="block h-2.5 w-2.5 rounded-full border"
+                  {courses.map((pillCourse, pillIndex) => {
+                    const open = pillIndex === courseIndex;
+                    return (
+                      <button
+                        key={pillCourse.title}
+                        type="button"
+                        data-course={courseIndex}
+                        data-control={`pill-${pillIndex}`}
+                        onClick={() => show(pillIndex)}
+                        aria-pressed={open}
+                        className={`inline-flex min-h-11 items-center rounded-full border px-4 text-base font-semibold transition-colors duration-200 ${
+                          open
+                            ? 'border-[var(--color-button)] bg-[var(--color-button)]'
+                            : 'border-[var(--color-border)] bg-[var(--color-surface)] hover:bg-[var(--color-surface-alt)]'
+                        }`}
                         style={{
-                          borderColor: 'var(--color-button)',
-                          backgroundColor:
-                            dotIndex === courseIndex
-                              ? 'var(--color-button)'
-                              : 'transparent',
+                          color: open
+                            ? 'var(--color-button-text)'
+                            : 'var(--color-text)',
                         }}
-                      />
-                    </button>
-                  ))}
-                  <button
-                    type="button"
-                    data-course={courseIndex}
-                    data-control="next"
-                    onClick={() => show(courseIndex + 1, 'next')}
-                    aria-label="Nächster Kurs"
-                    className={arrowClassName}
-                    style={{ color: 'var(--color-text)' }}
-                  >
-                    ›
-                  </button>
+                      >
+                        {shortTitle(pillCourse.title)}
+                      </button>
+                    );
+                  })}
                 </div>
               }
             />

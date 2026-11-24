@@ -292,17 +292,19 @@ Status: done
 Decision: On /unterricht every teacher has one course card. Hsiu-Yun Lu's
 three courses (Kindertanz & -Ballett, Moderner Tanz: Zeitgenössischer Tanz,
 Taiji) share one card that looks like every other course card and shows one
-course at a time. Under the description, ‹ and › arrows flip the same card
-to the previous or next course (wrapping around), and a dot per course shows
-which one is open and jumps to it. The times, photo and "Mehr erfahren" stay
+course at a time. Under the description, a row of pills with the short
+course names (Kindertanz & -Ballett, Moderner Tanz, Taiji) shows which courses
+she gives; the open one is filled peach, and a tap shows that course on the
+same card. The times, photo and "Mehr erfahren" stay
 at the bottom, aligned with the other cards in the row. The card keeps the
 height of her longest course, so it does not jump. All other course cards are
 unchanged.
 
 Why: She appeared on three cards with the same photo and name.
 
-Alternative: All three courses listed on one card without descriptions
-(tried, rejected by the owner).
+Alternatives: All three courses listed on one card without descriptions
+(tried, rejected by the owner); arrows with dots, or "1. Kurs / 2. Kurs"
+(the course names are not visible until you click).
 ## 2026-11-24: Teacher order by weekly courses
 
 Status: done
