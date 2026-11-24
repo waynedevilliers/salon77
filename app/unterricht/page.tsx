@@ -2,9 +2,10 @@ import JsonLd from '@/components/JsonLd';
 import { breadcrumbJsonLd } from '@/lib/structured-data';
 import { pageMetadata } from '@/lib/metadata';
 import CourseCard from '@/components/CourseCard';
+import TeacherCourseCard from '@/components/TeacherCourseCard';
 import Reveal from '@/components/Reveal';
 import TeacherSection from '@/components/TeacherSection';
-import { courses as COURSES } from '@/content/courses';
+import { courseCardsByTeacher } from '@/lib/course-cards';
 
 export const metadata = pageMetadata({
   title: 'Unterricht | Salon77 - Würzburger Künstlerinitiative',
@@ -45,14 +46,14 @@ export default function Unterricht() {
 
           <section id="kurse" className="scroll-mt-24">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {COURSES.map((course) => (
-                <Reveal key={course.title} className="h-full">
-                  <CourseCard
-                    title={course.title}
-                    description={course.description}
-                    schedule={course.schedule}
-                    instructor={course.instructor}
-                  />
+              {/* One card per teacher: several courses share one card. */}
+              {courseCardsByTeacher().map((group) => (
+                <Reveal key={group[0].title} className="h-full">
+                  {group.length === 1 ? (
+                    <CourseCard {...group[0]} />
+                  ) : (
+                    <TeacherCourseCard courses={group} />
+                  )}
                 </Reveal>
               ))}
             </div>

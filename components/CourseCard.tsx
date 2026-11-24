@@ -8,6 +8,11 @@ interface CourseCardProps {
   description: string;
   schedule: string[];
   instructor: string;
+  /**
+   * Shown under the description, for example the course switcher. The times,
+   * teacher and button stay at the bottom, aligned with the other cards.
+   */
+  switcher?: React.ReactNode;
 }
 
 // Course-only teachers have no profile yet, so their course photo is kept here.
@@ -64,6 +69,7 @@ export default function CourseCard({
   description,
   schedule,
   instructor,
+  switcher,
 }: CourseCardProps) {
   const instructors = instructor.split(',').map((i) => i.trim());
 
@@ -89,6 +95,7 @@ export default function CourseCard({
       >
         {description}
       </p>
+      {switcher}
       <ul
         className="mb-6 mt-auto h-[5.5rem] list-disc pl-5 text-base font-semibold leading-[1.6] marker:text-base marker:leading-none marker:text-[var(--color-button)]"
         style={{ color: 'var(--color-text)' }}

@@ -34,18 +34,18 @@ describe('findInstructor', () => {
 });
 
 describe('getAdjacentInstructors', () => {
-  it('returns the neighbours in list order', () => {
-    const adjacent = getAdjacentInstructors('hsiu-yun-lu');
-    expect(adjacent?.previous.name).toBe('Asami Krisan');
-    expect(adjacent?.next.name).toBe('Mercedes Sebald Arguisuelas');
+  it('returns the neighbours in the teacher order', () => {
+    const adjacent = getAdjacentInstructors('stefanie-koch');
+    expect(adjacent?.previous.name).toBe('Mercedes Sebald Arguisuelas');
+    expect(adjacent?.next.name).toBe('Asami Krisan');
   });
 
   it('wraps around at the start and the end of the list', () => {
-    expect(getAdjacentInstructors('andrea-kneis')?.previous.name).toBe(
-      'Stefanie Koch'
-    );
-    expect(getAdjacentInstructors('stefanie-koch')?.next.name).toBe(
+    expect(getAdjacentInstructors('hsiu-yun-lu')?.previous.name).toBe(
       'Andrea Kneis'
+    );
+    expect(getAdjacentInstructors('andrea-kneis')?.next.name).toBe(
+      'Hsiu-Yun Lu'
     );
   });
 

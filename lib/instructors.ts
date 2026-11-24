@@ -1,4 +1,5 @@
 import { instructors, type Instructor } from '@/content/instructors';
+import { orderedInstructors } from '@/lib/teacher-order';
 
 /**
  * URL slug and photo file name for an instructor, for example
@@ -35,15 +36,15 @@ export function getAdjacentInstructors(slug: string): {
   previous: Instructor;
   next: Instructor;
 } | null {
-  const index = instructors.findIndex(
+  const index = orderedInstructors.findIndex(
     (instructor) => instructorSlug(instructor.name) === slug
   );
   if (index === -1) return null;
 
-  const count = instructors.length;
+  const count = orderedInstructors.length;
   return {
-    previous: instructors[(index - 1 + count) % count],
-    next: instructors[(index + 1) % count],
+    previous: orderedInstructors[(index - 1 + count) % count],
+    next: orderedInstructors[(index + 1) % count],
   };
 }
 
