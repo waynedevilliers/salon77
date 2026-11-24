@@ -12,17 +12,17 @@ interface Course {
 
 /**
  * One course card for a teacher with several courses. It looks like every
- * other course card and shows one course at a time. Equal segments "1. Kurs",
- * "2. Kurs", ... switch the course on the same card; the open one is filled.
- * All courses are laid on top of each other, so the card keeps the height of
- * the longest one.
+ * other course card and shows one course at a time. Round ‹ › arrows around
+ * "Kurs 1 von 3" flip the same card to the previous or next course, wrapping
+ * around. All courses are laid on top of each other, so the card keeps the
+ * height of the longest one.
  */
 export default function TeacherCourseCard({ courses }: { courses: Course[] }) {
   const [index, setIndex] = useState(0);
   const [moved, setMoved] = useState(false);
   const container = useRef<HTMLDivElement>(null);
 
-  const [focusKey, setFocusKey] = useState('pill-0');
+  const [focusKey, setFocusKey] = useState('next');
 
   // The clicked control is now on a hidden copy of the card, so move focus to
   // the same control on the visible one.
@@ -35,11 +35,14 @@ export default function TeacherCourseCard({ courses }: { courses: Course[] }) {
       ?.focus();
   }, [index, moved, focusKey]);
 
-  const show = (target: number) => {
+  const show = (target: number, control: 'previous' | 'next') => {
     setMoved(true);
-    setFocusKey(`pill-${target}`);
-    setIndex(target);
+    setFocusKey(control);
+    setIndex((target + courses.length) % courses.length);
   };
+
+  const arrowClassName =
+    'inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] text-xl leading-none transition-colors duration-200 hover:bg-[var(--color-surface-alt)]';
 
   return (
     <div ref={container} className="grid h-full">
@@ -55,43 +58,35 @@ export default function TeacherCourseCard({ courses }: { courses: Course[] }) {
             <CourseCard
               {...course}
               switcher={
-                <div
-                  className="mb-4 flex justify-center"
-                  role="group"
-                  aria-label={`Kurse von ${course.instructor}`}
-                >
-                  <div className="inline-flex overflow-hidden rounded-md border border-[var(--color-border)]">
-                    {courses.map((segmentCourse, segmentIndex) => {
-                      const open = segmentIndex === courseIndex;
-                      return (
-                        <button
-                          key={segmentCourse.title}
-                          type="button"
-                          data-course={courseIndex}
-                          data-control={`pill-${segmentIndex}`}
-                          onClick={() => show(segmentIndex)}
-                          aria-pressed={open}
-                          aria-label={`${segmentIndex + 1}. Kurs: ${segmentCourse.title}`}
-                          className={`h-9 px-3 text-sm font-semibold transition-colors duration-200 ${
-                            segmentIndex > 0
-                              ? 'border-l border-[var(--color-border)]'
-                              : ''
-                          } ${
-                            open
-                              ? 'bg-[var(--color-button)]'
-                              : 'bg-[var(--color-surface)] hover:bg-[var(--color-surface-alt)]'
-                          }`}
-                          style={{
-                            color: open
-                              ? 'var(--color-button-text)'
-                              : 'var(--color-text)',
-                          }}
-                        >
-                          {segmentIndex + 1}. Kurs
-                        </button>
-                      );
-                    })}
-                  </div>
+                <div className="mb-4 flex items-center justify-center gap-3">
+                  <button
+                    type="button"
+                    data-course={courseIndex}
+                    data-control="previous"
+                    onClick={() => show(courseIndex - 1, 'previous')}
+                    aria-label="Vorheriger Kurs"
+                    className={arrowClassName}
+                    style={{ color: 'var(--color-text)' }}
+                  >
+                    ‹
+                  </button>
+                  <span
+                    className="text-sm font-semibold"
+                    style={{ color: 'var(--color-text-muted)' }}
+                  >
+                    Kurs {courseIndex + 1} von {courses.length}
+                  </span>
+                  <button
+                    type="button"
+                    data-course={courseIndex}
+                    data-control="next"
+                    onClick={() => show(courseIndex + 1, 'next')}
+                    aria-label="Nächster Kurs"
+                    className={arrowClassName}
+                    style={{ color: 'var(--color-text)' }}
+                  >
+                    ›
+                  </button>
                 </div>
               }
             />

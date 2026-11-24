@@ -15,28 +15,26 @@ describe('TeacherCourseCard', () => {
     render(<TeacherCourseCard courses={hsiuYun} />);
     expect(shownTitle()).toBe('Kindertanz & -Ballett');
     expect(screen.getByText(hsiuYun[0].description)).toBeVisible();
-    expect(
-      screen.getByRole('button', { name: '1. Kurs: Kindertanz & -Ballett' })
-    ).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByText('Kurs 1 von 3')).toBeVisible();
   });
 
-  it('has one segment per course, "1. Kurs" to "3. Kurs"', () => {
+  it('flips to the next course and back to the first', () => {
     render(<TeacherCourseCard courses={hsiuYun} />);
-    expect(
-      screen.getAllByRole('button').map((button) => button.textContent)
-    ).toEqual(['1. Kurs', '2. Kurs', '3. Kurs']);
+    for (const title of [
+      'Moderner Tanz: Zeitgenössischer Tanz',
+      'Taiji',
+      'Kindertanz & -Ballett',
+    ]) {
+      fireEvent.click(screen.getByRole('button', { name: 'Nächster Kurs' }));
+      expect(shownTitle()).toBe(title);
+    }
   });
 
-  it('shows the course of the segment that is tapped', () => {
+  it('goes back with the previous arrow, wrapping to the last course', () => {
     render(<TeacherCourseCard courses={hsiuYun} />);
-    fireEvent.click(screen.getByRole('button', { name: /^3\. Kurs/ }));
+    fireEvent.click(screen.getByRole('button', { name: 'Vorheriger Kurs' }));
     expect(shownTitle()).toBe('Taiji');
-    expect(screen.getByRole('button', { name: /^3\. Kurs/ })).toHaveAttribute(
-      'aria-pressed',
-      'true'
-    );
-    fireEvent.click(screen.getByRole('button', { name: /^2\. Kurs/ }));
-    expect(shownTitle()).toBe('Moderner Tanz: Zeitgenössischer Tanz');
+    expect(screen.getByText('Kurs 3 von 3')).toBeVisible();
   });
 
   it('shows her photo once to screen readers', () => {

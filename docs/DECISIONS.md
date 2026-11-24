@@ -292,11 +292,10 @@ Status: done
 Decision: On /unterricht every teacher has one course card. Hsiu-Yun Lu's
 three courses (Kindertanz & -Ballett, Moderner Tanz: Zeitgenössischer Tanz,
 Taiji) share one card that looks like every other course card and shows one
-course at a time. Under the description, three equal segments "1. Kurs",
-"2. Kurs", "3. Kurs" switch the course on the same card; the open one is
-filled peach. The segments are small (36px high, 14px text, only as wide as
-their labels), as the owner asked; that is below the 44px tap target in
-CLAUDE.md but above the 24px WCAG minimum. The times, photo and "Mehr erfahren" stay
+course at a time. Under the description, round ‹ › arrows around "Kurs 1 von
+3" flip the same card to the previous or next course (wrapping around). The
+control is small (36px arrows, 14px text, centered), as the owner asked; that
+is below the 44px tap target in CLAUDE.md but above the 24px WCAG minimum. The times, photo and "Mehr erfahren" stay
 at the bottom, aligned with the other cards in the row. The card keeps the
 height of her longest course, so it does not jump. All other course cards are
 unchanged.
@@ -304,8 +303,9 @@ unchanged.
 Why: She appeared on three cards with the same photo and name.
 
 Alternatives: All three courses listed on one card without descriptions
-(tried, rejected by the owner); arrows with dots, and pills with the course
-names (both tried on the preview, not chosen).
+(tried, rejected by the owner); arrows with dots, pills with the course names
+and "1. Kurs / 2. Kurs / 3. Kurs" segments (tried on the preview, not
+chosen).
 ## 2026-11-24: Teacher order by weekly courses
 
 Status: done
