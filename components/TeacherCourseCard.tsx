@@ -56,40 +56,42 @@ export default function TeacherCourseCard({ courses }: { courses: Course[] }) {
               {...course}
               switcher={
                 <div
-                  className="mb-4 flex overflow-hidden rounded-md border border-[var(--color-border)]"
+                  className="mb-4 flex justify-center"
                   role="group"
                   aria-label={`Kurse von ${course.instructor}`}
                 >
-                  {courses.map((segmentCourse, segmentIndex) => {
-                    const open = segmentIndex === courseIndex;
-                    return (
-                      <button
-                        key={segmentCourse.title}
-                        type="button"
-                        data-course={courseIndex}
-                        data-control={`pill-${segmentIndex}`}
-                        onClick={() => show(segmentIndex)}
-                        aria-pressed={open}
-                        aria-label={`${segmentIndex + 1}. Kurs: ${segmentCourse.title}`}
-                        className={`min-h-11 flex-1 px-2 text-base font-semibold transition-colors duration-200 ${
-                          segmentIndex > 0
-                            ? 'border-l border-[var(--color-border)]'
-                            : ''
-                        } ${
-                          open
-                            ? 'bg-[var(--color-button)]'
-                            : 'bg-[var(--color-surface)] hover:bg-[var(--color-surface-alt)]'
-                        }`}
-                        style={{
-                          color: open
-                            ? 'var(--color-button-text)'
-                            : 'var(--color-text)',
-                        }}
-                      >
-                        {segmentIndex + 1}. Kurs
-                      </button>
-                    );
-                  })}
+                  <div className="inline-flex overflow-hidden rounded-md border border-[var(--color-border)]">
+                    {courses.map((segmentCourse, segmentIndex) => {
+                      const open = segmentIndex === courseIndex;
+                      return (
+                        <button
+                          key={segmentCourse.title}
+                          type="button"
+                          data-course={courseIndex}
+                          data-control={`pill-${segmentIndex}`}
+                          onClick={() => show(segmentIndex)}
+                          aria-pressed={open}
+                          aria-label={`${segmentIndex + 1}. Kurs: ${segmentCourse.title}`}
+                          className={`h-9 px-3 text-sm font-semibold transition-colors duration-200 ${
+                            segmentIndex > 0
+                              ? 'border-l border-[var(--color-border)]'
+                              : ''
+                          } ${
+                            open
+                              ? 'bg-[var(--color-button)]'
+                              : 'bg-[var(--color-surface)] hover:bg-[var(--color-surface-alt)]'
+                          }`}
+                          style={{
+                            color: open
+                              ? 'var(--color-button-text)'
+                              : 'var(--color-text)',
+                          }}
+                        >
+                          {segmentIndex + 1}. Kurs
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
               }
             />
