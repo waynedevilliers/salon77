@@ -1,0 +1,336 @@
+// Mobile check: measures the phone view and saves key screens.
+// Usage (dev server or built site running): npm run mobile-check -- http://localhost:3001
+// Writes docs/reviews/mobile/result.json and screenshots to docs/reviews/mobile/.
+// It opens the registration form and submits it empty to show the error
+// messages; the server refuses empty input, so nothing is sent.
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { join } from 'node:path';
+import { chromium } from '@playwright/test';
+
+const baseUrl = process.argv[2]?.replace(/\/$/, '');
+if (!baseUrl) {
+  console.error(
+    'Give the base URL, for example: npm run mobile-check -- http://localhost:3001'
+  );
+  process.exit(1);
+}
+// Local only: the script submits the empty form, which the live site would
+// count against its rate limit.
+if (!['localhost', '127.0.0.1'].includes(new URL(baseUrl).hostname)) {
+  console.error(`Local servers only, not ${baseUrl}.`);
+  process.exit(1);
+}
+
+const outDir = join(process.cwd(), 'docs/reviews/mobile');
+const sizes = [
+  { width: 375, height: 667 },
+  { width: 320, height: 568 },
+];
+
+// The registration page is checked only while the form is switched on.
+async function registrationPath() {
+  const source = await readFile(
+    join(process.cwd(), 'content/registration.ts'),
+    'utf8'
+  );
+  if (!/enabled:\s*true/.test(source)) return null;
+  return source.match(/path:\s*'([^']*)'/)?.[1] ?? null;
+}
+
+// Runs inside the page. Returns the numbers for one page at one size.
+function measure() {
+  const visible = (el) => {
+    if (el.closest('[inert]') || el.closest('[hidden]')) return false;
+    const cs = getComputedStyle(el);
+    if (
+      cs.display === 'none' ||
+      cs.visibility === 'hidden' ||
+      parseFloat(cs.opacity) === 0
+    )
+      return false;
+    const r = el.getBoundingClientRect();
+    return r.width > 1 && r.height > 1;
+  };
+  const selectorOf = (el) => {
+    const cls =
+      typeof el.className === 'string' && el.className
+        ? '.' + el.className.trim().split(/\s+/)[0]
+        : '';
+    return el.tagName.toLowerCase() + (el.id ? '#' + el.id : '') + cls;
+  };
+  const textOf = (el) =>
+    (el.innerText || el.value || el.getAttribute('aria-label') || '')
+      .trim()
+      .replace(/\s+/g, ' ')
+      .slice(0, 50);
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+
+  // Sideways scrolling: the page is wider than the screen, or an element sticks out.
+  const wide = [...document.querySelectorAll('body *')]
+    .filter((el) => visible(el) && el.getBoundingClientRect().right > vw + 1)
+    .slice(0, 5)
+    .map((el) => ({
+      selector: selectorOf(el),
+      right: Math.round(el.getBoundingClientRect().right),
+    }));
+  const sideways = {
+    scrolls: document.documentElement.scrollWidth > vw,
+    widerThanViewport: wide,
+  };
+
+  // First screen: the h1 and the start of the content below it.
+  const h1 = document.querySelector('h1');
+  const h1Rect = h1?.getBoundingClientRect();
+  const firstScreen = {
+    h1: Boolean(h1 && visible(h1) && h1Rect.top >= 0 && h1Rect.bottom <= vh),
+    h1Bottom: h1Rect ? Math.round(h1Rect.bottom) : null,
+  };
+
+  // Tap targets: links, buttons and form controls.
+  const targets = [
+    ...document.querySelectorAll(
+      'a[href], button, input:not([type=hidden]), select, textarea, [role="button"]'
+    ),
+  ].filter(visible);
+  const smallTargets = targets
+    .map((el) => ({ el, r: el.getBoundingClientRect() }))
+    .filter(({ r }) => r.width < 44 || r.height < 44)
+    .slice(0, 60)
+    .map(({ el, r }) => ({
+      text: textOf(el),
+      selector: selectorOf(el),
+      width: Math.round(r.width),
+      height: Math.round(r.height),
+    }));
+
+  // Targets closer than 8px (not counting an element inside another).
+  const closeTargets = [];
+  const rects = targets.map((el) => ({ el, r: el.getBoundingClientRect() }));
+  for (let i = 0; i < rects.length && closeTargets.length < 40; i++) {
+    for (let j = i + 1; j < rects.length && closeTargets.length < 40; j++) {
+      const a = rects[i];
+      const b = rects[j];
+      if (a.el.contains(b.el) || b.el.contains(a.el)) continue;
+      const gapX = Math.max(a.r.left - b.r.right, b.r.left - a.r.right);
+      const gapY = Math.max(a.r.top - b.r.bottom, b.r.top - a.r.bottom);
+      const gap = Math.max(gapX, gapY);
+      if (gap < 8)
+        closeTargets.push({
+          a: textOf(a.el) || selectorOf(a.el),
+          b: textOf(b.el) || selectorOf(b.el),
+          gap: Math.round(gap),
+        });
+    }
+  }
+
+  // Small text: visible text under 16px.
+  const smallText = [];
+  for (const el of document.querySelectorAll('body *')) {
+    if (smallText.length >= 60) break;
+    const hasText = [...el.childNodes].some(
+      (n) => n.nodeType === 3 && n.textContent.trim()
+    );
+    if (!hasText || !visible(el)) continue;
+    const size = parseFloat(getComputedStyle(el).fontSize);
+    if (size < 16)
+      smallText.push({
+        text: textOf(el),
+        selector: selectorOf(el),
+        fontSize: size,
+      });
+  }
+
+  // Overlaps inside the sticky header.
+  const bar = document.querySelector('header.sticky');
+  const overlaps = [];
+  if (bar) {
+    const items = [...bar.querySelectorAll('*')].filter(visible);
+    for (let i = 0; i < items.length && overlaps.length < 20; i++) {
+      for (let j = i + 1; j < items.length && overlaps.length < 20; j++) {
+        const a = items[i];
+        const b = items[j];
+        if (a.contains(b) || b.contains(a)) continue;
+        const ra = a.getBoundingClientRect();
+        const rb = b.getBoundingClientRect();
+        const w = Math.min(ra.right, rb.right) - Math.max(ra.left, rb.left);
+        const h = Math.min(ra.bottom, rb.bottom) - Math.max(ra.top, rb.top);
+        if (w > 1 && h > 1)
+          overlaps.push({
+            a: textOf(a) || selectorOf(a),
+            b: textOf(b) || selectorOf(b),
+          });
+      }
+    }
+  }
+
+  return {
+    pageHeight: document.documentElement.scrollHeight,
+    sideways,
+    firstScreen,
+    smallTargets: { count: smallTargets.length, items: smallTargets },
+    closeTargets: { count: closeTargets.length, items: closeTargets },
+    smallText: { count: smallText.length, items: smallText },
+    overlaps: { count: overlaps.length, items: overlaps },
+  };
+}
+
+// Content that fades in on scroll starts hidden, so scroll through the page first.
+async function scrollThrough(page) {
+  await page.evaluate(async () => {
+    for (let y = 0; y < document.body.scrollHeight; y += window.innerHeight) {
+      // The site scrolls smoothly; jump instead, so the page is still when measured.
+      window.scrollTo({ top: y, behavior: 'instant' });
+      await new Promise((resolve) => setTimeout(resolve, 300));
+    }
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  });
+  await page.waitForTimeout(500);
+}
+
+async function reachable(url) {
+  try {
+    // fetch resolves on 4xx and 5xx too, so an error page must fail here as well.
+    const response = await fetch(url, { signal: AbortSignal.timeout(5000) });
+    return response.ok;
+  } catch {
+    return false;
+  }
+}
+
+// Opens a page and stops the run if it is an error page, which would
+// otherwise be measured like a real one.
+async function open(page, url) {
+  const response = await page.goto(url, { waitUntil: 'load' });
+  if (!response?.ok()) {
+    throw new Error(
+      `Could not load ${url} (status ${response?.status() ?? 'unknown'})`
+    );
+  }
+}
+
+async function main() {
+  if (!(await reachable(baseUrl))) {
+    console.error(
+      `Not reachable: ${baseUrl}. Start the dev server or the built site first.`
+    );
+    process.exit(1);
+  }
+  const formPath = await registrationPath();
+  const pages = [
+    '/',
+    '/unterricht',
+    '/veranstaltungen/klein-montmartre',
+    '/kontakt',
+    ...(formPath ? [formPath] : []),
+  ];
+
+  await mkdir(outDir, { recursive: true });
+  const browser = await chromium.launch();
+  const runs = [];
+  const shots = [];
+  try {
+    for (const path of pages) {
+      for (const size of sizes) {
+        const page = await browser.newPage({ viewport: size });
+        await open(page, baseUrl + path);
+        await scrollThrough(page);
+        runs.push({
+          page: path,
+          size: `${size.width}x${size.height}`,
+          ...(await page.evaluate(measure)),
+        });
+        await page.close();
+      }
+    }
+
+    // Screenshots at 375x667.
+    const shot = async (name, action) => {
+      const page = await browser.newPage({
+        viewport: { width: 375, height: 667 },
+      });
+      await open(page, baseUrl + action.path);
+      await page.waitForTimeout(700);
+      if (action.fullPage) await scrollThrough(page);
+      if (action.prepare) await action.prepare(page);
+      const file = `${name}.png`;
+      if (action.element) {
+        await page
+          .locator(action.element)
+          .first()
+          .screenshot({ path: join(outDir, file) });
+      } else {
+        await page.screenshot({
+          path: join(outDir, file),
+          fullPage: Boolean(action.fullPage),
+        });
+      }
+      shots.push(file);
+      await page.close();
+    };
+
+    await shot('01-home-first-screen', { path: '/' });
+    await shot('02-menu-open', {
+      path: '/',
+      prepare: async (page) => {
+        await page.getByRole('button', { name: 'Menü öffnen' }).click();
+        await page.waitForTimeout(400);
+      },
+    });
+    await shot('03-unterricht-first-screen', { path: '/unterricht' });
+    await shot('04-klein-montmartre-first-screen', {
+      path: '/veranstaltungen/klein-montmartre',
+    });
+    if (formPath) {
+      await shot('05-form-top', { path: formPath });
+      await shot('06-form-errors', {
+        path: formPath,
+        prepare: async (page) => {
+          // Skip the browser's own required check, so the server answers
+          // with the form's field errors. Empty input is refused, nothing is sent.
+          await page
+            .locator('form')
+            .first()
+            .evaluate((form) => {
+              form.noValidate = true;
+            });
+          await page.locator('button[type="submit"]').click();
+          await page.waitForTimeout(800);
+          const alert = page.locator('[role="alert"]').first();
+          if ((await alert.count()) > 0) await alert.scrollIntoViewIfNeeded();
+        },
+      });
+    }
+    await shot('07-home-full-page', { path: '/', fullPage: true });
+
+    const result = {
+      generatedAt: new Date().toISOString(),
+      baseUrl,
+      runs,
+      screenshots: shots,
+    };
+    await writeFile(
+      join(outDir, 'result.json'),
+      JSON.stringify(result, null, 2) + '\n'
+    );
+    console.log(
+      `Wrote ${runs.length} measurements and ${shots.length} screenshots to docs/reviews/mobile/`
+    );
+    for (const run of runs) {
+      console.log(
+        `${run.page} ${run.size}: height ${run.pageHeight}px, ` +
+          `sideways ${run.sideways.scrolls ? 'YES' : 'no'}, ` +
+          `h1 on first screen ${run.firstScreen.h1 ? 'yes' : 'no'}, ` +
+          `small targets ${run.smallTargets.count}, close ${run.closeTargets.count}, ` +
+          `small text ${run.smallText.count}, header overlaps ${run.overlaps.count}`
+      );
+    }
+  } finally {
+    await browser.close();
+  }
+}
+
+main().catch((error) => {
+  console.error(error);
+  process.exit(1);
+});

@@ -22,6 +22,9 @@ npm run knip         # unused files, exports and dependencies
 npm test             # unit tests
 npm run test:coverage # unit tests with coverage (thresholds as in CI)
 npm run e2e          # browser tests (Playwright)
+npm run mobile-check -- http://localhost:3001  # phone view numbers and screenshots
+npm run privacy-scan -- http://localhost:3300  # cookies, storage and outside requests (production build)
+npx playwright install chromium   # once, before e2e and the two scripts above
 ```
 
 Deployment: any host that runs Next.js. Set the variables from `.env.example`
@@ -34,8 +37,9 @@ on the host.
 - `content/`: texts and data: site facts, teachers, courses, events, routes
 - `lib/`: helpers (dates, metadata, slugs, structured data), with their tests
 - `e2e/`: browser tests
+- `scripts/`: dev server helpers and the agents' check scripts
 - `public/`: images and files served as they are
-- `docs/`: design decisions, see below
+- `docs/`: design decisions, remaining work and review reports, see below
 
 ## Where content lives
 
@@ -58,6 +62,23 @@ slug, for example `public/salon77/dozenten/michael-roethlein.jpg`.
 - Work in small steps. Each change gets its own commit and is pushed after review.
 - Commit messages follow Conventional Commits (`feat:`, `fix:`, `style:`, `docs:` ...).
 - Never commit directly to `main`. Changes reach `main` through a pull request.
+
+## Agents (Claude Code)
+
+Read only agents in `.claude/agents/`. Each writes one report to
+`docs/reviews/`; generated screenshots and scan results there are not
+committed.
+
+| Agent | Checks | When |
+|---|---|---|
+| `reviewer` | security, correctness, data consistency, tests, performance, accessibility, docs, recorded decisions | before every pull request |
+| `visual-checker` | screenshots at 375 and 1440 against a fixed list | after layout or styling changes |
+| `mobile-view` | `npm run mobile-check`: sideways scroll, first screen, tap targets, text size | after layout or navigation changes |
+| `performance` | Lighthouse on the production build, images, JavaScript, fonts | after image or external changes, before launch |
+| `datenschutz` | `npm run privacy-scan` vs the Datenschutz text, services, the registration form | before launch, after any new service or form field, monthly |
+
+The command `/client-list` writes a German message for the club with every
+open question. Next steps are in [docs/REMAINING.md](docs/REMAINING.md).
 
 ## Why things are the way they are
 
