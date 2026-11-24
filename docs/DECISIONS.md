@@ -285,6 +285,21 @@ relative URLs.
 Alternative: Keep the directive in production and drop it only for tests.
 Rejected: the tests would then not check the headers the site really sends.
 
+## 2026-11-24: One course card per teacher on /unterricht
+
+Status: done
+
+Decision: On /unterricht every teacher has one course card. Hsiu-Yun Lu's
+three courses (Kindertanz & -Ballett, Moderner Tanz: Zeitgenössischer Tanz,
+Taiji) are on one card: each course title with its times, then her photo and
+name once and one "Mehr erfahren" button. The course descriptions are not on
+this card. All other course cards are unchanged.
+
+Why: She appeared on three cards with the same photo and name.
+
+Alternatives: A "Nächster Kurs" button or tabs on the card (rejected: hide
+courses behind a click).
+
 ## Open questions (for the client)
 
 - Other teacher data mismatches from the 5.1 report, if any (Andrea
