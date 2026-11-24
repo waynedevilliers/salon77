@@ -3,6 +3,9 @@ const isDev = process.env.NODE_ENV !== 'production';
 // Next.js injects inline scripts and styles for hydration and JSON-LD, so
 // 'unsafe-inline' is needed until a per-request nonce is set up. The Google
 // Maps frame is only rendered after the visitor consents (see MapConsent).
+// No upgrade-insecure-requests: HSTS already keeps visitors on https, every
+// resource is same-origin, and Safari (WebKit) applies it to http://localhost
+// too, which broke the site in the browser tests (see docs/DECISIONS.md).
 const contentSecurityPolicy = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ''}`,
@@ -15,7 +18,6 @@ const contentSecurityPolicy = [
   "base-uri 'self'",
   "form-action 'self'",
   "frame-ancestors 'none'",
-  'upgrade-insecure-requests',
 ].join('; ');
 
 export const securityHeaders = [
