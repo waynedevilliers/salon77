@@ -1,7 +1,8 @@
 import JsonLd from '@/components/JsonLd';
 import { breadcrumbJsonLd } from '@/lib/structured-data';
 import { pageMetadata } from '@/lib/metadata';
-import CourseCard, { TeacherCoursesCard } from '@/components/CourseCard';
+import CourseCard from '@/components/CourseCard';
+import TeacherCourseCard from '@/components/TeacherCourseCard';
 import Reveal from '@/components/Reveal';
 import TeacherSection from '@/components/TeacherSection';
 import { courseCardsByTeacher } from '@/lib/course-cards';
@@ -51,7 +52,7 @@ export default function Unterricht() {
                   {group.length === 1 ? (
                     <CourseCard {...group[0]} />
                   ) : (
-                    <TeacherCoursesCard courses={group} />
+                    <TeacherCourseCard courses={group} />
                   )}
                 </Reveal>
               ))}

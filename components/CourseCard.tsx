@@ -8,6 +8,8 @@ interface CourseCardProps {
   description: string;
   schedule: string[];
   instructor: string;
+  /** Shown above the teacher, for example the "Nächster Kurs" button. */
+  switcher?: React.ReactNode;
 }
 
 // Course-only teachers have no profile yet, so their course photo is kept here.
@@ -59,28 +61,48 @@ function InstructorBlock({ name }: { name: string }) {
   return <div className="flex flex-col items-center">{content}</div>;
 }
 
-const cardClassName =
-  'flex h-full flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-[transform,box-shadow] duration-300 motion-safe:hover:-translate-y-1 hover:shadow-lg';
-
-const titleClassName = 'mb-2 text-xl font-bold leading-[1.3] sm:text-2xl';
-
-const scheduleClassName =
-  'list-disc pl-5 text-base font-semibold leading-[1.6] marker:text-base marker:leading-none marker:text-[var(--color-button)]';
-
-function TitleBar() {
-  return (
-    <span
-      aria-hidden="true"
-      className="mb-4 block h-0.5 w-10"
-      style={{ backgroundColor: 'var(--color-accent)' }}
-    />
-  );
-}
-
-function CardFooter({ instructor }: { instructor: string }) {
+export default function CourseCard({
+  title,
+  description,
+  schedule,
+  instructor,
+  switcher,
+}: CourseCardProps) {
   const instructors = instructor.split(',').map((i) => i.trim());
+
   return (
-    <>
+    <div
+      className="flex h-full flex-col rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-[transform,box-shadow] duration-300 motion-safe:hover:-translate-y-1 hover:shadow-lg"
+      style={{ minHeight: '500px' }}
+    >
+      <h3
+        className="mb-2 text-xl font-bold leading-[1.3] sm:text-2xl"
+        style={{ color: 'var(--color-heading)' }}
+      >
+        {title}
+      </h3>
+      <span
+        aria-hidden="true"
+        className="mb-4 block h-0.5 w-10"
+        style={{ backgroundColor: 'var(--color-accent)' }}
+      />
+      <p
+        className="mb-4 text-base leading-[1.6]"
+        style={{ color: 'var(--color-text-muted)' }}
+      >
+        {description}
+      </p>
+      <ul
+        className="mb-6 mt-auto h-[5.5rem] list-disc pl-5 text-base font-semibold leading-[1.6] marker:text-base marker:leading-none marker:text-[var(--color-button)]"
+        style={{ color: 'var(--color-text)' }}
+      >
+        {schedule.map((slot) => (
+          <li key={slot}>{slot}</li>
+        ))}
+      </ul>
+
+      {switcher}
+
       <div className="mb-6 flex flex-wrap justify-center gap-6">
         {instructors.map((name) => (
           <InstructorBlock key={name} name={name} />
@@ -93,76 +115,6 @@ function CardFooter({ instructor }: { instructor: string }) {
       >
         Mehr erfahren
       </ActionLink>
-    </>
-  );
-}
-
-/**
- * One card for a teacher with several courses: each course title with its
- * times, then the teacher once. Same style as a single course card.
- */
-export function TeacherCoursesCard({
-  courses,
-}: {
-  courses: CourseCardProps[];
-}) {
-  return (
-    <div className={cardClassName} style={{ minHeight: '500px' }}>
-      {courses.map((course) => (
-        <div key={course.title} className="mb-6">
-          <h3
-            className={titleClassName}
-            style={{ color: 'var(--color-heading)' }}
-          >
-            {course.title}
-          </h3>
-          <TitleBar />
-          <ul
-            className={scheduleClassName}
-            style={{ color: 'var(--color-text)' }}
-          >
-            {course.schedule.map((slot) => (
-              <li key={slot}>{slot}</li>
-            ))}
-          </ul>
-        </div>
-      ))}
-
-      <div className="mt-auto">
-        <CardFooter instructor={courses[0].instructor} />
-      </div>
-    </div>
-  );
-}
-
-export default function CourseCard({
-  title,
-  description,
-  schedule,
-  instructor,
-}: CourseCardProps) {
-  return (
-    <div className={cardClassName} style={{ minHeight: '500px' }}>
-      <h3 className={titleClassName} style={{ color: 'var(--color-heading)' }}>
-        {title}
-      </h3>
-      <TitleBar />
-      <p
-        className="mb-4 text-base leading-[1.6]"
-        style={{ color: 'var(--color-text-muted)' }}
-      >
-        {description}
-      </p>
-      <ul
-        className={`mb-6 mt-auto h-[5.5rem] ${scheduleClassName}`}
-        style={{ color: 'var(--color-text)' }}
-      >
-        {schedule.map((slot) => (
-          <li key={slot}>{slot}</li>
-        ))}
-      </ul>
-
-      <CardFooter instructor={instructor} />
     </div>
   );
 }
