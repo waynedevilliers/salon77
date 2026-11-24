@@ -303,6 +303,19 @@ Why: She appeared on three cards with the same photo and name.
 
 Alternative: All three courses listed on one card without descriptions
 (tried, rejected by the owner).
+## 2026-11-24: Teacher order by weekly courses
+
+Status: done
+
+Decision: "Unsere Dozenten" lists the teachers with the most weekly lessons
+in the Wochenkurse timetable first; the same number by last name. Andrea
+Kneis, who has no weekly courses, is always last. The cards are unchanged.
+The same order is used for previous/next on the profile pages. The timetable
+moved unchanged from the Wochenkurse page to `content/weekly-courses.ts`, so
+the order is calculated from it (`lib/teacher-order.ts`).
+
+Why: The busiest teachers appear first, and the order follows the timetable
+when it changes.
 
 ## Open questions (for the client)
 
