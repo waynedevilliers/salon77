@@ -6,17 +6,19 @@ import { instructors, type Instructor } from '@/content/instructors';
  * site standard requires for German URLs. Photos use the same name.
  */
 export function instructorSlug(name: string): string {
-  return name
-    .normalize('NFC')
-    .toLowerCase()
-    .replace(/ä/g, 'ae')
-    .replace(/ö/g, 'oe')
-    .replace(/ü/g, 'ue')
-    .replace(/ß/g, 'ss')
-    // Other accents: é becomes e, so "André" gives "andre".
-    .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
-    .replace(/\s+/g, '-');
+  return (
+    name
+      .normalize('NFC')
+      .toLowerCase()
+      .replace(/ä/g, 'ae')
+      .replace(/ö/g, 'oe')
+      .replace(/ü/g, 'ue')
+      .replace(/ß/g, 'ss')
+      // Other accents: é becomes e, so "André" gives "andre".
+      .normalize('NFD')
+      .replace(/[̀-ͯ]/g, '')
+      .replace(/\s+/g, '-')
+  );
 }
 
 export function findInstructor(slug: string): Instructor | undefined {

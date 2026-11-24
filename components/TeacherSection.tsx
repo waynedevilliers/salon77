@@ -22,8 +22,8 @@ export default function TeacherSection() {
         style={{ color: 'var(--color-text-muted)' }}
       >
         Du möchtest einen Kurs ausprobieren? Wähle eine Dozentin oder einen
-        Dozenten und nimm direkt Kontakt auf. Die Kontaktdaten
-        findest du auf der jeweiligen Profilseite.
+        Dozenten und nimm direkt Kontakt auf. Die Kontaktdaten findest du auf
+        der jeweiligen Profilseite.
       </p>
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
         {instructors.map((instructor) => (

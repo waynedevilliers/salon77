@@ -1,0 +1,7 @@
+# Prose keeps its line breaks: legal texts, docs, reviews and agent definitions.
+*.md
+package-lock.json
+# Static files served as they are.
+public/
+# Agent worktrees hold their own copies of the code.
+.claude/worktrees/

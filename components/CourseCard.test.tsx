@@ -55,9 +55,10 @@ describe('CourseCard teacher links', () => {
         instructor="Hsiu-Yun Lu"
       />
     );
-    expect(
-      screen.getByRole('link', { name: 'Mehr erfahren' })
-    ).toHaveAttribute('href', '/unterricht#dozenten');
+    expect(screen.getByRole('link', { name: 'Mehr erfahren' })).toHaveAttribute(
+      'href',
+      '/unterricht#dozenten'
+    );
   });
 
   it('shows each time slot on its own line', () => {

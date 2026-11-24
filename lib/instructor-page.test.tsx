@@ -29,7 +29,9 @@ describe('instructor detail page', () => {
     });
     render(page);
     const link = screen.getByRole('link', { name: 'Kontakt zu Andrea Kneis' });
-    expect(link.getAttribute('href')).toContain('subject=Anfrage%20bei%20Andrea%20Kneis');
+    expect(link.getAttribute('href')).toContain(
+      'subject=Anfrage%20bei%20Andrea%20Kneis'
+    );
     expect(screen.queryByText(/Probestunde/)).toBeNull();
   });
 });
