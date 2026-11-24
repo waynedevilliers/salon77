@@ -44,7 +44,10 @@ Tooling, tests and agents are in place.
   version from next/image, so it only weighs on the repository. Lossless
   compression gets it to 867 KB; going under 500 KB needs a JPEG or WebP
   export, which the owner should approve.
-- `public/screenshots/` (homepage.png, hero.png) is not used by any page.
+- The gallery tiles on Räumlichkeiten open the lightbox by click only: they
+  are `<div onClick>` without keyboard access (`components/ImageGallery.tsx`),
+  and that page has no "Alle Bilder ansehen" button. Make each tile a button
+  with no visual change.
 
 - `lighthouserc.json` uses the desktop preset (desktop speed on a phone-sized
   screen), so the "mobile" budgets are measured at desktop speed. Switch to
@@ -75,7 +78,8 @@ Tooling, tests and agents are in place.
 - Coverage thresholds and missing tests (PR #36).
 - Node 22, stricter CI, exact versions, Dependabot cooldown (PR #37).
 - Agents, `/client-list`, this file (PR #39).
-- Performance: the image lightbox loads only when opened (about 23 KB
-  JavaScript and 6 KB CSS less on Räumlichkeiten and Klein-Montmartre);
+- Performance: the image lightbox loads only when opened (about 29 KB
+  JavaScript and 5 KB CSS uncompressed, 11 KB and 1.4 KB compressed, less on
+  Räumlichkeiten and Klein-Montmartre);
   the Kontakt photo is no longer lazy-loaded and has `sizes`; `priority`
   replaced by `preload` (deprecated in Next.js 16).

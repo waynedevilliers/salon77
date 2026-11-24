@@ -26,7 +26,7 @@ export default function ImageGallery({
 }: ImageGalleryProps) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
-  // Stays true after the first open, so the lightbox can play its closing animation.
+  // Set on the first open and kept, so the lightbox loads once and stays loaded.
   const [lightboxUsed, setLightboxUsed] = useState(false);
 
   const visibleImages = previewCount ? images.slice(0, previewCount) : images;

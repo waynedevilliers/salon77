@@ -31,7 +31,7 @@ export default function Kontakt() {
                 src="/kontakt_images/kontakt.png"
                 alt="Salon77 Kontakt"
                 fill
-                sizes="(max-width: 56rem) 100vw, 56rem"
+                sizes="(max-width: 56rem) 100vw, 52rem"
                 preload
                 className="w-full h-full object-cover"
               />
