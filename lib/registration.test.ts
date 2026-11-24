@@ -83,6 +83,11 @@ describe('isBot', () => {
     expect(isBot({ ...valid, website: '' })).toBe(false);
   });
 
+  it('is false for input that is not an object', () => {
+    expect(isBot(null)).toBe(false);
+    expect(isBot('website')).toBe(false);
+  });
+
   it('is true when the honeypot is filled in', () => {
     expect(isBot({ ...valid, website: 'https://spam.example' })).toBe(true);
   });
