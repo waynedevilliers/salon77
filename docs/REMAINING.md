@@ -25,8 +25,7 @@ Tooling, tests and agents are in place.
 
 ### 3. When we resume (code, in this order)
 
-1. Fade-in on the first screen (needs a decision, see "Open decisions").
-2. Datenschutz text, once the club or a lawyer supplies it; then run the
+1. Datenschutz text, once the club or a lawyer supplies it; then run the
    datenschutz agent.
 
 ## Blocking launch
@@ -60,16 +59,7 @@ Tooling, tests and agents are in place.
 
 ## Open decisions
 
-- Fade-in on the first screen. Measured at phone speed (Lighthouse mobile
-  throttling, 2026-11-24), the home page needs about 3.6 s and /unterricht
-  about 3.5 s until the largest element shows (budget 2.5 s). The cause is
-  `components/Reveal.tsx`: cards already on the first screen stay invisible
-  until the JavaScript has loaded. Fixing it changes how the first screen
-  appears, so it needs the owner's choice.
-
 - See "Open questions (for the client)" in `docs/DECISIONS.md`.
-- Whether review reports in `docs/reviews/` are committed. Generated
-  screenshots and scan results there are not.
 
 ## Done since the last version of this list
 
@@ -83,3 +73,6 @@ Tooling, tests and agents are in place.
   Räumlichkeiten and Klein-Montmartre);
   the Kontakt photo is no longer lazy-loaded and has `sizes`; `priority`
   replaced by `preload` (deprecated in Next.js 16).
+- Cards on the first screen show without the fade; /unterricht LCP at phone
+  speed 3.5 s to 2.1 s, home page 3.6 s to 3.0 s (see DECISIONS).
+- Review reports in `docs/reviews/` stay local (git-ignored).
