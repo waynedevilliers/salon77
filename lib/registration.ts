@@ -11,7 +11,7 @@ const multiline = (max: number) => z.string().trim().min(1).max(max);
 const text = (max: number) => multiline(max).regex(/^[^\r\n]*$/);
 
 /** Server-side rules for the Klein-Montmartre registration. */
-export const registrationSchema = z.object({
+const registrationSchema = z.object({
   name: text(limits.name),
   surname: text(limits.surname),
   address: text(limits.address),
@@ -30,11 +30,11 @@ export const registrationSchema = z.object({
   description: multiline(limits.description),
 });
 
-export type Registration = z.infer<typeof registrationSchema>;
+type Registration = z.infer<typeof registrationSchema>;
 
 export type FieldErrors = Partial<Record<RegistrationField, string>>;
 
-export type ParseResult =
+type ParseResult =
   | { success: true; data: Registration }
   | { success: false; fieldErrors: FieldErrors };
 

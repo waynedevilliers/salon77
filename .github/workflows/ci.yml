@@ -15,45 +15,62 @@ concurrency:
 jobs:
   lint-and-types:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version-file: .nvmrc
           cache: 'npm'
       - run: npm ci
-      - run: npm run lint
+      - run: npm run lint -- --max-warnings=0
       - run: npm run type-check
+      - run: npm run format:check
+      # Unused files, exports and dependencies.
+      - run: npm run knip
 
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version-file: .nvmrc
           cache: 'npm'
       - run: npm ci
       - run: npm run test:coverage -- --run
 
   audit:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version-file: .nvmrc
           cache: 'npm'
       - run: npm ci
       - run: npm run audit
+      # Packages that ship with the site: no known advisory at any level.
+      - run: npm audit --omit=dev
 
   e2e:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version-file: .nvmrc
           cache: 'npm'
       - run: npm ci
       - run: npx playwright install --with-deps chromium
@@ -66,16 +83,25 @@ jobs:
       # main: every browser profile.
       - run: npm run e2e
         if: github.event_name == 'push'
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
 
   lighthouse:
     # Only on main: slow, and the performance budgets do not change per pull request.
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version-file: .nvmrc
           cache: 'npm'
       - run: npm ci
       - run: npm run build

@@ -6,9 +6,7 @@ describe('HomeIntro', () => {
   it('shows the supporting line', () => {
     render(<HomeIntro />);
     expect(
-      screen.getByText(
-        'Tanz, Musik, Design und Fotografie'
-      )
+      screen.getByText('Tanz, Musik, Design und Fotografie')
     ).toBeInTheDocument();
   });
 

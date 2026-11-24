@@ -1,33 +1,28 @@
 ## Summary
 
-<!-- Brief description of changes -->
+<!-- What changed and why, in two or three sentences. -->
 
 ## Changes
 
-<!-- What was changed and why -->
-
--
 -
 
-## Testing
+## Definition of done
 
-<!-- How were these changes tested? -->
+- [ ] Branch made from an up-to-date `main`
+- [ ] `npm run lint -- --max-warnings=0`, `npm run type-check`, `npm run format:check` and `npm run knip` pass
+- [ ] `npm run test:coverage -- --run` passes (coverage thresholds met)
+- [ ] `npm run build` passes and `npx playwright test --project=chromium --project=mobile-chrome` passes
+- [ ] Reviewer agent run on the branch; Critical and Important findings fixed
+- [ ] Screenshots at phone and desktop size for every visual change (or: no visual change)
+- [ ] Colours, fonts, menu and page structure unchanged unless the client asked
+- [ ] `docs/DECISIONS.md` updated for every new decision, in the same commit
+- [ ] Datenschutz text covers any new service, cookie or form field
+- [ ] Open client questions listed below
 
-- [ ] Unit tests pass
-- [ ] Component tests pass
-- [ ] E2E tests pass
-- [ ] No console errors
-- [ ] Lighthouse score remains 90+
+## Screenshots
 
-## Screenshots (if applicable)
+<!-- Phone (375px) and desktop (1440px), or "No visual change". -->
 
-<!-- Add screenshots of UI changes -->
+## Open client questions
 
-## Checklist
-
-- [ ] Code follows the project's style guidelines
-- [ ] I have performed a self-review of my own code
-- [ ] I have commented my code, particularly in hard-to-understand areas
-- [ ] My changes generate no new warnings
-- [ ] Tests pass locally
-- [ ] CI workflow passes
+<!-- Anything the club still has to answer or provide. -->

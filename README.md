@@ -7,7 +7,7 @@ is published as a static site, with a few pages rendered per request.
 
 ## Requirements and commands
 
-Requirements: Node.js 20 or newer, npm.
+Requirements: Node.js 22 (see `.nvmrc`; run `nvm use`), npm.
 
 ```bash
 npm install          # install dependencies
@@ -17,6 +17,8 @@ npm run build        # production build
 npm start            # run the production build
 npm run lint         # lint
 npm run type-check   # TypeScript
+npm run format:check # formatting (Prettier)
+npm run knip         # unused files, exports and dependencies
 npm test             # unit tests
 npm run test:coverage # unit tests with coverage (thresholds as in CI)
 npm run e2e          # browser tests (Playwright)

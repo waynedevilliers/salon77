@@ -4,6 +4,9 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    # Waits until a release is two weeks old, like the rule for manual updates.
+    cooldown:
+      default-days: 14
     groups:
       minor-and-patch:
         update-types:
@@ -13,3 +16,6 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    # Waits until a release is two weeks old, like the rule for manual updates.
+    cooldown:
+      default-days: 14

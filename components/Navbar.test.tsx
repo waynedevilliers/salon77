@@ -1,5 +1,5 @@
 /// <reference types="vitest" />
-import { fireEvent, render, screen, within } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import { usePathname } from 'next/navigation';
 import Navbar from './Navbar';
 

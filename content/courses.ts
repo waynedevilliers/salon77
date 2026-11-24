@@ -1,5 +1,5 @@
 /** Courses offered at Salon77. Shown on /unterricht and on teacher profiles. */
-export interface Course {
+interface Course {
   title: string;
   description: string;
   /** One entry per time slot, shown on its own line. */
