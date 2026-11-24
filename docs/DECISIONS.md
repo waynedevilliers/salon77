@@ -260,7 +260,7 @@ compared pixel by pixel).
 
 Why: The first-screen cards stayed invisible until the JavaScript had loaded.
 At phone speed (Lighthouse mobile throttling) the largest element appeared
-after about 3.5 s on both pages; budget 2.5 s. Measured after the change:
+after about 3.6 s (home page) and 3.5 s (/unterricht); budget 2.5 s. Measured after the change:
 /unterricht 2.1 s (score 0.78 to 0.94), home page 3.0 s (0.85 to 0.94). The
 rest of the home page delay is React's own start-up time.
 

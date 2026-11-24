@@ -60,6 +60,8 @@ describe('Reveal', () => {
     );
     expect(wrapper()).toHaveClass('reveal');
     expect(wrapper()).not.toHaveClass('reveal-visible');
+    // Hidden without a fade-out; the fade-in later uses the CSS transition.
+    expect(wrapper()).toHaveStyle({ transition: 'none' });
 
     act(() => {
       observerCallback?.(

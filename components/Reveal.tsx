@@ -15,8 +15,8 @@ type Stage = 'shown' | 'waiting' | 'revealed';
  * Content on the first screen is shown straight away, without the fade, so it
  * does not wait for the JavaScript to load (see docs/DECISIONS.md). Content
  * further down is hidden once the page is interactive and fades in when it
- * scrolls into view. Without JavaScript, or when the visitor prefers reduced
- * motion, everything stays visible (handled in CSS).
+ * scrolls into view. Without JavaScript nothing is hidden, because the server
+ * HTML has no `reveal` class; with reduced motion the CSS keeps it visible.
  */
 export default function Reveal({ children, className = '' }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
@@ -50,7 +50,12 @@ export default function Reveal({ children, className = '' }: RevealProps) {
   }[stage];
 
   return (
-    <div ref={ref} className={`${stageClass} ${className}`.trim()}>
+    <div
+      ref={ref}
+      className={`${stageClass} ${className}`.trim()}
+      // Hide without the fade-out, so a card cannot dim while the page loads.
+      style={stage === 'waiting' ? { transition: 'none' } : undefined}
+    >
       {children}
     </div>
   );

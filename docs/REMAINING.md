@@ -36,6 +36,10 @@ Tooling, tests and agents are in place.
 
 ## Code, not started (no launch blocker)
 
+- Home page LCP at phone speed is still about 3.0 s (budget 2.5 s). The
+  first card image is ready early; the browser paints it once React has
+  started. No small fix found.
+
 - Blocking time at phone speed is 250 to 500 ms on every page (budget
   200 ms). Most of it is React and the Next.js runtime, which every page
   loads; no small fix found.
