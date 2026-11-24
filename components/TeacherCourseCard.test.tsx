@@ -15,7 +15,11 @@ describe('TeacherCourseCard', () => {
     render(<TeacherCourseCard courses={hsiuYun} />);
     expect(shownTitle()).toBe('Kindertanz & -Ballett');
     expect(screen.getByText(hsiuYun[0].description)).toBeVisible();
-    expect(screen.getByText('Kurs 1 von 3')).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', {
+        name: 'Kurs 1 von 3: Kindertanz & -Ballett',
+      })
+    ).toHaveAttribute('aria-current', 'true');
   });
 
   it('flips to the next course and back to the first', () => {
@@ -28,6 +32,18 @@ describe('TeacherCourseCard', () => {
       fireEvent.click(screen.getByRole('button', { name: /Nächster Kurs/ }));
       expect(shownTitle()).toBe(title);
     }
+  });
+
+  it('goes back with the previous arrow and jumps with a dot', () => {
+    render(<TeacherCourseCard courses={hsiuYun} />);
+    fireEvent.click(screen.getByRole('button', { name: 'Vorheriger Kurs' }));
+    expect(shownTitle()).toBe('Taiji');
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: 'Kurs 2 von 3: Moderner Tanz: Zeitgenössischer Tanz',
+      })
+    );
+    expect(shownTitle()).toBe('Moderner Tanz: Zeitgenössischer Tanz');
   });
 
   it('shows her photo once to screen readers', () => {

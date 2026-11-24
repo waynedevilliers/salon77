@@ -8,7 +8,10 @@ interface CourseCardProps {
   description: string;
   schedule: string[];
   instructor: string;
-  /** Shown above the teacher, for example the "Nächster Kurs" button. */
+  /**
+   * Shown under the description, for example the course switcher. The times,
+   * teacher and button stay at the bottom, aligned with the other cards.
+   */
   switcher?: React.ReactNode;
 }
 
@@ -92,6 +95,7 @@ export default function CourseCard({
       >
         {description}
       </p>
+      {switcher}
       <ul
         className="mb-6 mt-auto h-[5.5rem] list-disc pl-5 text-base font-semibold leading-[1.6] marker:text-base marker:leading-none marker:text-[var(--color-button)]"
         style={{ color: 'var(--color-text)' }}
@@ -100,8 +104,6 @@ export default function CourseCard({
           <li key={slot}>{slot}</li>
         ))}
       </ul>
-
-      {switcher}
 
       <div className="mb-6 flex flex-wrap justify-center gap-6">
         {instructors.map((name) => (

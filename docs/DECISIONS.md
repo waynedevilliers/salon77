@@ -292,9 +292,11 @@ Status: done
 Decision: On /unterricht every teacher has one course card. Hsiu-Yun Lu's
 three courses (Kindertanz & -Ballett, Moderner Tanz: Zeitgenössischer Tanz,
 Taiji) share one card that looks like every other course card and shows one
-course at a time. "Kurs 1 von 3" and a "Nächster Kurs ›" button flip the same
-card to the next course and back to the first. The card keeps the height of
-her longest course, so it does not jump. All other course cards are
+course at a time. Under the description, ‹ and › arrows flip the same card
+to the previous or next course (wrapping around), and a dot per course shows
+which one is open and jumps to it. The times, photo and "Mehr erfahren" stay
+at the bottom, aligned with the other cards in the row. The card keeps the
+height of her longest course, so it does not jump. All other course cards are
 unchanged.
 
 Why: She appeared on three cards with the same photo and name.
