@@ -49,7 +49,7 @@ export default function Navbar() {
               height={140}
               className="h-auto w-44 sm:w-52 lg:w-[280px]"
               style={{ height: 'auto' }}
-              priority
+              preload
             />
           </Link>
         </div>
