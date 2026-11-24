@@ -197,6 +197,57 @@ Why: The client asked for the wording to be removed everywhere.
 Open: the free trial lesson offer for Gitarre is no longer mentioned on the
 site. Confirm with the client whether it should be stated another way.
 
+## 2026-11-23: Next.js 16.4.6 (security update)
+
+Status: done
+
+Decision: Next.js and eslint-config-next go from 16.4.3 to 16.4.6.
+
+Why: npm audit lists seven moderate advisories for Next.js 16.0 to 16.4.4,
+several in `use cache` and Cache Components, which this site has switched on.
+16.4.6 fixes them and was released on 2026-11-09, so it meets the rule of
+versions at least two weeks old.
+
+Considered: Waiting for 16.5. Rejected, the fix is a patch release.
+
+## 2026-11-23: Registration form checked on the server, with an on/off switch
+
+Status: done
+
+Decision: The Klein-Montmartre registration is checked again on the server
+before any email is sent: every field with Zod (lengths, email, phone, area
+1 to 100 m²), a hidden honeypot field, and at most 5 attempts per visitor in 15
+minutes. Every value is escaped in the HTML email, and a plain-text version is
+sent too. Missing mail settings stop the request. A failed attempt shows a
+short code and logs only that code and the error type, never personal data.
+Errors are shown under their fields. The form links to the Datenschutz page.
+All form text lives in `content/registration.ts`. Setting `enabled: false`
+there switches the form off: the registration page returns 404, the "Jetzt
+anmelden" button is hidden, and the server refuses submissions. The email link
+stays.
+
+On the form only, field borders use `--color-text-muted` (5.7:1 on white) and
+the focus ring `--color-accent-text` (5.1:1), so both meet the 3:1 minimum for
+controls. After sending, focus moves to the thank-you heading.
+
+Zod (4.6.7, exact) is added as a dependency for the server checks. It was
+already installed through ESLint and knip.
+
+The rate limit assumes the site runs on Vercel, which sets the visitor address
+in x-forwarded-for. Visitors without a known address share one bucket of 30
+attempts. Revisit `lib/client-key.ts` before moving to another host.
+
+Why: The form is the only public input on the site. Before this change,
+visitor input went into the email HTML unescaped, there was no server-side
+validation, and nothing stopped the form being used to send unlimited email.
+
+Considered: A shared rate-limit store (for example Upstash). Rejected for now:
+it adds an outside processor that the Datenschutz text would have to name. The
+in-memory limit works per server instance, which is enough for this traffic.
+A required consent checkbox: not added, because the data is processed to handle
+the registration; the notice with the Datenschutz link informs the visitor.
+Confirm with the client or a lawyer (see open questions).
+
 ## Open questions (for the client)
 
 - Other teacher data mismatches from the 5.1 report, if any (Andrea
@@ -205,3 +256,8 @@ site. Confirm with the client whether it should be stated another way.
   show times. Decide whether Wochenkurse becomes a weekly timetable
   view of the same data or is dropped.
 - Placeholder texts marked TODO in the content files.
+- Datenschutz text: it does not yet describe the Klein-Montmartre
+  registration form (fields, purpose, legal basis, how long registrations are
+  kept), the email (SMTP) provider, the hosting provider, or the Google Maps
+  map loaded after a click. The club or a lawyer needs to supply this text.
+- Registration form: is 100 m² the right upper limit for the stand area?

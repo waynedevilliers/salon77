@@ -44,6 +44,8 @@ Change texts, dates and images in `content/` rather than in components:
 - `content/events.ts`: event dates and teaser text
 - `content/home.ts`: home page text and cards
 - `content/routes.ts`: public pages for the sitemap and breadcrumbs
+- `content/registration.ts`: Klein-Montmartre registration form: texts, limits,
+  and `enabled` to switch the online form off
 
 Photos go in `public/salon77/`. Teacher photos are named after the teacher's
 slug, for example `public/salon77/dozenten/michael-roethlein.jpg`.
