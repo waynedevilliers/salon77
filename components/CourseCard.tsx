@@ -8,6 +8,8 @@ interface CourseCardProps {
   description: string;
   schedule: string[];
   instructor: string;
+  /** Shown above the teacher, for example a "Nächster Kurs" button. */
+  switcher?: React.ReactNode;
 }
 
 // Course-only teachers have no profile yet, so their course photo is kept here.
@@ -64,6 +66,7 @@ export default function CourseCard({
   description,
   schedule,
   instructor,
+  switcher,
 }: CourseCardProps) {
   const instructors = instructor.split(',').map((i) => i.trim());
 
@@ -97,6 +100,8 @@ export default function CourseCard({
           <li key={slot}>{slot}</li>
         ))}
       </ul>
+
+      {switcher}
 
       <div className="mb-6 flex flex-wrap justify-center gap-6">
         {instructors.map((name) => (

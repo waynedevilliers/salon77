@@ -1,5 +1,5 @@
 import InstructorCard from '@/components/InstructorCard';
-import { instructors } from '@/content/instructors';
+import { orderedInstructors } from '@/lib/teacher-order';
 
 /**
  * The teacher grid, shown on the Unterricht page. Each card is one link to the
@@ -25,11 +25,8 @@ export default function TeacherSection() {
         Dozenten und nimm direkt Kontakt auf. Die Kontaktdaten findest du auf
         der jeweiligen Profilseite.
       </p>
-      {/* Side by side (from two columns), every row is as tall as the tallest
-          card, so the cards match the teacher with the most courses. One
-          column on phones needs no equal height. */}
-      <div className="grid grid-cols-1 gap-8 sm:auto-rows-fr sm:grid-cols-2 lg:grid-cols-4">
-        {instructors.map((instructor) => (
+      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        {orderedInstructors.map((instructor) => (
           <InstructorCard key={instructor.name} instructor={instructor} />
         ))}
       </div>

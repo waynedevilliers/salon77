@@ -285,25 +285,38 @@ relative URLs.
 Alternative: Keep the directive in production and drop it only for tests.
 Rejected: the tests would then not check the headers the site really sends.
 
-## 2026-11-24: One card per teacher, courses listed on the card
+## 2026-11-24: One course card per teacher on /unterricht
 
 Status: done
 
-Decision: Every teacher has exactly one card in "Unsere Dozenten". Below the
-subject, the card lists the teacher's courses from `content/courses.ts`:
-course name and days only (for example "Pilates · Mo, Do"); the full times
-stay on the profile page. Teachers without a course show no list. From two
-columns upward, every card is as tall as the one with the most courses; on
-phones (one column) cards keep their own height. Pilates (Hsiu-Yun Lu,
-Montag 18:10 and Donnerstag 17:40) was added to the course data, so it also
-has a course card on /unterricht and appears on her profile.
+Decision: The course grid on /unterricht shows one card per teacher.
+Hsiu-Yun Lu teaches four courses (Kindertanz & -Ballett, Moderner Tanz,
+Pilates, Taiji); they share one card with a "Nächster Kurs" button that shows
+the next course on the same card ("Kurs 1 von 4"). The card keeps the height
+of her longest course, so it does not jump. Pilates (Montag 18:10, Donnerstag
+17:40, as on the Wochenkurse page) was added to the course data and is one of
+her courses on that card and on her profile.
 
-Why: Hsiu-Yun Lu appeared on three course cards but her teacher card did not
-say what she teaches when. Days fit on a card; her seven time slots do not.
+"Unsere Dozenten" is not changed by this: those cards keep photo, name and
+subject only. Courses and times belong on the course cards.
 
-Alternatives: A course carousel or a scrolling list inside the card
-(rejected: hides content and is awkward on phones), a count only ("5 Kurse")
-(rejected: says less than names and days).
+Why: She appeared on several course cards with the same photo and name.
+
+## 2026-11-24: Teacher order by weekly lessons
+
+Status: done
+
+Decision: Teachers are listed by the number of weekly lessons in the
+Wochenkurse timetable (`content/weekly-courses.ts`), most first; same count
+by last name; teachers without weekly lessons after them, those with a course
+by arrangement first. Two placements set by the owner: Robert Collomb is 5th
+(his guitar lessons are all arranged with the students, so the timetable
+cannot count them) and Andrea Kneis is last. The same order is used in
+"Unsere Dozenten", for previous/next on the profile pages and in the sitemap
+(`lib/teacher-order.ts`).
+
+Why: The most present teachers appear first. The order is calculated from the
+timetable, so it updates itself when the schedule changes.
 
 ## Open questions (for the client)
 
@@ -321,7 +334,7 @@ Alternatives: A course carousel or a scrolling list inside the card
 - Pilates course text on /unterricht is a placeholder (PLACEHOLDER(client) in
   `content/courses.ts`); please confirm or replace it, and whether Pilates
   belongs in Hsiu-Yun Lu's subject line.
-- Course data vs Wochenkurse timetable, now visible on the teacher cards:
+- Course data vs Wochenkurse timetable:
   Akkordeon (Stefanie Koch) says "Nach Vereinbarung" but the timetable has
   Tuesday 14:45 and 17:30; Ballett (Asami Krisan) has Wednesday only but the
   timetable also has Friday 19:00. Which is right?

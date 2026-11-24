@@ -1,24 +1,20 @@
 import Link from 'next/link';
 import InstructorPhoto from '@/components/InstructorPhoto';
 import { instructorSlug } from '@/lib/instructors';
-import { courseDays, coursesOf } from '@/lib/teacher-courses';
 import type { Instructor } from '@/content/instructors';
 
 /**
- * Teacher card. Photo, name, subject and the teacher's courses (name and days)
- * are one link to the profile page, which has the full times.
+ * Teacher card. Photo, name and subject are one link to the profile page.
  */
 export default function InstructorCard({
   instructor,
 }: {
   instructor: Instructor;
 }) {
-  const teacherCourses = coursesOf(instructor.name);
-
   return (
     <Link
       href={`/dozenten/${instructorSlug(instructor.name)}`}
-      className="group flex h-full flex-col items-center rounded-lg p-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-accent-text)]"
+      className="group flex flex-col items-center rounded-lg p-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-accent-text)]"
     >
       <InstructorPhoto name={instructor.name} className="mb-4 h-40 w-40" />
 
@@ -34,20 +30,6 @@ export default function InstructorCard({
       >
         {instructor.specialty}
       </p>
-
-      {teacherCourses.length > 0 && (
-        <ul
-          className="mt-3 space-y-1 text-center text-base"
-          style={{ color: 'var(--color-text-muted)' }}
-        >
-          {teacherCourses.map((course) => (
-            <li key={course.title}>
-              <span style={{ color: 'var(--color-text)' }}>{course.title}</span>{' '}
-              · {courseDays(course.schedule)}
-            </li>
-          ))}
-        </ul>
-      )}
     </Link>
   );
 }

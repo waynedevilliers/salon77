@@ -13,24 +13,16 @@ export function coursesOf(teacherName: string): Course[] {
   );
 }
 
-const weekdays = [
-  ['Montag', 'Mo'],
-  ['Dienstag', 'Di'],
-  ['Mittwoch', 'Mi'],
-  ['Donnerstag', 'Do'],
-  ['Freitag', 'Fr'],
-  ['Samstag', 'Sa'],
-  ['Sonntag', 'So'],
-] as const;
-
 /**
- * Short days of a course schedule, in week order, for example "Mo, Do, Fr".
- * A schedule without a weekday ("Nach Vereinbarung") is returned as written.
+ * Courses grouped per teacher for the course grid on /unterricht: one group,
+ * and so one card, per teacher, at the place of the teacher's first course.
  */
-export function courseDays(schedule: string[]): string {
-  const text = schedule.join(' ');
-  const days = weekdays
-    .filter(([day]) => text.includes(day))
-    .map(([, short]) => short);
-  return days.length > 0 ? days.join(', ') : schedule.join(', ');
+export function courseGroups(): Course[][] {
+  const groups = new Map<string, Course[]>();
+  for (const course of courses) {
+    const group = groups.get(course.instructor) ?? [];
+    group.push(course);
+    groups.set(course.instructor, group);
+  }
+  return [...groups.values()];
 }
