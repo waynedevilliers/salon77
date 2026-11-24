@@ -6,7 +6,10 @@
  * sent by the visitor. Behind another proxy or CDN the last entry would be the
  * proxy, so revisit this before moving host (see docs/DECISIONS.md).
  *
- * Returns null when no address is known.
+ * x-real-ip is not used: without a proxy that overwrites it, a visitor could
+ * send a new value on every request and avoid the limit.
+ *
+ * Returns null when no address is known, so the caller uses the shared bucket.
  */
 export function clientKey(headers: Headers): string | null {
   const entries =
@@ -15,5 +18,5 @@ export function clientKey(headers: Headers): string | null {
       ?.split(',')
       .map((entry) => entry.trim())
       .filter(Boolean) ?? [];
-  return entries.at(-1) || headers.get('x-real-ip') || null;
+  return entries.at(-1) ?? null;
 }

@@ -15,10 +15,8 @@ describe('clientKey', () => {
     ).toBe('203.0.113.5');
   });
 
-  it('falls back to the real IP header', () => {
-    expect(clientKey(new Headers({ 'x-real-ip': '198.51.100.7' }))).toBe(
-      '198.51.100.7'
-    );
+  it('does not trust x-real-ip, which the visitor can set', () => {
+    expect(clientKey(new Headers({ 'x-real-ip': '198.51.100.7' }))).toBeNull();
   });
 
   it('returns null when no address is known', () => {
