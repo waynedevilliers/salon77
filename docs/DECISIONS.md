@@ -248,6 +248,43 @@ A required consent checkbox: not added, because the data is processed to handle
 the registration; the notice with the Datenschutz link informs the visitor.
 Confirm with the client or a lawyer (see open questions).
 
+## 2026-11-24: Fade-in only below the first screen
+
+Status: done
+
+Decision: Cards that are on the first screen when a page opens (home page
+cards, course cards on /unterricht) show straight away, without the fade.
+Cards further down still fade and rise when they scroll into view, as before.
+After loading, the pages look exactly as before (screenshots at 375 and 1440
+compared pixel by pixel).
+
+Why: The first-screen cards stayed invisible until the JavaScript had loaded.
+At phone speed (Lighthouse mobile throttling) the largest element appeared
+after about 3.6 s (home page) and 3.5 s (/unterricht); budget 2.5 s. Measured after the change:
+/unterricht 2.1 s (score 0.78 to 0.94), home page 3.0 s (0.85 to 0.94). The
+rest of the home page delay is React's own start-up time.
+
+Alternatives: Keep the fade everywhere (rejected, slow first screen). A
+CSS-only fade (rejected: no fade in Firefox, and the cards would still start
+invisible).
+
+## 2026-11-24: No upgrade-insecure-requests in the CSP
+
+Status: done
+
+Decision: The Content-Security-Policy no longer contains
+`upgrade-insecure-requests`. HSTS (two years, includeSubDomains) stays.
+
+Why: Safari's engine (WebKit) applies the directive to `http://localhost`
+too, so in the browser tests every script and stylesheet failed with a TLS
+error. The WebKit and mobile Safari runs on `main` failed since the first CI
+run because of it. On the live site the directive adds nothing: HSTS keeps
+visitors on https, and every resource is loaded from the site itself with
+relative URLs.
+
+Alternative: Keep the directive in production and drop it only for tests.
+Rejected: the tests would then not check the headers the site really sends.
+
 ## Open questions (for the client)
 
 - Other teacher data mismatches from the 5.1 report, if any (Andrea
