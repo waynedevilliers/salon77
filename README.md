@@ -18,6 +18,7 @@ npm start            # run the production build
 npm run lint         # lint
 npm run type-check   # TypeScript
 npm test             # unit tests
+npm run test:coverage # unit tests with coverage (thresholds as in CI)
 npm run e2e          # browser tests (Playwright)
 ```
 
