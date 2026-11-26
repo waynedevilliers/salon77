@@ -1,9 +1,31 @@
 # Remaining work
 
-Status as of 2026-11-24. The site is built and ready for launch apart from the
-Datenschutz text; the registration form is secured and switched off until
-that text is in.
-Tooling, tests and agents are in place.
+Status as of 2026-11-26 (`main` at PR #45). The site is built and ready for
+launch apart from the Datenschutz text; the registration form is secured and
+switched off until that text is in. Tooling, tests and agents are in place.
+
+## Start here (next session)
+
+1. `git checkout main && git pull`, then `nvm use` (Node 22).
+2. `gh pr list` for open pull requests, including Dependabot.
+3. Ask the owner whether the club has answered (list below). Answers first,
+   then the code steps in "When we resume".
+4. Every step on its own feature branch from a fresh `main`: say which files
+   change, screenshots at 375x667 and 1440x900, wait for "ok", reviewer
+   agent, then the pull request. The full list is "Definition of done" and
+   "Git" in `CLAUDE.md`.
+
+Waiting on the club (send with `/client-list`):
+
+- Datenschutz text (blocks launch and the form).
+- Address for registration emails (perhaps `kmm@salon77.de`) and the
+  mailbox's SMTP login; see "Owner" below.
+- Mercedes Sebald Arguisuelas: Kontakt says "2. Vorsitzende", the Impressum
+  says 1. Vorsitzender (Simon Orth 2.). Which is right?
+- The other open questions in `docs/DECISIONS.md`.
+
+Last agent reports: `docs/reviews/2026-11-24-*.md` (full run) and
+`2026-11-26-review.md` (PR #45). They are local only.
 
 ## Next steps
 
@@ -22,7 +44,8 @@ Tooling, tests and agents are in place.
   `EMAIL_HOST`, `EMAIL_FROM`, `REGISTRATION_EMAIL` and, if needed,
   `EMAIL_USER`/`EMAIL_PASS` (see `.env.example`).
 - Dependabot: merge the major updates one at a time (jsdom, Vitest,
-  @vitejs/plugin-react), letting CI run after each.
+  @vitejs/plugin-react), letting CI run after each. None were open on
+  2026-11-26; check `gh pr list`.
 
 ### 3. When we resume (code, in this order)
 
@@ -33,6 +56,21 @@ Tooling, tests and agents are in place.
    teacher profiles), the Instagram URL on Klein-Montmartre, and the
    Klein-Montmartre dates on Klein-Montmartre and /veranstaltungen (they stay
    after 8 May 2027; past dates still get Event JSON-LD).
+3. Mercedes' title on Kontakt or in the Impressum, once the club answers.
+4. The 📍 emoji before the location on the event cards
+   (`components/EventCard.tsx`): replace with an icon such as `MapPinIcon`
+   (local in `components/Footer.tsx`; move it out to reuse it).
+5. A Lighthouse run at phone speed (no desktop preset), recorded here.
+   Switching `lighthouserc.json` itself is its own step (see below).
+6. Small items from the PR #45 review:
+   - `lib/sitemap.test.ts` repeats the sitemap filter; compare against a
+     fixed list.
+   - Rename `indexableRoutes` (`content/routes.ts`), as it now also holds
+     pages outside the sitemap.
+   - e2e check that the registration page is 404 while the form is off.
+   - Photo zoom on hover in EventCard (`hover:scale-105`) ignores reduced
+     motion; use the `motion-safe:` pattern MenuCard already has.
+   - Delete the stray `public/dozenten_images/assami krisan.jpeg`.
 
 ## Blocking launch
 

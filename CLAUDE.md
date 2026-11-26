@@ -8,6 +8,9 @@ mostly on a phone.
 
 ## Documentation
 
+- At the start of every session, read "Start here (next session)" in
+  `docs/REMAINING.md`: where the work stands, what the club still has to
+  answer, and the next steps in order.
 - Read `docs/DECISIONS.md` before changing design, menu, colours, fonts or
   page structure. Do not undo a recorded decision unless the client asks.
 - When the client makes a new design decision, add an entry to
