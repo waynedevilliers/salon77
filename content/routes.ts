@@ -3,9 +3,14 @@ interface SiteRoute {
   label: string;
   priority: number;
   changeFrequency: 'weekly' | 'monthly' | 'yearly';
+  /** False for pages that keep a breadcrumb label but stay out of the sitemap. */
+  inSitemap?: false;
 }
 
-/** Pages that search engines should index, with their breadcrumb labels. */
+/**
+ * Pages with their breadcrumb labels. All of them are in the sitemap except
+ * those marked `inSitemap: false`.
+ */
 export const indexableRoutes: SiteRoute[] = [
   { path: '/', label: 'Startseite', priority: 1, changeFrequency: 'weekly' },
   {
@@ -13,6 +18,8 @@ export const indexableRoutes: SiteRoute[] = [
     label: 'Übersicht',
     priority: 0.8,
     changeFrequency: 'monthly',
+    // Placeholder page, not indexed until it has content.
+    inSitemap: false,
   },
   {
     path: '/unterricht',
@@ -31,6 +38,8 @@ export const indexableRoutes: SiteRoute[] = [
     label: 'Dozenten',
     priority: 0.7,
     changeFrequency: 'monthly',
+    // Redirects to /unterricht (next.config.ts).
+    inSitemap: false,
   },
   {
     path: '/veranstaltungen',

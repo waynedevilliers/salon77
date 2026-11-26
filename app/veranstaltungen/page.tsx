@@ -43,14 +43,14 @@ export default function Veranstaltungen() {
           eventJsonLd({ startDate, path: '/veranstaltungen/klein-montmartre' })
         )}
       />
-      <main className="flex-1">
+      <div className="flex-1">
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
           <h1 className="page-title" style={{ color: 'var(--color-text)' }}>
             Veranstaltungen
           </h1>
           {/* Event Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {EVENTS.map((event) => (
+            {EVENTS.map((event, index) => (
               <EventCard
                 key={event.title}
                 title={event.title}
@@ -60,11 +60,12 @@ export default function Veranstaltungen() {
                 image={event.image}
                 buttonText={event.buttonText}
                 buttonLink={event.buttonLink}
+                preload={index === 0}
               />
             ))}
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 }

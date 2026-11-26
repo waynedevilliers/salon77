@@ -6,10 +6,17 @@ import { instructors } from '@/content/instructors';
 describe('sitemap', () => {
   it('lists every indexable route with an absolute URL', () => {
     const urls = sitemap().map((entry) => entry.url);
-    expect(urls).toHaveLength(indexableRoutes.length + instructors.length);
+    const listed = indexableRoutes.filter((route) => route.inSitemap !== false);
+    expect(urls).toHaveLength(listed.length + instructors.length);
     expect(urls).toContain('https://salon77.de/dozenten/andrea-kneis');
     expect(urls).toContain('https://salon77.de/');
     expect(urls).toContain('https://salon77.de/kontakt');
+  });
+
+  it('leaves out the /dozenten redirect and the placeholder page', () => {
+    const urls = sitemap().map((entry) => entry.url);
+    expect(urls).not.toContain('https://salon77.de/dozenten');
+    expect(urls).not.toContain('https://salon77.de/uebersicht');
   });
 
   it('leaves out the registration form', () => {

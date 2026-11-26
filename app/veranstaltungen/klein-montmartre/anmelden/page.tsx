@@ -20,7 +20,7 @@ export default function AnmeldenPage() {
   return (
     <div className="flex flex-col">
       <JsonLd data={breadcrumbJsonLd(registration.path)} />
-      <main className="flex-1">
+      <div className="flex-1">
         <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
           <div className="mb-12">
             <h1 className="page-title" style={{ color: 'var(--color-text)' }}>
@@ -37,7 +37,7 @@ export default function AnmeldenPage() {
 
           <RegistrationForm />
         </div>
-      </main>
+      </div>
     </div>
   );
 }

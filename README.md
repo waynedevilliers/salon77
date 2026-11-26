@@ -48,14 +48,18 @@ Change texts, dates and images in `content/` rather than in components:
 - `content/site.ts`: name, address, phone, email, map link
 - `content/instructors.ts`: teachers (name, subject, bio, contact, photo)
 - `content/courses.ts`: courses and their times
+- `content/weekly-courses.ts`: the Wochenkurse timetable (also sets the order
+  of "Unsere Dozenten")
 - `content/events.ts`: event dates and teaser text
 - `content/home.ts`: home page text and cards
+- `content/map.ts`: texts around the Google Maps map (notice, buttons)
 - `content/routes.ts`: public pages for the sitemap and breadcrumbs
 - `content/registration.ts`: Klein-Montmartre registration form: texts, limits,
   and `enabled` to switch the online form off
 
-Photos go in `public/salon77/`. Teacher photos are named after the teacher's
-slug, for example `public/salon77/dozenten/michael-roethlein.jpg`.
+Photos go in the folder of their page in `public/`, for example
+`public/kontakt_images/`. Teacher photos are named after the teacher's slug,
+for example `public/dozenten_images/michael-roethlein.jpg`.
 
 ## Workflow
 

@@ -18,7 +18,7 @@ export default function Unterricht() {
   return (
     <div className="flex flex-col min-h-screen">
       <JsonLd data={breadcrumbJsonLd('/unterricht')} />
-      <main className="flex-1">
+      <div className="flex-1">
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
           <h1 className="page-title" style={{ color: 'var(--color-text)' }}>
             Unterricht & Kurse
@@ -30,14 +30,14 @@ export default function Unterricht() {
           >
             <a
               href="#kurse"
-              className="font-bold underline underline-offset-4 hover:opacity-75"
+              className="inline-flex min-h-11 items-center font-bold underline underline-offset-4 hover:opacity-75"
               style={{ color: 'var(--color-accent-text)' }}
             >
               Kurse
             </a>
             <a
               href="#dozenten"
-              className="font-bold underline underline-offset-4 hover:opacity-75"
+              className="inline-flex min-h-11 items-center font-bold underline underline-offset-4 hover:opacity-75"
               style={{ color: 'var(--color-accent-text)' }}
             >
               Unsere Dozenten
@@ -45,6 +45,7 @@ export default function Unterricht() {
           </nav>
 
           <section id="kurse" className="scroll-mt-24">
+            <h2 className="sr-only">Kurse</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {/* One card per teacher: several courses share one card. */}
               {courseCardsByTeacher().map((group) => (
@@ -61,7 +62,7 @@ export default function Unterricht() {
 
           <TeacherSection />
         </div>
-      </main>
+      </div>
     </div>
   );
 }

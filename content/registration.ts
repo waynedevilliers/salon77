@@ -6,7 +6,7 @@
  * hidden, and the server refuses submissions. The email link stays.
  */
 export const registration = {
-  enabled: true,
+  enabled: false,
   path: '/veranstaltungen/klein-montmartre/anmelden',
   /** Address for exhibitor questions, shown next to the form button. */
   contactEmail: 'kmm@salon77.de',
