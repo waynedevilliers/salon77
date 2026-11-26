@@ -30,12 +30,12 @@ export default function MenuCard({
       </div>
 
       <div className="flex flex-1 flex-col gap-3 p-6">
-        <h3
+        <h2
           className="text-xl font-semibold sm:text-2xl"
           style={{ color: 'var(--color-accent-text)' }}
         >
           {title}
-        </h3>
+        </h2>
         <p
           className="text-base leading-[var(--line-body)]"
           style={{ color: 'var(--color-text-muted)' }}

@@ -11,7 +11,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...indexableRoutes, ...instructorRoutes].map((route) => ({
+  const pageRoutes = indexableRoutes.filter(
+    (route) => route.inSitemap !== false
+  );
+
+  return [...pageRoutes, ...instructorRoutes].map((route) => ({
     url: `${site.url}${route.path}`,
     changeFrequency: route.changeFrequency,
     priority: route.priority,

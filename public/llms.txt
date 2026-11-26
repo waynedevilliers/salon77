@@ -7,10 +7,9 @@ Kontakt: +49 171 7990218, info@salon77.de
 ## Seiten
 
 - [Startseite](https://salon77.de/): Überblick über Salon77 und das Angebot
-- [Übersicht](https://salon77.de/uebersicht): Kurse und Programme
 - [Unterricht](https://salon77.de/unterricht): Kurse in Tanz, Musik, Fotografie und mehr
 - [Wochenkurse](https://salon77.de/wochenkurse): Wöchentlicher Kursplan mit Zeiten
-- [Dozenten](https://salon77.de/dozenten): Dozentinnen und Dozenten
+- [Dozenten](https://salon77.de/unterricht#dozenten): Dozentinnen und Dozenten
 - [Veranstaltungen](https://salon77.de/veranstaltungen): Kommende Veranstaltungen
 - [Klein-Montmartre](https://salon77.de/veranstaltungen/klein-montmartre): Kunsthandwerkermarkt in Würzburg, zweimal jährlich
 - [Räumlichkeiten](https://salon77.de/raeumlichkeiten): Studios und Räume für Tanz, Musik und Fotografie

@@ -1,5 +1,5 @@
 import InstructorCard from '@/components/InstructorCard';
-import { instructors } from '@/content/instructors';
+import { orderedInstructors } from '@/lib/teacher-order';
 
 /**
  * The teacher grid, shown on the Unterricht page. Each card is one link to the
@@ -26,7 +26,7 @@ export default function TeacherSection() {
         der jeweiligen Profilseite.
       </p>
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-        {instructors.map((instructor) => (
+        {orderedInstructors.map((instructor) => (
           <InstructorCard key={instructor.name} instructor={instructor} />
         ))}
       </div>

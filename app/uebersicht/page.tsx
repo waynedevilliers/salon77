@@ -6,6 +6,8 @@ export const metadata = pageMetadata({
   title: 'Übersicht | Salon77 - Würzburger Künstlerinitiative',
   description: 'Übersicht der Kurse und Programme bei Salon77 in Würzburg.',
   path: '/uebersicht',
+  // Placeholder: not indexed until it has content.
+  noIndex: true,
 });
 
 export default function UebersichtPage() {

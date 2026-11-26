@@ -285,7 +285,70 @@ relative URLs.
 Alternative: Keep the directive in production and drop it only for tests.
 Rejected: the tests would then not check the headers the site really sends.
 
+## 2026-11-24: One course card per teacher on /unterricht
+
+Status: done
+
+Decision: On /unterricht every teacher has one course card. Hsiu-Yun Lu's
+three courses (Kindertanz & -Ballett, Moderner Tanz: Zeitgenössischer Tanz,
+Taiji) share one card that looks like every other course card and shows one
+course at a time. Under the description, round ‹ › arrows around "Kurs 1 von
+3" flip the same card to the previous or next course (wrapping around). The
+control is small (36px arrows, 14px text, centered), as the owner asked; that
+is below the 44px tap target in CLAUDE.md but above the 24px WCAG minimum. The times, photo and "Mehr erfahren" stay
+at the bottom, aligned with the other cards in the row. The card keeps the
+height of her longest course, so it does not jump. All other course cards are
+unchanged.
+
+Why: She appeared on three cards with the same photo and name.
+
+Alternatives: All three courses listed on one card without descriptions
+(tried, rejected by the owner); arrows with dots, pills with the course names
+and "1. Kurs / 2. Kurs / 3. Kurs" segments (tried on the preview, not
+chosen).
+## 2026-11-24: Teacher order by weekly courses
+
+Status: done
+
+Decision: "Unsere Dozenten" lists the teachers with the most weekly lessons
+in the Wochenkurse timetable first; the same number by last name. Andrea
+Kneis, who has no weekly courses, is always last. The cards are unchanged.
+The same order is used for previous/next on the profile pages. The timetable
+moved unchanged from the Wochenkurse page to `content/weekly-courses.ts`, so
+the order is calculated from it (`lib/teacher-order.ts`).
+
+Why: The busiest teachers appear first, and the order follows the timetable
+when it changes.
+
+## 2026-11-24: Registration form off until the Datenschutz text is in
+
+Status: done
+
+Decision: The online registration form is switched off (`enabled: false` in
+`content/registration.ts`). The registration page returns 404, the "Jetzt
+anmelden" button on Klein-Montmartre is hidden, and the email link stays.
+
+Why: The Datenschutz text does not yet describe the form, the email
+provider, hosting or Google Maps (datenschutz check, 2026-11-24). Switch it
+back on together with the new text.
+
+## 2026-11-24: Tap targets of at least 44px
+
+Status: done
+
+Decision: Footer links, the Kontakt phone and email links, the jump links on
+/unterricht, the breadcrumbs and the map controls are at least 44px tall; the
+map notice, the map link and "2. Vorsitzende" use 16px text. Colours, fonts
+and text stay the same. The footer rows are a little further apart; the
+breadcrumb bar keeps its height. Hsiu-Yun Lu's ‹ › arrows stay at 36px (see
+"One course card per teacher").
+
+Why: Most visitors are on a phone (mobile check, 2026-11-24).
+
 ## Open questions (for the client)
+
+- Kontakt calls Mercedes Sebald Arguisuelas "2. Vorsitzende"; the Impressum
+  lists her as 1. Vorsitzender and Simon Orth as 2. Which is right?
 
 - Other teacher data mismatches from the 5.1 report, if any (Andrea
   Kneis is resolved, see 2026-11-11).

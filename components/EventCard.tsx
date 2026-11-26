@@ -9,6 +9,8 @@ interface EventCardProps {
   image: string;
   buttonText?: string;
   buttonLink?: string;
+  /** True for the first card on the page: its image is the largest one on screen. */
+  preload?: boolean;
 }
 
 export default function EventCard({
@@ -19,6 +21,7 @@ export default function EventCard({
   image,
   buttonText = 'Mehr Infos',
   buttonLink = '/kontakt',
+  preload = false,
 }: EventCardProps) {
   return (
     <div className="bg-white border border-gray-200 rounded-lg shadow-sm transition-[transform,box-shadow] duration-300 motion-safe:hover:-translate-y-1 hover:shadow-lg overflow-hidden flex flex-col h-full">
@@ -28,18 +31,20 @@ export default function EventCard({
           src={image}
           alt={title}
           fill
+          sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 600px"
+          preload={preload}
           className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
         />
       </div>
 
       {/* Event Content */}
       <div className="p-6 flex flex-col flex-grow">
-        <h3
+        <h2
           className="text-lg sm:text-xl font-bold mb-2 transition-colors"
           style={{ color: 'var(--color-accent-text)' }}
         >
           {title}
-        </h3>
+        </h2>
 
         <p
           className="text-sm sm:text-base mb-3 font-semibold"

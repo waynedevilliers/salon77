@@ -18,7 +18,7 @@ export default function Kontakt() {
   return (
     <div className="flex flex-col">
       <JsonLd data={breadcrumbJsonLd('/kontakt')} />
-      <main className="flex-1">
+      <div className="flex-1">
         <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
           <h1 className="page-title" style={{ color: 'var(--color-text)' }}>
             Kontakt
@@ -93,15 +93,15 @@ export default function Kontakt() {
                       Telefon
                     </h3>
                     <a
-                      href="tel:017179990218"
-                      className="hover:underline font-semibold"
+                      href={site.phoneHref}
+                      className="inline-flex min-h-11 items-center hover:underline font-semibold"
                       style={{ color: 'var(--color-text)' }}
                     >
                       {site.phone}
                     </a>
                     <p
                       style={{ color: 'var(--color-text-muted)' }}
-                      className="text-sm mt-1"
+                      className="text-base"
                     >
                       2. Vorsitzende Mercedes Sebald Arguisuelas
                     </p>
@@ -116,7 +116,7 @@ export default function Kontakt() {
                     </h3>
                     <a
                       href="mailto:info@salon77.de"
-                      className="hover:underline font-semibold"
+                      className="inline-flex min-h-11 items-center hover:underline font-semibold"
                       style={{ color: 'var(--color-text)' }}
                     >
                       info@salon77.de
@@ -134,12 +134,12 @@ export default function Kontakt() {
             <div className="rounded-lg overflow-hidden shadow-lg h-96">
               <MapConsent
                 embedSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2604.8947632845367!2d9.9582214!3d49.7930186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a28fd3a4bebb61%3A0x7e831419e9b92b3e!2sSalon77!5e0!3m2!1sde!2sde!4v1692547620584"
-                openHref="https://www.google.com/maps/place/Salon+77/.7930186,9.9582214,17z"
+                openHref={site.mapsUrl}
               />
             </div>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 }

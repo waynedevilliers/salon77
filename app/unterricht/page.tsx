@@ -2,9 +2,10 @@ import JsonLd from '@/components/JsonLd';
 import { breadcrumbJsonLd } from '@/lib/structured-data';
 import { pageMetadata } from '@/lib/metadata';
 import CourseCard from '@/components/CourseCard';
+import TeacherCourseCard from '@/components/TeacherCourseCard';
 import Reveal from '@/components/Reveal';
 import TeacherSection from '@/components/TeacherSection';
-import { courses as COURSES } from '@/content/courses';
+import { courseCardsByTeacher } from '@/lib/course-cards';
 
 export const metadata = pageMetadata({
   title: 'Unterricht | Salon77 - Würzburger Künstlerinitiative',
@@ -17,7 +18,7 @@ export default function Unterricht() {
   return (
     <div className="flex flex-col min-h-screen">
       <JsonLd data={breadcrumbJsonLd('/unterricht')} />
-      <main className="flex-1">
+      <div className="flex-1">
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
           <h1 className="page-title" style={{ color: 'var(--color-text)' }}>
             Unterricht & Kurse
@@ -29,14 +30,14 @@ export default function Unterricht() {
           >
             <a
               href="#kurse"
-              className="font-bold underline underline-offset-4 hover:opacity-75"
+              className="inline-flex min-h-11 items-center font-bold underline underline-offset-4 hover:opacity-75"
               style={{ color: 'var(--color-accent-text)' }}
             >
               Kurse
             </a>
             <a
               href="#dozenten"
-              className="font-bold underline underline-offset-4 hover:opacity-75"
+              className="inline-flex min-h-11 items-center font-bold underline underline-offset-4 hover:opacity-75"
               style={{ color: 'var(--color-accent-text)' }}
             >
               Unsere Dozenten
@@ -44,15 +45,16 @@ export default function Unterricht() {
           </nav>
 
           <section id="kurse" className="scroll-mt-24">
+            <h2 className="sr-only">Kurse</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {COURSES.map((course) => (
-                <Reveal key={course.title} className="h-full">
-                  <CourseCard
-                    title={course.title}
-                    description={course.description}
-                    schedule={course.schedule}
-                    instructor={course.instructor}
-                  />
+              {/* One card per teacher: several courses share one card. */}
+              {courseCardsByTeacher().map((group) => (
+                <Reveal key={group[0].title} className="h-full">
+                  {group.length === 1 ? (
+                    <CourseCard {...group[0]} />
+                  ) : (
+                    <TeacherCourseCard courses={group} />
+                  )}
                 </Reveal>
               ))}
             </div>
@@ -60,7 +62,7 @@ export default function Unterricht() {
 
           <TeacherSection />
         </div>
-      </main>
+      </div>
     </div>
   );
 }
