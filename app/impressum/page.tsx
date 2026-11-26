@@ -15,7 +15,7 @@ export default function Impressum() {
   return (
     <div className="flex flex-col">
       <JsonLd data={breadcrumbJsonLd('/impressum')} />
-      <main className="flex-1">
+      <div className="flex-1">
         <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
           <h1 className="page-title" style={{ color: 'var(--color-text)' }}>
             Impressum
@@ -95,7 +95,7 @@ export default function Impressum() {
             </section>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 }

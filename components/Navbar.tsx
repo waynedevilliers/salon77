@@ -45,8 +45,8 @@ export default function Navbar() {
             <Image
               src="/site_images/Salon77_logo_big.png"
               alt="Salon77 Logo"
-              width={280}
-              height={140}
+              width={365}
+              height={245}
               className="h-auto w-44 sm:w-52 lg:w-[280px]"
               style={{ height: 'auto' }}
               preload

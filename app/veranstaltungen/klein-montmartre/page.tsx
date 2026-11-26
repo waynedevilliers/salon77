@@ -103,7 +103,7 @@ export default function KleinMontmartre() {
   return (
     <div className="flex flex-col">
       <JsonLd data={breadcrumbJsonLd('/veranstaltungen/klein-montmartre')} />
-      <main className="flex-1">
+      <div className="flex-1">
         <div className="max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 lg:pb-20">
           {/* Header */}
           <div className="mb-12">
@@ -281,7 +281,7 @@ export default function KleinMontmartre() {
             </div>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 }

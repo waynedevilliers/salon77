@@ -33,11 +33,11 @@ export default function MapConsent({
 
   return (
     <div className="flex h-full flex-col items-center justify-center gap-4 bg-gray-100 p-6 text-center">
-      <p className="max-w-md text-sm text-gray-700">{mapContent.notice}</p>
+      <p className="max-w-md text-base text-gray-700">{mapContent.notice}</p>
       <button
         type="button"
         onClick={() => setLoaded(true)}
-        className="rounded px-5 py-2 font-semibold text-[var(--color-button-text)] transition-opacity hover:opacity-80"
+        className="min-h-11 rounded px-5 py-2 font-semibold text-[var(--color-button-text)] transition-opacity hover:opacity-80"
         style={{ backgroundColor: 'var(--color-button)' }}
       >
         {mapContent.loadButton}
@@ -46,7 +46,7 @@ export default function MapConsent({
         href={openHref}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-sm underline hover:opacity-75"
+        className="inline-flex min-h-11 items-center text-base underline hover:opacity-75"
       >
         {mapContent.openLink}
       </a>

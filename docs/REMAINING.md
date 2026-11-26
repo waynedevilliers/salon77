@@ -1,7 +1,8 @@
 # Remaining work
 
 Status as of 2026-11-24. The site is built and ready for launch apart from the
-Datenschutz text; the registration form is secured and can be switched off.
+Datenschutz text; the registration form is secured and switched off until
+that text is in.
 Tooling, tests and agents are in place.
 
 ## Next steps
@@ -25,14 +26,19 @@ Tooling, tests and agents are in place.
 
 ### 3. When we resume (code, in this order)
 
-1. Datenschutz text, once the club or a lawyer supplies it; then run the
+1. Datenschutz text, once the club or a lawyer supplies it; then switch the
+   form back on (`enabled: true` in `content/registration.ts`) and run the
    datenschutz agent.
+2. Hand-typed facts outside `content/`: `info@salon77.de` (Kontakt, Footer,
+   teacher profiles), the Instagram URL on Klein-Montmartre, and the
+   Klein-Montmartre dates on Klein-Montmartre and /veranstaltungen (they stay
+   after 8 May 2027; past dates still get Event JSON-LD).
 
 ## Blocking launch
 
 - Datenschutz text does not yet cover the registration form, the email
-  provider, hosting or Google Maps. Until it does, switch the form off
-  (`enabled: false` in `content/registration.ts`).
+  provider, hosting or Google Maps, and says cookies are used and nothing is
+  passed on. The form is switched off until the text is in.
 
 ## Code, not started (no launch blocker)
 
@@ -80,3 +86,11 @@ Tooling, tests and agents are in place.
 - Cards on the first screen show without the fade; /unterricht LCP at phone
   speed 3.5 s to 2.1 s, home page 3.6 s to 3.0 s (see DECISIONS).
 - Review reports in `docs/reviews/` stay local (git-ignored).
+- One course card for Hsiu-Yun Lu with ‹ › arrows (PR #44); "Unsere
+  Dozenten" ordered by weekly courses, Andrea Kneis last.
+- Fixes from the 2026-11-24 agent run: Kontakt phone and map links, the
+  form switched off, tap targets of at least 44px and 16px text (footer,
+  Kontakt, jump links, breadcrumbs, map), logo size (no layout shift), first
+  event image loaded early with `sizes`, one `<main>` per page, headings in
+  order, `/dozenten` and `/uebersicht` out of the sitemap (`/uebersicht`
+  noindex), README updated.

@@ -50,7 +50,7 @@ export default function Breadcrumbs() {
   return (
     <nav
       aria-label="Brotkrumen"
-      className="mx-auto w-full max-w-7xl px-4 pb-6 pt-6 sm:px-6 lg:px-8"
+      className="mx-auto w-full max-w-7xl px-4 py-3.5 sm:px-6 lg:px-8"
     >
       <ol
         className="flex flex-wrap items-center gap-2 text-base"
@@ -78,7 +78,7 @@ export default function Breadcrumbs() {
               ) : (
                 <Link
                   href={item.href}
-                  className="underline underline-offset-4 hover:opacity-75"
+                  className="inline-flex min-h-11 items-center underline underline-offset-4 hover:opacity-75"
                 >
                   {item.label}
                 </Link>

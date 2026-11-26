@@ -320,7 +320,35 @@ the order is calculated from it (`lib/teacher-order.ts`).
 Why: The busiest teachers appear first, and the order follows the timetable
 when it changes.
 
+## 2026-11-24: Registration form off until the Datenschutz text is in
+
+Status: done
+
+Decision: The online registration form is switched off (`enabled: false` in
+`content/registration.ts`). The registration page returns 404, the "Jetzt
+anmelden" button on Klein-Montmartre is hidden, and the email link stays.
+
+Why: The Datenschutz text does not yet describe the form, the email
+provider, hosting or Google Maps (datenschutz check, 2026-11-24). Switch it
+back on together with the new text.
+
+## 2026-11-24: Tap targets of at least 44px
+
+Status: done
+
+Decision: Footer links, the Kontakt phone and email links, the jump links on
+/unterricht, the breadcrumbs and the map controls are at least 44px tall; the
+map notice, the map link and "2. Vorsitzende" use 16px text. Colours, fonts
+and text stay the same. The footer rows are a little further apart; the
+breadcrumb bar keeps its height. Hsiu-Yun Lu's ‹ › arrows stay at 36px (see
+"One course card per teacher").
+
+Why: Most visitors are on a phone (mobile check, 2026-11-24).
+
 ## Open questions (for the client)
+
+- Kontakt calls Mercedes Sebald Arguisuelas "2. Vorsitzende"; the Impressum
+  lists her as 1. Vorsitzender and Simon Orth as 2. Which is right?
 
 - Other teacher data mismatches from the 5.1 report, if any (Andrea
   Kneis is resolved, see 2026-11-11).

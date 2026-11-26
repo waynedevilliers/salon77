@@ -70,21 +70,24 @@ export default function Footer({ year }: FooterProps) {
               href={site.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 underline hover:opacity-75"
+              className="inline-flex min-h-11 items-center justify-center gap-2 underline hover:opacity-75"
             >
               <MapPinIcon />
               <span>{`Salon 77, ${site.address.street}, ${site.address.postalCode} ${site.address.city}`}</span>
             </a>
-            <div className="space-y-2 border-t border-[var(--color-text)]/30 pt-3">
+            <div className="space-y-2 border-t border-[var(--color-text)]/30 pt-1">
               <p>
-                <a href={site.phoneHref} className="underline hover:opacity-75">
+                <a
+                  href={site.phoneHref}
+                  className="inline-flex min-h-11 items-center underline hover:opacity-75"
+                >
                   {site.phone}
                 </a>
               </p>
               <p>
                 <a
                   href="mailto:info@salon77.de"
-                  className="inline-flex items-center justify-center gap-2 underline hover:opacity-75"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 underline hover:opacity-75"
                 >
                   <MailIcon />
                   <span>info@salon77.de</span>
@@ -99,7 +102,10 @@ export default function Footer({ year }: FooterProps) {
             <nav className="space-y-2">
               {legalLinks.map((link) => (
                 <div key={link.href}>
-                  <Link href={link.href} className="underline hover:opacity-75">
+                  <Link
+                    href={link.href}
+                    className="inline-flex min-h-11 items-center underline hover:opacity-75"
+                  >
                     {link.label}
                   </Link>
                 </div>
