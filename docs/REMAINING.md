@@ -6,7 +6,8 @@ switched off until that text is in. Tooling, tests and agents are in place.
 
 ## Start here (next session)
 
-1. `git checkout main && git pull`, then `nvm use` (Node 22).
+1. `git checkout main && git pull`, then Node 22 (see "Workflow" in
+   `CLAUDE.md`).
 2. `gh pr list` for open pull requests, including Dependabot.
 3. Ask the owner whether the club has answered (list below). Answers first,
    then the code steps in "When we resume".
@@ -24,6 +25,9 @@ Waiting on the club (send with `/client-list`):
   says 1. Vorsitzender (Simon Orth 2.). Which is right?
 - The other open questions in `docs/DECISIONS.md`.
 
+Leave the untracked `public/images/`, `public/logo/` and
+`public/dozenten_images/Andre_200x0.png` alone unless the owner asks.
+
 Last agent reports: `docs/reviews/2026-11-24-*.md` (full run) and
 `2026-11-26-review.md` (PR #45). They are local only.
 
@@ -40,6 +44,9 @@ Last agent reports: `docs/reviews/2026-11-24-*.md` (full run) and
 
 ### 2. Owner
 
+- Install a newer Node 22 (`nvm install 22`): installed is 22.17.0, but
+  undici (a dev dependency of jsdom) needs 22.19 or newer, and CI already
+  uses the newest 22.
 - Email (SMTP) settings for the registration form on the host:
   `EMAIL_HOST`, `EMAIL_FROM`, `REGISTRATION_EMAIL` and, if needed,
   `EMAIL_USER`/`EMAIL_PASS` (see `.env.example`).

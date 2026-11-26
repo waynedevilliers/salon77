@@ -15,8 +15,7 @@ mostly on a phone.
   page structure. Do not undo a recorded decision unless the client asks.
 - When the client makes a new design decision, add an entry to
   `docs/DECISIONS.md` in the same commit.
-- Read `docs/REMAINING.md` for the next steps, and update it at the end of
-  every task.
+- Update `docs/REMAINING.md` at the end of every task.
 
 ## Workflow
 
@@ -24,7 +23,14 @@ mostly on a phone.
   state in 3 to 5 lines which files will change.
 - After each step that changes how a page looks: screenshots at 375x667 and
   1440x900 of every page touched, plus a list of changed files.
-- Run every npm command on the Node version in `.nvmrc` (`nvm use`).
+- Then wait for the owner. "ok" = reviewer on the uncommitted changes, fix
+  its Critical and Important findings, then commit, push and pull request
+  (no second "ok" unless a fix changes how a page looks). "revert" = discard
+  this step only. Never commit before "ok".
+- Run every npm command on the Node version in `.nvmrc` (22; some dev tools
+  need at least 22.19). The machine default is Node 20, and `nvm use` does
+  not carry over between shell commands, so put it in the same command:
+  `source ~/.nvm/nvm.sh && nvm use >/dev/null && npm run build`.
 - Stop a running server by its pid (`ss -ltnp | grep :3001`) or with
   `npm run dev:stop`. Never `pkill -f`.
 
@@ -77,7 +83,8 @@ mostly on a phone.
 ## Performance
 
 - Mobile targets: LCP under 2.5 s, CLS under 0.1, TBT under 200 ms
-  (`lighthouserc.json`).
+  (`lighthouserc.json`). CI runs Lighthouse on `main` with the desktop
+  preset, so a pass there is not phone speed (see REMAINING).
 - Static or partially prerendered pages unless there is a real reason.
 - All images via next/image with `sizes`. Source images under 500 KB.
 
@@ -109,6 +116,10 @@ mostly on a phone.
 - Check `gh pr list --head <branch>` before creating a PR.
 - CI (lint-and-types, test, audit, e2e) must be green before merge. `main` is
   protected by a ruleset: no direct pushes, no force pushes.
+- After the owner says "merged": pull `main`, then delete the branch locally
+  and on GitHub.
+- Dependabot pull request with a conflict: comment `@dependabot rebase`. Do
+  not use the "Update branch" button.
 
 ## Definition of done
 
@@ -127,11 +138,13 @@ mostly on a phone.
 ## Agents
 
 All agents are in `.claude/agents/`, read only, and write one report to
-`docs/reviews/`.
+`docs/reviews/` (git-ignored: reports stay local and are not committed).
 
 - reviewer: before every pull request, and for full audits.
 - visual-checker: after layout or styling changes.
-- mobile-view: after layout, navigation or styling changes.
+- mobile-view: after layout, navigation or styling changes. It needs the dev
+  server running (`npm run dev`, port 3001) and uses
+  `npm run mobile-check -- http://localhost:3001`.
 - performance: after images or anything external change, and before launch.
 - datenschutz: before launch, after adding any service, dependency, cookie or
   form field, after changing legal texts, and once a month.
